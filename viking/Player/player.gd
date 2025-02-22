@@ -13,12 +13,13 @@ func _ready():
 
 func _process(delta):
 	#update_animation_parameters()
+	if Input.is_action_just_pressed("map"):
+		get_tree().change_scene_to_file("res://Map/map.tscn")
 	
-	pass
 	
 func _on_area_entered(area):
 	if area.is_in_group("Portal"):
-		get_tree().change_scene_to_file("res://Map/texture_rect.tscn")
+		get_tree().change_scene_to_file("res://Map/map.tscn")
 		print("hello")
 func _physics_process(delta):
 

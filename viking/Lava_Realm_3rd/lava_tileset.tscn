@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpohbdal3v5gi"]
+
+[ext_resource type="Texture2D" uid="uid://b75uhf2m14m3l" path="res://Art/Lava_tiles.png" id="1_q4dp1"]
+[ext_resource type="Script" path="res://Earth_Realm_1st/earth_tileset.gd" id="2_o3xd4"]
+[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Player/player.tscn" id="3_vnuk1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m144f"]
+texture = ExtResource("1_q4dp1")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sb5wf"]
+sources/0 = SubResource("TileSetAtlasSource_m144f")
+
+[node name="Lava_tileset" type="TileMapLayer"]
+tile_set = SubResource("TileSet_sb5wf")
+script = ExtResource("2_o3xd4")
+
+[node name="Player" parent="." instance=ExtResource("3_vnuk1")]

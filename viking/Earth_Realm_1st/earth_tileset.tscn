@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceckipgmnrxky"]
+
+[ext_resource type="Texture2D" uid="uid://dhh7ffn1eemi6" path="res://Art/Earth_tiles.png" id="1_aea8m"]
+[ext_resource type="Script" path="res://Earth_Realm_1st/earth_tileset.gd" id="2_xorpf"]
+[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Player/player.tscn" id="3_af47q"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msrrf"]
+texture = ExtResource("1_aea8m")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1l6f1"]
+sources/0 = SubResource("TileSetAtlasSource_msrrf")
+
+[node name="Earth_tileset" type="TileMapLayer"]
+tile_set = SubResource("TileSet_1l6f1")
+script = ExtResource("2_xorpf")
+
+[node name="Player" parent="." instance=ExtResource("3_af47q")]

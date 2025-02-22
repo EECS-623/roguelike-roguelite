@@ -20,3 +20,5 @@ shape = SubResource("RectangleShape2D_3gqjc")
 one_way_collision = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
