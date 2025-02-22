@@ -1,24 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkctdruu1ueur"]
+[gd_scene load_steps=9 format=3 uid="uid://dkctdruu1ueur"]
 
-[ext_resource type="Texture2D" uid="uid://6owyrl1y4s44" path="res://Art/viking.jpg" id="1_dg2ew"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_o3bn7"]
+[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Art/Pixel_Viking_Walking_Spritesheet.png" id="2_rl62q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqjc"]
-size = Vector2(1900, 2000)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3twqn"]
+atlas = ExtResource("2_rl62q")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiq8h"]
+atlas = ExtResource("2_rl62q")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jmkr"]
+atlas = ExtResource("2_rl62q")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ab27"]
+atlas = ExtResource("2_rl62q")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1e18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3twqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiq8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jmkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ab27")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a02m3"]
+radius = 450.0
+height = 1735.85
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(544, 361.5)
 scale = Vector2(0.02, 0.0265)
 script = ExtResource("1_o3bn7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dg2ew")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37.7357)
+scale = Vector2(7.03125, 6.92807)
+sprite_frames = SubResource("SpriteFrames_q1e18")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 37.7363)
-shape = SubResource("RectangleShape2D_3gqjc")
+position = Vector2(-150, -56.6033)
+shape = SubResource("CapsuleShape2D_a02m3")
 one_way_collision = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+position = Vector2(-150, -94.3396)

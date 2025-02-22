@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var _animated_sprite = $Sprite2D
 
 @export var SPEED : float = 300.0
 
@@ -25,9 +25,17 @@ func _physics_process(delta):
 
 
 	direction = Input.get_vector("left", "right","up","down").normalized()
+	if direction.x < 0:
+		_animated_sprite.flip_h = true
+	elif direction.x > 0:
+		_animated_sprite.flip_h = false
 	if direction:
 		velocity = direction * SPEED
+		_animated_sprite.play("run")
 	else:
 		velocity = Vector2.ZERO
+		_animated_sprite.stop()
 
 	move_and_slide()
+	
+	
