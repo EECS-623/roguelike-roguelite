@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqjc"]
 size = Vector2(1900, 2000)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(544, 361.5)
 scale = Vector2(0.02, 0.0265)
 script = ExtResource("1_o3bn7")
@@ -18,3 +18,5 @@ texture = ExtResource("1_dg2ew")
 position = Vector2(0, 37.7363)
 shape = SubResource("RectangleShape2D_3gqjc")
 one_way_collision = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
