@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_dptkm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0dgk"]
-radius = 69.0
-height = 248.0
+radius = 34.0
+height = 108.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukcq3"]
 atlas = ExtResource("1_cs143")
@@ -50,8 +50,8 @@ script = ExtResource("1_dptkm")
 shape = SubResource("CapsuleShape2D_o0dgk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, 0)
-scale = Vector2(0.847656, 0.902344)
+position = Vector2(8, 1)
+scale = Vector2(0.4, 0.424)
 sprite_frames = SubResource("SpriteFrames_ipoyc")
 animation = &"run"
 
