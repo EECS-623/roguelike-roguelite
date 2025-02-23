@@ -4,7 +4,6 @@ extends TileMapLayer
 var altitude = FastNoiseLite.new()
 var width = 300
 var height = 300
-var enemy_count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var my_player = player.instantiate()
@@ -25,8 +24,8 @@ func _ready() -> void:
 					var my_enemy = enemy.instantiate()
 					my_enemy.position = Vector2(0-(width/2.0)+i*4, 0-(height/2.0)+j*4)
 					get_parent().add_child(my_enemy)
-					enemy_count += 1
-					print("enemy_added")
+					Global.ice_enemies_left += 1
+					#print("enemy_added")
 	
 					
 					

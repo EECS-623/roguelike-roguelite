@@ -24,6 +24,10 @@ func _process(_delta):
 
 func _on_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("player_bullet")):
-		print("enemy_hit")
 		queue_free()
 		area.queue_free()
+		Global.ice_enemies_left -= 1
+		if Global.ice_enemies_left == 0:
+			Global.relics += 1
+			print("Relics: ")
+			print(Global.relics)
