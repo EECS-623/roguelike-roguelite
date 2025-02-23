@@ -1,5 +1,5 @@
 extends TileMapLayer
-
+@export var enemy: PackedScene = preload("res://Enemy/enemy.tscn")
 var altitude = FastNoiseLite.new()
 var width = 300
 var height = 300
@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 			
 			if alt < 0:
 				set_cell(Vector2i(0-(width/2)+i, 0-(height/2)+j),0,Vector2i(0,0))
+					
 			else:
 				set_cell(Vector2i(0-(width/2)+i, 0-(height/2)+j),0,Vector2i(1,0))
 				

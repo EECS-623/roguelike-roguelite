@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var _animated_sprite = $Sprite2D
-
+@export var player_bullet: PackedScene = preload("res://Magic_Bullet/Bullet.tscn")
 @export var SPEED : float = 300.0
 
 #@onready var animation_tree = $AnimationTree
@@ -12,15 +12,13 @@ func _ready():
 	pass
 
 func _process(delta):
-	#update_animation_parameters()
-	if Input.is_action_just_pressed("map"):
+	if Input.is_action_pressed("map"):
 		get_tree().change_scene_to_file("res://Map/map.tscn")
-	
-	
-func _on_area_entered(area):
-	if area.is_in_group("Portal"):
-		get_tree().change_scene_to_file("res://Map/map.tscn")
-		print("hello")
+		
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		shoot()
+		
 func _physics_process(delta):
 
 
@@ -37,5 +35,10 @@ func _physics_process(delta):
 		_animated_sprite.stop()
 
 	move_and_slide()
+
+func shoot():
+	var bullet = player_bullet.instantiate()
+	get_tree().current_scene.add_child(bullet)
 	
-	
+	bullet.position = global_position
+	bullet.direction = (get_global_mouse_position() - global_position).normalized()
