@@ -49,12 +49,13 @@ scale = Vector2(0.02, 0.0265)
 script = ExtResource("1_o3bn7")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(200, 37.7358)
-scale = Vector2(12.5, 9.50767)
+position = Vector2(150, 37.7359)
+scale = Vector2(11.1328, 9.50767)
 sprite_frames = SubResource("SpriteFrames_q1e18")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-50, 0)
 shape = SubResource("CapsuleShape2D_a02m3")
 one_way_collision = true
 
