@@ -39,12 +39,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_ynq17")
 }],
 "loop": true,
-"name": &"run",
+"name": &"default",
 "speed": 5.0
 }]
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_dptkm")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_o0dgk")
@@ -53,6 +54,3 @@ shape = SubResource("CapsuleShape2D_o0dgk")
 position = Vector2(15, 0)
 scale = Vector2(0.847656, 0.902344)
 sprite_frames = SubResource("SpriteFrames_ipoyc")
-animation = &"run"
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

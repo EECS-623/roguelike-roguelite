@@ -1,5 +1,5 @@
 extends TileMapLayer
-@export var enemy: PackedScene = preload("res://Enemy/enemy.tscn")
+@export var enemy: PackedScene = preload("res://Lava_Realm_3rd/lava_enemy.tscn")
 @export var player: PackedScene = preload("res://Player/player.tscn")
 var altitude = FastNoiseLite.new()
 var width = 300

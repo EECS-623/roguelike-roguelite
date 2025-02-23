@@ -1,26 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://du4kmlll1chra"]
+[gd_scene load_steps=9 format=3 uid="uid://bjc5p4wwai6oh"]
 
-[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Art/Pixel_Viking_Walking_Spritesheet.png" id="1_cs143"]
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_dptkm"]
+[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Art/Pixel_Viking_Walking_Spritesheet.png" id="1_5w3a2"]
+[ext_resource type="Script" path="res://Ice_Realm_2nd/ice_enemy.gd" id="1_i1m0b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0dgk"]
 radius = 69.0
 height = 248.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukcq3"]
-atlas = ExtResource("1_cs143")
+atlas = ExtResource("1_5w3a2")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_he2ab"]
-atlas = ExtResource("1_cs143")
+atlas = ExtResource("1_5w3a2")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfkd1"]
-atlas = ExtResource("1_cs143")
+atlas = ExtResource("1_5w3a2")
 region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynq17"]
-atlas = ExtResource("1_cs143")
+atlas = ExtResource("1_5w3a2")
 region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipoyc"]
@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_dptkm")
+script = ExtResource("1_i1m0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_o0dgk")

@@ -1,7 +1,7 @@
 extends Area2D
 @onready var _animated_sprite = $AnimatedSprite2D
 #@export var player: PackedScene = preload("res://Player/player.tscn")
-@onready var player = get_tree().root.get_node("Earth_tileset/Player") # Replace "Main/Player" with the actual path
+@onready var player = get_tree().root.get_node("Lava_tileset/Player") # Replace "Main/Player" with the actual path
  # Go up one level and find "Player"
 
 @export var speed: float = 1

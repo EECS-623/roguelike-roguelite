@@ -11,7 +11,7 @@ func _ready():
 	add_to_group("Player")
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("map"):
 		get_tree().change_scene_to_file("res://Map/map.tscn")
 		
@@ -19,7 +19,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		shoot()
 		
-func _physics_process(delta):
+func _physics_process(_delta):
 
 
 	direction = Input.get_vector("left", "right","up","down").normalized()
