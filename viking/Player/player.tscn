@@ -48,6 +48,7 @@ scale = Vector2(0.02, 0.0265)
 script = ExtResource("1_o3bn7")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 0)
 scale = Vector2(7.03125, 6.92807)
 sprite_frames = SubResource("SpriteFrames_q1e18")
 animation = &"run"
@@ -57,3 +58,20 @@ shape = SubResource("CapsuleShape2D_a02m3")
 one_way_collision = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HealthBarLabel" type="Label" parent="."]
+offset_left = -700.0
+offset_top = 830.189
+offset_right = -660.0
+offset_bottom = 853.189
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -650.0
+offset_top = -1169.81
+offset_right = 700.0
+offset_bottom = -943.811
+theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
+step = 1.0
+value = 100.0
+show_percentage = false

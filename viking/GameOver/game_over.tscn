@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bycykf68ew48r"]
+
+[ext_resource type="Texture2D" uid="uid://02cb7kcgaor7" path="res://Art/GameOver.jpg" id="1_e3f0s"]
+
+[node name="GameOver" type="TextureRect"]
+offset_left = 436.0
+offset_top = 175.0
+offset_right = 661.0
+offset_bottom = 400.0
+texture = ExtResource("1_e3f0s")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.249
+anchor_top = -0.507
+anchor_right = 0.809
+anchor_bottom = -0.1
+offset_left = -0.0250015
+offset_top = 0.0750046
+offset_right = -0.0250092
+offset_bottom = 18.5
+text = "Game Over!"

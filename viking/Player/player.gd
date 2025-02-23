@@ -2,19 +2,21 @@ extends CharacterBody2D
 @onready var _animated_sprite = $Sprite2D
 @export var player_bullet: PackedScene = preload("res://Magic_Bullet/Bullet.tscn")
 @export var SPEED : float = 300.0
-
+const MAX_HEALTH = 100
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
 
 func _ready():
 	#animation_tree.active = true
 	add_to_group("Player")
+	set_health_label()
+	$HealthBar.max_value = MAX_HEALTH
 	pass
 
 func _process(_delta):
 	if Input.is_action_pressed("map"):
 		get_tree().change_scene_to_file("res://Map/map.tscn")
-		
+	set_health_bar()
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		shoot()
@@ -42,3 +44,11 @@ func shoot():
 	
 	bullet.position = global_position
 	bullet.direction = (get_global_mouse_position() - global_position).normalized()
+func set_health_bar() -> void:
+	$HealthBar.value = Global.player_health
+	if $HealthBar.value <= 0:
+		get_tree().call_deferred("change_scene_to_file", "res://GameOver/game_over.tscn")
+	
+func set_health_label() -> void:
+	$HealthBarLabel.text = "Health: %s" % Global.player_health
+	

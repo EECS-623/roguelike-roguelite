@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	
 	altitude.seed = randi()
-	altitude.frequency = 0.01
+	altitude.frequency = 0.007
 	for i in range(width):
 		for j in range(height):
 			var alt = altitude.get_noise_2d(0.0-(width/ 2.0)+i, 0.0-(height/2.0)+j)
