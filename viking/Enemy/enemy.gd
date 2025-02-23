@@ -42,6 +42,7 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 		area.queue_free()
 		Global.earth_enemies_left -= 1
+		Global.mana += 1
 		if Global.earth_enemies_left == 0:
 			Global.relics += 1
 			print("Relics: ")

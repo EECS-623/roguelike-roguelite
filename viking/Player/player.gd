@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var _animated_sprite = $Sprite2D
 @export var player_bullet: PackedScene = preload("res://Magic_Bullet/Bullet.tscn")
-@export var SPEED : float = 300.0
+#@export var SPEED : float = 300.0
 const MAX_HEALTH = 100
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	elif direction.x > 0:
 		_animated_sprite.flip_h = false
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * Global.player_speed
 		_animated_sprite.play("run")
 	else:
 		velocity = Vector2.ZERO

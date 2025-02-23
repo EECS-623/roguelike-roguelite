@@ -41,16 +41,16 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a02m3"]
-radius = 850.0
-height = 2490.57
+radius = 450.0
+height = 1735.85
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.02, 0.0265)
 script = ExtResource("1_o3bn7")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(200, 37.7358)
-scale = Vector2(12.5, 9.50767)
+position = Vector2(100, 0)
+scale = Vector2(7.03125, 6.92807)
 sprite_frames = SubResource("SpriteFrames_q1e18")
 animation = &"run"
 
@@ -61,20 +61,21 @@ one_way_collision = true
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HealthBarLabel" type="Label" parent="."]
-offset_left = -750.0
-offset_top = -1207.55
-offset_right = 750.0
-offset_bottom = -905.547
+offset_left = -700.0
+offset_top = 830.189
+offset_right = -660.0
+offset_bottom = 853.189
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -700.0
-offset_top = -1433.96
-offset_right = 650.0
-offset_bottom = -1207.96
+offset_left = -650.0
+offset_top = -1169.81
+offset_right = 700.0
+offset_bottom = -943.811
 theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
 step = 1.0
 value = 100.0
+show_percentage = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_sjin0")
@@ -84,34 +85,20 @@ offset_left = 986.0
 offset_top = 577.0
 offset_right = 1080.0
 offset_bottom = 610.0
+text = "Relics: "
 
 [node name="Mana" type="TextEdit" parent="CanvasLayer"]
 offset_left = 985.0
 offset_top = 533.0
 offset_right = 1079.0
 offset_bottom = 565.0
-
-[node name="Bullet_Speed" type="Button" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 512.0
-offset_right = 142.0
-offset_bottom = 561.0
-text = "Bullet Speed"
-
-[node name="Health" type="Button" parent="CanvasLayer"]
-offset_left = 17.0
-offset_top = 464.0
-offset_right = 143.0
-offset_bottom = 506.0
-text = "Health"
+text = "Mana: "
 
 [node name="Speed" type="Button" parent="CanvasLayer"]
 offset_left = 16.0
 offset_top = 567.0
 offset_right = 141.0
 offset_bottom = 616.0
-text = "Player Speed"
+text = "Increase Speed"
 
-[connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
-[connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
 [connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]
