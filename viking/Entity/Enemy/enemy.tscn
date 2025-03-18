@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://du4kmlll1chra"]
+
+[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="1_cs143"]
+[ext_resource type="Script" path="res://Entity/Enemy/enemy.gd" id="1_dptkm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0dgk"]
+radius = 34.0
+height = 108.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukcq3"]
+atlas = ExtResource("1_cs143")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he2ab"]
+atlas = ExtResource("1_cs143")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfkd1"]
+atlas = ExtResource("1_cs143")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynq17"]
+atlas = ExtResource("1_cs143")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipoyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukcq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he2ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfkd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynq17")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_dptkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o0dgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 1)
+scale = Vector2(0.4, 0.424)
+sprite_frames = SubResource("SpriteFrames_ipoyc")
+animation = &"run"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

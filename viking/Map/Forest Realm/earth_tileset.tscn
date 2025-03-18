@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceckipgmnrxky"]
+
+[ext_resource type="Texture2D" uid="uid://dhh7ffn1eemi6" path="res://Assets/Art/Earth_tiles.png" id="1_aea8m"]
+[ext_resource type="Texture2D" uid="uid://c72bdgtmhmxv3" path="res://Assets/Art/house.png" id="2_3gtyr"]
+[ext_resource type="Script" path="res://Map/Forest Realm/earth_tileset.gd" id="2_xorpf"]
+[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Player/player.tscn" id="3_af47q"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msrrf"]
+texture = ExtResource("1_aea8m")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 6.34961, -8, -8)
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnqoy"]
+texture = ExtResource("2_3gtyr")
+texture_region_size = Vector2i(18, 18)
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1l6f1"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_msrrf")
+sources/1 = SubResource("TileSetAtlasSource_dnqoy")
+
+[node name="Earth_tileset" type="TileMapLayer"]
+tile_set = SubResource("TileSet_1l6f1")
+script = ExtResource("2_xorpf")
+
+[node name="Player" parent="." instance=ExtResource("3_af47q")]
