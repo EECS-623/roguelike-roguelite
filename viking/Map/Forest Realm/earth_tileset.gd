@@ -12,8 +12,6 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(my_player)
 	my_player.position = global_position
 	
-
-
 	
 	altitude.seed = randi()
 	altitude.frequency = 0.01

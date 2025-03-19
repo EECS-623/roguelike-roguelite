@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cboqaevo7vhdk"]
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_w3vfj"]
-[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Player/player.tscn" id="2_7mlxg"]
+[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Character/player.tscn" id="2_7mlxg"]
 [ext_resource type="PackedScene" uid="uid://5mwxhpnm647w" path="res://Map/Valhalla/home.tscn" id="3_ks2sj"]
 
 [node name="Game" type="Node2D"]

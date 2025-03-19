@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnioro3r2essk" path="res://Assets/Art/Ice_tiles.png" id="1_mpelr"]
 [ext_resource type="Script" path="res://Map/Ice Realm/ice_tileset.gd" id="2_k3atl"]
-[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Player/player.tscn" id="3_xqbcn"]
+[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Character/player.tscn" id="3_xqbcn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g22m"]
 texture = ExtResource("1_mpelr")

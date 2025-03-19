@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://drn4tckpvfn0e" path="res://Assets/Art/testTS.png" id="1_t15dr"]
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
-[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Player/player.tscn" id="2_mei1q"]
+[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Character/player.tscn" id="2_mei1q"]
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]

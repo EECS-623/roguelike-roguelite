@@ -1,21 +1,17 @@
-extends Entity
-
-@onready var _animated_sprite = $AnimatedSprite2D
+extends CharacterBody2D
+@onready var _animated_sprite = $Sprite2D
 @export var player_bullet: PackedScene = preload("res://Entity/Player/Magic_Bullet/Bullet.tscn")
 #@export var SPEED : float = 300.0
 const MAX_HEALTH = 100
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	#animation_tree.active = true
 	add_to_group("Player")
 	set_health_label()
 	$HealthBar.max_value = MAX_HEALTH
 	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta):
 	if Input.is_action_pressed("map"):
@@ -48,9 +44,10 @@ func shoot():
 	
 	bullet.position = global_position
 	bullet.direction = (get_global_mouse_position() - global_position).normalized()
-
-func _perform_melee_attack():
-	print("attack")
+	
+func attack():
+	pass
+	
 
 func set_health_bar() -> void:
 	$HealthBar.value = Global.player_health

@@ -1,73 +1,75 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkctdruu1ueur"]
+[gd_scene load_steps=12 format=3 uid="uid://bnbvdd5rvgkcn"]
 
-[ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_o3bn7"]
-[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="2_rl62q"]
-[ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="3_sjin0"]
+[ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_wsai2"]
+[ext_resource type="Script" path="res://Entity/Player/player.gd" id="2_m7ndx"]
+[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="3_olo38"]
+[ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="3_p7mmb"]
+[ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entity/Player/Magic_Bullet/Bullet.tscn" id="3_utlmm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3twqn"]
-atlas = ExtResource("2_rl62q")
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7nfy"]
+atlas = ExtResource("3_olo38")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iiq8h"]
-atlas = ExtResource("2_rl62q")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct7a5"]
+atlas = ExtResource("3_olo38")
 region = Rect2(256, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jmkr"]
-atlas = ExtResource("2_rl62q")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d4e5"]
+atlas = ExtResource("3_olo38")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ab27"]
-atlas = ExtResource("2_rl62q")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnswf"]
+atlas = ExtResource("3_olo38")
 region = Rect2(768, 0, 256, 256)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q1e18"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7lcv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3twqn")
+"texture": SubResource("AtlasTexture_y7nfy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iiq8h")
+"texture": SubResource("AtlasTexture_ct7a5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8jmkr")
+"texture": SubResource("AtlasTexture_3d4e5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ab27")
+"texture": SubResource("AtlasTexture_hnswf")
 }],
 "loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a02m3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0avt"]
 radius = 850.0
-height = 2490.57
+height = 2384.62
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
-scale = Vector2(0.02, 0.0265)
-script = ExtResource("1_o3bn7")
+[node name="Player" groups=["Player"] instance=ExtResource("1_wsai2")]
+scale = Vector2(0.02, 0.026)
+script = ExtResource("2_m7ndx")
+player_bullet = ExtResource("3_utlmm")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(150, 37.7359)
-scale = Vector2(11.1328, 9.50767)
-sprite_frames = SubResource("SpriteFrames_q1e18")
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(150, 37.736)
+scale = Vector2(11.133, 9.508)
+sprite_frames = SubResource("SpriteFrames_s7lcv")
 animation = &"run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-50, 0)
-shape = SubResource("CapsuleShape2D_a02m3")
-one_way_collision = true
+shape = SubResource("CapsuleShape2D_m0avt")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
 
-[node name="HealthBarLabel" type="Label" parent="."]
+[node name="HealthBarLabel" type="Label" parent="." index="4"]
 offset_left = -750.0
 offset_top = -1207.55
 offset_right = 750.0
 offset_bottom = -905.547
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." index="5"]
 offset_left = -700.0
 offset_top = -1433.96
 offset_right = 650.0
@@ -77,36 +79,36 @@ theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
 step = 1.0
 value = 100.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("3_sjin0")
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
+script = ExtResource("3_p7mmb")
 
-[node name="Relics" type="TextEdit" parent="CanvasLayer"]
+[node name="Relics" type="TextEdit" parent="CanvasLayer" index="0"]
 offset_left = 986.0
 offset_top = 577.0
 offset_right = 1080.0
 offset_bottom = 610.0
 
-[node name="Mana" type="TextEdit" parent="CanvasLayer"]
+[node name="Mana" type="TextEdit" parent="CanvasLayer" index="1"]
 offset_left = 985.0
 offset_top = 533.0
 offset_right = 1079.0
 offset_bottom = 565.0
 
-[node name="Bullet_Speed" type="Button" parent="CanvasLayer"]
+[node name="Bullet_Speed" type="Button" parent="CanvasLayer" index="2"]
 offset_left = 16.0
 offset_top = 512.0
 offset_right = 142.0
 offset_bottom = 561.0
 text = "Bullet Speed"
 
-[node name="Health" type="Button" parent="CanvasLayer"]
+[node name="Health" type="Button" parent="CanvasLayer" index="3"]
 offset_left = 17.0
 offset_top = 464.0
 offset_right = 143.0
 offset_bottom = 506.0
 text = "Health"
 
-[node name="Speed" type="Button" parent="CanvasLayer"]
+[node name="Speed" type="Button" parent="CanvasLayer" index="4"]
 offset_left = 16.0
 offset_top = 567.0
 offset_right = 141.0
