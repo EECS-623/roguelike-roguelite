@@ -15,10 +15,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# Called when a body enters the hitbox
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-# Called when a body exits the hitbox
-func _on_hitbox_body_exited(body: Node2D) -> void:
+func _on_hurtbox_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.

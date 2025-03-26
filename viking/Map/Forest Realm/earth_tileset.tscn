@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceckipgmnrxky"]
+[gd_scene load_steps=7 format=3 uid="uid://ceckipgmnrxky"]
 
 [ext_resource type="Texture2D" uid="uid://dhh7ffn1eemi6" path="res://Assets/Art/Earth_tiles.png" id="1_aea8m"]
 [ext_resource type="Texture2D" uid="uid://c72bdgtmhmxv3" path="res://Assets/Art/house.png" id="2_3gtyr"]
 [ext_resource type="Script" path="res://Map/Forest Realm/earth_tileset.gd" id="2_xorpf"]
-[ext_resource type="PackedScene" uid="uid://bnbvdd5rvgkcn" path="res://Entity/Player/player.tscn" id="4_r1em7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msrrf"]
 texture = ExtResource("1_aea8m")
@@ -27,5 +26,3 @@ sources/1 = SubResource("TileSetAtlasSource_dnqoy")
 [node name="Earth_tileset" type="TileMapLayer"]
 tile_set = SubResource("TileSet_1l6f1")
 script = ExtResource("2_xorpf")
-
-[node name="Player" parent="." instance=ExtResource("4_r1em7")]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ej5ym2xb475l"]
+[gd_scene load_steps=5 format=3 uid="uid://ej5ym2xb475l"]
 
 [ext_resource type="Texture2D" uid="uid://b75uhf2m14m3l" path="res://Assets/Art/Lava_tiles.png" id="1_q4dp1"]
 [ext_resource type="Script" path="res://Map/Lava Realm/lava_tileset.gd" id="2_2hirx"]
-[ext_resource type="PackedScene" uid="uid://dkctdruu1ueur" path="res://Entity/Character/player.tscn" id="3_vnuk1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m144f"]
 texture = ExtResource("1_q4dp1")
@@ -17,5 +16,3 @@ sources/0 = SubResource("TileSetAtlasSource_m144f")
 [node name="Lava_tileset" type="TileMapLayer"]
 tile_set = SubResource("TileSet_sb5wf")
 script = ExtResource("2_2hirx")
-
-[node name="Player" parent="." instance=ExtResource("3_vnuk1")]
