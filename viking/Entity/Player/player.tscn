@@ -61,15 +61,16 @@ animation = &"run"
 position = Vector2(-50, 0)
 shape = SubResource("CapsuleShape2D_m0avt")
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+scale = Vector2(1, 1)
 
-[node name="HealthBarLabel" type="Label" parent="." index="4"]
+[node name="HealthBarLabel" type="Label" parent="." index="5"]
 offset_left = -750.0
 offset_top = -1207.55
 offset_right = 750.0
 offset_bottom = -905.547
 
-[node name="HealthBar" type="ProgressBar" parent="." index="5"]
+[node name="HealthBar" type="ProgressBar" parent="." index="6"]
 offset_left = -700.0
 offset_top = -1433.96
 offset_right = 650.0
@@ -79,7 +80,7 @@ theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
 step = 1.0
 value = 100.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
 script = ExtResource("3_p7mmb")
 
 [node name="Relics" type="TextEdit" parent="CanvasLayer" index="0"]
