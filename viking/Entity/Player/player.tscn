@@ -42,9 +42,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0avt"]
-radius = 850.0
-height = 2384.62
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atymy"]
+radius = 500.0
+height = 2800.0
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_wsai2")]
 scale = Vector2(0.02, 0.026)
@@ -58,8 +58,8 @@ sprite_frames = SubResource("SpriteFrames_s7lcv")
 animation = &"run"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-50, 0)
-shape = SubResource("CapsuleShape2D_m0avt")
+position = Vector2(2250, -2.71051e-20)
+shape = SubResource("CapsuleShape2D_atymy")
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 scale = Vector2(1, 1)
