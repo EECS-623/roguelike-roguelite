@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnbvdd5rvgkcn"]
+[gd_scene load_steps=11 format=3 uid="uid://bnbvdd5rvgkcn"]
 
 [ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_wsai2"]
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="2_m7ndx"]
@@ -42,10 +42,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atymy"]
-radius = 153.846
-height = 538.462
-
 [node name="Player" groups=["Player"] instance=ExtResource("1_wsai2")]
 scale = Vector2(0.02, 0.026)
 script = ExtResource("2_m7ndx")
@@ -57,23 +53,16 @@ scale = Vector2(11.133, 9.508)
 sprite_frames = SubResource("SpriteFrames_s7lcv")
 animation = &"run"
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 38.4615)
-shape = SubResource("CapsuleShape2D_atymy")
-
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(2300, 0)
-
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
 scale = Vector2(1, 1)
 
-[node name="HealthBarLabel" type="Label" parent="." index="5"]
+[node name="HealthBarLabel" type="Label" parent="." index="4"]
 offset_left = -750.0
 offset_top = -1207.55
 offset_right = 750.0
 offset_bottom = -905.547
 
-[node name="HealthBar" type="ProgressBar" parent="." index="6"]
+[node name="HealthBar" type="ProgressBar" parent="." index="5"]
 offset_left = -700.0
 offset_top = -1433.96
 offset_right = 650.0
@@ -83,7 +72,7 @@ theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
 step = 1.0
 value = 100.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
 script = ExtResource("3_p7mmb")
 
 [node name="Relics" type="TextEdit" parent="CanvasLayer" index="0"]
