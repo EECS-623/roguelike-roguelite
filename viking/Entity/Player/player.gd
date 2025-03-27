@@ -30,16 +30,27 @@ func _physics_process(_delta):
 
 	direction = Input.get_vector("left", "right","up","down").normalized()
 	var current = "move_right"
+	var up = "move_up"
+	var down = "move_down"
 	if direction.x < 0:
 		_animated_sprite.flip_h = false
-		
-	elif direction.x > 0:
-		
-		_animated_sprite.flip_h = true
-
-	if direction:
 		velocity = direction * Global.player_speed
 		_animated_sprite.play(current)
+		
+	elif direction.x > 0:
+		_animated_sprite.flip_h = true
+		velocity = direction * Global.player_speed
+		_animated_sprite.play(current)
+		
+	elif direction.y <0:
+		_animated_sprite.flip_h = false
+		velocity = direction * Global.player_speed
+		_animated_sprite.play(up)
+		
+	elif direction.y >0:
+		_animated_sprite.flip_h = false
+		velocity = direction * Global.player_speed
+		_animated_sprite.play(down)
 		
 	else:
 		velocity = Vector2.ZERO

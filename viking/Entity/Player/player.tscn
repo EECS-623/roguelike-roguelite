@@ -46,21 +46,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_xpv6f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_727ji")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_7fuit")
-}],
-"loop": true,
-"name": &"move_left",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -74,7 +60,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_right",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -88,7 +74,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,7 +107,7 @@ player_bullet = ExtResource("3_utlmm")
 position = Vector2(-23.8571, 20.3738)
 scale = Vector2(-0.356373, 0.304341)
 sprite_frames = SubResource("SpriteFrames_s7lcv")
-animation = &"move_down"
+animation = &"move_right"
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
