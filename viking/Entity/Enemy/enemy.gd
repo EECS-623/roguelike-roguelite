@@ -8,8 +8,10 @@ extends Entity
 @export var SPEED : float = 300.0
 
 @export var speed: float = 1
+
 func _ready():
 	pass
+	
 func _process(_delta):
 	
 	if player != null: 
@@ -37,8 +39,8 @@ func shoot():
 	
 	bullet.position = global_position
 	bullet.direction = (player.global_position - global_position).normalized()
-	
-func _on_area_entered(area: Area2D) -> void:
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("player_bullet")):
 		queue_free()
 		area.queue_free()

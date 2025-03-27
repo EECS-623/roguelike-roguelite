@@ -101,3 +101,5 @@ visible = false
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_l0btf")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
