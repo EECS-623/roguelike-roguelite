@@ -8,3 +8,7 @@ func _on_body_entered(body):
 		#$CollisionShape2D.set_deferred("disabled", true)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/map.tscn")
 		print("hello")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
