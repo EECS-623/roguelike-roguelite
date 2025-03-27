@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct64h20n2jkqf"]
 
 [ext_resource type="Script" path="res://Entity/entity.gd" id="1_mjglq"]
+[ext_resource type="Script" path="res://Entity/Hurtbox/hurtbox.gd" id="2_ip3rx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qrr32"]
 
@@ -8,13 +9,9 @@
 radius = 200.0
 height = 500.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p35hj"]
-radius = 11.0
-height = 62.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_him6n"]
-radius = 147.0
-height = 460.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dho3o"]
+radius = 83.0
+height = 238.0
 
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_mjglq")
@@ -25,16 +22,8 @@ sprite_frames = SubResource("SpriteFrames_qrr32")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cmlij")
 
-[node name="Hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CapsuleShape2D_p35hj")
-
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+script = ExtResource("2_ip3rx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CapsuleShape2D_him6n")
-
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+shape = SubResource("CapsuleShape2D_dho3o")
