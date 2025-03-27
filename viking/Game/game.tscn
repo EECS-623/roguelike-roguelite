@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_w3vfj"]
 [ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="2_3yqsg"]
-[ext_resource type="PackedScene" uid="uid://5mwxhpnm647w" path="res://Map/Valhalla/home.tscn" id="3_ks2sj"]
+[ext_resource type="PackedScene" path="res://Map/Valhalla/home.tscn" id="3_ks2sj"]
 [ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="3_yhplc"]
 
 [sub_resource type="GDScript" id="GDScript_1ymn8"]
