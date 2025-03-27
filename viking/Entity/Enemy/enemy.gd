@@ -12,7 +12,6 @@ func _ready():
 	pass
 func _process(_delta):
 	
-	check_death()
 	if player != null: 
 		
 		var direction = (player.global_position - global_position).normalized()
@@ -50,6 +49,9 @@ func _on_area_entered(area: Area2D) -> void:
 			print("Relics: ")
 			print(Global.relics)
 
-func check_death():
+func take_damage(damage: float):
+	
+	health -= damage
 	if (health <= 0):
 		queue_free()
+		

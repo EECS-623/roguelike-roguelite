@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://kst4wqp0unf2"]
+[gd_scene load_steps=6 format=3 uid="uid://b7h0deb2nh5ms"]
 
-[ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/entity.tscn" id="1_a3slt"]
+[ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_a3slt"]
 [ext_resource type="Script" path="res://Entity/Enemy/enemy.gd" id="2_o02bx"]
 [ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entity/Player/Magic_Bullet/Bullet.tscn" id="3_b7pri"]
 [ext_resource type="PackedScene" uid="uid://cp2dhtx7e18jc" path="res://Entity/Enemy/Enemy_Bullet/enemy_bullet.tscn" id="4_ekwgs"]
