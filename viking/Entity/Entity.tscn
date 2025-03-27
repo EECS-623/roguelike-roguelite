@@ -6,12 +6,12 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_qrr32"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cmlij"]
-radius = 200.0
-height = 500.0
+radius = 11.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dho3o"]
-radius = 83.0
-height = 238.0
+radius = 48.0
+height = 154.0
 
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_mjglq")

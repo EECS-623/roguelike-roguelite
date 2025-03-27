@@ -20,7 +20,7 @@ func _process(_delta):
 		elif direction.x > 0:
 			_animated_sprite.flip_h = false
 		if direction:
-			_animated_sprite.play("run")
+			_animated_sprite.play("move_left")
 			var velocity = direction * speed
 			global_position += velocity
 		else:

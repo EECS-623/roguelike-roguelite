@@ -1,11 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnbvdd5rvgkcn"]
+[gd_scene load_steps=22 format=3 uid="uid://bnbvdd5rvgkcn"]
 
 [ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_wsai2"]
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="2_m7ndx"]
 [ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="3_olo38"]
 [ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="3_p7mmb"]
 [ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entity/Player/Magic_Bullet/Bullet.tscn" id="3_utlmm"]
+[ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entity/Player/Player Assets/Forward 1 (Right Step).png" id="4_ssb34"]
 [ext_resource type="Script" path="res://Entity/Hitbox/hitbox.gd" id="5_6and8"]
+[ext_resource type="Texture2D" uid="uid://0xpfpb2lfd6g" path="res://Entity/Player/Player Assets/Forward 2 (Standing).png" id="5_n83f8"]
+[ext_resource type="Texture2D" uid="uid://dbw0267l1d2od" path="res://Entity/Player/Player Assets/Forward 3 (Left Step).png" id="6_0mv3u"]
+[ext_resource type="Texture2D" uid="uid://bya4g81gakfw2" path="res://Entity/Player/Player Assets/Side 1 (Right Step).png" id="7_xpv6f"]
+[ext_resource type="Texture2D" uid="uid://cfhaha4kx02bb" path="res://Entity/Player/Player Assets/Side 2 (Standing).png" id="8_727ji"]
+[ext_resource type="Texture2D" uid="uid://b6yj55s85d85g" path="res://Entity/Player/Player Assets/Side 3 (Left Step).png" id="9_7fuit"]
+[ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entity/Player/Player Assets/Back 1 (Right Step).png" id="10_hnhwo"]
+[ext_resource type="Texture2D" uid="uid://bo5qqe500tbwh" path="res://Entity/Player/Player Assets/Back 2 (Standing).png" id="11_03056"]
+[ext_resource type="Texture2D" uid="uid://dftwiobv3slwc" path="res://Entity/Player/Player Assets/Back 3 (Left Step).png" id="12_g4m5s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7nfy"]
 atlas = ExtResource("3_olo38")
@@ -27,6 +36,62 @@ region = Rect2(768, 0, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_ssb34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n83f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0mv3u")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xpv6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_727ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7fuit")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xpv6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_727ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7fuit")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_hnhwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_03056")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_g4m5s")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y7nfy")
 }, {
 "duration": 1.0,
@@ -43,19 +108,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjkgp"]
+radius = 350.0
+height = 1615.38
+
 [node name="Player" groups=["Player"] instance=ExtResource("1_wsai2")]
 scale = Vector2(0.02, 0.026)
 script = ExtResource("2_m7ndx")
 player_bullet = ExtResource("3_utlmm")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(150, 37.736)
-scale = Vector2(11.133, 9.508)
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(-0.363, 0.31)
 sprite_frames = SubResource("SpriteFrames_s7lcv")
-animation = &"run"
+animation = &"move_down"
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(0, 38.4615)
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(2000, 0)
+position = Vector2(0, 38.4615)
 scale = Vector2(10, 10)
 
 [node name="Hitbox" type="Area2D" parent="." index="3"]
@@ -63,6 +136,8 @@ scale = Vector2(1, 1)
 script = ExtResource("5_6and8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(1300, 0)
+shape = SubResource("CapsuleShape2D_tjkgp")
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 

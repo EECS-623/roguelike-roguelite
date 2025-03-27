@@ -1,58 +1,103 @@
-[gd_scene load_steps=9 format=3 uid="uid://du4kmlll1chra"]
+[gd_scene load_steps=16 format=3 uid="uid://b7h0deb2nh5ms"]
 
-[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="1_cs143"]
+[ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_41vr3"]
 [ext_resource type="Script" path="res://Entity/Enemy/enemy.gd" id="1_dptkm"]
+[ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entity/Player/Magic_Bullet/Bullet.tscn" id="3_75iqb"]
+[ext_resource type="PackedScene" uid="uid://cp2dhtx7e18jc" path="res://Entity/Enemy/Enemy_Bullet/enemy_bullet.tscn" id="4_q1lfu"]
+[ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entity/Player/Player Assets/Back 1 (Right Step).png" id="5_4yfad"]
+[ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entity/Player/Player Assets/Forward 1 (Right Step).png" id="5_6iosg"]
+[ext_resource type="Texture2D" uid="uid://bya4g81gakfw2" path="res://Entity/Player/Player Assets/Side 1 (Right Step).png" id="5_qhaib"]
+[ext_resource type="Texture2D" uid="uid://bo5qqe500tbwh" path="res://Entity/Player/Player Assets/Back 2 (Standing).png" id="6_05g60"]
+[ext_resource type="Texture2D" uid="uid://cfhaha4kx02bb" path="res://Entity/Player/Player Assets/Side 2 (Standing).png" id="6_8crc7"]
+[ext_resource type="Texture2D" uid="uid://0xpfpb2lfd6g" path="res://Entity/Player/Player Assets/Forward 2 (Standing).png" id="6_ku6wh"]
+[ext_resource type="Texture2D" uid="uid://dbw0267l1d2od" path="res://Entity/Player/Player Assets/Forward 3 (Left Step).png" id="7_1f85m"]
+[ext_resource type="Texture2D" uid="uid://dftwiobv3slwc" path="res://Entity/Player/Player Assets/Back 3 (Left Step).png" id="7_gcayg"]
+[ext_resource type="Texture2D" uid="uid://b6yj55s85d85g" path="res://Entity/Player/Player Assets/Side 3 (Left Step).png" id="7_ixlj5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0dgk"]
-radius = 34.0
-height = 108.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukcq3"]
-atlas = ExtResource("1_cs143")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_he2ab"]
-atlas = ExtResource("1_cs143")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfkd1"]
-atlas = ExtResource("1_cs143")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynq17"]
-atlas = ExtResource("1_cs143")
-region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ipoyc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ei8k1"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ukcq3")
+"texture": ExtResource("5_6iosg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_he2ab")
+"texture": ExtResource("6_ku6wh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jfkd1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ynq17")
+"texture": ExtResource("7_1f85m")
 }],
 "loop": true,
-"name": &"run",
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qhaib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8crc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ixlj5")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qhaib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8crc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ixlj5")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4yfad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_05g60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gcayg")
+}],
+"loop": true,
+"name": &"move_up",
 "speed": 5.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0btf"]
+radius = 38.0
+height = 154.0
+
+[node name="Enemy" instance=ExtResource("1_41vr3")]
 script = ExtResource("1_dptkm")
+player_bullet = ExtResource("3_75iqb")
+enemy_bullet = ExtResource("4_q1lfu")
+SPEED = 300.0
+speed = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_o0dgk")
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-0.999954, -1.00005)
+scale = Vector2(0.0259028, 0.0259028)
+sprite_frames = SubResource("SpriteFrames_ei8k1")
+animation = &"move_left"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, 1)
-scale = Vector2(0.4, 0.424)
-sprite_frames = SubResource("SpriteFrames_ipoyc")
-animation = &"run"
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_l0btf")
