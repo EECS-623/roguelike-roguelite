@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnbvdd5rvgkcn"]
 
-[ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_wsai2"]
+[ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/entity.tscn" id="1_wsai2"]
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="2_m7ndx"]
 [ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="3_olo38"]
 [ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="3_p7mmb"]

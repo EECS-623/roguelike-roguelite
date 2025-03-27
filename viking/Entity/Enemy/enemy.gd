@@ -1,4 +1,4 @@
-extends Area2D
+extends Entity
 @onready var _animated_sprite = $AnimatedSprite2D
 #@export var player: PackedScene = preload("res://Player/player.tscn")
 @onready var player = get_tree().root.get_node("Earth_tileset/Player") # Replace "Main/Player" with the actual path
@@ -11,6 +11,8 @@ extends Area2D
 func _ready():
 	pass
 func _process(_delta):
+	
+	check_death()
 	if player != null: 
 		
 		var direction = (player.global_position - global_position).normalized()
@@ -47,4 +49,7 @@ func _on_area_entered(area: Area2D) -> void:
 			Global.relics += 1
 			print("Relics: ")
 			print(Global.relics)
-			
+
+func check_death():
+	if (health <= 0):
+		queue_free()
