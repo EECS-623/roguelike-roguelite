@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc8tl7j4yuowc"]
-
-[ext_resource type="Script" path="res://Map/Combat Test/combat_test_map.gd" id="1_v0p1v"]
-
-[node name="CombatTest" type="TileMapLayer"]
-script = ExtResource("1_v0p1v")

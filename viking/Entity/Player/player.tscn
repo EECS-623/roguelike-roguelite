@@ -54,6 +54,7 @@ sprite_frames = SubResource("SpriteFrames_s7lcv")
 animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
+scale = Vector2(1, 1)
 
 [node name="HealthBarLabel" type="Label" parent="." index="4"]
 offset_left = -750.0
