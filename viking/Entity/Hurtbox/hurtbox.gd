@@ -12,10 +12,11 @@ signal hurt(body)
 func _ready() -> void:
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
-func _on_body_entered(hitbox: Hitbox):
-	if (hitbox == null):
+func _on_body_entered(body: Node):
+	if (body == null):
 		return
-	
-	if (owner.has_method("take_damage")):
-		owner.take_damage(hitbox.damage)
+	if body is Hitbox:
+		var hitbox = body as Hitbox
+		if (owner.has_method("take_damage")):
+			owner.take_damage(hitbox.damage)
 		

@@ -29,20 +29,21 @@ func _unhandled_input(event):
 func _physics_process(_delta):
 
 	direction = Input.get_vector("left", "right","up","down").normalized()
-	
+	var current = "move_right"
 	if direction.x < 0:
-		_animated_sprite.flip_h = true
+		_animated_sprite.flip_h = false
 		
 	elif direction.x > 0:
 		
-		_animated_sprite.flip_h = false
+		_animated_sprite.flip_h = true
 
 	if direction:
 		velocity = direction * Global.player_speed
-		_animated_sprite.play("move_right")
+		_animated_sprite.play(current)
 		
 	else:
 		velocity = Vector2.ZERO
+		_animated_sprite.frame = 1
 		_animated_sprite.stop()
 
 	move_and_slide()
