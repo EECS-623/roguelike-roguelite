@@ -17,19 +17,47 @@ func _process(_delta):
 	if player != null: 
 		
 		var direction = (player.global_position - global_position).normalized()
-		if direction.x < 0:
+		var current = "move_right"
+		var up = "move_up"
+		var down = "move_down"
+		var velocity = Vector2.ZERO
+		var in_aggro_range = false
+		if player.global_position.distance_to(global_position) > 500:
+			in_aggro_range = false
+		else:
+			in_aggro_range = true
+			
+		if not(in_aggro_range):
+			velocity = Vector2.ZERO
+			_animated_sprite.stop()
+		elif direction.x < 0:
 			_animated_sprite.flip_h = true
+			velocity = direction * Global.enemy_speed
+			_animated_sprite.play(current)
+			
 		elif direction.x > 0:
 			_animated_sprite.flip_h = false
-		if direction:
-			_animated_sprite.play("move_left")
-			var velocity = direction * speed
-			global_position += velocity
+			velocity = direction * Global.enemy_speed
+			_animated_sprite.play(current)
+			
+		elif direction.y <0:
+			_animated_sprite.flip_h = false
+			velocity = direction * Global.enemy_speed
+			_animated_sprite.play(up)
+			
+		elif direction.y >0:
+			_animated_sprite.flip_h = false
+			velocity = direction * Global.enemy_speed
+			_animated_sprite.play(down)
+			
 		else:
+			velocity = Vector2.ZERO
+			_animated_sprite.frame = 1
 			_animated_sprite.stop()
-		
-		var num = randi_range(1,1000)
-		if num < 4:
+
+		global_position += velocity
+		var num = randi_range(1,300)
+		if num < 4 and in_aggro_range:
 			shoot()
 		
 

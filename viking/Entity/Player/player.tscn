@@ -107,7 +107,7 @@ player_bullet = ExtResource("3_utlmm")
 position = Vector2(-23.8571, 20.3738)
 scale = Vector2(-0.356373, 0.304341)
 sprite_frames = SubResource("SpriteFrames_s7lcv")
-animation = &"move_right"
+animation = &"move_down"
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
