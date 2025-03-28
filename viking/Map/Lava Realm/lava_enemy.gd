@@ -11,7 +11,9 @@ extends Area2D
 func _ready():
 	pass
 func _process(_delta):
+	
 	if player != null: 
+		add_to_group("enemies")
 		
 		var direction = (player.global_position - global_position).normalized()
 		if direction.x < 0:

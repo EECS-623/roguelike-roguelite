@@ -19,6 +19,9 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("map"):
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			enemy.queue_free()
+
 		get_tree().change_scene_to_file("res://Map/map.tscn")
 	set_health_bar()
 
