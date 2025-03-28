@@ -33,13 +33,13 @@ func _ready() -> void:
 					my_enemy.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
 					get_parent().add_child(my_enemy)
 					Global.earth_enemies_left += 1
-					var my_tree = tree.instantiate()
-					my_tree.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
-					get_parent().add_child(my_tree)
-				elif num > 3 and num < 10:
-					var my_house = house.instantiate()
-					my_house.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
-					get_parent().add_child(my_house)
+					#var my_tree = tree.instantiate()
+					#my_tree.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
+					#get_parent().add_child(my_tree)
+				#elif num > 3 and num < 10:
+					#var my_house = house.instantiate()
+					#my_house.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
+					#get_parent().add_child(my_house)
 					#print("enemy_added")
 			elif alt > -.1:
 				set_cell(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)),0,Vector2i(0,1))
