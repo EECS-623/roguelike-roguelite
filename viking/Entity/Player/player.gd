@@ -76,7 +76,10 @@ func set_health_bar() -> void:
 	$HealthBar.value = Global.player_health
 	if $HealthBar.value <= 0:
 		get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
-	
+
 func set_health_label() -> void:
 	$HealthBarLabel.text = "Health: %s" % Global.player_health
-	
+
+func _on_health_component_death() -> void:
+	#change this
+	queue_free()

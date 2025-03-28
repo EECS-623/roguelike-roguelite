@@ -1,10 +1,8 @@
 ## Custom Hitbox node
-
 extends Area2D
-
 class_name Hurtbox
 
-@export var damage: int = 0
+@export var health_component: HealthComponent
 
 signal hurt(body)
 
@@ -17,6 +15,4 @@ func _on_body_entered(body: Node):
 		return
 	if body is Hitbox:
 		var hitbox = body as Hitbox
-		if (owner.has_method("take_damage")):
-			owner.take_damage(hitbox.damage)
-		
+		health_component.take_damage(hitbox.damage)

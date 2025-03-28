@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnbvdd5rvgkcn"]
+[gd_scene load_steps=31 format=3 uid="uid://bnbvdd5rvgkcn"]
 
 [ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_wsai2"]
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="2_m7ndx"]
@@ -15,6 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entity/Player/Player Assets/Back 1 (Right Step).png" id="10_hnhwo"]
 [ext_resource type="Texture2D" uid="uid://bo5qqe500tbwh" path="res://Entity/Player/Player Assets/Back 2 (Standing).png" id="11_03056"]
 [ext_resource type="Texture2D" uid="uid://dftwiobv3slwc" path="res://Entity/Player/Player Assets/Back 3 (Left Step).png" id="12_g4m5s"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="14_dxqrv"]
+[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="16_ulyav"]
+[ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="17_a22r0"]
+[ext_resource type="Script" path="res://Components/ManaComponent/mana_component.gd" id="18_6hj8y"]
+[ext_resource type="Script" path="res://Components/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
+[ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
+[ext_resource type="Script" path="res://Components/LuckComponent/luck_component.gd" id="21_mbuf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7nfy"]
 atlas = ExtResource("3_olo38")
@@ -94,6 +101,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_31re3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa2ii"]
+radius = 500.0
+height = 1807.69
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjkgp"]
 radius = 350.0
 height = 1615.38
@@ -111,29 +124,55 @@ animation = &"move_down"
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
-position = Vector2(0, 38.4615)
+shape = SubResource("CapsuleShape2D_31re3")
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+[node name="Hurtbox" type="Area2D" parent="." index="2" node_paths=PackedStringArray("health_component")]
+scale = Vector2(1, 1)
+script = ExtResource("14_dxqrv")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(0, 38.4615)
-scale = Vector2(10, 10)
+shape = SubResource("CapsuleShape2D_oa2ii")
 
 [node name="Hitbox" type="Area2D" parent="." index="3"]
+visible = false
+scale = Vector2(1, 1)
 script = ExtResource("5_6and8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(1300, 0)
 shape = SubResource("CapsuleShape2D_tjkgp")
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="HealthComponent" type="Node" parent="." index="4"]
+script = ExtResource("16_ulyav")
 
-[node name="HealthBarLabel" type="Label" parent="." index="5"]
+[node name="SpeedComponent" type="Node" parent="." index="5"]
+script = ExtResource("17_a22r0")
+
+[node name="PhysicalDamageComponent" type="Node" parent="." index="6"]
+script = ExtResource("20_hmsjh")
+
+[node name="MagicDamageComponent" type="Node" parent="." index="7"]
+script = ExtResource("19_rymoq")
+
+[node name="ManaComponent" type="Node" parent="." index="8"]
+script = ExtResource("18_6hj8y")
+
+[node name="LuckComponent" type="Node" parent="." index="9"]
+script = ExtResource("21_mbuf2")
+
+[node name="Camera2D" type="Camera2D" parent="." index="10"]
+scale = Vector2(1, 1)
+
+[node name="HealthBarLabel" type="Label" parent="." index="11"]
 offset_left = -750.0
 offset_top = -1207.55
 offset_right = 750.0
 offset_bottom = -905.547
 metadata/_edit_use_anchors_ = true
 
-[node name="HealthBar" type="ProgressBar" parent="." index="6"]
+[node name="HealthBar" type="ProgressBar" parent="." index="12"]
 offset_left = -700.0
 offset_top = -1433.96
 offset_right = 650.0
@@ -144,7 +183,7 @@ step = 1.0
 value = 100.0
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
 script = ExtResource("3_p7mmb")
 
 [node name="Relics" type="TextEdit" parent="CanvasLayer" index="0"]
@@ -180,6 +219,7 @@ offset_right = 141.0
 offset_bottom = 616.0
 text = "Player Speed"
 
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
 [connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]
