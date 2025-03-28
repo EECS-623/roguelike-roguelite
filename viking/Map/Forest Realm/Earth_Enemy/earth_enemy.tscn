@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://b7h0deb2nh5ms"]
 
 [ext_resource type="PackedScene" uid="uid://ct64h20n2jkqf" path="res://Entity/Entity.tscn" id="1_41vr3"]
-[ext_resource type="Script" path="res://Entity/Enemy/enemy.gd" id="1_dptkm"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Earth_Enemy/earth_enemy.gd" id="1_dptkm"]
 [ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entity/Player/Magic_Bullet/Bullet.tscn" id="3_75iqb"]
-[ext_resource type="PackedScene" uid="uid://cp2dhtx7e18jc" path="res://Entity/Enemy/Enemy_Bullet/enemy_bullet.tscn" id="4_q1lfu"]
+[ext_resource type="PackedScene" uid="uid://cp2dhtx7e18jc" path="res://Entity/Enemy_Bullet/enemy_bullet.tscn" id="4_q1lfu"]
 [ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entity/Player/Player Assets/Back 1 (Right Step).png" id="5_4yfad"]
 [ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entity/Player/Player Assets/Forward 1 (Right Step).png" id="5_6iosg"]
 [ext_resource type="Texture2D" uid="uid://bya4g81gakfw2" path="res://Entity/Player/Player Assets/Side 1 (Right Step).png" id="5_qhaib"]
