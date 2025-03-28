@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct64h20n2jkqf"]
 
 [ext_resource type="Script" path="res://Entity/entity.gd" id="1_mjglq"]
-[ext_resource type="Script" path="res://Entity/Hurtbox/hurtbox.gd" id="2_ip3rx"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_ip3rx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qrr32"]
 
