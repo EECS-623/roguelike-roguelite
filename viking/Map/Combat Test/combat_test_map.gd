@@ -1,6 +1,6 @@
 extends TileMapLayer
 @export var player: PackedScene = preload("res://Entity/Player/player.tscn")
-@export var enemy: PackedScene = preload("res://Entity/Enemy/enemy.tscn")
+ @export var enemy: PackedScene = preload("res://Entity/Enemy/enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
