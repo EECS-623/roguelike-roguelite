@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://ca613syv8oamr"]
+
+[ext_resource type="Script" path="res://Map/Forest Realm/Boss/snake_boss.gd" id="1_nivys"]
+[ext_resource type="Texture2D" uid="uid://cgadk8yofry2g" path="res://Assets/Art/snake spritesheet.png" id="2_tpo3h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeufu"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(0, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd72h"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(32, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxxev"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(64, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v8rp"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(96, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2mal"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(128, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00ggm"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(160, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp56h"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(192, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uknym"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(224, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kufon"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(256, 75, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8comp"]
+atlas = ExtResource("2_tpo3h")
+region = Rect2(288, 75, 32, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0liqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeufu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd72h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxxev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v8rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2mal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00ggm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp56h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uknym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kufon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8comp")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36g2k"]
+radius = 12.0
+height = 56.0
+
+[node name="SnakeBoss" type="CharacterBody2D"]
+script = ExtResource("1_nivys")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+rotation = -3.14159
+scale = Vector2(3.68245, -4.8543)
+sprite_frames = SubResource("SpriteFrames_0liqu")
+animation = &"new_animation"
+frame_progress = 0.543384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 4)
+shape = SubResource("CapsuleShape2D_36g2k")
