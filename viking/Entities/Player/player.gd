@@ -1,4 +1,4 @@
-extends Entity
+extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var player_bullet: PackedScene = preload("res://Entity/Player/Magic_Bullet/Bullet.tscn")

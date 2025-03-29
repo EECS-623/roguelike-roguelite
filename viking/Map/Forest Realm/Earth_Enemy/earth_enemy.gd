@@ -1,10 +1,10 @@
-extends Entity
+extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 #@export var player: PackedScene = preload("res://Player/player.tscn")
 @onready var player = get_tree().root.get_node("Earth_tileset/Player") # Replace "Main/Player" with the actual path
  # Go up one level and find "Player"
-@export var player_bullet: PackedScene = preload("res://Entity/Player/Magic_Bullet/Bullet.tscn")
-@export var enemy_bullet: PackedScene = preload("res://Entity/Enemy_Bullet/enemy_bullet.tscn")
+@export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
+@export var enemy_bullet: PackedScene = preload("res://Entities/Enemy_Bullet/enemy_bullet.tscn")
 @export var SPEED : float = 300.0
 
 @export var speed: float = 1

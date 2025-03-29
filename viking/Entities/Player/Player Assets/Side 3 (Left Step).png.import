@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbw0267l1d2od"
-path="res://.godot/imported/Forward 3 (Left Step).png-74a8fdbe021f00ffcc58abb9e558aacd.ctex"
+uid="uid://b6yj55s85d85g"
+path="res://.godot/imported/Side 3 (Left Step).png-08b3a8b759f3453e0f953fce07d972b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entity/Player/Player Assets/Forward 3 (Left Step).png"
-dest_files=["res://.godot/imported/Forward 3 (Left Step).png-74a8fdbe021f00ffcc58abb9e558aacd.ctex"]
+source_file="res://Entities/Player/Player Assets/Side 3 (Left Step).png"
+dest_files=["res://.godot/imported/Side 3 (Left Step).png-08b3a8b759f3453e0f953fce07d972b5.ctex"]
 
 [params]
 
