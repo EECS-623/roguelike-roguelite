@@ -1,10 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://bnbvdd5rvgkcn"]
+[gd_scene load_steps=23 format=3 uid="uid://b84gwfae2li4r"]
 
-[ext_resource type="PackedScene" path="res://Entity/Entity.tscn" id="1_wsai2"]
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="2_m7ndx"]
-[ext_resource type="Texture2D" uid="uid://bw0skboevqf5o" path="res://Assets/Art/Pixel_Viking_Walking_Spritesheet.png" id="3_olo38"]
-[ext_resource type="Script" path="res://Entities/Player/canvas_layer.gd" id="3_p7mmb"]
-[ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entities/Player/Magic_Bullet/Bullet.tscn" id="3_utlmm"]
 [ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entities/Player/Player Assets/Forward 1 (Right Step).png" id="4_ssb34"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="5_6and8"]
 [ext_resource type="Texture2D" uid="uid://0xpfpb2lfd6g" path="res://Entities/Player/Player Assets/Forward 2 (Standing).png" id="5_n83f8"]
@@ -23,203 +19,113 @@
 [ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
 [ext_resource type="Script" path="res://Components/LuckComponent/luck_component.gd" id="21_mbuf2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7nfy"]
-atlas = ExtResource("3_olo38")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ct7a5"]
-atlas = ExtResource("3_olo38")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3d4e5"]
-atlas = ExtResource("3_olo38")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnswf"]
-atlas = ExtResource("3_olo38")
-region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_s7lcv"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yot1s"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_ssb34")
-}, {
 "duration": 1.0,
 "texture": ExtResource("5_n83f8")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_0mv3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n83f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ssb34")
 }],
 "loop": true,
-"name": &"move_down",
-"speed": 8.0
+"name": &"walk_down",
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_xpv6f")
-}, {
 "duration": 1.0,
 "texture": ExtResource("8_727ji")
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_7fuit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_727ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xpv6f")
 }],
 "loop": true,
-"name": &"move_right",
-"speed": 11.0
+"name": &"walk_right",
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_hnhwo")
-}, {
 "duration": 1.0,
 "texture": ExtResource("11_03056")
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_g4m5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_03056")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hnhwo")
 }],
 "loop": true,
-"name": &"move_up",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y7nfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ct7a5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3d4e5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hnswf")
-}],
-"loop": true,
-"name": &"run",
+"name": &"walk_up",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_31re3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rk0fa"]
+radius = 20.025
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa2ii"]
-radius = 500.0
-height = 1807.69
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77rnh"]
+radius = 23.0
+height = 82.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjkgp"]
-radius = 350.0
-height = 1615.38
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_341yo"]
+radius = 15.0
+height = 94.0
 
-[node name="Player" groups=["Player"] instance=ExtResource("1_wsai2")]
-scale = Vector2(0.04, 0.052)
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("2_m7ndx")
-player_bullet = ExtResource("3_utlmm")
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(-23.8571, 20.3738)
-scale = Vector2(-0.356373, 0.304341)
-sprite_frames = SubResource("SpriteFrames_s7lcv")
-animation = &"move_down"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.43751, -0.56249)
+scale = Vector2(0.0156771, 0.0156771)
+sprite_frames = SubResource("SpriteFrames_yot1s")
+animation = &"walk_right"
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("CapsuleShape2D_31re3")
+shape = SubResource("CircleShape2D_rk0fa")
 
-[node name="Hurtbox" type="Area2D" parent="." index="2" node_paths=PackedStringArray("health_component")]
-scale = Vector2(1, 1)
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 script = ExtResource("14_dxqrv")
-health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(0, 38.4615)
-shape = SubResource("CapsuleShape2D_oa2ii")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_77rnh")
 
-[node name="Hitbox" type="Area2D" parent="." index="3"]
-visible = false
-scale = Vector2(1, 1)
+[node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("5_6and8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(1300, 0)
-shape = SubResource("CapsuleShape2D_tjkgp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(62, 0)
+shape = SubResource("CapsuleShape2D_341yo")
 
-[node name="HealthComponent" type="Node" parent="." index="4"]
+[node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("16_ulyav")
 
-[node name="SpeedComponent" type="Node" parent="." index="5"]
+[node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("17_a22r0")
 
-[node name="PhysicalDamageComponent" type="Node" parent="." index="6"]
-script = ExtResource("20_hmsjh")
-
-[node name="MagicDamageComponent" type="Node" parent="." index="7"]
+[node name="MagicDamageComponent" type="Node" parent="."]
 script = ExtResource("19_rymoq")
 
-[node name="ManaComponent" type="Node" parent="." index="8"]
+[node name="ManaComponent" type="Node" parent="."]
 script = ExtResource("18_6hj8y")
 
-[node name="LuckComponent" type="Node" parent="." index="9"]
+[node name="PhysicalDamageComponent" type="Node" parent="."]
+script = ExtResource("20_hmsjh")
+
+[node name="LuckComponent" type="Node" parent="."]
 script = ExtResource("21_mbuf2")
-
-[node name="Camera2D" type="Camera2D" parent="." index="10"]
-scale = Vector2(1, 1)
-
-[node name="HealthBarLabel" type="Label" parent="." index="11"]
-offset_left = -750.0
-offset_top = -1207.55
-offset_right = 750.0
-offset_bottom = -905.547
-metadata/_edit_use_anchors_ = true
-
-[node name="HealthBar" type="ProgressBar" parent="." index="12"]
-offset_left = -700.0
-offset_top = -1433.96
-offset_right = 650.0
-offset_bottom = -1207.96
-theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
-step = 1.0
-value = 100.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
-script = ExtResource("3_p7mmb")
-
-[node name="Relics" type="TextEdit" parent="CanvasLayer" index="0"]
-offset_left = 986.0
-offset_top = 577.0
-offset_right = 1080.0
-offset_bottom = 610.0
-
-[node name="Mana" type="TextEdit" parent="CanvasLayer" index="1"]
-offset_left = 985.0
-offset_top = 533.0
-offset_right = 1079.0
-offset_bottom = 565.0
-
-[node name="Bullet_Speed" type="Button" parent="CanvasLayer" index="2"]
-offset_left = 16.0
-offset_top = 512.0
-offset_right = 142.0
-offset_bottom = 561.0
-text = "Bullet Speed"
-
-[node name="Health" type="Button" parent="CanvasLayer" index="3"]
-offset_left = 17.0
-offset_top = 464.0
-offset_right = 143.0
-offset_bottom = 506.0
-text = "Health"
-
-[node name="Speed" type="Button" parent="CanvasLayer" index="4"]
-offset_left = 16.0
-offset_top = 567.0
-offset_right = 141.0
-offset_bottom = 616.0
-text = "Player Speed"
-
-[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
-[connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
-[connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
-[connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]

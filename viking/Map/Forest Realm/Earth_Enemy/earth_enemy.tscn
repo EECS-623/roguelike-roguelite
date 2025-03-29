@@ -1,9 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7h0deb2nh5ms"]
+[gd_scene load_steps=17 format=3 uid="uid://bdrr5aconr86f"]
 
-[ext_resource type="PackedScene" path="res://Entity/Entity.tscn" id="1_41vr3"]
-[ext_resource type="Script" path="res://Map/Forest Realm/Earth_Enemy/earth_enemy.gd" id="1_dptkm"]
-[ext_resource type="PackedScene" uid="uid://d18f15ue1xx1q" path="res://Entities/Player/Magic_Bullet/Bullet.tscn" id="3_75iqb"]
-[ext_resource type="PackedScene" uid="uid://cp2dhtx7e18jc" path="res://Entities/Enemy_Bullet/enemy_bullet.tscn" id="4_q1lfu"]
 [ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entities/Player/Player Assets/Back 1 (Right Step).png" id="5_4yfad"]
 [ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entities/Player/Player Assets/Forward 1 (Right Step).png" id="5_6iosg"]
 [ext_resource type="Texture2D" uid="uid://bya4g81gakfw2" path="res://Entities/Player/Player Assets/Side 1 (Right Step).png" id="5_qhaib"]
@@ -13,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dbw0267l1d2od" path="res://Entities/Player/Player Assets/Forward 3 (Left Step).png" id="7_1f85m"]
 [ext_resource type="Texture2D" uid="uid://dftwiobv3slwc" path="res://Entities/Player/Player Assets/Back 3 (Left Step).png" id="7_gcayg"]
 [ext_resource type="Texture2D" uid="uid://b6yj55s85d85g" path="res://Entities/Player/Player Assets/Side 3 (Left Step).png" id="7_ixlj5"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="10_0sq5a"]
+[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="11_syhyh"]
+[ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="12_ay8cs"]
+[ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="13_aricp"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ei8k1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_d63hs"]
 animations = [{
 "frames": [],
 "loop": true,
@@ -23,79 +23,88 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_6iosg")
+"texture": ExtResource("6_ku6wh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1f85m")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_ku6wh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_1f85m")
+"texture": ExtResource("5_6iosg")
 }],
 "loop": true,
-"name": &"move_down",
+"name": &"walk_down",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_qhaib")
-}, {
 "duration": 1.0,
 "texture": ExtResource("6_8crc7")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_ixlj5")
-}],
-"loop": true,
-"name": &"move_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_qhaib")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_8crc7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ixlj5")
+"texture": ExtResource("5_qhaib")
 }],
 "loop": true,
-"name": &"move_right",
+"name": &"walk_right",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_4yfad")
-}, {
 "duration": 1.0,
 "texture": ExtResource("6_05g60")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_gcayg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_05g60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4yfad")
 }],
 "loop": true,
-"name": &"move_up",
+"name": &"walk_up",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0btf"]
-radius = 38.0
-height = 154.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_okmk3"]
 
-[node name="Enemy" instance=ExtResource("1_41vr3")]
-script = ExtResource("1_dptkm")
-player_bullet = ExtResource("3_75iqb")
-enemy_bullet = ExtResource("4_q1lfu")
-SPEED = 300.0
-speed = 1.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ylsnw"]
+radius = 50.0
+height = 166.0
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(-0.999954, -1.00005)
-scale = Vector2(0.0259028, 0.0259028)
-sprite_frames = SubResource("SpriteFrames_ei8k1")
-animation = &"move_left"
+[node name="EarthEnemy" type="CharacterBody2D"]
 
-[node name="Hurtbox#CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0283334, 0.0283334)
+sprite_frames = SubResource("SpriteFrames_d63hs")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_l0btf")
+shape = SubResource("CircleShape2D_okmk3")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
+script = ExtResource("10_0sq5a")
+health_component = NodePath("../HealthComponent")
+owner_node = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_ylsnw")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("11_syhyh")
+max_health = 100.0
+
+[node name="SpeedComponent" type="Node" parent="."]
+script = ExtResource("12_ay8cs")
+
+[node name="PhysicalDamageComponent" type="Node" parent="."]
+script = ExtResource("13_aricp")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
-@export var player_bullet: PackedScene = preload("res://Entity/Player/Magic_Bullet/Bullet.tscn")
+@export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 #@export var SPEED : float = 300.0
 const MAX_HEALTH = 100
 #@onready var animation_tree = $AnimationTree
