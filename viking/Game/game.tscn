@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://cboqaevo7vhdk"]
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_w3vfj"]
-[ext_resource type="PackedScene" uid="uid://bnbvdd5rvgkcn" path="res://Entities/Player/player.tscn" id="2_7mlxg"]
+[ext_resource type="PackedScene" uid="uid://b84gwfae2li4r" path="res://Entities/Player/player.tscn" id="2_oepl8"]
 [ext_resource type="PackedScene" uid="uid://5mwxhpnm647w" path="res://Map/Valhalla/home.tscn" id="3_ks2sj"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_w3vfj")
-player = ExtResource("2_7mlxg")
+player = ExtResource("2_oepl8")
 
 [node name="Home" parent="." instance=ExtResource("3_ks2sj")]

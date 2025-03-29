@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=24 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="2_m7ndx"]
 [ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entities/Player/Player Assets/Forward 1 (Right Step).png" id="4_ssb34"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="17_a22r0"]
 [ext_resource type="Script" path="res://Components/ManaComponent/mana_component.gd" id="18_6hj8y"]
 [ext_resource type="Script" path="res://Components/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
+[ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="19_ve36l"]
 [ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
 [ext_resource type="Script" path="res://Components/LuckComponent/luck_component.gd" id="21_mbuf2"]
 
@@ -35,7 +36,7 @@ animations = [{
 "texture": ExtResource("4_ssb34")
 }],
 "loop": true,
-"name": &"walk_down",
+"name": &"move_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -52,7 +53,7 @@ animations = [{
 "texture": ExtResource("7_xpv6f")
 }],
 "loop": true,
-"name": &"walk_right",
+"name": &"move_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -69,7 +70,7 @@ animations = [{
 "texture": ExtResource("10_hnhwo")
 }],
 "loop": true,
-"name": &"walk_up",
+"name": &"move_up",
 "speed": 5.0
 }]
 
@@ -84,14 +85,14 @@ height = 82.0
 radius = 15.0
 height = 94.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player2" type="CharacterBody2D"]
 script = ExtResource("2_m7ndx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.43751, -0.56249)
 scale = Vector2(0.0156771, 0.0156771)
 sprite_frames = SubResource("SpriteFrames_yot1s")
-animation = &"walk_right"
+animation = &"move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -129,3 +130,63 @@ script = ExtResource("20_hmsjh")
 
 [node name="LuckComponent" type="Node" parent="."]
 script = ExtResource("21_mbuf2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HealthBarLabel" type="Label" parent="."]
+offset_left = -750.0
+offset_top = -1207.55
+offset_right = 750.0
+offset_bottom = -905.547
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -700.0
+offset_top = -1433.96
+offset_right = 650.0
+offset_bottom = -1207.96
+theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
+step = 1.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("19_ve36l")
+
+[node name="Relics" type="TextEdit" parent="CanvasLayer"]
+offset_left = 986.0
+offset_top = 577.0
+offset_right = 1080.0
+offset_bottom = 610.0
+
+[node name="Mana" type="TextEdit" parent="CanvasLayer"]
+offset_left = 985.0
+offset_top = 533.0
+offset_right = 1079.0
+offset_bottom = 565.0
+
+[node name="Bullet_Speed" type="Button" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 512.0
+offset_right = 142.0
+offset_bottom = 561.0
+text = "Bullet Speed"
+
+[node name="Health" type="Button" parent="CanvasLayer"]
+offset_left = 17.0
+offset_top = 464.0
+offset_right = 143.0
+offset_bottom = 506.0
+text = "Health"
+
+[node name="Speed" type="Button" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 567.0
+offset_right = 141.0
+offset_bottom = 616.0
+text = "Player Speed"
+
+[connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
+[connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
+[connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]

@@ -36,12 +36,12 @@ func _physics_process(_delta):
 	var up = "move_up"
 	var down = "move_down"
 	if direction.x < 0:
-		_animated_sprite.flip_h = false
+		_animated_sprite.flip_h = true
 		velocity = direction * Global.player_speed
 		_animated_sprite.play(current)
 		
 	elif direction.x > 0:
-		_animated_sprite.flip_h = true
+		_animated_sprite.flip_h = false
 		velocity = direction * Global.player_speed
 		_animated_sprite.play(current)
 		
