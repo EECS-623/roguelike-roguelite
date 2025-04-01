@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpa6n8p28kfjl"
-path="res://.godot/imported/snek.png-a63a8c9228c7d2b5f2a8cc4841036e22.ctex"
+uid="uid://bbim1w7t6ygpa"
+path="res://.godot/imported/Facing_Back_Body_Weak_Point.png-a0c3e6f4d19c82f163d4a279a28e84cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/snek.png"
-dest_files=["res://.godot/imported/snek.png-a63a8c9228c7d2b5f2a8cc4841036e22.ctex"]
+source_file="res://Assets/Snake_Boss/Facing_Back_Body_Weak_Point.png"
+dest_files=["res://.godot/imported/Facing_Back_Body_Weak_Point.png-a0c3e6f4d19c82f163d4a279a28e84cf.ctex"]
 
 [params]
 

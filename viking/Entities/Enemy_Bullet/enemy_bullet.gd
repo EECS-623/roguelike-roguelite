@@ -5,6 +5,7 @@ var direction: Vector2
 func _ready():
 	# Normalize direction to ensure consistent speed
 	add_to_group("enemy_bullet")
+	add_to_group("enemy")
 	direction = direction.normalized()
 func _process(delta):
 	position += direction * speed * delta

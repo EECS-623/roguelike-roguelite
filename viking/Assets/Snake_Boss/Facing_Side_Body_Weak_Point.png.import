@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgadk8yofry2g"
-path="res://.godot/imported/snake spritesheet.png-8f36d7b8c1889ee8984c4f52bbdda855.ctex"
+uid="uid://bhdu58kqkrlxb"
+path="res://.godot/imported/Facing_Side_Body_Weak_Point.png-084f4f01b0441d0fc13bdf0bc32d656a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/snake spritesheet.png"
-dest_files=["res://.godot/imported/snake spritesheet.png-8f36d7b8c1889ee8984c4f52bbdda855.ctex"]
+source_file="res://Assets/Snake_Boss/Facing_Side_Body_Weak_Point.png"
+dest_files=["res://.godot/imported/Facing_Side_Body_Weak_Point.png-084f4f01b0441d0fc13bdf0bc32d656a.ctex"]
 
 [params]
 

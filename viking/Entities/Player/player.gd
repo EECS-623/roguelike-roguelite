@@ -10,7 +10,7 @@ var direction : Vector2 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#animation_tree.active = true
-	add_to_group("Player")
+	add_to_group("player")
 	set_health_label()
 	$HealthBar.max_value = MAX_HEALTH
 	pass

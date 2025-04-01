@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d18f15ue1xx1q"]
+[gd_scene load_steps=6 format=3 uid="uid://d18f15ue1xx1q"]
 
 [ext_resource type="Script" path="res://Entities/Player/Magic_Bullet/bullet.gd" id="1_4pt6f"]
 [ext_resource type="Texture2D" uid="uid://vhlcg5jucnex" path="res://Assets/Art/bolt.png" id="1_ycu1d"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_gpcm2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rg2j0"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdk0q"]
 radius = 8.0
 
 [node name="Bullet" type="Area2D"]
@@ -11,6 +15,13 @@ script = ExtResource("1_4pt6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rg2j0")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_gpcm2")
+damage = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_pdk0q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2.38419e-07)
