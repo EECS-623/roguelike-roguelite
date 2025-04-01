@@ -82,7 +82,7 @@ animations = [{
 radius = 38.0
 height = 154.0
 
-[node name="Enemy" instance=ExtResource("1_41vr3")]
+[node name="EarthEnemy" instance=ExtResource("1_41vr3")]
 script = ExtResource("1_dptkm")
 player_bullet = ExtResource("3_75iqb")
 enemy_bullet = ExtResource("4_q1lfu")

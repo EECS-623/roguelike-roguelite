@@ -27,12 +27,15 @@ shape = SubResource("CapsuleShape2D_v4a5r")
 
 [node name="HealthComponent" type="Node" parent="." index="3"]
 script = ExtResource("3_3nryv")
+max_health = 100.0
 
 [node name="PhysicalDamageComponent" type="Node" parent="." index="4"]
 script = ExtResource("4_ik856")
+physical_damage = 10.0
 
 [node name="SpeedComponent" type="Node" parent="." index="5"]
 script = ExtResource("6_ir80g")
 
 [node name="MagicDamageComponent" type="Node" parent="." index="6"]
 script = ExtResource("7_kaxsl")
+magic_damage = 10.0
