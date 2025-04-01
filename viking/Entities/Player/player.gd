@@ -1,8 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var state_machine : PlayerStateMachine = $PlayerStateMachine
 
 #@export var SPEED : float = 300.0
 #@onready var animation_tree = $AnimationTree
@@ -16,20 +18,22 @@ func _ready():
 	add_to_group("player")
 	set_health_label()
 	$HealthBar.max_value = $HealthComponent.max_health
+	state_machine.initialize(self)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta):
-	if Input.is_action_pressed("map"):
-		for enemy in get_tree().get_nodes_in_group("enemies"):
-			enemy.queue_free()
+	#if Input.is_action_pressed("map"):
+		#for enemy in get_tree().get_nodes_in_group("enemies"):
+			#enemy.queue_free()
 
-		get_tree().change_scene_to_file("res://Map/map.tscn")
+		#get_tree().change_scene_to_file("res://Map/map.tscn")
 	set_health_bar()
 	
-	if set_state() == true || set_direction() == true:
-		update_animation()
+	#if set_state() == true || set_direction() == true:
+		#update_animation()
+	#	pass
 
 func _unhandled_input(event):
 	#if event is InputEventMouseButton and event.pressed:
@@ -91,6 +95,7 @@ func _on_health_component_death() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
 
+
 func set_direction() -> bool:
 	var new_direction : Vector2 = cardinal_direction
 	if direction == Vector2.ZERO:
@@ -109,14 +114,14 @@ func set_direction() -> bool:
 		
 	return true
 	
-func set_state() -> bool:
-	var new_state : String = "idle" if direction == Vector2.ZERO else "move"
-	if new_state == state:
-		return false
-	state = new_state
-	return true
+#func set_state() -> bool:
+#	var new_state : String = "idle" if direction == Vector2.ZERO else "move"
+#	if new_state == state:
+#		return false
+#	state = new_state
+#	return true
 
-func update_animation() -> void:
+func update_animation( state: String ) -> void:
 	animation_player.play( state + "_" + animation_direction())
 	
 func animation_direction() -> String:
