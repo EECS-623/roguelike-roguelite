@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://c05fvwy7ksuig"]
+
+[ext_resource type="Texture2D" uid="uid://d1msbis8pseg" path="res://Assets/Snake_Boss/Facing_Back_Body.png" id="1_hn1y5"]
+[ext_resource type="Texture2D" uid="uid://jropj53d1ars" path="res://Assets/Snake_Boss/Facing_Front_Body.png" id="2_mrukm"]
+[ext_resource type="Texture2D" uid="uid://bu0xoibp2bxj6" path="res://Assets/Snake_Boss/Facing_Side_Body.png" id="3_721e3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkt8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hn1y5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4amx"]
+radius = 321.686
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kl86q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mrukm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5oih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_721e3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7hh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_721e3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SnakeBody" type="Node2D"]
+position = Vector2(-9, 24)
+scale = Vector2(0.25, 0.25)
+
+[node name="Up" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Up"]
+position = Vector2(-10, 17)
+sprite_frames = SubResource("SpriteFrames_wkt8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource("CircleShape2D_w4amx")
+
+[node name="Down" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Down"]
+position = Vector2(-13, 22)
+sprite_frames = SubResource("SpriteFrames_kl86q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+shape = SubResource("CircleShape2D_w4amx")
+
+[node name="Left" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Left"]
+position = Vector2(-10, 17)
+sprite_frames = SubResource("SpriteFrames_s5oih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("CircleShape2D_w4amx")
+
+[node name="Right" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Right"]
+position = Vector2(8, 14)
+scale = Vector2(-1.0099, 1)
+sprite_frames = SubResource("SpriteFrames_j7hh3")
+frame_progress = 0.0762387
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("CircleShape2D_w4amx")

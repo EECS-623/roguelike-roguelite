@@ -1,0 +1,191 @@
+[gd_scene load_steps=16 format=3 uid="uid://b2n032802ftbq"]
+
+[ext_resource type="Texture2D" uid="uid://dphqy0mriqs36" path="res://Assets/Snake_Boss/Facing_Front_Head.png" id="1_cr7o0"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_pt3cl"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_64efr"]
+[ext_resource type="Texture2D" uid="uid://ddgg0ho3w4df7" path="res://Assets/Snake_Boss/Facing_Back_Head.png" id="4_pexph"]
+[ext_resource type="Texture2D" uid="uid://c6khkjfy4bji5" path="res://Assets/Snake_Boss/Facing_Side_Head.png" id="5_pbom4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jdid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cr7o0")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_niaqo"]
+radius = 395.049
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ba6rt"]
+radius = 402.855
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmhg5"]
+radius = 150.01
+height = 523.819
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giugf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pexph")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvobl"]
+radius = 150.01
+height = 523.819
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khww3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pbom4")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n2yv6"]
+radius = 206.811
+height = 580.331
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmlcv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pbom4")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr4o3"]
+radius = 206.811
+height = 580.331
+
+[node name="SnakeHead" type="Node2D"]
+scale = Vector2(0.27, 0.27)
+
+[node name="Down" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Down"]
+sprite_frames = SubResource("SpriteFrames_5jdid")
+animation = &"Down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Down"]
+script = ExtResource("2_pt3cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hurtbox"]
+position = Vector2(1, 11)
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Down"]
+script = ExtResource("3_64efr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hitbox"]
+position = Vector2(0.999998, 434)
+rotation = -1.56874
+shape = SubResource("CapsuleShape2D_rmhg5")
+
+[node name="Up" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Up"]
+position = Vector2(0, 3.7037)
+sprite_frames = SubResource("SpriteFrames_giugf")
+animation = &"Up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Up"]
+script = ExtResource("2_pt3cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hurtbox"]
+position = Vector2(4.76837e-07, -7.62939e-06)
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Up"]
+script = ExtResource("3_64efr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hitbox"]
+position = Vector2(-3.70371, -507.407)
+rotation = -1.56874
+shape = SubResource("CapsuleShape2D_vvobl")
+
+[node name="Left" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Left"]
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(0.894946, 0.852082)
+sprite_frames = SubResource("SpriteFrames_khww3")
+animation = &"Left"
+frame_progress = 0.344782
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Left"]
+script = ExtResource("2_pt3cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hurtbox"]
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Left"]
+script = ExtResource("3_64efr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hitbox"]
+position = Vector2(-503.704, 92.5926)
+rotation = -0.00944185
+scale = Vector2(-0.752675, 0.910745)
+shape = SubResource("CapsuleShape2D_n2yv6")
+
+[node name="Right" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Right"]
+scale = Vector2(-0.893537, 0.852082)
+sprite_frames = SubResource("SpriteFrames_pmlcv")
+animation = &"Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Right"]
+script = ExtResource("2_pt3cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hurtbox"]
+position = Vector2(4.76837e-07, -7.62939e-06)
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Right"]
+script = ExtResource("3_64efr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hitbox"]
+position = Vector2(500, 100)
+rotation = -0.00944185
+scale = Vector2(-0.752675, 0.910745)
+shape = SubResource("CapsuleShape2D_qr4o3")
+
+[node name="Debug" type="Label" parent="."]
+offset_left = -188.889
+offset_top = -622.222
+offset_right = -139.889
+offset_bottom = -599.222
+scale = Vector2(8.4127, 8.27474)
+text = "debug
+"

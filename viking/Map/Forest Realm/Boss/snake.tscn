@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvsui47imvexk"]
+
+[ext_resource type="Script" path="res://Map/Forest Realm/Boss/snake.gd" id="1_6wu6k"]
+[ext_resource type="PackedScene" uid="uid://b2n032802ftbq" path="res://Map/Forest Realm/Boss/snake_head.tscn" id="1_cbfv1"]
+[ext_resource type="PackedScene" uid="uid://c05fvwy7ksuig" path="res://Map/Forest Realm/Boss/snake_body.tscn" id="2_e54cl"]
+[ext_resource type="PackedScene" uid="uid://bqqg3iwdybciq" path="res://Map/Forest Realm/Boss/snake_body_weak.tscn" id="3_7kirh"]
+[ext_resource type="PackedScene" uid="uid://e84m2o2ivpxt" path="res://Map/Forest Realm/Boss/snake_tail.tscn" id="4_25ry5"]
+
+[node name="Snake" type="Node2D" node_paths=PackedStringArray("move_timer", "venom_timer")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_6wu6k")
+s_head = ExtResource("1_cbfv1")
+s_body = ExtResource("2_e54cl")
+s_weak_body = ExtResource("3_7kirh")
+s_tail = ExtResource("4_25ry5")
+move_timer = NodePath("MoveTimer")
+venom_timer = NodePath("VenomTimer")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.211
+
+[node name="VenomTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MoveTimer" to="." method="_snake_move"]
