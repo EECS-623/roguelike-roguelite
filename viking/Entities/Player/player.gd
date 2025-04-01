@@ -45,7 +45,7 @@ func _physics_process(_delta):
 	#direction.y = Input.get_action_strength("")
 	direction = Input.get_vector("left", "right", "up", "down").normalized()
 	
-	velocity = direction * $SpeedComponent.get_speed()
+	#velocity = direction * $SpeedComponent.get_speed()
 	#var right = "move_right"
 	#var up = "move_up"
 	#var down = "move_down"

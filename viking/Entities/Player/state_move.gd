@@ -2,6 +2,7 @@ class_name StateMove extends State
 
 @export var speed_component : SpeedComponent
 @onready var idle : State = $"../StateIdle"
+@onready var melee_attack : State = $"../StateMeleeAttack"
 
 # what happens when the entity enters a state
 func enter() -> void:
@@ -28,4 +29,6 @@ func state_physics_process(delta: float) -> State:
 
 # what happens when obtaining an input in this state
 func handle_input(_event : InputEvent) -> State:
+	if _event is InputEventMouseButton and _event.pressed:
+		return melee_attack
 	return null
