@@ -58,15 +58,16 @@ func _process(_delta):
 		global_position += velocity
 		var num = randi_range(1,300)
 		if num < 4 and in_aggro_range:
-			shoot()
+			#shoot()
+			pass
 		
 
-func shoot():
-	var bullet = enemy_bullet.instantiate()
-	get_tree().current_scene.add_child(bullet)
+#func shoot():
+	#var bullet = enemy_bullet.instantiate()
+	#get_tree().current_scene.add_child(bullet)
 	
-	bullet.position = global_position
-	bullet.direction = (player.global_position - global_position).normalized()
+	#bullet.position = global_position
+	#bullet.direction = (player.global_position - global_position).normalized()
 
 '''
 func _on_hurtbox_area_entered(area: Area2D) -> void:

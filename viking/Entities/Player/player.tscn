@@ -15,8 +15,8 @@
 [ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="16_ulyav"]
 [ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="17_a22r0"]
 [ext_resource type="Script" path="res://Components/ManaComponent/mana_component.gd" id="18_6hj8y"]
+[ext_resource type="Script" path="res://Entities/Player/canvas_layer.gd" id="19_4ip0g"]
 [ext_resource type="Script" path="res://Components/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
-[ext_resource type="Script" path="res://Entity/Player/canvas_layer.gd" id="19_ve36l"]
 [ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
 [ext_resource type="Script" path="res://Components/LuckComponent/luck_component.gd" id="21_mbuf2"]
 
@@ -97,14 +97,18 @@ animation = &"move_up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rk0fa")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
 script = ExtResource("14_dxqrv")
+health_component = NodePath("../HealthComponent")
+owner_node = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-1, 3)
 shape = SubResource("CapsuleShape2D_77rnh")
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("5_6and8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -113,6 +117,7 @@ shape = SubResource("CapsuleShape2D_341yo")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("16_ulyav")
+max_health = 100.0
 
 [node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("17_a22r0")
@@ -150,7 +155,7 @@ value = 100.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("19_ve36l")
+script = ExtResource("19_4ip0g")
 
 [node name="Relics" type="TextEdit" parent="CanvasLayer"]
 offset_left = 986.0

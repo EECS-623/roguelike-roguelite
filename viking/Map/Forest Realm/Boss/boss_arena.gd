@@ -1,5 +1,5 @@
 extends Node2D
-@export var s_player: PackedScene = preload("res://Entity/Player/player.tscn")
+@export var s_player: PackedScene = preload("res://Entities/Player/player.tscn")
 @export var s_snake: PackedScene 
 
 

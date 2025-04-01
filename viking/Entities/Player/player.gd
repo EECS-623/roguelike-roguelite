@@ -25,8 +25,9 @@ func _process(_delta):
 	set_health_bar()
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		shoot()
+	#if event is InputEventMouseButton and event.pressed:
+		#shoot()
+	pass
 		
 func _physics_process(_delta):
 
@@ -61,12 +62,12 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
-func shoot():
-	var bullet = player_bullet.instantiate()
-	get_tree().current_scene.add_child(bullet)
+#func shoot():
+	#var bullet = player_bullet.instantiate()
+	#get_tree().current_scene.add_child(bullet)
 	
-	bullet.position = global_position
-	bullet.direction = (get_global_mouse_position() - global_position).normalized()
+	#bullet.position = global_position
+	#bullet.direction = (get_global_mouse_position() - global_position).normalized()
 
 func _perform_melee_attack():
 	print("attack")

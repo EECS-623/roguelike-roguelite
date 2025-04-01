@@ -74,7 +74,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_okmk3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gpr6"]
+radius = 43.0
+height = 168.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ylsnw"]
 radius = 50.0
@@ -89,16 +91,17 @@ sprite_frames = SubResource("SpriteFrames_d63hs")
 animation = &"move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_okmk3")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_0gpr6")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
+visible = false
 script = ExtResource("10_0sq5a")
 health_component = NodePath("../HealthComponent")
 owner_node = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 4)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_ylsnw")
 
 [node name="HealthComponent" type="Node" parent="."]
@@ -111,5 +114,4 @@ script = ExtResource("12_ay8cs")
 [node name="PhysicalDamageComponent" type="Node" parent="."]
 script = ExtResource("13_aricp")
 
-[connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
