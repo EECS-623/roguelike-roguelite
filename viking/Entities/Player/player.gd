@@ -7,6 +7,7 @@ extends CharacterBody2D
 #@export var SPEED : float = 300.0
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
+var cardinal_direction: Vector2 = Vector2.ZERO
 var state = "idle"
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +28,8 @@ func _process(_delta):
 		get_tree().change_scene_to_file("res://Map/map.tscn")
 	set_health_bar()
 	
-	update_animation()
+	if set_state() == true || set_direction() == true:
+		update_animation()
 
 func _unhandled_input(event):
 	#if event is InputEventMouseButton and event.pressed:
@@ -35,36 +37,38 @@ func _unhandled_input(event):
 	pass
 		
 func _physics_process(_delta):
-
-	direction = Input.get_vector("left", "right","up","down").normalized()
-	var right = "move_right"
-	var up = "move_up"
-	var down = "move_down"
-	var left = "move_left"
-	if direction.x < 0:
-		velocity = direction * $SpeedComponent.get_speed()
-		_animated_sprite.play(left)
+	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	#direction.y = Input.get_action_strength("")
+	direction = Input.get_vector("left", "right", "up", "down").normalized()
+	
+	velocity = direction * $SpeedComponent.get_speed()
+	#var right = "move_right"
+	#var up = "move_up"
+	#var down = "move_down"
+	#var left = "move_left"
+	#if direction.x < 0:
+		#velocity = direction * $SpeedComponent.get_speed()
+		#_animated_sprite.play(left)
 		
-	elif direction.x > 0:
-		_animated_sprite.flip_h = false
-		velocity = direction * $SpeedComponent.get_speed()
-		_animated_sprite.play(right)
+	#elif direction.x > 0:
+	#	_animated_sprite.flip_h = false
+	#	velocity = direction * $SpeedComponent.get_speed()
+	#	_animated_sprite.play(right)
 		
-	elif direction.y <0:
-		_animated_sprite.flip_h = false
-		velocity = direction * $SpeedComponent.get_speed()
-		_animated_sprite.play(up)
+	#elif direction.y <0:
+	#	_animated_sprite.flip_h = false
+	#	velocity = direction * $SpeedComponent.get_speed()
+	#	_animated_sprite.play(up)
 		
-	elif direction.y >0:
-		_animated_sprite.flip_h = false
-		velocity = direction * $SpeedComponent.get_speed()
-		_animated_sprite.play(down)
+	#elif direction.y >0:
+	#	_animated_sprite.flip_h = false
+	#	velocity = direction * $SpeedComponent.get_speed()
+	#	_animated_sprite.play(down)
 		
-	else:
-		velocity = Vector2.ZERO
-		_animated_sprite.frame = 1
-		_animated_sprite.stop()
-
+	#else:
+	#	velocity = Vector2.ZERO
+	#	_animated_sprite.frame = 1
+	#	_animated_sprite.stop()
 	move_and_slide()
 
 #func shoot():
@@ -87,21 +91,40 @@ func _on_health_component_death() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
 
-func set_direction() -> void:
-	pass
+func set_direction() -> bool:
+	var new_direction : Vector2 = cardinal_direction
+	if direction == Vector2.ZERO:
+		return false
+
+	if direction.y == 0:
+		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+		
+	elif direction.x == 0:
+		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
+
+	if new_direction == cardinal_direction:
+		return false
 	
-func set_state() -> void:
-	pass
+	cardinal_direction = new_direction
+		
+	return true
+	
+func set_state() -> bool:
+	var new_state : String = "idle" if direction == Vector2.ZERO else "move"
+	if new_state == state:
+		return false
+	state = new_state
+	return true
 
 func update_animation() -> void:
 	animation_player.play( state + "_" + animation_direction())
 	
 func animation_direction() -> String:
-	if direction == Vector2.DOWN:
+	if cardinal_direction == Vector2.DOWN:
 		return "down"
-	elif direction == Vector2.UP:
+	elif cardinal_direction == Vector2.UP:
 		return "up"
-	elif direction == Vector2.LEFT:
+	elif cardinal_direction == Vector2.LEFT:
 		return "left"
 	else:
 		return "right"
