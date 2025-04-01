@@ -88,7 +88,7 @@ script = ExtResource("1_dptkm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0283334, 0.0283334)
 sprite_frames = SubResource("SpriteFrames_d63hs")
-animation = &"move_up"
+animation = &"move_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -110,6 +110,7 @@ max_health = 100.0
 
 [node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("12_ay8cs")
+speed = 300.0
 
 [node name="PhysicalDamageComponent" type="Node" parent="."]
 script = ExtResource("13_aricp")

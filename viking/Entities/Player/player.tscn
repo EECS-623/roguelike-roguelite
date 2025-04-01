@@ -121,18 +121,23 @@ max_health = 100.0
 
 [node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("17_a22r0")
+speed = 100.0
 
 [node name="MagicDamageComponent" type="Node" parent="."]
 script = ExtResource("19_rymoq")
+magic_damage = 100.0
 
 [node name="ManaComponent" type="Node" parent="."]
 script = ExtResource("18_6hj8y")
+max_mana = 100.0
 
 [node name="PhysicalDamageComponent" type="Node" parent="."]
 script = ExtResource("20_hmsjh")
+physical_damage = 100.0
 
 [node name="LuckComponent" type="Node" parent="."]
 script = ExtResource("21_mbuf2")
+luck = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

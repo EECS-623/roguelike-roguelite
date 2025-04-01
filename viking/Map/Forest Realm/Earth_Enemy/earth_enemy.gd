@@ -5,12 +5,12 @@ extends CharacterBody2D
  # Go up one level and find "Player"
 @export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 @export var enemy_bullet: PackedScene = preload("res://Entities/Enemy_Bullet/enemy_bullet.tscn")
-@export var SPEED : float = 300.0
+var SPEED : float = 300.0
 
 @export var speed: float = 1
 
 func _ready():
-	pass
+	SPEED = $SpeedComponent.get_speed()
 	
 func _process(_delta):
 	
