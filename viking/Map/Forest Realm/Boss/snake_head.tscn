@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2n032802ftbq"]
+[gd_scene load_steps=13 format=3 uid="uid://b2n032802ftbq"]
 
 [ext_resource type="Texture2D" uid="uid://dphqy0mriqs36" path="res://Assets/Snake_Boss/Facing_Front_Head.png" id="1_cr7o0"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_pt3cl"]
@@ -24,8 +24,8 @@ radius = 395.049
 radius = 402.855
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmhg5"]
-radius = 150.01
-height = 523.819
+radius = 274.218
+height = 822.495
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_giugf"]
 animations = [{
@@ -38,10 +38,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvobl"]
-radius = 150.01
-height = 523.819
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_khww3"]
 animations = [{
 "frames": [{
@@ -53,10 +49,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n2yv6"]
-radius = 206.811
-height = 580.331
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_pmlcv"]
 animations = [{
 "frames": [{
@@ -67,10 +59,6 @@ animations = [{
 "name": &"Right",
 "speed": 5.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr4o3"]
-radius = 206.811
-height = 580.331
 
 [node name="SnakeHead" type="Node2D"]
 scale = Vector2(0.27, 0.27)
@@ -96,12 +84,11 @@ shape = SubResource("CircleShape2D_ba6rt")
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hitbox"]
-position = Vector2(0.999998, 434)
+position = Vector2(3.7037, 503.704)
 rotation = -1.56874
 shape = SubResource("CapsuleShape2D_rmhg5")
 
 [node name="Up" type="CharacterBody2D" parent="."]
-visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Up"]
 position = Vector2(0, 3.7037)
@@ -122,12 +109,11 @@ shape = SubResource("CircleShape2D_ba6rt")
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hitbox"]
-position = Vector2(-3.70371, -507.407)
+position = Vector2(3.7037, -555.556)
 rotation = -1.56874
-shape = SubResource("CapsuleShape2D_vvobl")
+shape = SubResource("CapsuleShape2D_rmhg5")
 
 [node name="Left" type="CharacterBody2D" parent="."]
-visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Left"]
 position = Vector2(0, -7.62939e-06)
@@ -149,13 +135,11 @@ shape = SubResource("CircleShape2D_ba6rt")
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hitbox"]
-position = Vector2(-503.704, 92.5926)
-rotation = -0.00944185
-scale = Vector2(-0.752675, 0.910745)
-shape = SubResource("CapsuleShape2D_n2yv6")
+position = Vector2(-518.518, 29.6295)
+rotation = -3.14059
+shape = SubResource("CapsuleShape2D_rmhg5")
 
 [node name="Right" type="CharacterBody2D" parent="."]
-visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Right"]
 scale = Vector2(-0.893537, 0.852082)
@@ -176,16 +160,11 @@ shape = SubResource("CircleShape2D_ba6rt")
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hitbox"]
-position = Vector2(500, 100)
-rotation = -0.00944185
-scale = Vector2(-0.752675, 0.910745)
-shape = SubResource("CapsuleShape2D_qr4o3")
+position = Vector2(544.444, 51.8517)
+rotation = -3.13971
+shape = SubResource("CapsuleShape2D_rmhg5")
 
-[node name="Debug" type="Label" parent="."]
-offset_left = -188.889
-offset_top = -622.222
-offset_right = -139.889
-offset_bottom = -599.222
-scale = Vector2(8.4127, 8.27474)
-text = "debug
-"
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Right/Hitbox"]
+position = Vector2(544.444, 51.8517)
+rotation = -3.13971
+shape = SubResource("CapsuleShape2D_rmhg5")

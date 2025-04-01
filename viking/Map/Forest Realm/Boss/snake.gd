@@ -7,22 +7,33 @@ extends Node2D
 
 @export var move_timer: Timer
 @export var venom_timer: Timer
+@export var bite_timer: Timer
+
 
 var snake: Array = []
 var direction = Vector2.LEFT
 
 # Starting position
 var start_pos: Vector2 = Vector2(500, 500)  
-var segment_size: int = 100  
+var segment_size = 100  
 var snake_size = 10
 
-var can_move: bool = true
+var can_move = true
+var can_bite = true
+var can_spit = false
 
 
 func _ready() -> void:
 	# Connect the move timer signal
-	move_timer.start()  # Start the move timer
 	spawn_snake()
+	
+	for part in snake:
+		if part.name == "SnakeHead" or part.name == "SnakeBodyWeak":
+			for snake_dir in part.get_children():
+				var hurtbox = snake_dir.get_node_or_null("Hurtbox")
+				if hurtbox:
+					hurtbox.health_component = $HealthComponent
+
 	
 func _snake_move():
 	if can_move:
@@ -39,6 +50,8 @@ func _snake_move():
 		snake[0].set_meta("direction", direction)
 		update_direction(snake[0], direction)
 		z_indexing()
+		#enter_rage_mode()
+		print($HealthComponent.max_health)
 
 func update_direction(segment, new_direction):
 	# Here we assume each segment has a `direction` property and the sprite nodes are named for the directions
@@ -99,14 +112,13 @@ func spawn_snake():
 
 func chase_player(player_position: Vector2):
 	var direction_to_player = player_position - snake[0].global_position
-	snake[0].get_node("Debug").text = "Rahhhhhh"
-
 	
 	# If the snake is very close, stop moving
-	if direction_to_player.length() < segment_size:
-		can_move = false
-	else:
-		can_move = true
+	if direction_to_player.length() < segment_size and can_bite:
+		bite_attack()
+	
+	if direction_to_player.length() >= 300 and can_spit:
+		spit_attack()
 
 	var rand_dir = randi() % 16
 	if rand_dir == 0:
@@ -123,57 +135,56 @@ func chase_player(player_position: Vector2):
 		else:
 			direction = Vector2.DOWN if direction_to_player.y > 0 else Vector2.UP
 
-func chase_player1(player_position: Vector2):
-	var direction_to_player = player_position - snake[0].global_position
-	snake[0].get_node("Debug").text = "Rahhhhhh"
-
-	# If the snake is very close, stop moving
-	if direction_to_player.length() < segment_size:
-		can_move = false
-	else:
-		can_move = true
-
-	# Store the current direction to check for backtracking
-	var possible_directions = []
-	
-	# Add valid directions (excluding the opposite direction)
-	if direction != Vector2.RIGHT: possible_directions.append(Vector2.LEFT)
-	if direction != Vector2.LEFT: possible_directions.append(Vector2.RIGHT)
-	if direction != Vector2.DOWN: possible_directions.append(Vector2.UP)
-	if direction != Vector2.UP: possible_directions.append(Vector2.DOWN)
-
-	# Remove directions that would collide with the snake's body
-	possible_directions = possible_directions.filter(func(dir):
-		return not is_occupied(snake[0].position + dir * segment_size)
-	)
-
-	# If no valid moves, just continue in the current direction
-	if possible_directions.is_empty():
-		return  
-
-	# Pick the best available direction
-	var new_direction = direction  # Default to current direction
-	if possible_directions.size() == 1:
-		new_direction = possible_directions[0]  # Only one valid move
-	else:
-		# Prioritize moving towards the player
-		var best_direction = possible_directions[0]
-		var best_distance = (snake[0].position + best_direction * segment_size - player_position).length()
-		for dir in possible_directions:
-			var distance = (snake[0].position + dir * segment_size - player_position).length()
-			if distance < best_distance:
-				best_distance = distance
-				best_direction = dir
-		new_direction = best_direction
-	
-	direction = new_direction  # Set the final direction
-
-func is_occupied(pos: Vector2) -> bool:
-	for segment in snake:
-		if segment.position == pos:
-			return true
-	return false
-
+#func chase_player1(player_position: Vector2):
+	#var direction_to_player = player_position - snake[0].global_position
+	#snake[0].get_node("Debug").text = "Rahhhhhh"
+#
+	## If the snake is very close, stop moving
+	#if direction_to_player.length() < segment_size:
+		#can_move = false
+	#else:
+		#can_move = true
+#
+	## Store the current direction to check for backtracking
+	#var possible_directions = []
+	#
+	## Add valid directions (excluding the opposite direction)
+	#if direction != Vector2.RIGHT: possible_directions.append(Vector2.LEFT)
+	#if direction != Vector2.LEFT: possible_directions.append(Vector2.RIGHT)
+	#if direction != Vector2.DOWN: possible_directions.append(Vector2.UP)
+	#if direction != Vector2.UP: possible_directions.append(Vector2.DOWN)
+#
+	## Remove directions that would collide with the snake's body
+	#possible_directions = possible_directions.filter(func(dir):
+		#return not is_occupied(snake[0].position + dir * segment_size)
+	#)
+#
+	## If no valid moves, just continue in the current direction
+	#if possible_directions.is_empty():
+		#return  
+#
+	## Pick the best available direction
+	#var new_direction = direction  # Default to current direction
+	#if possible_directions.size() == 1:
+		#new_direction = possible_directions[0]  # Only one valid move
+	#else:
+		## Prioritize moving towards the player
+		#var best_direction = possible_directions[0]
+		#var best_distance = (snake[0].position + best_direction * segment_size - player_position).length()
+		#for dir in possible_directions:
+			#var distance = (snake[0].position + dir * segment_size - player_position).length()
+			#if distance < best_distance:
+				#best_distance = distance
+				#best_direction = dir
+		#new_direction = best_direction
+	#
+	#direction = new_direction  # Set the final direction
+#
+#func is_occupied(pos: Vector2) -> bool:
+	#for segment in snake:
+		#if segment.position == pos:
+			#return true
+	#return false
 
 func z_indexing():
 	for i in range(snake.size()):
@@ -183,3 +194,27 @@ func z_indexing():
 		if snake[i].position.y < snake[i + 1].position.y:
 			snake[i].z_index -= 1
 			snake[i + 1].z_index += 1
+
+func bite_attack():
+	can_move = false
+	can_bite = false
+	print("BITE")
+	await get_tree().create_timer(2.0).timeout
+	can_move = true
+	await get_tree().create_timer(2.0).timeout
+	can_bite = true
+
+func spit_attack():
+	can_move = false
+	can_spit = false
+	print("SPIT")
+	await get_tree().create_timer(1.0).timeout
+	can_move = true
+	await get_tree().create_timer(5.0).timeout
+	can_spit = true
+
+func _on_venom_timer_timeout() -> void:
+	can_spit = true
+	
+func enter_rage_mode():
+	$MoveTimer.wait_time = .15
