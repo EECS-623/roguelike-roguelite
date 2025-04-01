@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=26 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="2_m7ndx"]
 [ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entities/Player/Player Assets/Forward 1 (Right Step).png" id="4_ssb34"]
@@ -16,8 +16,10 @@
 [ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="17_a22r0"]
 [ext_resource type="Script" path="res://Components/ManaComponent/mana_component.gd" id="18_6hj8y"]
 [ext_resource type="Script" path="res://Entities/Player/canvas_layer.gd" id="19_4ip0g"]
+[ext_resource type="Script" path="res://Entities/Player/state_machine.gd" id="19_ik3iw"]
 [ext_resource type="Script" path="res://Components/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
 [ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
+[ext_resource type="Script" path="res://Entities/Player/state_attack.gd" id="20_y33jt"]
 [ext_resource type="Script" path="res://Components/LuckComponent/luck_component.gd" id="21_mbuf2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yot1s"]
@@ -138,6 +140,12 @@ physical_damage = 100.0
 [node name="LuckComponent" type="Node" parent="."]
 script = ExtResource("21_mbuf2")
 luck = 10.0
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("19_ik3iw")
+
+[node name="Attack" type="Node2D" parent="StateMachine"]
+script = ExtResource("20_y33jt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
