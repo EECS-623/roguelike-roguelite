@@ -127,7 +127,6 @@ visible = false
 shape = SubResource("CapsuleShape2D_31re3")
 
 [node name="Hurtbox" type="Area2D" parent="." index="2" node_paths=PackedStringArray("health_component")]
-scale = Vector2(1, 1)
 script = ExtResource("14_dxqrv")
 health_component = NodePath("../HealthComponent")
 
@@ -137,7 +136,6 @@ shape = SubResource("CapsuleShape2D_oa2ii")
 
 [node name="Hitbox" type="Area2D" parent="." index="3"]
 visible = false
-scale = Vector2(1, 1)
 script = ExtResource("5_6and8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
@@ -163,7 +161,6 @@ script = ExtResource("18_6hj8y")
 script = ExtResource("21_mbuf2")
 
 [node name="Camera2D" type="Camera2D" parent="." index="10"]
-scale = Vector2(1, 1)
 
 [node name="HealthBarLabel" type="Label" parent="." index="11"]
 offset_left = -750.0

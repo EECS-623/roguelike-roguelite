@@ -1,18 +1,20 @@
 extends Node2D
-@export var player: PackedScene = preload("res://Entity/Player/player.tscn")
-@export var enemy: PackedScene = preload("res://Map/Forest Realm/Boss/snake_boss.tscn")
+@export var s_player: PackedScene = preload("res://Entity/Player/player.tscn")
+@export var s_snake: PackedScene 
 
+
+var player = Node2D
+var snake = Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var my_player = player.instantiate()
-	get_tree().current_scene.add_child(my_player)
-	my_player.position = global_position
+	player = s_player.instantiate()
+	get_tree().current_scene.add_child(player)
 	
-	var the_enemy = enemy.instantiate()
-	get_tree().current_scene.add_child(the_enemy)
-	the_enemy.position = global_position + Vector2(700, 0)
+	snake = s_snake.instantiate()
+	get_tree().current_scene.add_child(snake)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	snake.chase_player(player.global_position)
 	pass
