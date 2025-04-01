@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 #@export var SPEED : float = 300.0
-const MAX_HEALTH = 100
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
 
@@ -12,7 +11,7 @@ func _ready():
 	#animation_tree.active = true
 	add_to_group("player")
 	set_health_label()
-	$HealthBar.max_value = MAX_HEALTH
+	$HealthBar.max_value = $HealthComponent.max_health
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,13 +72,11 @@ func _perform_melee_attack():
 	print("attack")
 
 func set_health_bar() -> void:
-	$HealthBar.value = Global.player_health
-	if $HealthBar.value <= 0:
-		get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
+	$HealthBar.value = $HealthComponent.current_health
 
 func set_health_label() -> void:
-	$HealthBarLabel.text = "Health: %s" % Global.player_health
+	$HealthBarLabel.text = "Health: %s" % $HealthComponent.current_health
 
 func _on_health_component_death() -> void:
-	#change this
-	queue_free()
+	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
+	#queue_free()

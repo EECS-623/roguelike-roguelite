@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdrr5aconr86f"]
+[gd_scene load_steps=18 format=3 uid="uid://b25s54cpxo2o0"]
 
+[ext_resource type="Script" path="res://Map/Forest Realm/Earth_Enemy/earth_enemy.gd" id="1_dptkm"]
 [ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entities/Player/Player Assets/Back 1 (Right Step).png" id="5_4yfad"]
 [ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entities/Player/Player Assets/Forward 1 (Right Step).png" id="5_6iosg"]
 [ext_resource type="Texture2D" uid="uid://bya4g81gakfw2" path="res://Entities/Player/Player Assets/Side 1 (Right Step).png" id="5_qhaib"]
@@ -35,7 +36,7 @@ animations = [{
 "texture": ExtResource("5_6iosg")
 }],
 "loop": true,
-"name": &"walk_down",
+"name": &"move_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -52,7 +53,7 @@ animations = [{
 "texture": ExtResource("5_qhaib")
 }],
 "loop": true,
-"name": &"walk_right",
+"name": &"move_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -69,25 +70,23 @@ animations = [{
 "texture": ExtResource("5_4yfad")
 }],
 "loop": true,
-"name": &"walk_up",
+"name": &"move_up",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_okmk3"]
 
-[node name="EarthEnemy" instance=ExtResource("1_41vr3")]
-script = ExtResource("1_dptkm")
-player_bullet = ExtResource("3_75iqb")
-enemy_bullet = ExtResource("4_q1lfu")
-SPEED = 300.0
-speed = 1.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ylsnw"]
+radius = 50.0
+height = 166.0
 
 [node name="EarthEnemy" type="CharacterBody2D"]
+script = ExtResource("1_dptkm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0283334, 0.0283334)
 sprite_frames = SubResource("SpriteFrames_d63hs")
-animation = &"walk_up"
+animation = &"move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -111,3 +110,6 @@ script = ExtResource("12_ay8cs")
 
 [node name="PhysicalDamageComponent" type="Node" parent="."]
 script = ExtResource("13_aricp")
+
+[connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

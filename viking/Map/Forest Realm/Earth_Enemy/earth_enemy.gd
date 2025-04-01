@@ -68,6 +68,7 @@ func shoot():
 	bullet.position = global_position
 	bullet.direction = (player.global_position - global_position).normalized()
 
+'''
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("player_bullet")):
 		queue_free()
@@ -77,11 +78,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		if Global.earth_enemies_left == 0:
 			Global.relics += 1
 			print("Relics: ")
-			print(Global.relics)
+			print(Global.relics)'''
 
-func take_damage(damage: float):
-	
-	health -= damage
-	if (health <= 0):
-		queue_free()
-		
+func _on_health_component_death() -> void:
+	queue_free()
