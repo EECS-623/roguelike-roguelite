@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+
 #@export var SPEED : float = 300.0
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
+var state = "idle"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +26,8 @@ func _process(_delta):
 
 		get_tree().change_scene_to_file("res://Map/map.tscn")
 	set_health_bar()
+	
+	update_animation()
 
 func _unhandled_input(event):
 	#if event is InputEventMouseButton and event.pressed:
@@ -32,27 +37,27 @@ func _unhandled_input(event):
 func _physics_process(_delta):
 
 	direction = Input.get_vector("left", "right","up","down").normalized()
-	var current = "move_right"
+	var right = "move_right"
 	var up = "move_up"
 	var down = "move_down"
+	var left = "move_left"
 	if direction.x < 0:
-		_animated_sprite.flip_h = true
-		velocity = direction * Global.player_speed
-		_animated_sprite.play(current)
+		velocity = direction * $SpeedComponent.get_speed()
+		_animated_sprite.play(left)
 		
 	elif direction.x > 0:
 		_animated_sprite.flip_h = false
-		velocity = direction * Global.player_speed
-		_animated_sprite.play(current)
+		velocity = direction * $SpeedComponent.get_speed()
+		_animated_sprite.play(right)
 		
 	elif direction.y <0:
 		_animated_sprite.flip_h = false
-		velocity = direction * Global.player_speed
+		velocity = direction * $SpeedComponent.get_speed()
 		_animated_sprite.play(up)
 		
 	elif direction.y >0:
 		_animated_sprite.flip_h = false
-		velocity = direction * Global.player_speed
+		velocity = direction * $SpeedComponent.get_speed()
 		_animated_sprite.play(down)
 		
 	else:
@@ -69,8 +74,8 @@ func _physics_process(_delta):
 	#bullet.position = global_position
 	#bullet.direction = (get_global_mouse_position() - global_position).normalized()
 
-func _perform_melee_attack():
-	print("attack")
+func _perform_melee_attack_right():
+	pass
 
 func set_health_bar() -> void:
 	$HealthBar.value = $HealthComponent.current_health
@@ -81,3 +86,22 @@ func set_health_label() -> void:
 func _on_health_component_death() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
+
+func set_direction() -> void:
+	pass
+	
+func set_state() -> void:
+	pass
+
+func update_animation() -> void:
+	animation_player.play( state + "_" + animation_direction())
+	
+func animation_direction() -> String:
+	if direction == Vector2.DOWN:
+		return "down"
+	elif direction == Vector2.UP:
+		return "up"
+	elif direction == Vector2.LEFT:
+		return "left"
+	else:
+		return "right"

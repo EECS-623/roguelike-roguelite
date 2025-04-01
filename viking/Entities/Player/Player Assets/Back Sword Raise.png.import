@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbw0267l1d2od"
-path="res://.godot/imported/Forward 3 (Left Step).png-4504a644b501de3d29d23f75953fc866.ctex"
+uid="uid://cbff7napedsin"
+path="res://.godot/imported/Back Sword Raise.png-3c89596e3f08d81db0b30495ec8f41dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Player Assets/Forward 3 (Left Step).png"
-dest_files=["res://.godot/imported/Forward 3 (Left Step).png-4504a644b501de3d29d23f75953fc866.ctex"]
+source_file="res://Entities/Player/Player Assets/Back Sword Raise.png"
+dest_files=["res://.godot/imported/Back Sword Raise.png-3c89596e3f08d81db0b30495ec8f41dc.ctex"]
 
 [params]
 

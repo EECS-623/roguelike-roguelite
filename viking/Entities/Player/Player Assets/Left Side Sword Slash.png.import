@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r1oraq47kw3u"
-path="res://.godot/imported/Back 1 (Right Step).png-a9ae10ae8d7b674f1214dc0c3749792c.ctex"
+uid="uid://d4c65nattla50"
+path="res://.godot/imported/Left Side Sword Slash.png-45aa7d270a7c3b5378e5955c37d17cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Player Assets/Back 1 (Right Step).png"
-dest_files=["res://.godot/imported/Back 1 (Right Step).png-a9ae10ae8d7b674f1214dc0c3749792c.ctex"]
+source_file="res://Entities/Player/Player Assets/Left Side Sword Slash.png"
+dest_files=["res://.godot/imported/Left Side Sword Slash.png-45aa7d270a7c3b5378e5955c37d17cac.ctex"]
 
 [params]
 

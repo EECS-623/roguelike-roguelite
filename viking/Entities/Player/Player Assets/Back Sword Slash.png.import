@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xpfpb2lfd6g"
-path="res://.godot/imported/Forward 2 (Standing).png-bcc20bbf24f4deb629ee0ca3281b23c5.ctex"
+uid="uid://c6a82d673lfia"
+path="res://.godot/imported/Back Sword Slash.png-b5fd4a431713c0046d24d0ec04f01ac9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Player Assets/Forward 2 (Standing).png"
-dest_files=["res://.godot/imported/Forward 2 (Standing).png-bcc20bbf24f4deb629ee0ca3281b23c5.ctex"]
+source_file="res://Entities/Player/Player Assets/Back Sword Slash.png"
+dest_files=["res://.godot/imported/Back Sword Slash.png-b5fd4a431713c0046d24d0ec04f01ac9.ctex"]
 
 [params]
 

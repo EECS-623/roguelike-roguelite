@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfhaha4kx02bb"
-path="res://.godot/imported/Side 2 (Standing).png-2506189c9de0dcd1fa969064fcc10736.ctex"
+uid="uid://c0xxl101yx18c"
+path="res://.godot/imported/Front Standing.png-fac687bb96d613bdf776bdbf3837f500.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Player Assets/Side 2 (Standing).png"
-dest_files=["res://.godot/imported/Side 2 (Standing).png-2506189c9de0dcd1fa969064fcc10736.ctex"]
+source_file="res://Entities/Player/Player Assets/Front Standing.png"
+dest_files=["res://.godot/imported/Front Standing.png-fac687bb96d613bdf776bdbf3837f500.ctex"]
 
 [params]
 

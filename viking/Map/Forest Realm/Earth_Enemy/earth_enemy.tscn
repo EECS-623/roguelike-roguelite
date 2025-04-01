@@ -1,19 +1,37 @@
 [gd_scene load_steps=18 format=3 uid="uid://b25s54cpxo2o0"]
 
 [ext_resource type="Script" path="res://Map/Forest Realm/Earth_Enemy/earth_enemy.gd" id="1_dptkm"]
-[ext_resource type="Texture2D" uid="uid://r1oraq47kw3u" path="res://Entities/Player/Player Assets/Back 1 (Right Step).png" id="5_4yfad"]
-[ext_resource type="Texture2D" uid="uid://c3og0wvm6wynw" path="res://Entities/Player/Player Assets/Forward 1 (Right Step).png" id="5_6iosg"]
-[ext_resource type="Texture2D" uid="uid://bya4g81gakfw2" path="res://Entities/Player/Player Assets/Side 1 (Right Step).png" id="5_qhaib"]
-[ext_resource type="Texture2D" uid="uid://bo5qqe500tbwh" path="res://Entities/Player/Player Assets/Back 2 (Standing).png" id="6_05g60"]
-[ext_resource type="Texture2D" uid="uid://cfhaha4kx02bb" path="res://Entities/Player/Player Assets/Side 2 (Standing).png" id="6_8crc7"]
-[ext_resource type="Texture2D" uid="uid://0xpfpb2lfd6g" path="res://Entities/Player/Player Assets/Forward 2 (Standing).png" id="6_ku6wh"]
-[ext_resource type="Texture2D" uid="uid://dbw0267l1d2od" path="res://Entities/Player/Player Assets/Forward 3 (Left Step).png" id="7_1f85m"]
-[ext_resource type="Texture2D" uid="uid://dftwiobv3slwc" path="res://Entities/Player/Player Assets/Back 3 (Left Step).png" id="7_gcayg"]
-[ext_resource type="Texture2D" uid="uid://b6yj55s85d85g" path="res://Entities/Player/Player Assets/Side 3 (Left Step).png" id="7_ixlj5"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="10_0sq5a"]
 [ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="11_syhyh"]
 [ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="12_ay8cs"]
 [ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="13_aricp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hknwo"]
+load_path = "res://.godot/imported/Forward 2 (Standing).png-bcc20bbf24f4deb629ee0ca3281b23c5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pstor"]
+load_path = "res://.godot/imported/Forward 3 (Left Step).png-4504a644b501de3d29d23f75953fc866.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_te18g"]
+load_path = "res://.godot/imported/Forward 1 (Right Step).png-76e8a7f67600f6bd70b745cf77266632.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y3nn1"]
+load_path = "res://.godot/imported/Side 2 (Standing).png-2506189c9de0dcd1fa969064fcc10736.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_emkny"]
+load_path = "res://.godot/imported/Side 3 (Left Step).png-08b3a8b759f3453e0f953fce07d972b5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s1jos"]
+load_path = "res://.godot/imported/Side 1 (Right Step).png-454b91593ee8c5e6f518363402ffe61e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7sq1b"]
+load_path = "res://.godot/imported/Back 2 (Standing).png-e54057055c172117f6e0eb3143cddfd5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okk2o"]
+load_path = "res://.godot/imported/Back 3 (Left Step).png-53b3a375147e3f90e7abc98346e31ef9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mknt7"]
+load_path = "res://.godot/imported/Back 1 (Right Step).png-a9ae10ae8d7b674f1214dc0c3749792c.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d63hs"]
 animations = [{
@@ -24,16 +42,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_ku6wh")
+"texture": SubResource("CompressedTexture2D_hknwo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_1f85m")
+"texture": SubResource("CompressedTexture2D_pstor")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ku6wh")
+"texture": SubResource("CompressedTexture2D_hknwo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_6iosg")
+"texture": SubResource("CompressedTexture2D_te18g")
 }],
 "loop": true,
 "name": &"move_down",
@@ -41,16 +59,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_8crc7")
+"texture": SubResource("CompressedTexture2D_y3nn1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ixlj5")
+"texture": SubResource("CompressedTexture2D_emkny")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_8crc7")
+"texture": SubResource("CompressedTexture2D_y3nn1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_qhaib")
+"texture": SubResource("CompressedTexture2D_s1jos")
 }],
 "loop": true,
 "name": &"move_right",
@@ -58,16 +76,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_05g60")
+"texture": SubResource("CompressedTexture2D_7sq1b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_gcayg")
+"texture": SubResource("CompressedTexture2D_okk2o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_05g60")
+"texture": SubResource("CompressedTexture2D_7sq1b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_4yfad")
+"texture": SubResource("CompressedTexture2D_mknt7")
 }],
 "loop": true,
 "name": &"move_up",
@@ -95,7 +113,8 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_0gpr6")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
-visible = false
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("10_0sq5a")
 health_component = NodePath("../HealthComponent")
 owner_node = NodePath("..")

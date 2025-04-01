@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var 
+#@export var state_attack = $StateAttack : Node2D 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

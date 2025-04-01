@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6yj55s85d85g"
-path="res://.godot/imported/Side 3 (Left Step).png-08b3a8b759f3453e0f953fce07d972b5.ctex"
+uid="uid://bsv7oe0v40apx"
+path="res://.godot/imported/Right Side Sword Raise.png-2c8a35a057908658d18bbc686257bc1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Player Assets/Side 3 (Left Step).png"
-dest_files=["res://.godot/imported/Side 3 (Left Step).png-08b3a8b759f3453e0f953fce07d972b5.ctex"]
+source_file="res://Entities/Player/Player Assets/Right Side Sword Raise.png"
+dest_files=["res://.godot/imported/Right Side Sword Raise.png-2c8a35a057908658d18bbc686257bc1d.ctex"]
 
 [params]
 
