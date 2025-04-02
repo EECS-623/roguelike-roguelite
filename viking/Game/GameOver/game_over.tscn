@@ -1,23 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://bycykf68ew48r"]
+[gd_scene load_steps=2 format=3 uid="uid://qdlbjh2rrpxv"]
 
-[ext_resource type="Texture2D" uid="uid://02cb7kcgaor7" path="res://Assets/Art/GameOver.jpg" id="1_e3f0s"]
+[ext_resource type="Script" path="res://Game/GameOver/game_over.gd" id="1_sn5jf"]
 
-[node name="GameOver" type="TextureRect"]
-offset_left = 436.0
-offset_top = 175.0
-offset_right = 661.0
-offset_bottom = 400.0
-texture = ExtResource("1_e3f0s")
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sn5jf")
 
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.249
-anchor_top = -0.507
-anchor_right = 0.809
-anchor_bottom = -0.1
-offset_left = -0.0250015
-offset_top = 0.0750046
-offset_right = -0.0250092
-offset_bottom = 18.5
-text = "Game Over!"
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 440.0
+offset_top = 320.0
+offset_right = 720.0
+offset_bottom = 448.0
+theme_override_constants/separation = 10
+
+[node name="Play Again" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 291.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

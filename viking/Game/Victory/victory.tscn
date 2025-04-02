@@ -1,10 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://cih0n534q7r1j"]
+[gd_scene load_steps=2 format=3 uid="uid://11unecbkqogj"]
 
-[ext_resource type="Texture2D" uid="uid://c3wkro5lgtx26" path="res://Assets/Art/victory.jpg" id="1_ftloe"]
+[ext_resource type="Script" path="res://Game/Victory/victory.gd" id="1_bt4go"]
 
-[node name="Victory" type="TextureRect"]
-offset_left = -83.0
-offset_top = -382.0
-offset_right = 1178.0
-offset_bottom = 650.0
-texture = ExtResource("1_ftloe")
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bt4go")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 440.0
+offset_top = 320.0
+offset_right = 720.0
+offset_bottom = 448.0
+theme_override_constants/separation = 10
+
+[node name="Play Again" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 291.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Victory!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
