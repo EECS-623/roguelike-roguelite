@@ -7,5 +7,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		#$CollisionShape2D.set_deferred("disabled", true)
-		get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/Boss/boss_arena.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Nidhogg/boss_arena.tscn")
 		print("hello")

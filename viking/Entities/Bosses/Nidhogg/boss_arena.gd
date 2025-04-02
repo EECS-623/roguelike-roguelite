@@ -5,6 +5,8 @@ extends Node2D
 
 var player = Node2D
 var snake = Node2D
+var snake_dead = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = s_player.instantiate()
@@ -16,8 +18,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if snake == null:
-		return
-	else:
+	if snake == null and not snake_dead:
+		snake_dead = true
+		portal_open()
+	elif snake != null:
 		snake.chase_player(player.global_position)
-	pass
+
+func portal_open():
+	$Portal.visible = true
+	$Portal/CollisionShape2D.disabled = false
+	$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")
+		
+		
+func _on_portal_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+			#$CollisionShape2D.set_deferred("disabled", true)
+			get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")

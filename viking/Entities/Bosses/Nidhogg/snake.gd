@@ -222,4 +222,6 @@ func enter_rage_mode():
 	$MoveTimer.wait_time = .15
 
 func _on_health_component_death() -> void:
+	#Play death animation
+	
 	queue_free()

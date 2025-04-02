@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5osomnqxxpph"]
 
-[ext_resource type="Texture2D" uid="uid://cqo7k7ma3xtm" path="res://Assets/Snake_Boss/Facing_Front_Tail.png" id="1_6jpav"]
-[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_mqowi"]
-[ext_resource type="Texture2D" uid="uid://bmoxmjsex534y" path="res://Assets/Snake_Boss/Facing_Back_Tail.png" id="3_8crnh"]
-[ext_resource type="Texture2D" uid="uid://byv8uehsyvhlj" path="res://Assets/Snake_Boss/Facing_Side_Tail.png" id="4_3r1cb"]
+[ext_resource type="Texture2D" uid="uid://cqo7k7ma3xtm" path="res://Assets/Snake_Boss/Facing_Front_Tail.png" id="1_7fykp"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_wgx3q"]
+[ext_resource type="Texture2D" uid="uid://bmoxmjsex534y" path="res://Assets/Snake_Boss/Facing_Back_Tail.png" id="3_yc32v"]
+[ext_resource type="Texture2D" uid="uid://byv8uehsyvhlj" path="res://Assets/Snake_Boss/Facing_Side_Tail.png" id="4_ecxbr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2api"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_6jpav")
+"texture": ExtResource("1_7fykp")
 }],
 "loop": true,
 "name": &"default",
@@ -20,7 +20,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8crnh")
+"texture": ExtResource("3_yc32v")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +31,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_3r1cb")
+"texture": ExtResource("4_ecxbr")
 }],
 "loop": true,
 "name": &"default",
@@ -42,7 +42,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_3r1cb")
+"texture": ExtResource("4_ecxbr")
 }],
 "loop": true,
 "name": &"default",
@@ -67,7 +67,7 @@ polygon = PackedVector2Array(16.2313, 15.8321, 19.8382, -6.10846, 17.9528, -22.5
 [node name="Hitbox" type="Area2D" parent="Down"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("2_mqowi")
+script = ExtResource("2_wgx3q")
 
 [node name="CollisionPolyogn2D" type="CollisionPolygon2D" parent="Down/Hitbox"]
 position = Vector2(8, -1)
@@ -86,7 +86,7 @@ polygon = PackedVector2Array(-8, 382, 131, 233, 227, 4, 249, -122, 219, -235, 12
 [node name="Hitbox" type="Area2D" parent="Up"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("2_mqowi")
+script = ExtResource("2_wgx3q")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Up/Hitbox"]
 polygon = PackedVector2Array(-8, 382, 131, 233, 227, 4, 249, -122, 219, -235, 128, -319, 10, -356, -106, -331, -194, -263, -247, -157, -239, -11, -161, 190)
@@ -104,7 +104,7 @@ polygon = PackedVector2Array(0, -238, 197, -158, 423, 6, 229, 165, -5, 253, -144
 [node name="Hitbox" type="Area2D" parent="Left"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("2_mqowi")
+script = ExtResource("2_wgx3q")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Left/Hitbox"]
 polygon = PackedVector2Array(0, -238, 197, -158, 423, 6, 229, 165, -5, 253, -144, 250, -234, 215, -310, 82, -315, -47, -252, -165, -151, -238)
@@ -125,7 +125,7 @@ polygon = PackedVector2Array(0, -238, 197, -158, 423, 6, 229, 165, -5, 253, -144
 [node name="Hitbox" type="Area2D" parent="Right"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("2_mqowi")
+script = ExtResource("2_wgx3q")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Right/Hitbox"]
 position = Vector2(56, 20)

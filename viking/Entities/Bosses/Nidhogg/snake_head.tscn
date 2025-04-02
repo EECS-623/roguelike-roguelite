@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://b2n032802ftbq"]
 
-[ext_resource type="Texture2D" uid="uid://dphqy0mriqs36" path="res://Assets/Snake_Boss/Facing_Front_Head.png" id="1_cr7o0"]
-[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_pt3cl"]
-[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_64efr"]
-[ext_resource type="Texture2D" uid="uid://ddgg0ho3w4df7" path="res://Assets/Snake_Boss/Facing_Back_Head.png" id="4_pexph"]
-[ext_resource type="Texture2D" uid="uid://c6khkjfy4bji5" path="res://Assets/Snake_Boss/Facing_Side_Head.png" id="5_pbom4"]
+[ext_resource type="Texture2D" uid="uid://dphqy0mriqs36" path="res://Assets/Snake_Boss/Facing_Front_Head.png" id="1_i43ft"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_52v35"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_5r2qe"]
+[ext_resource type="Texture2D" uid="uid://ddgg0ho3w4df7" path="res://Assets/Snake_Boss/Facing_Back_Head.png" id="4_doyw6"]
+[ext_resource type="Texture2D" uid="uid://c6khkjfy4bji5" path="res://Assets/Snake_Boss/Facing_Side_Head.png" id="5_ffh08"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5jdid"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_cr7o0")
+"texture": ExtResource("1_i43ft")
 }],
 "loop": true,
 "name": &"Down",
@@ -31,7 +31,7 @@ height = 822.495
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_pexph")
+"texture": ExtResource("4_doyw6")
 }],
 "loop": true,
 "name": &"Up",
@@ -42,7 +42,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_pbom4")
+"texture": ExtResource("5_ffh08")
 }],
 "loop": true,
 "name": &"Left",
@@ -53,7 +53,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_pbom4")
+"texture": ExtResource("5_ffh08")
 }],
 "loop": true,
 "name": &"Right",
@@ -76,7 +76,7 @@ shape = SubResource("CircleShape2D_niaqo")
 [node name="Hurtbox" type="Area2D" parent="Down"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_pt3cl")
+script = ExtResource("2_52v35")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hurtbox"]
 position = Vector2(1, 11)
@@ -85,7 +85,7 @@ shape = SubResource("CircleShape2D_ba6rt")
 [node name="Hitbox" type="Area2D" parent="Down"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_64efr")
+script = ExtResource("3_5r2qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hitbox"]
 position = Vector2(3.7037, 503.704)
@@ -105,7 +105,7 @@ shape = SubResource("CircleShape2D_niaqo")
 [node name="Hurtbox" type="Area2D" parent="Up"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_pt3cl")
+script = ExtResource("2_52v35")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hurtbox"]
 position = Vector2(4.76837e-07, -7.62939e-06)
@@ -114,7 +114,7 @@ shape = SubResource("CircleShape2D_ba6rt")
 [node name="Hitbox" type="Area2D" parent="Up"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_64efr")
+script = ExtResource("3_5r2qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hitbox"]
 position = Vector2(3.7037, -555.556)
@@ -136,7 +136,7 @@ shape = SubResource("CircleShape2D_niaqo")
 [node name="Hurtbox" type="Area2D" parent="Left"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_pt3cl")
+script = ExtResource("2_52v35")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hurtbox"]
 shape = SubResource("CircleShape2D_ba6rt")
@@ -144,7 +144,7 @@ shape = SubResource("CircleShape2D_ba6rt")
 [node name="Hitbox" type="Area2D" parent="Left"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_64efr")
+script = ExtResource("3_5r2qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hitbox"]
 position = Vector2(-518.518, 29.6295)
@@ -164,7 +164,7 @@ shape = SubResource("CircleShape2D_niaqo")
 [node name="Hurtbox" type="Area2D" parent="Right"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_pt3cl")
+script = ExtResource("2_52v35")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hurtbox"]
 position = Vector2(4.76837e-07, -7.62939e-06)
@@ -173,7 +173,7 @@ shape = SubResource("CircleShape2D_ba6rt")
 [node name="Hitbox" type="Area2D" parent="Right"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_64efr")
+script = ExtResource("3_5r2qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hitbox"]
 position = Vector2(544.444, 51.8517)
