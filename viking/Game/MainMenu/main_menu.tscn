@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://cre1djk4gfdso"]
+[gd_scene load_steps=2 format=3 uid="uid://cre1djk4gfdso"]
+
+[ext_resource type="Script" path="res://Game/MainMenu/main_menu.gd" id="1_01rir"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_01rir")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -38,3 +41,6 @@ theme_override_font_sizes/font_size = 40
 text = "Valhalla's Gauntlet"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

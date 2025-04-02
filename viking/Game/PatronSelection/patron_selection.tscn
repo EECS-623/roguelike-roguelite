@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx25pnfrmbvm3"]
+
+[ext_resource type="Script" path="res://Game/PatronSelection/patron_selection.gd" id="1_svgqn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubdgb"]
+bg_color = Color(0.647059, 0.662745, 0.682353, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="PatronSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_svgqn")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 504.0
+offset_right = 696.0
+offset_bottom = 584.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Select"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 24.0
+offset_right = 368.0
+offset_bottom = 624.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubdgb")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 24.0
+offset_right = 728.0
+offset_bottom = 624.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubdgb")
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 24.0
+offset_right = 1104.0
+offset_bottom = 624.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubdgb")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 64.0
+offset_right = 664.0
+offset_bottom = 112.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ex God"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
 [ext_resource type="Script" path="res://Map/Valhalla/combat_test.gd" id="4_2kmn7"]
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
-[ext_resource type="PackedScene" path="res://Entities/Enemies/prototype_enemy.tscn" id="5_4gurn"]
+[ext_resource type="PackedScene" uid="uid://c2vdvjdppgdc4" path="res://Entities/Enemies/prototype_enemy.tscn" id="5_4gurn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]
 texture = ExtResource("1_t15dr")
