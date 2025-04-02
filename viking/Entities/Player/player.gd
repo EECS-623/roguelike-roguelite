@@ -11,6 +11,7 @@ class_name Player
 var direction : Vector2 = Vector2.ZERO
 var cardinal_direction: Vector2 = Vector2.ZERO
 var state = "idle"
+signal change_hitbox_direction( new_direction: Vector2 )
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -117,7 +118,7 @@ func set_direction() -> bool:
 		return false
 	
 	cardinal_direction = new_direction
-		
+	change_hitbox_direction.emit(cardinal_direction)
 	return true
 	
 #func set_state() -> bool:
