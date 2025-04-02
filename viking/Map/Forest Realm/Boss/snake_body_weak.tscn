@@ -66,6 +66,8 @@ sprite_frames = SubResource("SpriteFrames_uyhnx")
 shape = SubResource("CircleShape2D_w4amx")
 
 [node name="Hurtbox" type="Area2D" parent="Up"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_s5dpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hurtbox"]
@@ -82,6 +84,8 @@ sprite_frames = SubResource("SpriteFrames_h4efg")
 shape = SubResource("CircleShape2D_w4amx")
 
 [node name="Hurtbox" type="Area2D" parent="Down"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_s5dpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hurtbox"]
@@ -98,6 +102,8 @@ sprite_frames = SubResource("SpriteFrames_2pun0")
 shape = SubResource("CircleShape2D_w4amx")
 
 [node name="Hurtbox" type="Area2D" parent="Left"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_s5dpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hurtbox"]
@@ -115,6 +121,8 @@ sprite_frames = SubResource("SpriteFrames_j7hh3")
 shape = SubResource("CircleShape2D_w4amx")
 
 [node name="Hurtbox" type="Area2D" parent="Right"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_s5dpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hurtbox"]

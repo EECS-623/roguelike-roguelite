@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Map/Forest Realm/Boss/snake.gd" id="1_6wu6k"]
 [ext_resource type="PackedScene" uid="uid://b2n032802ftbq" path="res://Map/Forest Realm/Boss/snake_head.tscn" id="1_cbfv1"]
-[ext_resource type="PackedScene" uid="uid://c05fvwy7ksuig" path="res://Map/Forest Realm/Boss/snake_body.tscn" id="2_e54cl"]
+[ext_resource type="PackedScene" uid="uid://d32rfqromax4l" path="res://Map/Forest Realm/Boss/snake_body.tscn" id="2_e54cl"]
 [ext_resource type="PackedScene" uid="uid://bqqg3iwdybciq" path="res://Map/Forest Realm/Boss/snake_body_weak.tscn" id="3_7kirh"]
-[ext_resource type="PackedScene" uid="uid://e84m2o2ivpxt" path="res://Map/Forest Realm/Boss/snake_tail.tscn" id="4_25ry5"]
+[ext_resource type="PackedScene" uid="uid://c5osomnqxxpph" path="res://Map/Forest Realm/Boss/snake_tail.tscn" id="4_25ry5"]
 [ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="6_l841a"]
 
 [node name="Snake" type="Node2D" node_paths=PackedStringArray("move_timer", "venom_timer")]
@@ -28,7 +28,8 @@ autostart = true
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("6_l841a")
-max_health = 1000.0
+max_health = 100.0
 
 [connection signal="timeout" from="MoveTimer" to="." method="_snake_move"]
 [connection signal="timeout" from="VenomTimer" to="." method="_on_venom_timer_timeout"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

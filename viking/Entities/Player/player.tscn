@@ -286,7 +286,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -409,19 +409,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HitboxRight/CollisionPolygon2D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_j0rok"]
@@ -640,6 +628,8 @@ frame = 4
 shape = SubResource("CircleShape2D_rk0fa")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("14_dxqrv")
 health_component = NodePath("../HealthComponent")
 owner_node = NodePath("..")
@@ -657,6 +647,7 @@ damage = 10.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxRight"]
 position = Vector2(0, 21)
 polygon = PackedVector2Array(4, 5, 34, 26, 38, -7, 28, -36)
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c05fvwy7ksuig"]
+[gd_scene load_steps=9 format=3 uid="uid://d32rfqromax4l"]
 
 [ext_resource type="Texture2D" uid="uid://d1msbis8pseg" path="res://Assets/Snake_Boss/Facing_Back_Body.png" id="1_hn1y5"]
 [ext_resource type="Texture2D" uid="uid://jropj53d1ars" path="res://Assets/Snake_Boss/Facing_Front_Body.png" id="2_mrukm"]

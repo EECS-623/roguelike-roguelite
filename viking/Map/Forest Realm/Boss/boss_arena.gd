@@ -16,5 +16,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	snake.chase_player(player.global_position)
+	if snake == null:
+		return
+	else:
+		snake.chase_player(player.global_position)
 	pass

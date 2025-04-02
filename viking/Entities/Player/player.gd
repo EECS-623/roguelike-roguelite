@@ -123,7 +123,7 @@ func set_direction() -> bool:
 
 func update_animation( state: String ) -> void:
 	animation_player.play( state + "_" + animation_direction())
-	
+
 func animation_direction() -> String:
 	if cardinal_direction == Vector2.DOWN:
 		return "down"

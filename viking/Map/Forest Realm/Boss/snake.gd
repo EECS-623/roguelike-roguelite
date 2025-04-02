@@ -8,7 +8,7 @@ extends Node2D
 @export var move_timer: Timer
 @export var venom_timer: Timer
 @export var bite_timer: Timer
-
+@onready var hp : HealthComponent = $HealthComponent
 
 var snake: Array = []
 var direction = Vector2.LEFT
@@ -22,6 +22,7 @@ var can_move = true
 var can_bite = true
 var can_spit = false
 
+#signal dead()
 
 func _ready() -> void:
 	# Connect the move timer signal
@@ -32,7 +33,7 @@ func _ready() -> void:
 			for snake_dir in part.get_children():
 				var hurtbox = snake_dir.get_node_or_null("Hurtbox")
 				if hurtbox:
-					hurtbox.health_component = $HealthComponent
+					hurtbox.health_component = hp
 
 	
 func _snake_move():
@@ -50,8 +51,9 @@ func _snake_move():
 		snake[0].set_meta("direction", direction)
 		update_direction(snake[0], direction)
 		z_indexing()
-		#enter_rage_mode()
-		print($HealthComponent.max_health)
+		if (hp.current_health <= (hp.max_health / 2)):
+			enter_rage_mode()
+		print(hp.current_health)
 
 func update_direction(segment, new_direction):
 	# Here we assume each segment has a `direction` property and the sprite nodes are named for the directions
@@ -218,3 +220,6 @@ func _on_venom_timer_timeout() -> void:
 	
 func enter_rage_mode():
 	$MoveTimer.wait_time = .15
+
+func _on_health_component_death() -> void:
+	queue_free()

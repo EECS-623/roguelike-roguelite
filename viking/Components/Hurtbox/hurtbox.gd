@@ -1,4 +1,4 @@
-## Custom Hitbox node
+## Custom Hurtbox node
 extends Area2D
 class_name Hurtbox
 
@@ -9,20 +9,18 @@ signal hurt(body)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	monitoring = true
+	monitorable = true
+	connect("area_entered", Callable(self, "_on_area_entered"))
 
-func _on_body_entered(body: Node):
-	if (body == null):
+#player: layer-2 mask-3
+#enemy: layer-3 mask-2
+
+func _on_area_entered(hitbox: Node2D):
+	
+	if (hitbox == null):
 		return
-	if body is Hitbox:
-		var hitbox = body as Hitbox
-		var attacker = body.get_parent()
-		
-		# player takes damage from the enemies
-		# maybe use an if statement later for projectiles?
-		if owner_node.is_in_group("player") and attacker.is_in_group("enemy"):
-			health_component.take_damage(hitbox.damage)
-
-		# enemies take damage from the player
-		elif owner_node.is_in_group("enemy") and attacker.is_in_group("player"):
-			health_component.take_damage(hitbox.damage)
+	
+	if hitbox is Hitbox:
+		var attacker = hitbox.get_parent()
+		health_component.take_damage(hitbox.get_damage())

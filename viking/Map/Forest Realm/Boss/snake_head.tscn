@@ -74,6 +74,8 @@ position = Vector2(-2, 4)
 shape = SubResource("CircleShape2D_niaqo")
 
 [node name="Hurtbox" type="Area2D" parent="Down"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_pt3cl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hurtbox"]
@@ -81,6 +83,8 @@ position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_ba6rt")
 
 [node name="Hitbox" type="Area2D" parent="Down"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hitbox"]
@@ -99,6 +103,8 @@ animation = &"Up"
 shape = SubResource("CircleShape2D_niaqo")
 
 [node name="Hurtbox" type="Area2D" parent="Up"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_pt3cl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hurtbox"]
@@ -106,6 +112,8 @@ position = Vector2(4.76837e-07, -7.62939e-06)
 shape = SubResource("CircleShape2D_ba6rt")
 
 [node name="Hitbox" type="Area2D" parent="Up"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hitbox"]
@@ -126,12 +134,16 @@ frame_progress = 0.344782
 shape = SubResource("CircleShape2D_niaqo")
 
 [node name="Hurtbox" type="Area2D" parent="Left"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_pt3cl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hurtbox"]
 shape = SubResource("CircleShape2D_ba6rt")
 
 [node name="Hitbox" type="Area2D" parent="Left"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hitbox"]
@@ -150,6 +162,8 @@ animation = &"Right"
 shape = SubResource("CircleShape2D_niaqo")
 
 [node name="Hurtbox" type="Area2D" parent="Right"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_pt3cl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hurtbox"]
@@ -157,14 +171,11 @@ position = Vector2(4.76837e-07, -7.62939e-06)
 shape = SubResource("CircleShape2D_ba6rt")
 
 [node name="Hitbox" type="Area2D" parent="Right"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("3_64efr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hitbox"]
-position = Vector2(544.444, 51.8517)
-rotation = -3.13971
-shape = SubResource("CapsuleShape2D_rmhg5")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Right/Hitbox"]
 position = Vector2(544.444, 51.8517)
 rotation = -3.13971
 shape = SubResource("CapsuleShape2D_rmhg5")
