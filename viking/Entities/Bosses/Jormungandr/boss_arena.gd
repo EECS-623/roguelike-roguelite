@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 		portal_open()
 	elif snake != null:
 		snake.chase_player(player.global_position)
+	
+	if player.get_node("Hurtbox").health_component.current_health <= 0:
+		print("PLAYER DIED")
 
 func portal_open():
 	$Portal.visible = true

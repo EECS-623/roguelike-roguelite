@@ -506,6 +506,7 @@ shape = SubResource("CircleShape2D_ba6rt")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_e77q4")
+damage = 30.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-653, 1)
