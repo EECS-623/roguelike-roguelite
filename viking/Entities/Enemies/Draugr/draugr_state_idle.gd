@@ -14,7 +14,7 @@ func exit() -> void:
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-	print(aggro_range.in_aggro)
+
 	if (aggro_range.in_aggro):
 		return move
 	
