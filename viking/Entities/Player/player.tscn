@@ -32,7 +32,7 @@
 [ext_resource type="Script" path="res://Entities/Player/state_idle.gd" id="23_qyisa"]
 [ext_resource type="Script" path="res://Entities/Player/state_move.gd" id="24_vnqw2"]
 [ext_resource type="Script" path="res://Entities/Player/state_melee_attack.gd" id="25_7u812"]
-[ext_resource type="Script" path="res://Components/PlayerStateMachine/player_state_machine.gd" id="28_tbe8f"]
+[ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yot1s"]
 animations = [{
@@ -581,11 +581,9 @@ animation = &"animation_frames"
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_rk0fa")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
-visible = false
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("14_dxqrv")

@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://bootcm1im0svw"]
+
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
+[ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
+[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="3_a0hel"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="4_gyuwt"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="5_gvmp7"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="6_r6v7i"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/reset_visibility_timer.gd" id="7_r1u0n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eb40j"]
+radius = 31.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctneo"]
+radius = 35.0
+height = 106.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdehn"]
+draw_center = false
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu7wd"]
+bg_color = Color(1, 0, 0.294118, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7g13l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwro8"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Draugr" type="CharacterBody2D"]
+script = ExtResource("1_sgxkm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_lllww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 5)
+shape = SubResource("CapsuleShape2D_eb40j")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_a0hel")
+max_health = 50.0
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_gyuwt")
+health_component = NodePath("../HealthComponent")
+owner_node = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-2, 5)
+shape = SubResource("CapsuleShape2D_ctneo")
+
+[node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component", "health_bar_progress", "reset_visibility_timer")]
+offset_left = -31.0
+offset_top = -75.0
+offset_right = 269.0
+offset_bottom = -35.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/background = SubResource("StyleBoxFlat_hdehn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eu7wd")
+step = 0.001
+show_percentage = false
+script = ExtResource("5_gvmp7")
+health_component = NodePath("../HealthComponent")
+health_bar_progress = NodePath("HealthBarProgress")
+reset_visibility_timer = NodePath("ResetVisibilityTimer")
+
+[node name="HealthBarProgress" type="ProgressBar" parent="HealthBarComponent"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 40.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_7g13l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hwro8")
+show_percentage = false
+script = ExtResource("6_r6v7i")
+
+[node name="ResetVisibilityTimer" type="Timer" parent="HealthBarComponent"]
+script = ExtResource("7_r1u0n")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

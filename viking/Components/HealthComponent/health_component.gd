@@ -3,7 +3,11 @@ class_name HealthComponent
 
 @export var max_health: float : set = set_max_health, get = get_max_health
 var current_health: float
+
 signal death
+signal t_damage (amount: float)
+signal i_max_health (amount : float)
+signal i_current_health (amount : float)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +19,7 @@ func _process(delta: float) -> void:
 
 func take_damage(damage: float) -> void:
 	current_health -= damage
+	t_damage.emit(current_health)
 	if (current_health <= 0):
 		handle_death()
 
@@ -26,11 +31,13 @@ func get_max_health():
 	
 func increase_max_health(num: float):
 	max_health += num
+	i_max_health.emit(max_health)
 
 func increase_current_health(num: float):
 	current_health += num
 	if (current_health > max_health):
 		current_health = max_health
+	i_current_health.emit(current_health)
 
 func handle_death():
 	# might change this logic later, especially with the player

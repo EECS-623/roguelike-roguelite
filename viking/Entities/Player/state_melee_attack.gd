@@ -5,6 +5,7 @@ var attacking : bool = false
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : StateIdle = $"../StateIdle"
 @onready var move: StateMove = $"../StateMove"
+@onready var hitbox: Hitbox = $"../../MeleeHitboxInteractions/Hitbox"
 
 func enter() -> void:
 	player.update_animation("attack")
@@ -19,7 +20,8 @@ func exit() -> void:
 	#remove connection when exiting state
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
-
+	hitbox.get_child(0).disabled = true
+	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	
