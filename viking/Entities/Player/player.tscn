@@ -706,6 +706,7 @@ offset_right = 141.0
 offset_bottom = 616.0
 text = "Player Speed"
 
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
 [connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]

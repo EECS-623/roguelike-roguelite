@@ -83,9 +83,6 @@ func _physics_process(_delta):
 	#bullet.position = global_position
 	#bullet.direction = (get_global_mouse_position() - global_position).normalized()
 
-func _perform_melee_attack_right():
-	pass
-
 func set_health_bar() -> void:
 	$HealthBar.value = $HealthComponent.current_health
 
@@ -95,7 +92,6 @@ func set_health_label() -> void:
 func _on_health_component_death() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
-
 
 func set_direction() -> bool:
 	var new_direction : Vector2 = cardinal_direction

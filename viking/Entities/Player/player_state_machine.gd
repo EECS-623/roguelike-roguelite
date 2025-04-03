@@ -1,10 +1,8 @@
 class_name PlayerStateMachine extends Node
 
-static var player : Player
-
 var states : Array[ State ]
-var prev_state : State
-var current_state : State
+var prev_state : PlayerState
+var current_state : PlayerState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

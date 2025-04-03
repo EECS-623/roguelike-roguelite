@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	change_state( current_state.handle_input(event) )
 
-func initialize(_draugr : Player) -> void:
+func initialize(_draugr : CharacterBody2D) -> void:
 	states = []
 	for c in get_children():
 		if c is State:

@@ -1,4 +1,4 @@
-class_name StateMeleeAttack extends State
+class_name StateMeleeAttack extends PlayerState
 
 var attacking : bool = false
 

@@ -1,11 +1,12 @@
-class_name DraugrStateIdle extends State
+class_name DraugrStateIdle extends DraugrState
 
 @onready var move : State = $"../DraugrStateMove"
-@onready var melee_attack : State = $"../StateMeleeAttack"
+@onready var melee_attack : State = $"../DraugrStateAttack"
+@onready var aggro_range : AggroRangeComponent = $"../../AggroRangeComponent"
 
 # what happens when the entity enters a state
 func enter() -> void:
-	player.update_animation("idle")
+	draugr.update_animation("idle")
 
 # what happens when the entity exits a state
 func exit() -> void:
@@ -13,9 +14,11 @@ func exit() -> void:
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-	if player.direction != Vector2.ZERO:
+	print(aggro_range.in_aggro)
+	if (aggro_range.in_aggro):
 		return move
-	player.velocity = Vector2.ZERO
+	
+	draugr.velocity = Vector2.ZERO
 	return null
 
 func state_physics_process(delta: float) -> State:
@@ -23,6 +26,4 @@ func state_physics_process(delta: float) -> State:
 
 # what happens when obtaining an input in this state
 func handle_input(_event : InputEvent) -> State:
-	if _event is InputEventMouseButton and _event.pressed:
-		return melee_attack
 	return null

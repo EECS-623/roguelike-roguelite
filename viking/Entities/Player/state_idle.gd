@@ -1,4 +1,4 @@
-class_name StateIdle extends State
+class_name StateIdle extends PlayerState
 
 @onready var move : State = $"../StateMove"
 @onready var melee_attack : State = $"../StateMeleeAttack"

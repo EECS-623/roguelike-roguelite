@@ -1,4 +1,4 @@
-class_name StateMove extends State
+class_name StateMove extends PlayerState
 
 @export var speed_component : SpeedComponent
 @onready var idle : State = $"../StateIdle"

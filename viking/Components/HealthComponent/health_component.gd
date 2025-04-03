@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 
 func take_damage(damage: float) -> void:
 	current_health -= damage
+	print(current_health)
 	t_damage.emit(current_health)
 	if (current_health <= 0):
 		handle_death()
