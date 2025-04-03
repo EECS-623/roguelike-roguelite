@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mxdy1u6rcsr3"]
+[gd_scene load_steps=25 format=3 uid="uid://mxdy1u6rcsr3"]
 
 [ext_resource type="Texture2D" uid="uid://dawtb28x47tpg" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Front Head Bite.png" id="1_qovka"]
 [ext_resource type="Texture2D" uid="uid://bkhmnhvxlglx7" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Front Head.png" id="2_a8om7"]
@@ -78,19 +78,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_uw73o"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_uun4o"]
+resource_name = "Down_Bite"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.763309, 1.99606),
+"transitions": PackedFloat32Array(0.277392, 0.840898, 1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 200)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -99,10 +100,10 @@ tracks/1/path = NodePath(".:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.520712, 1.09783),
+"transitions": PackedFloat32Array(1, 0.965936, 1),
 "update": 1,
-"values": [&"Left"]
+"values": [&"Down", &"Down_Bite", &"Down"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -111,10 +112,10 @@ tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.00867853, 0.94596, 1.28442),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -126,7 +127,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-653, 1)]
+"values": [Vector2(0, 653)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -147,10 +148,10 @@ tracks/5/path = NodePath(".:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.00582009, 0.756612, 1.99629),
+"transitions": PackedFloat32Array(0.307786, 8.87655, 1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_wtroj"]
@@ -229,20 +230,19 @@ tracks/5/keys = {
 "values": [Vector2(0, 0), Vector2(-200, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_uun4o"]
-resource_name = "Down_Bite"
-length = 2.0
+[sub_resource type="Animation" id="Animation_uw73o"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.763309, 1.99606),
-"transitions": PackedFloat32Array(0.277392, 0.840898, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 200)]
+"values": [Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -251,10 +251,10 @@ tracks/1/path = NodePath(".:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.520712, 1.09783),
-"transitions": PackedFloat32Array(1, 0.965936, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Down", &"Down_Bite", &"Down"]
+"values": [&"Left"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -263,10 +263,10 @@ tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.00867853, 0.94596, 1.28442),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false, true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -278,7 +278,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 653)]
+"values": [Vector2(-653, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -299,10 +299,22 @@ tracks/5/path = NodePath(".:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.00582009, 0.756612, 1.99629),
-"transitions": PackedFloat32Array(0.307786, 8.87655, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 0)]
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hpq6m"]
@@ -457,13 +469,68 @@ tracks/5/keys = {
 "values": [Vector2(0, 0), Vector2(0, -200), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ne7ef"]
+resource_name = "rage_mode"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.416265, 0.202376, 0.578678, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ulghx"]
 _data = {
 "Down_Bite": SubResource("Animation_uun4o"),
 "Left_Bite": SubResource("Animation_wtroj"),
 "RESET": SubResource("Animation_uw73o"),
 "Right_Bite": SubResource("Animation_hpq6m"),
-"Up_Bite": SubResource("Animation_g1671")
+"Up_Bite": SubResource("Animation_g1671"),
+"rage_mode": SubResource("Animation_ne7ef")
+}
+
+[sub_resource type="Animation" id="Animation_tiut5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lt5yi"]
+resource_name = "rage_mode"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.392349, 0.221126, 0.580918, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ik12"]
+_data = {
+"RESET": SubResource("Animation_tiut5"),
+"rage_mode": SubResource("Animation_lt5yi")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_niaqo"]
@@ -486,6 +553,11 @@ animation = &"Left"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_ulghx")
+}
+
+[node name="rager" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_2ik12")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

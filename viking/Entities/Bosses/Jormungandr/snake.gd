@@ -23,7 +23,7 @@ var direction_map = {
 # Starting position
 var start_pos: Vector2 = Vector2(500, 500)  
 var segment_size = 200  
-var snake_size = 10
+var snake_size = 12
 
 var can_move = true
 var can_bite = true
@@ -199,10 +199,22 @@ func _on_venom_timer_timeout()-> void:
 	can_spit = true
 	
 func enter_rage_mode():
+	#for segment in snake:
 	$MoveTimer.wait_time = .15
+	snake[0].get_node("AnimatedSprite2D/rager").play("rage_mode")
 	snake[0].get_node("AnimatedSprite2D/AnimationPlayer").speed_scale = 2.0
 
 func _on_health_component_death() -> void:
 	#Play death animation
-	
+	can_move = false
+	#Dialouge
+	#Separate individual body parts 
+	#Make them disapper
 	queue_free()
+
+
+func _on_health_component_t_damage(amount: float) -> void:
+	for segment in snake:
+		segment.modulate = Color.RED
+		await get_tree().create_timer(0.1).timeout
+		segment.modulate = Color.WHITE

@@ -35,3 +35,4 @@ max_health = 100.0
 [connection signal="timeout" from="MoveTimer" to="." method="_snake_move"]
 [connection signal="timeout" from="VenomTimer" to="." method="_on_venom_timer_timeout"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]
