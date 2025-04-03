@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvsui47imvexk"]
+
+[ext_resource type="Script" path="res://Entities/Bosses/Jormungandr/snake.gd" id="1_6wu6k"]
+[ext_resource type="PackedScene" uid="uid://b2n032802ftbq" path="res://Entities/Bosses/Jormungandr/snake_head.tscn" id="1_cbfv1"]
+[ext_resource type="PackedScene" uid="uid://d32rfqromax4l" path="res://Entities/Bosses/Jormungandr/snake_body.tscn" id="2_e54cl"]
+[ext_resource type="PackedScene" uid="uid://bqqg3iwdybciq" path="res://Entities/Bosses/Jormungandr/snake_body_weak.tscn" id="3_7kirh"]
+[ext_resource type="PackedScene" uid="uid://mxdy1u6rcsr3" path="res://Entities/Bosses/Jormungandr/snake_head2.tscn" id="3_bsulx"]
+[ext_resource type="PackedScene" uid="uid://c5osomnqxxpph" path="res://Entities/Bosses/Jormungandr/snake_tail.tscn" id="4_25ry5"]
+[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="6_l841a"]
+
+[node name="Snake" type="Node2D" node_paths=PackedStringArray("move_timer", "venom_timer")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_6wu6k")
+s_head = ExtResource("1_cbfv1")
+s_head2 = ExtResource("3_bsulx")
+s_body = ExtResource("2_e54cl")
+s_weak_body = ExtResource("3_7kirh")
+s_tail = ExtResource("4_25ry5")
+move_timer = NodePath("MoveTimer")
+venom_timer = NodePath("VenomTimer")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="VenomTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("6_l841a")
+max_health = 100.0
+
+[connection signal="timeout" from="MoveTimer" to="." method="_snake_move"]
+[connection signal="timeout" from="VenomTimer" to="." method="_on_venom_timer_timeout"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

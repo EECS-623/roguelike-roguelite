@@ -17,10 +17,10 @@ func _ready() -> void:
 #enemy: layer-3 mask-2
 
 func _on_area_entered(hitbox: Node2D):
-	
-	if (hitbox == null):
+	if hitbox == null:
 		return
-	
+
 	if hitbox is Hitbox:
-		var attacker = hitbox.get_parent()
-		health_component.take_damage(hitbox.get_damage())
+		var attacker = hitbox.get_parent() 
+		if attacker and health_component: 
+			health_component.take_damage(hitbox.get_damage())

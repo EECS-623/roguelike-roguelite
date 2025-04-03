@@ -1,0 +1,201 @@
+[gd_scene load_steps=16 format=3 uid="uid://b2n032802ftbq"]
+
+[ext_resource type="Texture2D" uid="uid://bkhmnhvxlglx7" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Front Head.png" id="1_atuks"]
+[ext_resource type="Texture2D" uid="uid://dawtb28x47tpg" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Front Head Bite.png" id="2_stll3"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_xjvuv"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_4y5da"]
+[ext_resource type="Texture2D" uid="uid://dw61liux82uut" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Back Head.png" id="5_d5n4j"]
+[ext_resource type="Texture2D" uid="uid://beccdiqbhg802" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Back Head Bite.png" id="6_siioi"]
+[ext_resource type="Texture2D" uid="uid://ce50sxb4djgkc" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Side Head.png" id="7_nrvxe"]
+[ext_resource type="Texture2D" uid="uid://b4tym01tp25sq" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Side Head Bite.png" id="8_0ewtc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jdid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_stll3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_atuks")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_niaqo"]
+radius = 395.049
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ba6rt"]
+radius = 402.855
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmhg5"]
+radius = 274.218
+height = 822.495
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giugf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d5n4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_siioi")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khww3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nrvxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0ewtc")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmlcv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nrvxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0ewtc")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 1.0
+}]
+
+[node name="SnakeHead" type="Node2D"]
+scale = Vector2(0.27, 0.27)
+
+[node name="Down" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Down"]
+sprite_frames = SubResource("SpriteFrames_5jdid")
+animation = &"Down"
+frame_progress = 0.0109702
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Down"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_xjvuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hurtbox"]
+position = Vector2(1, 11)
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Down"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_4y5da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Hitbox"]
+position = Vector2(3.7037, 503.704)
+rotation = -1.56874
+shape = SubResource("CapsuleShape2D_rmhg5")
+
+[node name="Up" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Up"]
+position = Vector2(0, 3.7037)
+sprite_frames = SubResource("SpriteFrames_giugf")
+animation = &"Up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Up"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_xjvuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hurtbox"]
+position = Vector2(4.76837e-07, -7.62939e-06)
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Up"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_4y5da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Hitbox"]
+position = Vector2(3.7037, -555.556)
+rotation = -1.56874
+shape = SubResource("CapsuleShape2D_rmhg5")
+
+[node name="Left" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Left"]
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(0.894946, 0.852082)
+sprite_frames = SubResource("SpriteFrames_khww3")
+animation = &"Left"
+frame_progress = 0.344782
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Left"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_xjvuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hurtbox"]
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Left"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_4y5da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Hitbox"]
+position = Vector2(-518.518, 29.6295)
+rotation = -3.14059
+shape = SubResource("CapsuleShape2D_rmhg5")
+
+[node name="Right" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Right"]
+scale = Vector2(-0.893537, 0.852082)
+sprite_frames = SubResource("SpriteFrames_pmlcv")
+animation = &"Right"
+frame_progress = 0.128665
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("CircleShape2D_niaqo")
+
+[node name="Hurtbox" type="Area2D" parent="Right"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_xjvuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hurtbox"]
+position = Vector2(4.76837e-07, -7.62939e-06)
+shape = SubResource("CircleShape2D_ba6rt")
+
+[node name="Hitbox" type="Area2D" parent="Right"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_4y5da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Hitbox"]
+position = Vector2(544.444, 51.8517)
+rotation = -3.13971
+shape = SubResource("CapsuleShape2D_rmhg5")

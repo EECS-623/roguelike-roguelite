@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://2eoviyh5c1uv"]
+
+[ext_resource type="Texture2D" uid="uid://b624u5j0x667w" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Down 1.png" id="1_xtjox"]
+[ext_resource type="Texture2D" uid="uid://c4b5oof8xhl01" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Down 2.png" id="2_xywpl"]
+[ext_resource type="Texture2D" uid="uid://mksrmvb1aq4f" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Down 3.png" id="3_cjpwx"]
+[ext_resource type="Texture2D" uid="uid://cmjkvvjnrlugo" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Left 1.png" id="4_xutbt"]
+[ext_resource type="Texture2D" uid="uid://sfd33gn2xo8d" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Left 2.png" id="5_bxwwk"]
+[ext_resource type="Texture2D" uid="uid://ccnv5asqfwjat" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Left 3.png" id="6_ow4sr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqnqg"]
+radius = 36.4006
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxsne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xtjox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xywpl")
+}, {
+"duration": 7.0,
+"texture": ExtResource("3_cjpwx")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xutbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bxwwk")
+}, {
+"duration": 7.0,
+"texture": ExtResource("6_ow4sr")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Venom" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 180)
+shape = SubResource("CircleShape2D_iqnqg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_oxsne")
+animation = &"Down"
+frame = 2
+frame_progress = 0.696492
