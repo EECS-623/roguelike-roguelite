@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=16 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
 [ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="3_a0hel"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="4_gyuwt"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="5_gvmp7"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_idle.gd" id="5_i8ex3"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="6_r6v7i"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/reset_visibility_timer.gd" id="7_r1u0n"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_machine.gd" id="8_1mk0f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eb40j"]
 radius = 31.0
@@ -48,9 +50,7 @@ texture = ExtResource("2_lllww")
 position = Vector2(-2, 5)
 shape = SubResource("CapsuleShape2D_eb40j")
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("3_a0hel")
-max_health = 50.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
 collision_layer = 0
@@ -62,6 +62,16 @@ owner_node = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-2, 5)
 shape = SubResource("CapsuleShape2D_ctneo")
+
+[node name="DraugrStateMachine" type="Node" parent="."]
+script = ExtResource("8_1mk0f")
+
+[node name="DraugrStateIdle" type="Node" parent="DraugrStateMachine"]
+script = ExtResource("5_i8ex3")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_a0hel")
+max_health = 50.0
 
 [node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component", "health_bar_progress", "reset_visibility_timer")]
 offset_left = -31.0
