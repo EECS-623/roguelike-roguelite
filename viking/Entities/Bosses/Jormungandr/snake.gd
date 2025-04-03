@@ -22,7 +22,7 @@ var direction_map = {
 
 # Starting position
 var start_pos: Vector2 = Vector2(500, 500)  
-var segment_size = 100  
+var segment_size = 200  
 var snake_size = 10
 
 var can_move = true
@@ -58,10 +58,9 @@ func _snake_move():
 		snake[0].set_meta("direction", direction)
 		update_direction2(snake[0], direction, true)
 		z_indexing()
-		if (hp.current_health <= (hp.max_health / 2)):
-			enter_rage_mode()
-
-	
+		
+	if (hp.current_health <= (hp.max_health / 2)):
+		enter_rage_mode()
 	print(hp.current_health)
 
 func update_direction(segment, new_direction):
@@ -181,10 +180,10 @@ func bite_attack():
 	var dir_str = direction_map.get(direction, "")
 	print("BITE")
 	dir_str += '_Bite'
-	snake[0].get_node("AnimatedSprite2D/AnimationPlayer").play(dir_str)
-	await get_tree().create_timer(2.0).timeout
+	var anim_player = snake[0].get_node("AnimatedSprite2D/AnimationPlayer")
+	anim_player.play(dir_str)
+	await anim_player.animation_finished
 	can_move = true
-	await get_tree().create_timer(2.0).timeout
 	can_bite = true
 
 func spit_attack():
@@ -196,11 +195,12 @@ func spit_attack():
 	await get_tree().create_timer(5.0).timeout
 	can_spit = true
 
-func _on_venom_timer_timeout() -> void:
+func _on_venom_timer_timeout()-> void:
 	can_spit = true
 	
 func enter_rage_mode():
 	$MoveTimer.wait_time = .15
+	snake[0].get_node("AnimatedSprite2D/AnimationPlayer").speed_scale = 2.0
 
 func _on_health_component_death() -> void:
 	#Play death animation
