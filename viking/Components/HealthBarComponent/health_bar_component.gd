@@ -42,7 +42,8 @@ func change_value(new_value: float):
 		change_value_tween.kill()
 		
 	change_value_tween = create_tween()
-	change_value_tween.finished.connect(reset_visibility_timer.start)
+	if reset_visibility_timer:
+		change_value_tween.finished.connect(reset_visibility_timer.start)
 	change_value_tween.tween_property(health_bar_progress, "value", new_value, 0.35).set_trans(Tween.TRANS_SINE)
 
 func _change_opacity(new_amount: float):

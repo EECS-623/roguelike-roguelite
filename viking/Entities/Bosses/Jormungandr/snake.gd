@@ -32,6 +32,7 @@ var can_spit = false
 func _ready() -> void:
 
 	spawn_snake()
+	$CanvasLayer/HealthBarComponent.modulate =  Color(1, 1, 1, 1) 
 	await get_tree().create_timer(5.0).timeout
 	can_spit = true
 	
@@ -176,6 +177,7 @@ func spit_attack(player_position):
 func enter_rage_mode():
 	#for segment in snake:
 	$MoveTimer.wait_time = .15
+	$CanvasLayer/HealthBarComponent.modulate = Color.REBECCA_PURPLE
 	snake[0].get_node("AnimatedSprite2D/rager").play("rage_mode")
 	snake[0].get_node("AnimatedSprite2D/AnimationPlayer").speed_scale = 2.0
 

@@ -43,9 +43,9 @@ func stop_moving():
 	$Hitbox/CollisionShape2D.set_deferred("disabled", false)
 	$AnimatedSprite2D.hide()  # Hide the projectile
 	$VenomPuddle.show()  # Show puddle
-	$Timer.start(puddle_duration)  # Start puddle decay timer
-
-
-func _on_timer_timeout() -> void:
+	for i in range(5):
+		await get_tree().create_timer(1).timeout
+		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+		$Hitbox/CollisionShape2D.set_deferred("disabled", false)
 	queue_free()  # Remove venom instance
  # Replace with function body.

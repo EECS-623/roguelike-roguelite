@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvsui47imvexk"]
+[gd_scene load_steps=12 format=3 uid="uid://cvsui47imvexk"]
 
 [ext_resource type="Script" path="res://Entities/Bosses/Jormungandr/snake.gd" id="1_6wu6k"]
 [ext_resource type="PackedScene" uid="uid://d32rfqromax4l" path="res://Entities/Bosses/Jormungandr/snake_body.tscn" id="2_e54cl"]
@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://c5osomnqxxpph" path="res://Entities/Bosses/Jormungandr/snake_tail.tscn" id="4_25ry5"]
 [ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="6_l841a"]
 [ext_resource type="PackedScene" uid="uid://2eoviyh5c1uv" path="res://Entities/Bosses/Jormungandr/venom.tscn" id="6_nvwa8"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="8_vuc6m"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="9_4s4fl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8cm5"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe68x"]
+bg_color = Color(0.212167, 0.715526, 0.639373, 1)
 
 [node name="Snake" type="Node2D" node_paths=PackedStringArray("move_timer")]
 scale = Vector2(0.5, 0.5)
@@ -25,6 +33,47 @@ autostart = true
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("6_l841a")
 max_health = 100.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBarComponent" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("health_component", "health_bar_progress")]
+anchors_preset = -1
+anchor_right = 0.206
+anchor_bottom = 0.042
+offset_left = 473.0
+offset_top = 35.0
+offset_right = 472.688
+offset_bottom = 34.784
+theme_override_styles/background = SubResource("StyleBoxFlat_l8cm5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oe68x")
+rounded = true
+show_percentage = false
+script = ExtResource("8_vuc6m")
+health_component = NodePath("../../HealthComponent")
+health_bar_progress = NodePath("HealthBarProgress")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBarProgress" type="ProgressBar" parent="CanvasLayer/HealthBarComponent" node_paths=PackedStringArray("health_component")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 39.0
+offset_right = -136.065
+offset_bottom = 39.0
+script = ExtResource("9_4s4fl")
+health_component = NodePath("../../../HealthComponent")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 479.0
+offset_top = 5.0
+offset_right = 582.0
+offset_bottom = 28.0
+text = "Jormungandr"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="MoveTimer" to="." method="_snake_move"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

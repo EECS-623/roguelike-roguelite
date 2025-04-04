@@ -6,6 +6,7 @@ extends Node2D
 var player = Node2D
 var snake = Node2D
 var snake_dead = false
+var health_bar: ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,6 @@ func _ready() -> void:
 	
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
