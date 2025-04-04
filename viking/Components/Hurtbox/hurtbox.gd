@@ -13,7 +13,7 @@ func _ready() -> void:
 	monitorable = true
 	connect("area_entered", Callable(self, "_on_area_entered"))
 
-#player: layer-2 mask-3
+#player: layer-2 hurtbox: mask-3
 #enemy: layer-3 mask-2
 
 func _on_area_entered(hitbox: Node2D):
@@ -22,5 +22,6 @@ func _on_area_entered(hitbox: Node2D):
 
 	if hitbox is Hitbox:
 		var attacker = hitbox.get_parent() 
+		hitbox.hit.emit(self)
 		if attacker and health_component: 
 			health_component.take_damage(hitbox.get_damage())

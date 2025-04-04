@@ -4,6 +4,7 @@ extends Area2D
 
 class_name Hitbox
 
+@export var is_magic : bool
 @export var damage: float = 0 : set = set_damage, get = get_damage
 @export var physical_damage : PhysicalDamageComponent
 @export var magic_damage : MagicDamageComponent
@@ -16,8 +17,10 @@ func _ready() -> void:
 	monitorable = true
 	
 func set_damage(value: float):
-	damage = value
+	if (is_magic):
+		damage = magic_damage.get_magic_damage()
+	else:
+		damage = value
 	
 func get_damage() -> float:
 	return damage
-	
