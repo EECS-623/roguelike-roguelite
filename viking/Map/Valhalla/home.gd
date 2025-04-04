@@ -6,6 +6,7 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		#$CollisionShape2D.set_deferred("disabled", true)
+		get_parent().remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/map.tscn")
 		print("hello")
 

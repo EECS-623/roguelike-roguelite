@@ -1,6 +1,6 @@
 extends TileMapLayer
 @export var enemy: PackedScene = preload("res://Map/Forest Realm/Earth_Enemy/earth_enemy.tscn")
-@export var player: PackedScene = preload("res://Entities/Player/player.tscn")
+#@export var player: PackedScene = preload("res://Entities/Player/player.tscn")
 @export var house: PackedScene = preload("res://Map/Structures/house.tscn")
 @export var tree: PackedScene = preload("res://Map/Structures/tree.tscn")
 var altitude = FastNoiseLite.new()
@@ -8,9 +8,9 @@ var width = 300
 var height = 300
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var my_player = player.instantiate()
-	get_tree().current_scene.add_child(my_player)
-	my_player.position = global_position
+	#var my_player = player.instantiate()
+	get_tree().current_scene.add_child(PlayerManager.player)
+	PlayerManager.player.position = global_position
 	
 	
 	altitude.seed = randi()

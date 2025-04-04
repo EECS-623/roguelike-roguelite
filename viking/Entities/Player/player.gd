@@ -18,6 +18,7 @@ signal change_hitbox_direction( new_direction: Vector2 )
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#animation_tree.active = true
+	PlayerManager.player = self
 	add_to_group("player")
 	set_health_label()
 	$HealthBar.max_value = $HealthComponent.max_health
