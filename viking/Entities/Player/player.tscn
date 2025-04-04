@@ -679,7 +679,7 @@ offset_top = 577.0
 offset_right = 1080.0
 offset_bottom = 610.0
 
-[node name="Mana" type="TextEdit" parent="CanvasLayer"]
+[node name="XP" type="TextEdit" parent="CanvasLayer"]
 offset_left = 985.0
 offset_top = 533.0
 offset_right = 1079.0
@@ -707,6 +707,7 @@ offset_bottom = 616.0
 text = "Player Speed"
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="increase_speed" from="CanvasLayer" to="SpeedComponent" method="_on_canvas_layer_increase_speed"]
 [connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
 [connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]

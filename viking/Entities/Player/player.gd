@@ -5,6 +5,8 @@ class_name Player
 @export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var state_machine : PlayerStateMachine = $PlayerStateMachine
+@onready var speed_component = $SpeedComponent
+
 
 #@export var SPEED : float = 300.0
 #@onready var animation_tree = $AnimationTree
@@ -19,6 +21,7 @@ func _ready():
 	add_to_group("player")
 	set_health_label()
 	$HealthBar.max_value = $HealthComponent.max_health
+	$SpeedComponent.set_speed(200)
 	state_machine.initialize(self)
 	pass
 
@@ -74,6 +77,7 @@ func _physics_process(_delta):
 	#	velocity = Vector2.ZERO
 	#	_animated_sprite.frame = 1
 	#	_animated_sprite.stop()
+	velocity = direction * speed_component.get_speed()
 	move_and_slide()
 
 #func shoot():

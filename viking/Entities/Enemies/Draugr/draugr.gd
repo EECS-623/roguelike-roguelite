@@ -65,4 +65,5 @@ func animation_direction() -> String:
 		return "right"
 
 func _on_health_component_death() -> void:
+	Global.xp += 1
 	queue_free()

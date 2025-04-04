@@ -17,5 +17,13 @@ func set_speed(num: float):
 func get_speed():
 	return speed
 	
-func increase_speed(num: float):
-	speed += num
+#func increase_speed(num: float):
+	#speed += num
+
+
+func _on_canvas_layer_increase_speed() -> void:
+	print("speed before: ")
+	print(speed)
+	speed += 200.
+	print("speed after: ")
+	print(speed)
