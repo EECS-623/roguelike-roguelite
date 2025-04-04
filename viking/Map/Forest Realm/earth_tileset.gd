@@ -12,7 +12,7 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(PlayerManager.player)
 	PlayerManager.player.position = global_position
 	
-	
+	'''
 	altitude.seed = randi()
 	altitude.frequency = 0.01
 	"for i in range(50):
@@ -30,16 +30,16 @@ func _ready() -> void:
 				var num = randi_range(0,10000)
 				if num < 3:
 					var my_enemy = enemy.instantiate()
-					my_enemy.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
+					my_enemy.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0sssssssssssss.0-(height/2.0)+j)))
 					get_parent().add_child(my_enemy)
 					Global.earth_enemies_left += 1
-					#var my_tree = tree.instantiate()
-					#my_tree.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
-					#get_parent().add_child(my_tree)
-				#elif num > 3 and num < 10:
-					#var my_house = house.instantiate()
-					#my_house.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
-					#get_parent().add_child(my_house)
+					var my_tree = tree.instantiate()
+					my_tree.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
+					get_parent().add_child(my_tree)
+				elif num > 3 and num < 10:
+					var my_house = house.instantiate()
+					my_house.position = map_to_local(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)))
+					get_parent().add_child(my_house)
 					#print("enemy_added")
 			elif alt > -.1:
 				set_cell(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)),0,Vector2i(0,1))
@@ -49,6 +49,95 @@ func _ready() -> void:
 				#set_cell(Vector2i(int(0.0-(width/2.0)+i), int(0.0-(height/2.0)+j)),1,Vector2i(0,0))
 			else:
 				set_cell(Vector2i(int(0-(width/2.0)+i), int(0-(height/2.0)+j)),0,Vector2i(1,0))
+	'''
+	
+	#create top border
+	for i in range (-4, 5):
+		set_cell(Vector2i(i, -3), 0,Vector2i(0, 3))
+	#create bottom border
+	for i in range (-4, 5):
+		set_cell(Vector2i(i, 4), 0,Vector2i(0, 3))
+		
+	#create left border
+	for i in range (-2, 4):
+		set_cell(Vector2i(-4, i), 0,Vector2i(0, 3))		
+	#create right border
+	for i in range (-2, 4):
+		set_cell(Vector2i(4, i), 0,Vector2i(0, 3))				
+
+	#-2 row
+	set_cell(Vector2i(-3, -2), 0,Vector2i(0, 3))
+	set_cell(Vector2i(-2, -2), 0,Vector2i(1, 3))
+	set_cell(Vector2i(-1, -2), 0,Vector2i(3, 0))
+	set_cell(Vector2i(0, -2), 0,Vector2i(0, 3))
+	set_cell(Vector2i(1, -2), 0,Vector2i(0, 3))
+	set_cell(Vector2i(2, -2), 0,Vector2i(0, 3))
+	set_cell(Vector2i(3, -2), 0,Vector2i(0, 3))
+
+
+	#-1 row
+	set_cell(Vector2i(-3, -1), 0,Vector2i(3, 0))
+	set_cell(Vector2i(-2, -1), 0,Vector2i(2, 2))
+	set_cell(Vector2i(-1, -1), 0,Vector2i(2, 3))
+	set_cell(Vector2i(0, -1), 0,Vector2i(3, 2))
+	set_cell(Vector2i(1, -1), 0,Vector2i(2, 2))
+	set_cell(Vector2i(2, -1), 0,Vector2i(2, 0))
+	set_cell(Vector2i(3, -1), 0,Vector2i(3, 0))
+	
+	#0 row
+	set_cell(Vector2i(-3, 0), 0,Vector2i(0, 0))
+	set_cell(Vector2i(-2, 0), 0,Vector2i(2, 3))
+	set_cell(Vector2i(1, 0), 0,Vector2i(2, 3))
+	set_cell(Vector2i(2, 0), 0,Vector2i(1, 0))
+	set_cell(Vector2i(3, 0), 0,Vector2i(1, 2))
+	
+	#1 row
+	set_cell(Vector2i(-3, 1), 0,Vector2i(0, 2))
+	set_cell(Vector2i(-2, 1), 0,Vector2i(0, 0))
+	set_cell(Vector2i(0, 1), 0,Vector2i(1, 0))
+	set_cell(Vector2i(1, 1), 0,Vector2i(1, 2))
+	set_cell(Vector2i(2, 1), 0,Vector2i(0, 3))
+	set_cell(Vector2i(3, 1), 0,Vector2i(0, 3))	
+	
+	#2 row
+	set_cell(Vector2i(-3, 2), 0,Vector2i(0,3))
+	set_cell(Vector2i(-2, 2), 0,Vector2i(0, 2))
+	set_cell(Vector2i(-1, 2), 0,Vector2i(2, 3))
+	set_cell(Vector2i(0, 2), 0,Vector2i(1, 2))
+	set_cell(Vector2i(1, 2), 0,Vector2i(0, 3))
+	set_cell(Vector2i(2, 2), 0,Vector2i(0, 3))
+	set_cell(Vector2i(3, 2), 0,Vector2i(0, 3))	
+
+	#3 row
+	set_cell(Vector2i(-3, 3), 0,Vector2i(0,3))
+	set_cell(Vector2i(-2, 3), 0,Vector2i(0, 0))
+	set_cell(Vector2i(-1, 3), 0,Vector2i(2, 3))
+	set_cell(Vector2i(0, 3), 0,Vector2i(1, 0))
+	set_cell(Vector2i(1, 3), 0,Vector2i(0, 3))
+	set_cell(Vector2i(2, 3), 0,Vector2i(0, 3))
+	set_cell(Vector2i(3, 3), 0,Vector2i(0, 3))		
+	
+	#procedural generation setup
+	var availableRooms = [Vector2i(2, 3), Vector2i(2, 3), Vector2i(3, 3)]
+	var availablePositions = [Vector2i(-1, 0), Vector2i(0, 0), Vector2i(-1, 1)]
+
+	#generate
+	for position in availablePositions:
+		#pick tile
+		var choseTile = availableRooms.pick_random()
+		#don'st pick same tile again
+		availableRooms.erase(choseTile)
+		#place tile
+		set_cell(position, 0, choseTile)
+		#generate enemeies
+		var my_enemy = enemy.instantiate()
+		my_enemy.position = map_to_local(position+ Vector2i(1, 0))
+		get_parent().add_child(my_enemy)
+		Global.earth_enemies_left += 1		
+		
+
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 				
