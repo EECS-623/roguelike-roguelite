@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://Global/global.gd"
 PlayerManager="*res://Global/player_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Viking"
