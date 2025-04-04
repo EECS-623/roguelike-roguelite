@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ceckipgmnrxky"]
 
-[ext_resource type="Texture2D" uid="uid://b636asjvx4ynw" path="res://Map/Forest Realm/lowResFullMap.jpg" id="1_1jcmq"]
+[ext_resource type="Texture2D" uid="uid://kxvbrpss46gp" path="res://Map/Forest Realm/lowResFullMap.jpg" id="1_1jcmq"]
 [ext_resource type="Script" path="res://Map/Forest Realm/earth_tileset.gd" id="2_xorpf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2bgmb"]
