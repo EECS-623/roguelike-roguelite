@@ -23,8 +23,9 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if (aggro_range.in_aggro):
 		direction = (aggro_range.player.global_position - global_position).normalized()
-	else: 
+	else:
 		direction = Vector2.ZERO
+	#print(aggro_range.player)
 	global_position += velocity
 
 func set_direction() -> bool:
@@ -32,18 +33,18 @@ func set_direction() -> bool:
 	if direction == Vector2.ZERO:
 		return false
 
-	if direction.y == 0:
-		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-		
-	elif direction.x == 0:
-		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
-	
-	elif direction.x < 0:
-		new_direction = Vector2.LEFT
-	
-	elif direction.x >0:
+	if direction.x > direction.y and direction.x >= 0 and direction.y >= 0:
 		new_direction = Vector2.RIGHT
-
+		
+	elif direction.x < direction.y and direction.x >= 0 and direction.y >= 0:
+		new_direction = Vector2.DOWN
+	
+	elif direction.x < direction.y and direction.x <= 0 and direction.y <= 0:
+		new_direction = Vector2.LEFT
+		
+	elif direction.x > direction.y and direction.x <= 0 and direction.y <= 0:
+		new_direction = Vector2.UP
+		
 	if new_direction == cardinal_direction:
 		return false
 	

@@ -14,12 +14,14 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node) -> void:
-	if body is Player and body.is_in_group("player"):
+
+	if body is Player and body.is_in_group("player") and body != null:
 		player = body
 		in_aggro = true
 		in_range.emit(true) 
 	
 func _on_body_exited(body: Node) -> void:
-	if body is Player and body.is_in_group("player"):
+	if body is Player and body.is_in_group("player") and body != null:
+		player = body
 		in_aggro = false
 		in_range.emit(false) 

@@ -1,13 +1,15 @@
-class_name DraugrStateMove extends DraugrState
+class_name DraugrStateMove extends State
 
+@onready var draugr : Draugr = $"../.."
 @export var speed_component : SpeedComponent
-@onready var idle : DraugrState = $"../DraugrStateIdle"
-@onready var melee_attack : DraugrState = $"../DraugrStateAttack"
+@onready var idle : State = $"../DraugrStateIdle"
+@onready var melee_attack : State = $"../DraugrStateAttack"
 @onready var aggro_range : AggroRangeComponent = $"../../AggroRangeComponent"
 
 # what happens when the entity enters a state
 func enter() -> void:
 	draugr.update_animation("move")
+	print("entered move")
 	
 # what happens when the entity exits a state
 func exit() -> void:
@@ -15,11 +17,14 @@ func exit() -> void:
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
+	
 	if !aggro_range.in_aggro:
 		return idle
 	
 	if draugr.global_position.distance_to(aggro_range.player.global_position) < 100:
 		return melee_attack
+	
+	draugr.direction = (aggro_range.player.global_position - draugr.global_position).normalized()
 	
 	draugr.velocity = draugr.direction * speed_component.get_speed()
 

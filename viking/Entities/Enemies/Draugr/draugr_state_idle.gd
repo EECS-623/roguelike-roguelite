@@ -1,5 +1,6 @@
-class_name DraugrStateIdle extends DraugrState
+class_name DraugrStateIdle extends State
 
+@onready var draugr : Draugr = $"../.."
 @onready var move : State = $"../DraugrStateMove"
 @onready var melee_attack : State = $"../DraugrStateAttack"
 @onready var aggro_range : AggroRangeComponent = $"../../AggroRangeComponent"
@@ -14,7 +15,6 @@ func exit() -> void:
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-
 	if (aggro_range.in_aggro):
 		return move
 	

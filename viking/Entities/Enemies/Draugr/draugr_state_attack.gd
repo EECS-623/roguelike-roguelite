@@ -1,7 +1,8 @@
-class_name DraugrStateAttack extends DraugrState
+class_name DraugrStateAttack extends State
 
 var attacking : bool = false
 
+@onready var draugr : Draugr = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../DraugrStateIdle"
 @onready var move: State = $"../DraugrStateMove"

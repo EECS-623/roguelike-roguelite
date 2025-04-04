@@ -1,7 +1,5 @@
 class_name DraugrStateMachine extends Node
 
-static var draugr : Draugr
-
 var states : Array[ State ]
 var prev_state : State
 var current_state : State
