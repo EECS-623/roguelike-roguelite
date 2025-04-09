@@ -8,7 +8,7 @@ signal death
 signal t_damage (amount: float)
 signal i_max_health (amount : float)
 signal i_current_health (amount : float)
-
+var ForceFieldOn = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_health = max_health
@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	pass
 
 func take_damage(damage: float) -> void:
+	if ForceFieldOn:
+		return
 	current_health -= damage
 	print(current_health)
 	t_damage.emit(current_health)
@@ -43,3 +45,11 @@ func increase_current_health(num: float):
 func handle_death():
 	# might change this logic later, especially with the player
 	death.emit()
+
+
+func _on_force_field_force_field_on() -> void:
+	ForceFieldOn = true
+
+
+func _on_force_field_force_field_off() -> void:
+	ForceFieldOn = false

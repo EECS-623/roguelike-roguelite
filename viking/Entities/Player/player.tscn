@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=56 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="2_2frng"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_11bys"]
@@ -35,6 +35,8 @@
 [ext_resource type="Script" path="res://Entities/Player/state_special_ability.gd" id="27_4h18t"]
 [ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]
 [ext_resource type="Script" path="res://Components/SpecialAbilityComponent/cast_fireball.gd" id="35_ratt1"]
+[ext_resource type="Texture2D" uid="uid://gbvq7qkrb6di" path="res://Assets/Art/force_field.png" id="36_pbs0n"]
+[ext_resource type="Script" path="res://Entities/Player/force_field.gd" id="37_shw6h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yot1s"]
 animations = [{
@@ -615,6 +617,9 @@ disabled = true
 [node name="CastFireball" type="Node" parent="SpecialAbility"]
 script = ExtResource("35_ratt1")
 
+[node name="ForceField" type="Node" parent="SpecialAbility"]
+script = ExtResource("37_shw6h")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tal4c")
@@ -717,6 +722,15 @@ offset_right = 141.0
 offset_bottom = 616.0
 text = "Player Speed"
 
+[node name="Force_field" type="TextureRect" parent="."]
+offset_left = -69.0
+offset_top = -61.0
+offset_right = 75.0
+offset_bottom = 61.0
+texture = ExtResource("36_pbs0n")
+
+[connection signal="ForceFieldOff" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_off"]
+[connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_on"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="increase_speed" from="CanvasLayer" to="SpeedComponent" method="_on_canvas_layer_increase_speed"]
 [connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
