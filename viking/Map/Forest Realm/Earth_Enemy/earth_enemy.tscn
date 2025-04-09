@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bsv7oe0v40apx" path="res://Entities/Player/Player Assets/Right Side Sword Raise.png" id="3_6ifag"]
 [ext_resource type="Texture2D" uid="uid://b8epfdclvgyan" path="res://Entities/Player/Player Assets/Back Standing.png" id="4_22niw"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="10_0sq5a"]
-[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="11_syhyh"]
-[ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="12_ay8cs"]
-[ext_resource type="Script" path="res://Components/PhysicalDamageComponent/physical_damage_component.gd" id="13_aricp"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="11_syhyh"]
+[ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="12_ay8cs"]
+[ext_resource type="Script" path="res://Components/StatComponents/PhysicalDamageComponent/physical_damage_component.gd" id="13_aricp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d63hs"]
 animations = [{

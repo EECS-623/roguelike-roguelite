@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqqg3iwdybciq" path="res://Entities/Bosses/Jormungandr/snake_body_weak.tscn" id="3_7kirh"]
 [ext_resource type="PackedScene" uid="uid://mxdy1u6rcsr3" path="res://Entities/Bosses/Jormungandr/snake_head.tscn" id="3_bsulx"]
 [ext_resource type="PackedScene" uid="uid://c5osomnqxxpph" path="res://Entities/Bosses/Jormungandr/snake_tail.tscn" id="4_25ry5"]
-[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="6_l841a"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="6_l841a"]
 [ext_resource type="PackedScene" uid="uid://2eoviyh5c1uv" path="res://Entities/Bosses/Jormungandr/venom.tscn" id="6_nvwa8"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="8_vuc6m"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="9_4s4fl"]
