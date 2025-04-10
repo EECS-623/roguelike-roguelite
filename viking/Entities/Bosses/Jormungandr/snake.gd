@@ -175,7 +175,7 @@ func spit_attack(player_position):
 
 	
 func enter_rage_mode():
-	#for segment in snake:
+	#for segment in snake:wa
 	$MoveTimer.wait_time = .15
 	$CanvasLayer/HealthBarComponent.modulate = Color.REBECCA_PURPLE
 	snake[0].get_node("AnimatedSprite2D/rager").play("rage_mode")
