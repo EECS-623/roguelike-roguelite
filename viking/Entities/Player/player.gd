@@ -141,3 +141,7 @@ func animation_direction() -> String:
 		return "left"
 	else:
 		return "right"
+
+
+func _on_teleport_teleport() -> void:
+	position = get_global_mouse_position()
