@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 	position += direction * Global.bullet_speed * delta
 
 func _on_hitbox_hit(body: Variant) -> void:
-	await get_tree().create_timer(0.25).timeout
 	queue_free()
 
 func _on_timer_timeout() -> void:

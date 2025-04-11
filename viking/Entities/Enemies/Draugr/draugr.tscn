@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
 [ext_resource type="Texture2D" uid="uid://cwosp8wkbrsdp" path="res://Entities/Player/Player Assets/Back Left Step (2).png" id="2_m0ykn"]
-[ext_resource type="Script" path="res://Components/HealthComponent/health_component.gd" id="3_a0hel"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="3_a0hel"]
 [ext_resource type="Texture2D" uid="uid://cela5jlyc1mbw" path="res://Entities/Player/Player Assets/Back Right Step (1).png" id="3_g5n6d"]
 [ext_resource type="Texture2D" uid="uid://b8epfdclvgyan" path="res://Entities/Player/Player Assets/Back Standing.png" id="4_e3x86"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="4_gyuwt"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bsv7oe0v40apx" path="res://Entities/Player/Player Assets/Right Side Sword Raise.png" id="18_4gyq4"]
 [ext_resource type="Texture2D" uid="uid://lwau0hxj4s6x" path="res://Entities/Player/Player Assets/Right Side Sword Slash.png" id="19_saeeb"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/interactions.gd" id="22_cox6x"]
-[ext_resource type="Script" path="res://Components/SpeedComponent/speed_component.gd" id="31_1g2gb"]
+[ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_1g2gb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_isbi8"]
 animations = [{

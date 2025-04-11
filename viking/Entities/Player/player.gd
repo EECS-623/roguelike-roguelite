@@ -141,3 +141,12 @@ func animation_direction() -> String:
 		return "left"
 	else:
 		return "right"
+
+var teleport = true
+func _on_teleport_teleport() -> void:
+	if teleport:
+		position = get_global_mouse_position()
+		teleport = false
+		await get_tree().create_timer(3).timeout
+		teleport = true
+		
