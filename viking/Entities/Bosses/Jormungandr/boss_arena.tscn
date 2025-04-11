@@ -111,7 +111,7 @@ scale = Vector2(1, -1)
 polygon = PackedVector2Array(-893, -252, -843, -367, -858, -493, -801, -571, -810, -711, -738, -819, -648, -799, -557, -867, -363, -898, -895, -895)
 
 [node name="Portal" type="Area2D" parent="."]
-visible = false
+position = Vector2(45, 10)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
