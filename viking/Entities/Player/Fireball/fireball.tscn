@@ -1,22 +1,22 @@
 [gd_scene load_steps=6 format=3 uid="uid://k1pegif186xy"]
 
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="1_a0ty0"]
-[ext_resource type="Texture2D" uid="uid://vhlcg5jucnex" path="res://Assets/Art/bolt.png" id="1_f0bll"]
 [ext_resource type="Script" path="res://Entities/Player/Fireball/fireball.gd" id="1_s1ray"]
+[ext_resource type="Texture2D" uid="uid://8itp6m1lm5ai" path="res://Assets/Art/lightning.png" id="2_ldfkj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmisk"]
 radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q03j1"]
-radius = 43.0465
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6oyse"]
+size = Vector2(57, 20)
 
 [node name="Fireball" type="Area2D"]
 script = ExtResource("1_s1ray")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-9.53674e-07, 1)
-scale = Vector2(0.967172, 0.967172)
-texture = ExtResource("1_f0bll")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ldfkj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -29,6 +29,6 @@ script = ExtResource("1_a0ty0")
 damage = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_q03j1")
+shape = SubResource("RectangleShape2D_6oyse")
 
 [connection signal="hit" from="Hitbox" to="." method="_on_hitbox_hit"]
