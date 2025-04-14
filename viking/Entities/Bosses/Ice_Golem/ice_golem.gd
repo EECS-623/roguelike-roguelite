@@ -10,38 +10,21 @@ var player : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ice_golem_state_machine.initialize(self, player)
+	$CanvasLayer/HealthBarComponent.modulate =  Color.WHITE
+	ice_golem_state_machine.ice_golem = self
+	ice_golem_state_machine.player = player
+	ice_golem_state_machine.initialize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print($HealthComponent.current_health)
 	pass
 
 func _physics_process(delta: float) -> void:
 	pass
-	#if (aggro_range.in_aggro):
-		#direction = (aggro_range.player.global_position - global_position).normalized()
-	#else:
-		#direction = Vector2.ZERO
-	##print(aggro_range.player)
-	#global_position += velocity
-
-#func set_direction() -> bool:
-	#return true
 #
 func update_animation( state: String ) -> void:
 	pass
-	#animation_player.play( state + "_" + animation_direction())
 #
-#func animation_direction() -> String:
-	#if cardinal_direction == Vector2.DOWN:
-		#return "down"
-	#elif cardinal_direction == Vector2.UP:
-		#return "up"
-	#elif cardinal_direction == Vector2.LEFT:
-		#return "left"
-	#else:
-		#return "right"
-#
-#func _on_health_component_death() -> void:
-	#Global.xp += 1
-	#queue_free()
+func _on_health_component_death() -> void:
+	queue_free()

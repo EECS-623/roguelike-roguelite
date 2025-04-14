@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccvr4jms5lxu1"]
+
+[ext_resource type="Texture2D" uid="uid://bvuumt7tul4vu" path="res://Assets/Ice_Golem/snowball.png" id="1_55sf1"]
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/snowball.gd" id="1_mf1f1"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_8ixwj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8nkf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_55sf1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtd12"]
+radius = 379.051
+
+[node name="Snowball" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_mf1f1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_8nkf3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(0.25, 0.252425)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_8ixwj")
+damage = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_vtd12")
+
+[connection signal="hit" from="Hitbox" to="." method="_on_hitbox_hit"]

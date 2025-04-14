@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhxkehrpm725f"]
+
+[ext_resource type="Texture2D" uid="uid://7fe0v7g67hje" path="res://Assets/Ice_Golem/icicle.png" id="1_y8181"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_q8e3v"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="3_kywdd"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="4_rlr4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6utuv"]
+atlas = ExtResource("1_y8181")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk218"]
+atlas = ExtResource("1_y8181")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co8bi"]
+atlas = ExtResource("1_y8181")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sv7eq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6utuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk218")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8bi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Icicle" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -92)
+sprite_frames = SubResource("SpriteFrames_sv7eq")
+frame = 1
+frame_progress = 0.42628
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_q8e3v")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(1, -87)
+polygon = PackedVector2Array(-2, 82, 26, 82, 40, 53, 13, -70, 0, -90, -11, -72, -35, 49, -28, 78)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("3_kywdd")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hurtbox"]
+position = Vector2(1, -87)
+polygon = PackedVector2Array(-2, 82, 26, 82, 40, 53, 13, -70, 0, -90, -11, -72, -35, 49, -28, 78)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -87)
+polygon = PackedVector2Array(-2, 82, 26, 82, 40, 53, 13, -70, 0, -90, -11, -72, -35, 49, -28, 78)
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_rlr4v")
+max_health = 20.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

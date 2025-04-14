@@ -8,7 +8,8 @@ var player
 
 # what happens when the entity enters a state
 func enter() -> void:
-	ice_golem.update_animation("build")
+	pass
+	#ice_golem.update_animation("build")
 
 # what happens when the entity exits a state
 func exit() -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bau3pv11eqa8a"
-path="res://.godot/imported/ice-troll.png-1b16cf8495daee047dacb1fe7f856125.ctex"
+uid="uid://7fe0v7g67hje"
+path="res://.godot/imported/icicle.png-219c115d19b950454bf72bb0fd3818c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ice_Golem/ice-troll.png"
-dest_files=["res://.godot/imported/ice-troll.png-1b16cf8495daee047dacb1fe7f856125.ctex"]
+source_file="res://Assets/Ice_Golem/icicle.png"
+dest_files=["res://.godot/imported/icicle.png-219c115d19b950454bf72bb0fd3818c4.ctex"]
 
 [params]
 
