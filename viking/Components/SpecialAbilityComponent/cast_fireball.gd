@@ -16,3 +16,4 @@ func cast_ability() -> void:
 	get_tree().current_scene.add_child(new_fireball)
 	new_fireball.position = player.global_position
 	new_fireball.direction = (player.get_global_mouse_position() - player.global_position).normalized()
+	new_fireball.rotation = (player.get_global_mouse_position() - player.global_position).angle()

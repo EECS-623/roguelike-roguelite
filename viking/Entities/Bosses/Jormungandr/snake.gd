@@ -54,7 +54,6 @@ func _snake_move():
 		
 	if (hp.current_health <= (hp.max_health / 2)):
 		enter_rage_mode()
-	print(hp.current_health)
 
 func update_direction(segment, new_direction):
 	var dir_str = direction_map.get(new_direction, "")
