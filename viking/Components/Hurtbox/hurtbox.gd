@@ -3,8 +3,7 @@ extends Area2D
 class_name Hurtbox
 
 @export var health_component: HealthComponent
-@export var owner_node: CharacterBody2Dw
-
+@export var owner_node: CharacterBody2D
 signal hurt(body)
 
 # Called when the node enters the scene tree for the first time.
