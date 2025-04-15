@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("Teleport") and Input.is_action_pressed("left_click"):
+	if Input.is_action_just_pressed("right_click") and Global.patron_god == 3:
 		teleport.emit()

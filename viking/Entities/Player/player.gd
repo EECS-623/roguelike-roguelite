@@ -145,8 +145,16 @@ func animation_direction() -> String:
 var teleport = true
 func _on_teleport_teleport() -> void:
 	if teleport:
-		position = get_global_mouse_position()
+		print(direction)
+		print(position)
+		global_position += direction*300
 		teleport = false
 		await get_tree().create_timer(3).timeout
 		teleport = true
+	#if teleport:
+		#position = get_global_mouse_position()
+		#teleport = false
+		#await get_tree().create_timer(3).timeout
+		#teleport = true
+		#this was the teleport where it took you anywhere
 		
