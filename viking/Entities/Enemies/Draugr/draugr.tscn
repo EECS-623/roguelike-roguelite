@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=62 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/interactions.gd" id="22_cox6x"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_patrol.gd" id="28_3ypkx"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_1g2gb"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_chase.gd" id="31_cw30l"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_alert.gd" id="32_4be21"]
 [ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="35_cf8yl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_isbi8"]
@@ -441,6 +443,7 @@ libraries = {
 target_position = Vector2(0, 250)
 collision_mask = 7
 script = ExtResource("35_cf8yl")
+raycast_length = 250.0
 
 [node name="PatrolAreaComponent" type="Area2D" parent="."]
 script = ExtResource("20_ppxgn")
@@ -497,6 +500,12 @@ script = ExtResource("6_cdk8k")
 [node name="DraugrStateMove" type="Node" parent="DraugrStateMachine" node_paths=PackedStringArray("speed_component")]
 script = ExtResource("7_4hbte")
 speed_component = NodePath("../../SpeedComponent")
+
+[node name="DraugrStateChase" type="Node" parent="DraugrStateMachine"]
+script = ExtResource("31_cw30l")
+
+[node name="DraugrStateAlert" type="Node" parent="DraugrStateMachine"]
+script = ExtResource("32_4be21")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_a0hel")

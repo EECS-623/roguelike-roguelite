@@ -2,14 +2,18 @@ class_name DraugrStatePatrol extends State
 
 @onready var patrol_area : PatrolAreaComponent = $"../../PatrolAreaComponent" 
 @onready var draugr = $"../.."
+@onready var raycast_component = $"../../RaycastComponent"
+@onready var alert = $"../DraugrStateAlert"
 @export var speed_component: SpeedComponent
 var patrol_area_center: Vector2
 var wait_time: float = 1.0
 var target_point: Vector2
 var waiting: bool
+var player_collide: bool
 
 func enter() -> void:
 	patrol_area_center = draugr.global_position
+	raycast_component.connect("player_collision", _on_player_collision)
 	_choose_new_target()
 	draugr.update_animation("move")
 	
@@ -20,6 +24,8 @@ func exit() -> void:
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	#if raycast hits player, then move to alert state
+	if player_collide:
+		return alert
 	if waiting:
 		draugr.velocity = Vector2.ZERO
 		return null
@@ -56,3 +62,6 @@ func _reached_target() -> void:
 	await get_tree().create_timer(wait_time).timeout
 	_choose_new_target()
 	waiting = false
+
+func _on_player_collision() -> State:
+	player_collide = true
