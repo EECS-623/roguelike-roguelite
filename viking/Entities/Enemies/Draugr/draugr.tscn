@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=59 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
@@ -30,7 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://ctgnuenya7i43" path="res://Entities/Player/Player Assets/Right Side Step.png" id="17_6okhh"]
 [ext_resource type="Texture2D" uid="uid://bsv7oe0v40apx" path="res://Entities/Player/Player Assets/Right Side Sword Raise.png" id="18_4gyq4"]
 [ext_resource type="Texture2D" uid="uid://lwau0hxj4s6x" path="res://Entities/Player/Player Assets/Right Side Sword Slash.png" id="19_saeeb"]
+[ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="20_ppxgn"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/interactions.gd" id="22_cox6x"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_patrol.gd" id="28_3ypkx"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_1g2gb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_isbi8"]
@@ -383,8 +385,11 @@ _data = {
 "move_up": SubResource("Animation_r8un8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pwm4"]
+radius = 225.08
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yteao"]
-radius = 371.012
+radius = 132.019
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctneo"]
 radius = 35.0
@@ -431,6 +436,12 @@ libraries = {
 "": SubResource("AnimationLibrary_xnk26")
 }
 
+[node name="PatrolAreaComponent" type="Area2D" parent="."]
+script = ExtResource("20_ppxgn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolAreaComponent"]
+shape = SubResource("CircleShape2D_4pwm4")
+
 [node name="AggroRangeComponent" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 5
@@ -466,6 +477,10 @@ disabled = true
 
 [node name="DraugrStateMachine" type="Node" parent="."]
 script = ExtResource("8_1mk0f")
+
+[node name="DraugrStatePatrol" type="Node" parent="DraugrStateMachine" node_paths=PackedStringArray("speed_component")]
+script = ExtResource("28_3ypkx")
+speed_component = NodePath("../../SpeedComponent")
 
 [node name="DraugrStateIdle" type="Node" parent="DraugrStateMachine"]
 script = ExtResource("5_i8ex3")
