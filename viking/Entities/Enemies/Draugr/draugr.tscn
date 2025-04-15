@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=60 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/interactions.gd" id="22_cox6x"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_patrol.gd" id="28_3ypkx"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_1g2gb"]
+[ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="35_cf8yl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_isbi8"]
 animations = [{
@@ -435,6 +436,11 @@ shape = SubResource("CapsuleShape2D_eb40j")
 libraries = {
 "": SubResource("AnimationLibrary_xnk26")
 }
+
+[node name="RaycastComponent" type="RayCast2D" parent="."]
+target_position = Vector2(0, 250)
+collision_mask = 7
+script = ExtResource("35_cf8yl")
 
 [node name="PatrolAreaComponent" type="Area2D" parent="."]
 script = ExtResource("20_ppxgn")
