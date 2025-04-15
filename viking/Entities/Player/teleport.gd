@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 			teleport = false
 			await get_tree().create_timer(3).timeout
 			teleport = true
-			
 	#teleport anywhere script
 	#if teleport:
 		#position = get_global_mouse_position()
