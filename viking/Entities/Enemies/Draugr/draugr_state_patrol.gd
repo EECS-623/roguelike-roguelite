@@ -63,5 +63,5 @@ func _reached_target() -> void:
 	_choose_new_target()
 	waiting = false
 
-func _on_player_collision() -> State:
+func _on_player_collision() -> void:
 	player_collide = true
