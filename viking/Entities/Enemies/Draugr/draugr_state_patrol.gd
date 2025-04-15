@@ -19,7 +19,7 @@ func exit() -> void:
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-	
+	#if raycast hits player, then move to alert state
 	if waiting:
 		draugr.velocity = Vector2.ZERO
 		return null
