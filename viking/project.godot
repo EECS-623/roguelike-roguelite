@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Global/global.gd"
 PlayerManager="*res://Global/player_manager.gd"
+WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 
 [display]
 
@@ -86,3 +87,10 @@ right_click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[wwise]
+
+common_user_settings/root_output_path="res://GeneratedSoundBanks"
+project_settings/use_soundbank_names=false
+project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"
+project_settings/mac_platform_info="res://Wwise/resources/Mac.tres"
