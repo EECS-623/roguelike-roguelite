@@ -443,7 +443,6 @@ libraries = {
 target_position = Vector2(0, 250)
 collision_mask = 7
 script = ExtResource("35_cf8yl")
-raycast_length = 250.0
 
 [node name="PatrolAreaComponent" type="Area2D" parent="."]
 script = ExtResource("20_ppxgn")
@@ -501,8 +500,9 @@ script = ExtResource("6_cdk8k")
 script = ExtResource("7_4hbte")
 speed_component = NodePath("../../SpeedComponent")
 
-[node name="DraugrStateChase" type="Node" parent="DraugrStateMachine"]
+[node name="DraugrStateChase" type="Node" parent="DraugrStateMachine" node_paths=PackedStringArray("speed_component")]
 script = ExtResource("31_cw30l")
+speed_component = NodePath("../../SpeedComponent")
 
 [node name="DraugrStateAlert" type="Node" parent="DraugrStateMachine"]
 script = ExtResource("32_4be21")
