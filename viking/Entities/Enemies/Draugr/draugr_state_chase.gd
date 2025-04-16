@@ -17,15 +17,15 @@ func exit() -> void:
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	
-	draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
-	draugr.velocity = draugr.direction * speed_component.get_speed()
-	
-	if draugr.global_position.distance_to(raycast_component.player.global_position) < 50:
+	if draugr.global_position.distance_to(raycast_component.player.global_position) < 100:
 		return melee_attack
-	if draugr.global_position.distance_to(raycast_component.player.global_position) < raycast_component.raycast_length:
+	if draugr.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
 		return patrol
 	if draugr.set_direction():
 		draugr.update_animation("move")
+
+	draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
+	draugr.velocity = draugr.direction * speed_component.get_speed()
 
 	return null
 	

@@ -12,6 +12,8 @@ var cooldown : bool
 func enter() -> void:
 	cooldown = true
 	draugr.update_animation("idle")
+	await get_tree().create_timer(0.5).timeout
+	cooldown_finished()
 
 # what happens when the entity exits a state
 func exit() -> void:
@@ -22,7 +24,7 @@ func state_process(delta : float) -> State:
 	if !cooldown:
 		if draugr.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
 			return patrol
-		elif draugr.global_position.distance_to(raycast_component.player.global_position) < 75:
+		elif draugr.global_position.distance_to(raycast_component.player.global_position) < 100:
 			draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
 			draugr.set_direction()
 			return melee_attack
