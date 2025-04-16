@@ -11,8 +11,11 @@ var not_alert = false
 
 func enter() -> void:
 	alert = false
-	not_alert = false
+	not_alert = false 
+	draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
+	draugr.set_direction()
 	draugr.update_animation("idle")
+	draugr.velocity = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout
 	check_alert()
 

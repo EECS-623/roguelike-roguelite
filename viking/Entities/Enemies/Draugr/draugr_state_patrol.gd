@@ -32,7 +32,7 @@ func state_process(delta : float) -> State:
 	if waiting:
 		draugr.velocity = Vector2.ZERO
 		return null
-	
+
 	draugr.direction = (target_point-draugr.global_position).normalized()
 	
 	draugr.velocity = draugr.direction * speed_component.get_speed()
