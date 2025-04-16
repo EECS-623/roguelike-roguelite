@@ -2,7 +2,6 @@ extends Node2D
 @export var s_player: PackedScene = preload("res://Entities/Player/player.tscn")
 @export var s_snake: PackedScene 
 
-
 var player = Node2D
 var snake = Node2D
 var snake_dead = false
@@ -23,6 +22,12 @@ func _ready() -> void:
 	cam.limit_right = 924
 	cam.limit_top = -897
 	cam.limit_bottom = 900
+	
+	var dialogue = player.get_node("DialogueUI")
+	get_tree().paused = true
+	var words = dialogue.load_dialogue("res://Game/Dialogue/jormungandr.json")
+	dialogue.dialogue_begin(words)
+	dialogue.connect("dialogue_finished", _on_dialogue_end)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,3 +62,6 @@ func pulse_thorns():
 		for thorn in $Hitbox.get_children():
 			thorn.disabled = true
 			await get_tree().create_timer(0.02).timeout  # "inactive" window
+
+func _on_dialogue_end():
+	get_tree().paused = false

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnnuln6wj2vki"]
+
+[ext_resource type="Script" path="res://Game/DialogueUI/dialogue_ui.gd" id="1_ueskx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jbniv"]
+
+[node name="DialogueUI" type="CanvasLayer"]
+script = ExtResource("1_ueskx")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 128.0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 639.0
+texture = SubResource("CanvasTexture_jbniv")
+
+[node name="SpeakerName" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 176.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "Jormungandr
+"
+
+[node name="DialogueText" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 16.0
+offset_right = 1008.0
+offset_bottom = 176.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "Placeholder text"
