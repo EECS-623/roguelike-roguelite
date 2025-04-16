@@ -5,7 +5,6 @@ var attacking : bool = false
 @onready var draugr : Draugr = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../DraugrStateIdle"
-@onready var move: State = $"../DraugrStateMove"
 @onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
 
 func enter() -> void:

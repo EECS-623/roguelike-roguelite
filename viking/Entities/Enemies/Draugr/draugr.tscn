@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=59 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c6a82d673lfia" path="res://Entities/Player/Player Assets/Back Sword Slash.png" id="6_6q401"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_attack.gd" id="6_cdk8k"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="6_r6v7i"]
-[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_move.gd" id="7_4hbte"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/reset_visibility_timer.gd" id="7_r1u0n"]
 [ext_resource type="Texture2D" uid="uid://bc773e3m4bxmy" path="res://Entities/Player/Player Assets/Front Left Step (2).png" id="7_wfehu"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_machine.gd" id="8_1mk0f"]
@@ -23,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://du0kgkulhhoem" path="res://Entities/Player/Player Assets/Front Sword Slash.png" id="11_ch7sr"]
 [ext_resource type="Texture2D" uid="uid://dagudkk0ht6mx" path="res://Entities/Player/Player Assets/Left Side Standing.png" id="12_f5bwe"]
 [ext_resource type="Texture2D" uid="uid://s218ljaq0pq5" path="res://Entities/Player/Player Assets/Left Side Step.png" id="13_smxmh"]
-[ext_resource type="Script" path="res://Components/AggroRangeComponent/aggro_range_component.gd" id="13_xglrj"]
 [ext_resource type="Texture2D" uid="uid://5p8vupdrb838" path="res://Entities/Player/Player Assets/Left Side Sword Raise.png" id="14_m70yn"]
 [ext_resource type="Texture2D" uid="uid://d4c65nattla50" path="res://Entities/Player/Player Assets/Left Side Sword Slash.png" id="15_q73j0"]
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="16_8j3tn"]
@@ -391,9 +389,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pwm4"]
 radius = 225.08
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yteao"]
-radius = 132.019
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctneo"]
 radius = 35.0
 height = 106.0
@@ -450,14 +445,6 @@ script = ExtResource("20_ppxgn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolAreaComponent"]
 shape = SubResource("CircleShape2D_4pwm4")
 
-[node name="AggroRangeComponent" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 5
-script = ExtResource("13_xglrj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRangeComponent"]
-shape = SubResource("CircleShape2D_yteao")
-
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
 collision_layer = 0
 collision_mask = 2
@@ -495,10 +482,6 @@ script = ExtResource("5_i8ex3")
 
 [node name="DraugrStateAttack" type="Node" parent="DraugrStateMachine"]
 script = ExtResource("6_cdk8k")
-
-[node name="DraugrStateMove" type="Node" parent="DraugrStateMachine" node_paths=PackedStringArray("speed_component")]
-script = ExtResource("7_4hbte")
-speed_component = NodePath("../../SpeedComponent")
 
 [node name="DraugrStateChase" type="Node" parent="DraugrStateMachine" node_paths=PackedStringArray("speed_component")]
 script = ExtResource("31_cw30l")

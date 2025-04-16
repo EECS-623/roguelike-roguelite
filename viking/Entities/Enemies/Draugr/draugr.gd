@@ -2,7 +2,6 @@ class_name Draugr extends CharacterBody2D
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var draugr_state_machine : DraugrStateMachine = $DraugrStateMachine
-@onready var aggro_range: AggroRangeComponent = $AggroRangeComponent
 
 var direction : Vector2 = Vector2.ZERO
 var cardinal_direction: Vector2 = Vector2.ZERO
@@ -21,10 +20,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	if (aggro_range.in_aggro):
-		direction = (aggro_range.player.global_position - global_position).normalized()
-	else:
-		direction = Vector2.ZERO
+	#if (aggro_range.in_aggro):
+	#	direction = (aggro_range.player.global_position - global_position).normalized()
+	#else:
+	#	direction = Vector2.ZERO
 	#print(aggro_range.player)
 	global_position += velocity
 
