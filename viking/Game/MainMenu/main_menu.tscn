@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cre1djk4gfdso"]
+
+[ext_resource type="Script" path="res://Game/MainMenu/main_menu.gd" id="1_01rir"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_01rir")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 320.0
+offset_right = 720.0
+offset_bottom = 448.0
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 291.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Valhalla's Gauntlet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

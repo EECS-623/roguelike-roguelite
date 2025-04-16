@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://chsbggd0fnpvh"]
+
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/ice_golem.gd" id="1_7wjgo"]
+[ext_resource type="Texture2D" uid="uid://f7ocshfhb3t0" path="res://Assets/Ice_Golem/snow_golem.png" id="1_go2oc"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_0c5pm"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="3_hq3rk"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="4_jxb4j"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="5_e4mn1"]
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/ice_golem_state_machine.gd" id="7_3f6ek"]
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/idle.gd" id="8_ohg0a"]
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/throw.gd" id="9_t3brh"]
+[ext_resource type="PackedScene" uid="uid://ccvr4jms5lxu1" path="res://Entities/Bosses/Ice_Golem/snowball.tscn" id="10_a4kgv"]
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/smash.gd" id="10_alaek"]
+[ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/build.gd" id="11_cylvl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjt2p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_go2oc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tgcf"]
+size = Vector2(102, 305)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtavg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7smhd"]
+bg_color = Color(0.212167, 0.715526, 0.639373, 1)
+
+[node name="IceGolem" type="CharacterBody2D"]
+script = ExtResource("1_7wjgo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yjt2p")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 1.5)
+shape = SubResource("RectangleShape2D_5tgcf")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_0c5pm")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-3, 1.5)
+shape = SubResource("RectangleShape2D_5tgcf")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_hq3rk")
+max_health = 100.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="HealthBarComponent" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("health_component", "health_bar_progress")]
+anchors_preset = -1
+anchor_right = 0.206
+anchor_bottom = 0.042
+offset_left = 473.0
+offset_top = 35.0
+offset_right = 472.688
+offset_bottom = 34.784
+theme_override_styles/background = SubResource("StyleBoxFlat_mtavg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7smhd")
+rounded = true
+show_percentage = false
+script = ExtResource("4_jxb4j")
+health_component = NodePath("../../HealthComponent")
+health_bar_progress = NodePath("HealthBarProgress")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBarProgress" type="ProgressBar" parent="CanvasLayer/HealthBarComponent" node_paths=PackedStringArray("health_component")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 39.0
+offset_right = -136.065
+offset_bottom = 39.0
+fill_mode = 1
+script = ExtResource("5_e4mn1")
+health_component = NodePath("../../../HealthComponent")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 479.0
+offset_top = 5.0
+offset_right = 582.0
+offset_bottom = 28.0
+text = "Ymir"
+metadata/_edit_use_anchors_ = true
+
+[node name="IceGolemStateMachine" type="Node" parent="."]
+script = ExtResource("7_3f6ek")
+
+[node name="Idle" type="Node" parent="IceGolemStateMachine"]
+script = ExtResource("8_ohg0a")
+
+[node name="Throw" type="Node" parent="IceGolemStateMachine"]
+script = ExtResource("9_t3brh")
+s_snowball = ExtResource("10_a4kgv")
+
+[node name="Smash" type="Node" parent="IceGolemStateMachine"]
+script = ExtResource("10_alaek")
+
+[node name="Build" type="Node" parent="IceGolemStateMachine"]
+script = ExtResource("11_cylvl")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
