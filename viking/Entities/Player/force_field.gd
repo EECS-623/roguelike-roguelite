@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ForceField"):
+	if Input.is_action_just_pressed("right_click") and Global.patron_god == 2:
 		$"../../Force_field".modulate.a = 1.0
 		ForceFieldOn.emit()
 		await get_tree().create_timer(3).timeout

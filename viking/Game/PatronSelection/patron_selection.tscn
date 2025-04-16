@@ -20,18 +20,6 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 456.0
-offset_top = 504.0
-offset_right = 696.0
-offset_bottom = 584.0
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Select"
-
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 64.0
@@ -59,6 +47,30 @@ offset_bottom = 624.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubdgb")
 
+[node name="First_Vbox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 504.0
+offset_right = 340.0
+offset_bottom = 584.0
+
+[node name="Button1" type="Button" parent="First_Vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lightning"
+
+[node name="Second_Vbox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 504.0
+offset_right = 696.0
+offset_bottom = 584.0
+
+[node name="Button2" type="Button" parent="Second_Vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Force Field"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 480.0
@@ -73,4 +85,18 @@ text = "Ex God"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Third_Vbox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 504.0
+offset_right = 1076.0
+offset_bottom = 584.0
+
+[node name="Button3" type="Button" parent="Third_Vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Teleport Dodge"
+
+[connection signal="pressed" from="First_Vbox/Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Second_Vbox/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Third_Vbox/Button3" to="." method="_on_button_3_pressed"]

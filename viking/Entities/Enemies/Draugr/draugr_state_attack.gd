@@ -5,9 +5,7 @@ var attacking : bool = false
 @onready var draugr : Draugr = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../DraugrStateIdle"
-@onready var move: State = $"../DraugrStateMove"
 @onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
-@onready var aggro_range : AggroRangeComponent = $"../../AggroRangeComponent"
 
 func enter() -> void:
 	draugr.update_animation("attack")
@@ -15,10 +13,10 @@ func enter() -> void:
 	#connects when animation player ends to "end attack" function
 	animation_player.animation_finished.connect( end_attack )
 	attacking = true
+	print("entered attack")
 
 # what happens when the entity exits a state
 func exit() -> void:
-	
 	#remove connection when exiting state
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
@@ -26,14 +24,10 @@ func exit() -> void:
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-	
 	draugr.velocity = Vector2.ZERO
 	
 	if !attacking:
-		if !aggro_range.in_aggro:
-			return idle
-		else:
-			return move
+		return idle
 
 	return null
 	
