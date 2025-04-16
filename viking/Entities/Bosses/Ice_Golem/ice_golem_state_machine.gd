@@ -28,6 +28,9 @@ func initialize() -> void:
 			states.append(c)
 			c.ice_golem = ice_golem
 			c.player = player
+			
+			if c.name == "Build":
+				c.spawn_wall()
 
 		change_state( states[0] )
 		process_mode = Node.PROCESS_MODE_INHERIT

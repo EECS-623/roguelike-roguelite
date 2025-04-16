@@ -147,6 +147,13 @@ func _on_teleport_teleport() -> void:
 	if teleport:
 		position = get_global_mouse_position()
 		teleport = false
-		await get_tree().create_timer(3).timeout
+		await get_tree().wcreate_timer(3).timeout
 		teleport = true
-		
+
+
+func _on_health_component_t_damage(amount: float) -> void:
+	if self:
+		for i in range(2):
+			$AnimatedSprite2D.modulate = Color.RED
+			await get_tree().create_timer(.01).timeout
+			$AnimatedSprite2D.modulate = Color.WHITE
