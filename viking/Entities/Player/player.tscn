@@ -583,8 +583,8 @@ script = ExtResource("2_m7ndx")
 position = Vector2(2.38419e-07, 0)
 scale = Vector2(0.0745182, 0.0745182)
 sprite_frames = SubResource("SpriteFrames_yot1s")
-animation = &"move_down"
-frame = 3
+animation = &"animation_frames"
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rk0fa")
