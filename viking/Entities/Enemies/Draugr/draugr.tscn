@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=60 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_patrol.gd" id="28_3ypkx"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_1g2gb"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_chase.gd" id="31_cw30l"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_stagger.gd" id="31_jmjjv"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_alert.gd" id="32_4be21"]
 [ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="35_cf8yl"]
 
@@ -489,6 +490,9 @@ speed_component = NodePath("../../SpeedComponent")
 
 [node name="DraugrStateAlert" type="Node" parent="DraugrStateMachine"]
 script = ExtResource("32_4be21")
+
+[node name="DraugrStateStagger" type="Node" parent="DraugrStateMachine"]
+script = ExtResource("31_jmjjv")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_a0hel")

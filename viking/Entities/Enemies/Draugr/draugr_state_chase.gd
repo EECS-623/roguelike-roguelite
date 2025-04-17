@@ -4,15 +4,21 @@ class_name DraugrStateChase extends State
 @onready var draugr = $"../.."
 @onready var melee_attack = $"../DraugrStateAttack"
 @onready var patrol = $"../DraugrStatePatrol"
+@onready var stagger = $"../DraugrStateStagger"
+@onready var hurtbox = $"../../Hurtbox"
 @export var speed_component : SpeedComponent
+
+var staggered: bool = false
 
 func enter() -> void:
 	draugr.update_animation("move")
-	raycast_component.raycast_length = 500
+	raycast_component.raycast_length = 800
+	speed_component.set_speed(1.7)
+	hurtbox.connect("hurt", _on_player_melee_hit)
 	
 # what happens when the entity exits a state
 func exit() -> void:
-	pass
+	hurtbox.disconnect("hurt", _on_player_melee_hit)
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
@@ -31,3 +37,6 @@ func state_process(delta : float) -> State:
 	
 func state_physics_process(delta: float) -> State:
 	return null
+
+func _on_player_melee_hit(body) -> void:
+	staggered = true

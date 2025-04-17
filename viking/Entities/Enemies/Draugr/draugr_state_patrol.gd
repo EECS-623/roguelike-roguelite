@@ -4,20 +4,24 @@ class_name DraugrStatePatrol extends State
 @onready var draugr = $"../.."
 @onready var raycast_component = $"../../RaycastComponent"
 @onready var alert = $"../DraugrStateAlert"
+@onready var hurtbox = $"../../Hurtbox"
+
 @export var speed_component: SpeedComponent
 var patrol_area_center: Vector2
 var wait_time: float = 1.0
 var target_point: Vector2
 var waiting: bool
 var player_collide: bool = false
+var staggered: bool = false
 
 func enter() -> void:
-	raycast_component.raycast_length = 250
+	raycast_component.raycast_length = 400
 	player_collide = false
 	patrol_area_center = draugr.global_position
 	raycast_component.connect("player_collision", _on_player_collision)
 	_choose_new_target()
 	draugr.update_animation("move")
+	speed_component.set_speed(1)
 	
 # what happens when the entity exits a state
 func exit() -> void:
@@ -68,3 +72,6 @@ func _reached_target() -> void:
 
 func _on_player_collision() -> void:
 	player_collide = true
+
+func _on_player_melee_hit(body) -> void:
+	staggered = true
