@@ -13,10 +13,11 @@ var staggered: bool = false
 
 # what happens when the entity enters a state
 func enter() -> void:
+	staggered = false
 	hurtbox.connect("hurt", _on_player_melee_hit)
 	cooldown = true
 	draugr.update_animation("idle")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1).timeout
 	cooldown_finished()
 
 # what happens when the entity exits a state
@@ -51,4 +52,6 @@ func cooldown_finished() -> void:
 	cooldown = false
 
 func _on_player_melee_hit(body) -> void:
-	staggered = true
+	#this code is so bad lmao
+	if body.get_parent().get_parent().is_in_group("player"):
+		staggered = true

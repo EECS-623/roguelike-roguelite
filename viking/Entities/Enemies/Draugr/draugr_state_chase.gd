@@ -11,6 +11,7 @@ class_name DraugrStateChase extends State
 var staggered: bool = false
 
 func enter() -> void:
+	staggered = false
 	draugr.update_animation("move")
 	raycast_component.raycast_length = 800
 	speed_component.set_speed(130)
@@ -23,6 +24,8 @@ func exit() -> void:
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	
+	if staggered:
+		return stagger
 	if draugr.global_position.distance_to(raycast_component.player.global_position) < 100:
 		return melee_attack
 	if draugr.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
@@ -39,4 +42,6 @@ func state_physics_process(delta: float) -> State:
 	return null
 
 func _on_player_melee_hit(body) -> void:
-	staggered = true
+	#this code is so bad lmao
+	if body.get_parent().get_parent().is_in_group("player"):
+		staggered = true

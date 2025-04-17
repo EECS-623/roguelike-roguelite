@@ -1,7 +1,7 @@
-class_name DraugrStatePatrol extends State
+class_name VolvaStatePatrol extends State
 
 @onready var patrol_area : PatrolAreaComponent = $"../../PatrolAreaComponent" 
-@onready var draugr = $"../.."
+@onready var volva = $"../.."
 @onready var raycast_component = $"../../RaycastComponent"
 @onready var alert = $"../DraugrStateAlert"
 @onready var hurtbox = $"../../Hurtbox"
@@ -12,14 +12,15 @@ var wait_time: float = 1.0
 var target_point: Vector2
 var waiting: bool
 var player_collide: bool = false
+var staggered: bool = false
 
 func enter() -> void:
 	raycast_component.raycast_length = 400
 	player_collide = false
-	patrol_area_center = draugr.global_position
+	patrol_area_center = volva.global_position
 	raycast_component.connect("player_collision", _on_player_collision)
 	_choose_new_target()
-	draugr.update_animation("move")
+	volva.update_animation("move")
 	speed_component.set_speed(80)
 	
 # what happens when the entity exits a state
@@ -30,20 +31,20 @@ func exit() -> void:
 func state_process(delta : float) -> State:
 	#if raycast hits player, then move to alert state
 	if player_collide:
-		draugr.velocity = Vector2.ZERO
+		volva.velocity = Vector2.ZERO
 		return alert
 	if waiting:
-		draugr.velocity = Vector2.ZERO
+		volva.velocity = Vector2.ZERO
 		return null
 
-	draugr.direction = (target_point-draugr.global_position).normalized()
+	volva.direction = (target_point-volva.global_position).normalized()
 	
-	draugr.velocity = draugr.direction * speed_component.get_speed()
+	volva.velocity = volva.direction * speed_component.get_speed()
 
-	draugr.set_direction()
-	draugr.update_animation("move")
+	volva.set_direction()
+	volva.update_animation("move")
 	
-	if draugr.global_position.distance_to(target_point) < 10:
+	if volva.global_position.distance_to(target_point) < 10:
 		_reached_target()
 		
 	return null
@@ -62,8 +63,8 @@ func _choose_new_target():
 	
 func _reached_target() -> void:
 	waiting = true
-	draugr.velocity = Vector2.ZERO
-	draugr.update_animation("idle")
+	volva.velocity = Vector2.ZERO
+	volva.update_animation("idle")
 	wait_time = randf_range(1.0, 1.5)
 	await get_tree().create_timer(wait_time).timeout
 	_choose_new_target()
@@ -71,3 +72,6 @@ func _reached_target() -> void:
 
 func _on_player_collision() -> void:
 	player_collide = true
+
+func _on_player_melee_hit(body) -> void:
+	staggered = true

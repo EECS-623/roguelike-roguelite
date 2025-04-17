@@ -25,4 +25,4 @@ func _on_area_entered(hitbox: Node2D):
 		hitbox.hit.emit(self)
 		if attacker and health_component: 
 			health_component.take_damage(hitbox.get_damage())
-			hurt.emit(self)
+			hurt.emit(hitbox)

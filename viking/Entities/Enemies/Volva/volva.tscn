@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c402cxraasnvw"]
+
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_machine.gd" id="1_fjf1g"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_patrol.gd" id="2_27k5n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lh72k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i50s"]
+radius = 40.0
+height = 128.0
+
+[node name="Volva" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lh72k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3i50s")
+
+[node name="VolvaStateMachine" type="Node" parent="."]
+script = ExtResource("1_fjf1g")
+
+[node name="VolvaStatePatrol" type="Node" parent="VolvaStateMachine"]
+script = ExtResource("2_27k5n")
