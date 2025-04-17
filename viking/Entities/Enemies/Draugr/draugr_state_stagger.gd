@@ -11,8 +11,8 @@ var knockback_direction: Vector2
 
 # what happens when the entity enters a state
 func enter() -> void:
-	timer = knockback_duration
 	knockback_direction = -(raycast_component.player.global_position - draugr.global_position).normalized()
+	timer = knockback_duration
 	knockback_velocity = knockback_direction * 300.0
 
 # what happens when the entity exits a state
