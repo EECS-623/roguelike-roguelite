@@ -1,10 +1,10 @@
-class_name DraugrStateChase extends State
+class_name VolvaStateChase extends State
 
 @onready var raycast_component = $"../../RaycastComponent"
-@onready var draugr = $"../.."
-@onready var melee_attack = $"../DraugrStateAttack"
-@onready var patrol = $"../DraugrStatePatrol"
-@onready var stagger = $"../DraugrStateStagger"
+@onready var volva = $"../.."
+@onready var ranged_attack = $"../VolvaStateAttack"
+@onready var patrol = $"../VolvaStatePatrol"
+@onready var stagger = $"../VolvarStateStagger"
 @onready var hurtbox = $"../../Hurtbox"
 @export var speed_component : SpeedComponent
 
@@ -12,7 +12,7 @@ var staggered: bool = false
 
 func enter() -> void:
 	staggered = false
-	draugr.update_animation("move")
+	volva.update_animation("move")
 	raycast_component.raycast_length = 800
 	speed_component.set_speed(130)
 	hurtbox.connect("hurt", _on_player_melee_hit)
@@ -26,15 +26,15 @@ func state_process(delta : float) -> State:
 	
 	if staggered:
 		return stagger
-	if draugr.global_position.distance_to(raycast_component.player.global_position) < 100:
-		return melee_attack
-	if draugr.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
+	if volva.global_position.distance_to(raycast_component.player.global_position) < 100:
+		return ranged_attack
+	if volva.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
 		return patrol
-	draugr.set_direction()
-	draugr.update_animation("move")
+	volva.set_direction()
+	volva.update_animation("move")
 
-	draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
-	draugr.velocity = draugr.direction * speed_component.get_speed()
+	volva.direction = (raycast_component.player.global_position - volva.global_position).normalized()
+	volva.velocity = volva.direction * speed_component.get_speed()
 
 	return null
 	
