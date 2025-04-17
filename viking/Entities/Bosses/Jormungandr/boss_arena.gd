@@ -6,6 +6,7 @@ var player = Node2D
 var snake = Node2D
 var snake_dead = false
 var health_bar: ProgressBar
+var dialogue: DialogueUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,24 +24,21 @@ func _ready() -> void:
 	cam.limit_top = -897
 	cam.limit_bottom = 900
 	
-	var dialogue = player.get_node("DialogueUI")
-	get_tree().paused = true
-	var words = dialogue.load_dialogue("res://Game/Dialogue/jormungandr.json")
-	dialogue.dialogue_begin(words)
-	dialogue.connect("dialogue_finished", _on_dialogue_end)
+	var dialogue_ui = player.get_node("DialogueUI")
+	dialogue = dialogue_ui
+	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
 	if snake == null and not snake_dead:
 		snake_dead = true
+		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
 		portal_open()
 	elif snake != null:
 		snake.chase_player(player.global_position)
 	
 	print(player.get_node("Hurtbox").health_component.current_health)
-	
-
 
 func portal_open():
 	$Portal.visible = true
@@ -63,5 +61,12 @@ func pulse_thorns():
 			thorn.disabled = true
 			await get_tree().create_timer(0.02).timeout  # "inactive" window
 
+func play_dialogue(path: String) -> void:
+	get_tree().paused = true
+	var words = dialogue.load_dialogue(path)
+	dialogue.dialogue_begin(words)
+	dialogue.connect("dialogue_finished", _on_dialogue_end)
+
 func _on_dialogue_end():
+	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
 	get_tree().paused = false

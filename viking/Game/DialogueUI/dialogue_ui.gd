@@ -13,20 +13,55 @@ var typing_speed = 0.03
 var typing_in_progress = false
 var input_locked = false
 
+var player_patron = {
+	"thor" = false,
+	"freyr" = true,
+	"odin" = false
+}
+
+var player_god: bool = false
+
 signal dialogue_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	background.visible = false
+	var text_height = speaker_name.get_content_height()
+	speaker_name.position.y = (background.size.y - text_height) / 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if !player_god:
+		if Global.patron_god == 1:
+			player_patron["thor"] = true
+			player_god = true
+		elif Global.patron_god == 2:
+			player_patron["freyr"] = true
+			player_god = true
+		elif Global.patron_god == 3:
+			player_patron["odin"] = true
+			player_god = true
 
-# use path of json file for the dialogue to begin. 
+# takes lines of dialogue in, and parses based on conditions
 func dialogue_begin(lines: Array) -> void:
-	dialogue = lines
+	dialogue = []
+	for line in lines:
+		if line.has("condition"):
+			var conditions = line["condition"]
+			
+			if typeof(conditions) == TYPE_STRING:
+				if player_patron.get(conditions, false):
+					dialogue.append(line)
+
+			elif typeof(conditions) == TYPE_ARRAY:
+				for condition in conditions:
+					if player_patron.get(condition, false):
+						dialogue.append(line)
+						break 
+		else:
+			dialogue.append(line)
+
 	current_line = 0
 	background.visible = true
 	show_line()
