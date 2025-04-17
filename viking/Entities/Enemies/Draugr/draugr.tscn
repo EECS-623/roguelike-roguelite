@@ -1,99 +1,87 @@
-[gd_scene load_steps=61 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=58 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
-[ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_lllww"]
-[ext_resource type="Texture2D" uid="uid://cwosp8wkbrsdp" path="res://Entities/Player/Player Assets/Back Left Step (2).png" id="2_m0ykn"]
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="3_a0hel"]
-[ext_resource type="Texture2D" uid="uid://cela5jlyc1mbw" path="res://Entities/Player/Player Assets/Back Right Step (1).png" id="3_g5n6d"]
-[ext_resource type="Texture2D" uid="uid://b8epfdclvgyan" path="res://Entities/Player/Player Assets/Back Standing.png" id="4_e3x86"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="4_gyuwt"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="4_h1kep"]
-[ext_resource type="Texture2D" uid="uid://cbff7napedsin" path="res://Entities/Player/Player Assets/Back Sword Raise.png" id="5_dv6hs"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="5_gvmp7"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_idle.gd" id="5_i8ex3"]
-[ext_resource type="Texture2D" uid="uid://c6a82d673lfia" path="res://Entities/Player/Player Assets/Back Sword Slash.png" id="6_6q401"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_attack.gd" id="6_cdk8k"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="6_r6v7i"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/reset_visibility_timer.gd" id="7_r1u0n"]
-[ext_resource type="Texture2D" uid="uid://bc773e3m4bxmy" path="res://Entities/Player/Player Assets/Front Left Step (2).png" id="7_wfehu"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_machine.gd" id="8_1mk0f"]
-[ext_resource type="Texture2D" uid="uid://p01rqeb7rjp3" path="res://Entities/Player/Player Assets/Front Right Step (1).png" id="8_04dx5"]
-[ext_resource type="Texture2D" uid="uid://bq2m0tro3jjxs" path="res://Entities/Player/Player Assets/Front Sword Raise.png" id="10_4ufkv"]
-[ext_resource type="Texture2D" uid="uid://du0kgkulhhoem" path="res://Entities/Player/Player Assets/Front Sword Slash.png" id="11_ch7sr"]
-[ext_resource type="Texture2D" uid="uid://dagudkk0ht6mx" path="res://Entities/Player/Player Assets/Left Side Standing.png" id="12_f5bwe"]
-[ext_resource type="Texture2D" uid="uid://s218ljaq0pq5" path="res://Entities/Player/Player Assets/Left Side Step.png" id="13_smxmh"]
-[ext_resource type="Texture2D" uid="uid://5p8vupdrb838" path="res://Entities/Player/Player Assets/Left Side Sword Raise.png" id="14_m70yn"]
-[ext_resource type="Texture2D" uid="uid://d4c65nattla50" path="res://Entities/Player/Player Assets/Left Side Sword Slash.png" id="15_q73j0"]
-[ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="16_8j3tn"]
-[ext_resource type="Texture2D" uid="uid://ctgnuenya7i43" path="res://Entities/Player/Player Assets/Right Side Step.png" id="17_6okhh"]
-[ext_resource type="Texture2D" uid="uid://bsv7oe0v40apx" path="res://Entities/Player/Player Assets/Right Side Sword Raise.png" id="18_4gyq4"]
-[ext_resource type="Texture2D" uid="uid://lwau0hxj4s6x" path="res://Entities/Player/Player Assets/Right Side Sword Slash.png" id="19_saeeb"]
+[ext_resource type="Texture2D" uid="uid://dd7v2obosbvla" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Raise.png" id="20_5f48w"]
 [ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="20_ppxgn"]
 [ext_resource type="PackedScene" uid="uid://ce05576vppq3r" path="res://Entities/Enemies/HitEffect/particles.tscn" id="21_0hbea"]
+[ext_resource type="Texture2D" uid="uid://bat4ibt75imql" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Swing.png" id="21_5hvho"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/interactions.gd" id="22_cox6x"]
+[ext_resource type="Texture2D" uid="uid://ckmnibik2fjm5" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Left Step.png" id="22_vkpv2"]
+[ext_resource type="Texture2D" uid="uid://dhp2btj5o530i" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Right Step.png" id="23_h2bfa"]
+[ext_resource type="Texture2D" uid="uid://bebrlhp8djn3o" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Standing.png" id="24_1jgea"]
+[ext_resource type="Texture2D" uid="uid://crs1nf0bf4usg" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Axe Raise.png" id="25_cudnv"]
+[ext_resource type="Texture2D" uid="uid://8ynvbfu6rsst" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Axe Swing.png" id="26_pb6wn"]
+[ext_resource type="Texture2D" uid="uid://cvg3qehmbne0e" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Left Step.png" id="27_8egra"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_patrol.gd" id="28_3ypkx"]
+[ext_resource type="Texture2D" uid="uid://kyclw5o27tbt" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Right Step.png" id="28_jh8e1"]
+[ext_resource type="Texture2D" uid="uid://dnayeom4p225p" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Standing.png" id="29_f7exh"]
+[ext_resource type="Texture2D" uid="uid://bjcokepw1duvt" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Axe Raise.png" id="30_uv352"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_1g2gb"]
+[ext_resource type="Texture2D" uid="uid://w3jmijyca8cp" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Axe Swing.png" id="31_56nes"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_chase.gd" id="31_cw30l"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_stagger.gd" id="31_jmjjv"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_alert.gd" id="32_4be21"]
+[ext_resource type="Texture2D" uid="uid://pbe8fghtepv0" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Left Step.png" id="32_h3lf1"]
+[ext_resource type="Texture2D" uid="uid://dbumomae1r285" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Right Step.png" id="33_55fxh"]
+[ext_resource type="Texture2D" uid="uid://84605ll6gn3l" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Standing.png" id="34_b5qsq"]
 [ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="35_cf8yl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_isbi8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_m0ykn")
+"texture": ExtResource("20_5f48w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_g5n6d")
+"texture": ExtResource("21_5hvho")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_e3x86")
+"texture": ExtResource("22_vkpv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_dv6hs")
+"texture": ExtResource("23_h2bfa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_6q401")
+"texture": ExtResource("24_1jgea")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_wfehu")
+"texture": ExtResource("25_cudnv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_04dx5")
+"texture": ExtResource("26_pb6wn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_lllww")
+"texture": ExtResource("27_8egra")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_4ufkv")
+"texture": ExtResource("28_jh8e1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_ch7sr")
+"texture": ExtResource("29_f7exh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_f5bwe")
+"texture": ExtResource("30_uv352")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_smxmh")
+"texture": ExtResource("31_56nes")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_m70yn")
+"texture": ExtResource("32_h3lf1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_q73j0")
+"texture": ExtResource("33_55fxh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_8j3tn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_6okhh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_4gyq4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_saeeb")
+"texture": ExtResource("34_b5qsq")
 }],
 "loop": true,
 "name": &"sprite_frames",
@@ -130,6 +118,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ynyh0"]
 resource_name = "attack_down"
@@ -144,7 +144,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [8, 9, 7]
+"values": [5, 6, 9]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [12, 13, 10]
+"values": [10, 11, 14]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -185,6 +185,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_flw7q"]
@@ -200,7 +212,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [16, 17, 14]
+"values": [10, 11, 14]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -213,6 +225,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_hs26q"]
@@ -228,7 +252,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [3, 4, 2]
+"values": [0, 1, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -256,7 +280,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_xikh7"]
@@ -272,7 +296,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_mddby"]
@@ -290,6 +326,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [14]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_t5xay"]
 resource_name = "idle_up"
@@ -304,7 +352,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_roao1"]
@@ -320,7 +368,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [7, 6, 7, 5]
+"values": [9, 7, 9, 8]
 }
 
 [sub_resource type="Animation" id="Animation_rirto"]
@@ -336,7 +384,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [10, 11, 10, 11]
+"values": [14, 13, 14, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_52kel"]
@@ -352,7 +412,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [14, 15, 14, 15]
+"values": [14, 13, 14, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_r8un8"]
@@ -368,7 +440,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 1, 2, 0]
+"values": [4, 3, 4, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnk26"]
@@ -422,7 +494,6 @@ bg_color = Color(1, 1, 1, 1)
 script = ExtResource("1_sgxkm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
 position = Vector2(0, -1)
 scale = Vector2(0.0994792, 0.0994792)
 sprite_frames = SubResource("SpriteFrames_isbi8")
