@@ -32,7 +32,7 @@ var can_spit = false
 func _ready() -> void:
 
 	spawn_snake()
-	$CanvasLayer/HealthBarComponent.modulate =  Color(1, 1, 1, 1) 
+	$CanvasLayer/HealthBarComponent.modulate =  Color(1, 1, 1, 1)
 	await get_tree().create_timer(5.0).timeout
 	can_spit = true
 	

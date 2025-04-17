@@ -1,8 +1,8 @@
 class_name DialogueUI extends CanvasLayer
 
 @onready var background = $Background
-@onready var speaker_name: RichTextLabel = $Background/SpeakerName
-@onready var dialogue_text: RichTextLabel = $Background/DialogueText
+@onready var speaker_name: RichTextLabel = $SpeakerName
+@onready var dialogue_text: RichTextLabel = $DialogueText
 
 var dialogue = []
 var parsed_chars: Array = []
@@ -26,7 +26,7 @@ signal dialogue_finished
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	background.visible = false
+	visible = false
 	var text_height = speaker_name.get_content_height()
 	speaker_name.position.y = (background.size.y - text_height) / 2
 
@@ -63,7 +63,7 @@ func dialogue_begin(lines: Array) -> void:
 			dialogue.append(line)
 
 	current_line = 0
-	background.visible = true
+	visible = true
 	show_line()
 
 func show_line() -> void:
@@ -90,7 +90,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if input_locked:
 		return 
 		
-	if event is InputEventMouseButton and background.visible:
+	if event is InputEventMouseButton and visible:
 		input_locked = true
 		if typing_in_progress:
 			
@@ -153,4 +153,4 @@ func load_dialogue(path: String) -> Array:
 
 func dialogue_end() -> void:
 	dialogue_finished.emit()
-	background.visible = false
+	visible = false

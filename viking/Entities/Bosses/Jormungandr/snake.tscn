@@ -63,6 +63,7 @@ offset_left = 2.0
 offset_top = 39.0
 offset_right = -136.065
 offset_bottom = 39.0
+max_value = 300.0
 script = ExtResource("9_4s4fl")
 health_component = NodePath("../../../HealthComponent")
 metadata/_edit_use_anchors_ = true

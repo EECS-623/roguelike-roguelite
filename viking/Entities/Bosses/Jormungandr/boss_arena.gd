@@ -5,14 +5,19 @@ extends Node2D
 var player = Node2D
 var snake = Node2D
 var snake_dead = false
-var health_bar: ProgressBar
 var dialogue: DialogueUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	player = s_player.instantiate()
+	player.direction = Vector2(0,1)
 	get_tree().current_scene.add_child(player)
 	
+	var dialogue_ui = player.get_node("DialogueUI")
+	dialogue = dialogue_ui
+	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
+		
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
 	
@@ -24,9 +29,7 @@ func _ready() -> void:
 	cam.limit_top = -897
 	cam.limit_bottom = 900
 	
-	var dialogue_ui = player.get_node("DialogueUI")
-	dialogue = dialogue_ui
-	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
