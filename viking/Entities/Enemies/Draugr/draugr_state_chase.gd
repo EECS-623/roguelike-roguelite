@@ -13,7 +13,7 @@ var staggered: bool = false
 func enter() -> void:
 	draugr.update_animation("move")
 	raycast_component.raycast_length = 800
-	speed_component.set_speed(1.7)
+	speed_component.set_speed(130)
 	hurtbox.connect("hurt", _on_player_melee_hit)
 	
 # what happens when the entity exits a state

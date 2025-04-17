@@ -16,7 +16,7 @@ func enter() -> void:
 	draugr.set_direction()
 	draugr.update_animation("idle")
 	draugr.velocity = Vector2.ZERO
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	check_alert()
 
 # what happens when the entity exits a state

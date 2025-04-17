@@ -15,8 +15,8 @@ var input_locked = false
 
 var player_patron = {
 	"thor" = false,
-	"freyr" = true,
-	"odin" = false
+	"freya" = true,
+	"tyr" = false
 }
 
 var player_god: bool = false

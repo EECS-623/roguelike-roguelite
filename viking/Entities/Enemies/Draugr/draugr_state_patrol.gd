@@ -21,7 +21,7 @@ func enter() -> void:
 	raycast_component.connect("player_collision", _on_player_collision)
 	_choose_new_target()
 	draugr.update_animation("move")
-	speed_component.set_speed(1)
+	speed_component.set_speed(80)
 	
 # what happens when the entity exits a state
 func exit() -> void:

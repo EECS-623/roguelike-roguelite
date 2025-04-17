@@ -13,7 +13,7 @@ func enter() -> void:
 	#connects when animation player ends to "end attack" function
 	animation_player.animation_finished.connect( end_attack )
 	attacking = true
-	print("entered attack")
+
 
 # what happens when the entity exits a state
 func exit() -> void:
