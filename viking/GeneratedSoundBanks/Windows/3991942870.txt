@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	3991942870	Music			\Music\Music	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	1031214841	Valhalla's Gauntlet - Earth Overworld Theme	C:\Users\willb\Downloads\Valhalla's Gauntlet (1)\Valhalla's Gauntlet\.cache\60\{60009AF1-8148-3A7D-2CC5-A29CB990AB06}.wem		\Interactive Music Hierarchy\Default Work Unit\Valhalla's Gauntlet Music\Exploration\Migard - Earth\Valhalla's Gauntlet - Earth Overworld Theme\Valhalla's Gauntlet - Earth Overworld Theme		15552160
-
