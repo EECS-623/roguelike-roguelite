@@ -54,7 +54,6 @@ func _on_portal_body_entered(body: Node2D) -> void:
 			#$CollisionShape2D.set_deferred("disabled", true)
 			remove_child(body)
 			get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
-			
 
 func pulse_thorns():
 	while true:

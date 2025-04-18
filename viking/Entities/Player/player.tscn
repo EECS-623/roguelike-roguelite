@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]
 [ext_resource type="Script" path="res://Components/SpecialAbilityComponent/cast_fireball.gd" id="35_ratt1"]
 [ext_resource type="Texture2D" uid="uid://gbvq7qkrb6di" path="res://Assets/Art/force_field.png" id="36_pbs0n"]
+[ext_resource type="Script" path="res://Entities/Player/camera_2d.gd" id="37_dpfyb"]
 [ext_resource type="Script" path="res://Entities/Player/force_field.gd" id="37_shw6h"]
 [ext_resource type="PackedScene" uid="uid://bnnuln6wj2vki" path="res://Game/DialogueUI/DialogueUI.tscn" id="39_vyhy8"]
 
@@ -807,6 +808,7 @@ script = ExtResource("21_mbuf2")
 luck = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("37_dpfyb")
 
 [node name="HealthBarLabel" type="Label" parent="."]
 offset_left = -750.0
