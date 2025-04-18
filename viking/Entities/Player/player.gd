@@ -22,7 +22,7 @@ func _ready():
 	add_to_group("player")
 	set_health_label()
 	$HealthBar.max_value = $HealthComponent.max_health
-	$SpeedComponent.set_speed(900)
+	$SpeedComponent.set_speed(300)
 	state_machine.initialize(self)
 	pass
 
