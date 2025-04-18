@@ -35,6 +35,10 @@ project/assembly_name="Viking"
 
 Player=""
 
+[gui]
+
+theme/custom_font="res://Game/Font/Masonic Lodge.otf"
+
 [input]
 
 left={
