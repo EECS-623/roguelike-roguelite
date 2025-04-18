@@ -13,11 +13,12 @@ var first_dialogue = true
 func _ready() -> void:
 
 	player = PlayerManager.player
-	if player == null:
-		player = s_player.instantiate()
+
 	
 	get_tree().current_scene.add_child(player)
-
+	player.position = Vector2(400,400)
+	if player == null:
+		player = s_player.instantiate()
 	
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
@@ -46,6 +47,7 @@ func _process(delta: float) -> void:
 
 	if snake == null and not snake_dead:
 		snake_dead = true
+		Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
 		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
 		portal_open()
 	elif snake != null:
