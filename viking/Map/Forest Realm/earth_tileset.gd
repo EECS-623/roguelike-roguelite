@@ -4,8 +4,11 @@ var leftmostEdge = -4
 var rightmostEdge = 4
 var upperEdge = -3
 var lowerEdge = 3
+
+var haveKey = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Area2D.body_entered.connect(_on_body_entered)
 
 	#var my_player = player.instantiate()
 	get_tree().current_scene.add_child(PlayerManager.player)
@@ -80,8 +83,30 @@ func _ready() -> void:
 			set_cell(position, 0, choseTile)
 			#generate enemeies
 			var my_enemy = enemy.instantiate()
-			my_enemy.position = map_to_local(position)
+			my_enemy.position = map_to_local(position)+Vector2(400, 400)
 			get_parent().add_child(my_enemy)
 			Global.earth_enemies_left += 1			
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
+func _on_body_entered(body):
+	if not body.is_in_group("player"):
+		return
+	while(true):
+		print("player entered")
+
+		var cell = local_to_map(body.global_position)
+		var tile_data = get_cell_tile_data(local_to_map(body.global_position))
+		if tile_data and tile_data.get_custom_data("pickupKey"):
+			haveKey = true
+			print("Key aquired")
+			
+		if tile_data and tile_data.get_custom_data("bossteleport"):
+			if(haveKey):
+				print("Start Teleport")
+				get_parent().remove_child(body)
+				get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Jormungandr/boss_arena.tscn")
+			else:
+				print("No key")
+		await get_tree().create_timer(0.1).timeout
