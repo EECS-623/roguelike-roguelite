@@ -30,15 +30,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if ice_golem == null and not dead:
 		dead = true
-		#portal_open()
+		portal_open()
 	
 	
-#func portal_open():
-	#$Portal.visible = true
-	#$Portal/CollisionShape2D.disabled = false
-	#$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")
+func portal_open():
+	$Portal.visible = true
+	$Portal/CollisionShape2D.disabled = false
+	$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")
 		
 		
-#func _on_portal_body_entered(body: Node2D) -> void:
-	#if body.is_in_group("player"):
-			#get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+func _on_portal_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+			get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")

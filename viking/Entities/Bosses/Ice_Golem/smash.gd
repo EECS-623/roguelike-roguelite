@@ -23,17 +23,12 @@ func enter() -> void:
 	for icicle in get_tree().get_nodes_in_group("icicles"):
 		icicle.shatter()
 
-	if tween and tween.is_running():
-		return  # prevent sliding again mid-tween
-		
 	var dist = player.global_position.distance_to(Vector2(0, -385))
-	var strength = lerp(300, 100, dist / 500)  # closer = more force
+	var strength = lerp(1000, 300, dist / 500)
 	var dir = (player.global_position - Vector2(0, -385)).normalized()
-	var end_pos = player.global_position + (dir * strength)
-	
-	tween = create_tween()
-	tween.tween_property(player, "global_position", end_pos, .3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	
+	player.knockback_velocity = dir * strength
+	player.knockback_timer = 0.5 
+
 	remove_child(stomp)
 	finished = true
 	

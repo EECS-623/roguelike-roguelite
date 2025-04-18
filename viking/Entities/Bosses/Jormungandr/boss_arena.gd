@@ -45,9 +45,7 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-			#$CollisionShape2D.set_deferred("disabled", true)
 			get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
-			
 
 func pulse_thorns():
 	while true:
