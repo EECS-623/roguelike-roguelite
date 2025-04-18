@@ -94,7 +94,7 @@ func _on_body_entered(body):
 	if not body.is_in_group("player"):
 		return
 	while(true):
-		print("player entered")
+		#print("player entered")
 
 		var cell = local_to_map(body.global_position)
 		var tile_data = get_cell_tile_data(local_to_map(body.global_position))
