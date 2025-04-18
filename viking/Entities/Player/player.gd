@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name Player
 
 @onready var _animated_sprite = $AnimatedSprite2D
-@export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var state_machine : PlayerStateMachine = $PlayerStateMachine
 @onready var speed_component = $SpeedComponent
