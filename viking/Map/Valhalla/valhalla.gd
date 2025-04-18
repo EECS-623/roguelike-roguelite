@@ -16,6 +16,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
 	HUD.connect_to_player()
+	Inventory.connect_to_player()
 	
 
 

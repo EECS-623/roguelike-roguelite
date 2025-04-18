@@ -24,7 +24,6 @@
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="16_ulyav"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="17_a22r0"]
 [ext_resource type="Script" path="res://Components/StatComponents/ManaComponent/mana_component.gd" id="18_6hj8y"]
-[ext_resource type="Script" path="res://Entities/Player/canvas_layer.gd" id="19_4ip0g"]
 [ext_resource type="Script" path="res://Components/StatComponents/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
 [ext_resource type="Texture2D" uid="uid://0kf7jjt4hsgo" path="res://Entities/Effects/Melee Hit Effect.png" id="20_1bccj"]
 [ext_resource type="Script" path="res://Components/StatComponents/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
@@ -760,7 +759,6 @@ script = ExtResource("37_shw6h")
 
 [node name="Teleport" type="Node" parent="SpecialAbility"]
 script = ExtResource("25_c7d0u")
-mana_cost = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -808,7 +806,6 @@ script = ExtResource("21_mbuf2")
 luck = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("37_dpfyb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("19_4ip0g")
@@ -861,7 +858,3 @@ texture = ExtResource("36_pbs0n")
 [connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_on"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]
-[connection signal="increase_speed" from="CanvasLayer" to="SpeedComponent" method="_on_canvas_layer_increase_speed"]
-[connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
-[connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
-[connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]
