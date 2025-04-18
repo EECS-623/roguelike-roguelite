@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=60 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="2_2frng"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_11bys"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://Components/StatComponents/ManaComponent/mana_component.gd" id="18_6hj8y"]
 [ext_resource type="Script" path="res://Entities/Player/canvas_layer.gd" id="19_4ip0g"]
 [ext_resource type="Script" path="res://Components/StatComponents/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
+[ext_resource type="Texture2D" uid="uid://0kf7jjt4hsgo" path="res://Entities/Effects/Melee Hit Effect.png" id="20_1bccj"]
 [ext_resource type="Script" path="res://Components/StatComponents/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
 [ext_resource type="Script" path="res://Entities/Player/melee_hitbox_interactions.gd" id="21_buioh"]
 [ext_resource type="Script" path="res://Components/StatComponents/LuckComponent/luck_component.gd" id="21_mbuf2"]
@@ -39,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://gbvq7qkrb6di" path="res://Assets/Art/force_field.png" id="36_pbs0n"]
 [ext_resource type="Script" path="res://Entities/Player/camera_2d.gd" id="37_dpfyb"]
 [ext_resource type="Script" path="res://Entities/Player/force_field.gd" id="37_shw6h"]
+[ext_resource type="PackedScene" uid="uid://bnnuln6wj2vki" path="res://Game/DialogueUI/DialogueUI.tscn" id="39_vyhy8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yot1s"]
 animations = [{
@@ -265,6 +267,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rk0fa"]
 radius = 20.025
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhy5m"]
+radius = 128.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77rnh"]
 radius = 23.0
 height = 82.0
@@ -298,6 +303,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeEffect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(43, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_iv8t1"]
 resource_name = "attack_down"
@@ -326,6 +355,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeEffect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_w5h45"]
@@ -356,6 +409,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeEffect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_30pn3"]
 resource_name = "attack_right"
@@ -385,6 +462,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeEffect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(45, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_j0rok"]
 resource_name = "attack_up"
@@ -413,6 +514,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeEffect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_bfq0h"]
@@ -586,8 +711,19 @@ sprite_frames = SubResource("SpriteFrames_yot1s")
 animation = &"animation_frames"
 frame = 4
 
+[node name="MeleeEffect" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(43, 0)
+scale = Vector2(0.0841667, 0.0841667)
+texture = ExtResource("20_1bccj")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rk0fa")
+
+[node name="InteractionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_hhy5m")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
 collision_layer = 0
@@ -653,7 +789,7 @@ max_health = 100.0
 
 [node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("17_a22r0")
-speed = 300.0
+speed = 900.0
 
 [node name="MagicDamageComponent" type="Node" parent="."]
 script = ExtResource("19_rymoq")
@@ -735,6 +871,10 @@ offset_right = 75.0
 offset_bottom = 61.0
 texture = ExtResource("36_pbs0n")
 
+[node name="DialogueUI" parent="." instance=ExtResource("39_vyhy8")]
+
+[connection signal="body_entered" from="InteractionRange" to="." method="_on_interaction_range_body_entered"]
+[connection signal="body_exited" from="InteractionRange" to="." method="_on_interaction_range_body_exited"]
 [connection signal="ForceFieldOff" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_off"]
 [connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_on"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

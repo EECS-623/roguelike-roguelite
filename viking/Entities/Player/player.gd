@@ -6,7 +6,9 @@ class_name Player
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var state_machine : PlayerStateMachine = $PlayerStateMachine
 @onready var speed_component = $SpeedComponent
+@onready var interaction_range = $InteractionRange
 
+var npc: CharacterBody2D
 
 #@export var SPEED : float = 300.0
 #@onready var animation_tree = $AnimationTree
@@ -27,18 +29,17 @@ func _ready():
 	add_to_group("player")
 	set_health_label()
 	$HealthBar.max_value = $HealthComponent.max_health
-	$SpeedComponent.set_speed(200)
+	$SpeedComponent.set_speed(300)
 	state_machine.initialize(self)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta):
-	#if Input.is_action_pressed("map"):
-		#for enemy in get_tree().get_nodes_in_group("enemies"):
-			#enemy.queue_free()
-
-		#get_tree().change_scene_to_file("res://Map/map.tscn")
+	if Input.is_action_just_pressed("interact"):
+		if npc != null:
+			npc.talk()
+		
 	set_health_bar()
 	
 	#if set_state() == true || set_direction() == true:
@@ -130,3 +131,11 @@ func _on_health_component_t_damage(amount: float) -> void:
 			$AnimatedSprite2D.modulate = Color.RED
 			await get_tree().create_timer(.01).timeout
 			$AnimatedSprite2D.modulate = Color.WHITE
+
+
+func _on_interaction_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("npc"):
+		npc = body
+
+func _on_interaction_range_body_exited(body: Node2D) -> void:
+	npc = null

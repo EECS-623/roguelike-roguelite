@@ -2,6 +2,9 @@ class_name Draugr extends CharacterBody2D
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var draugr_state_machine : DraugrStateMachine = $DraugrStateMachine
+@onready var speed_component: SpeedComponent = $SpeedComponent
+@onready var particles = $Particles
+@onready var raycast_component = $RaycastComponent
 
 var direction : Vector2 = Vector2.ZERO
 var cardinal_direction: Vector2 = Vector2.ZERO
@@ -20,12 +23,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	#if (aggro_range.in_aggro):
-	#	direction = (aggro_range.player.global_position - global_position).normalized()
-	#else:
-	#	direction = Vector2.ZERO
-	#print(aggro_range.player)
-	global_position += velocity
+	#global_position += velocity
+	#velocity = direction * speed_component.get_speed()
+	move_and_collide(velocity * delta)
 
 func set_direction() -> bool:
 	var new_direction : Vector2 = cardinal_direction
@@ -59,3 +59,8 @@ func animation_direction() -> String:
 func _on_health_component_death() -> void:
 	Global.xp += 1
 	queue_free()
+
+func _on_health_component_t_damage(amount: float) -> void:
+	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1,1,1,1)
