@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cre1djk4gfdso"]
+[gd_scene load_steps=3 format=3 uid="uid://cre1djk4gfdso"]
 
 [ext_resource type="Script" path="res://Game/MainMenu/main_menu.gd" id="1_01rir"]
+[ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="2_1pht2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,10 +23,12 @@ theme_override_constants/separation = 10
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1pht2")
 text = "Play"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1pht2")
 text = "Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
@@ -37,6 +40,7 @@ offset_bottom = 291.0
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1pht2")
 theme_override_font_sizes/font_size = 40
 text = "Valhalla's Gauntlet"
 horizontal_alignment = 1

@@ -95,7 +95,7 @@ offset_bottom = 584.0
 [node name="Button3" type="Button" parent="Third_Vbox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Teleport Dodge"
+text = "Teleport"
 
 [connection signal="pressed" from="First_Vbox/Button1" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Second_Vbox/Button2" to="." method="_on_button_2_pressed"]
