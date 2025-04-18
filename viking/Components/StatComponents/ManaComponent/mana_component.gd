@@ -1,42 +1,48 @@
 extends Node
 class_name ManaComponent
 
-@export var max_mana: float : set = set_max_mana, get = get_max_mana
-var current_mana: float : get = get_current_mana
-var mana_regeneration_rate: float : set = set_mana_regeneration_rate, get = get_mana_regeneration_rate
-var timer: float = 0.0
+@export var max_mana: float = 100.0
+@export var mana_regeneration_rate: float = 5.0  # Mana points per second
+var current_mana: float
 
-# Called when the node enters the scene tree for the first time.
+signal i_current_mana(value: float)  # Signal for mana changes
+signal i_max_mana(value: float)      # Signal for max mana changes
+signal mana_depleted                 # Signal when mana reaches zero
+signal mana_restored                 # Signal when mana regenerates from zero
+
 func _ready() -> void:
 	current_mana = max_mana
+	i_current_mana.emit(current_mana)
+	i_max_mana.emit(max_mana)  # Fix: was i_max_health
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# maybe regenerate mana here? 
-	timer += delta
-	if (timer >= mana_regeneration_rate):
-		increase_current_mana(10)
-		timer = 0.0
+	# Regenerate mana over time
+	if current_mana < max_mana:
+		var old_mana = current_mana
+		current_mana = min(current_mana + mana_regeneration_rate * delta, max_mana)
+		i_current_mana.emit(current_mana)
+		
+		# Signal if mana was depleted and is now available again
+		if old_mana <= 0 && current_mana > 0:
+			mana_restored.emit()
 
-func set_max_mana(mana: float):
-	max_mana = max(0, mana)
+func use_mana(amount: float) -> bool:
+	# Check if we have enough mana
+	if current_mana >= amount:
+		current_mana -= amount
+		i_current_mana.emit(current_mana)
+		
+		# Signal if mana is depleted
+		if current_mana == 0:
+			mana_depleted.emit()
+		
+		return true
+	return false
+
+func set_max_mana(new_max: float) -> void:
+	max_mana = new_max
+	i_max_mana.emit(max_mana)
 	
-func get_max_mana():
-	return max_mana
-
-func get_current_mana():
-	return current_mana
-
-func set_mana_regeneration_rate(num: float):
-	mana_regeneration_rate = num
-
-func get_mana_regeneration_rate():
-	return mana_regeneration_rate
-
-func increase_max_mana(num: float):
-	max_mana += num
-
-func increase_current_mana(num: float):
-	current_mana += num
-	if(current_mana > max_mana):
-		current_mana = max_mana
+func increase_max_mana(amount: float) -> void:
+	max_mana += amount
+	i_max_mana.emit(max_mana)

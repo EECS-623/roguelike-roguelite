@@ -22,6 +22,7 @@ func take_damage(damage: float) -> void:
 		return
 	current_health -= damage
 	print(current_health)
+	emit_signal("i_current_health", current_health)
 	t_damage.emit(current_health)
 	if (current_health <= 0):
 		handle_death()

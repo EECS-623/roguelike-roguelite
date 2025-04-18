@@ -31,6 +31,10 @@ func _ready():
 	$HealthBar.max_value = $HealthComponent.max_health
 	$SpeedComponent.set_speed(300)
 	state_machine.initialize(self)
+		# Ensure the health component is emitting signals correctly
+	if has_node("HealthComponent"):
+		var health = get_node("HealthComponent")
+		print("Player health component initialized: ", health.current_health, "/", health.max_health)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,7 +48,7 @@ func _process(_delta):
 	
 	#if set_state() == true || set_direction() == true:
 		#update_animation()
-	#	pass
+		pass
 
 func _unhandled_input(event):
 	#if event is InputEventMouseButton and event.pressed:
@@ -71,11 +75,11 @@ func _physics_process(_delta):
 	#bullet.position = global_position
 	#bullet.direction = (get_global_mouse_position() - global_position).normalized()
 
-func set_health_bar() -> void:
-	$HealthBar.value = $HealthComponent.current_health
-
-func set_health_label() -> void:
-	$HealthBarLabel.text = "Health: %s" % $HealthComponent.current_health
+#func set_health_bar() -> void:
+	#$HealthBar.value = $HealthComponent.current_health
+#
+#func set_health_label() -> void:
+	#$HealthBarLabel.text = "Health: %s" % $HealthComponent.current_health
 
 func _on_health_component_death() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
