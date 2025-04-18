@@ -16,10 +16,10 @@ func _ready() -> void:
 
 	
 	get_tree().current_scene.add_child(player)
-	player.position = Vector2(400,400)
+	
 	if player == null:
 		player = s_player.instantiate()
-	
+	player.position = Vector2(400,400)
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
 	snake.get_node("CanvasLayer").visible = false
