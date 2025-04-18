@@ -7,6 +7,12 @@ extends TileMapLayer
 func _ready() -> void:
 	var my_player = player.instantiate()
 	get_tree().current_scene.add_child(my_player)
+	HUD.visible = true
+	# Wait a moment for the player to be fully initialized
+	await get_tree().create_timer(0.1).timeout
+	# Connect the HUD to player
+	HUD.connect_to_player()
+	
 	
 
 

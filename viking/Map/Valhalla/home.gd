@@ -3,8 +3,6 @@ extends Area2D
 @export var target_scene: String
 func _ready():
 	add_to_group("Portal")
-	HUD.visible = true
-	HUD.connect_to_player()
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		#$CollisionShape2D.set_deferred("disabled", true)

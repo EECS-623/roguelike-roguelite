@@ -800,24 +800,6 @@ luck = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="HealthBarLabel" type="Label" parent="."]
-offset_left = -750.0
-offset_top = -1207.55
-offset_right = 750.0
-offset_bottom = -905.547
-metadata/_edit_use_anchors_ = true
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -700.0
-offset_top = -1433.96
-offset_right = 650.0
-offset_bottom = -1207.96
-theme_override_colors/font_color = Color(0.690196, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.686275, 0, 0, 1)
-step = 1.0
-value = 100.0
-metadata/_edit_use_anchors_ = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("19_4ip0g")
 

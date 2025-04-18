@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://de83uacbfsmt6"]
+[gd_scene load_steps=5 format=3 uid="uid://de83uacbfsmt6"]
 
 [ext_resource type="Script" path="res://Game/HUD/hud.gd" id="1_y7em1"]
 [ext_resource type="Texture2D" uid="uid://cxuxu7wnm3ob3" path="res://Assets/Art/HUD/Health and Mana Box.png" id="2_el1ig"]
+
+[sub_resource type="Gradient" id="Gradient_v05fk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_loqv1"]
+gradient = SubResource("Gradient_v05fk")
+width = 214
+height = 14
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_y7em1")
@@ -26,6 +34,7 @@ offset_left = 21.0
 offset_top = 32.0
 offset_right = 235.0
 offset_bottom = 46.0
+texture_progress = SubResource("GradientTexture2D_loqv1")
 tint_progress = Color(0.894118, 0.286275, 0.188235, 1)
 
 [node name="ManaBar" type="TextureProgressBar" parent="Control"]
