@@ -1,5 +1,5 @@
 [
-	{"name": "[center]Odin[/center]", "text": "Whats good, [color=red]PEEPS[/color])"},
+	{"name": "[center]Odin[/center]", "text": "Whats good, [color=red]PEEPS[/color]"},
 	{"name": "[center]Odin[/center]", "text": "yes, this is [color=purple]ODIN[/color] -->"},
 	{"name": "[center]Odin[/center]", "text": "Welcome to prototype 2 haha"},
 	{"name": "[center]Odin[/center]", "text": "picking freya and tyr is cool", "condition": ["freya", "tyr"]},
