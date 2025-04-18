@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=61 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="2_2frng"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_11bys"]
@@ -760,7 +760,6 @@ script = ExtResource("37_shw6h")
 
 [node name="Teleport" type="Node" parent="SpecialAbility"]
 script = ExtResource("25_c7d0u")
-mana_cost = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
