@@ -15,7 +15,7 @@ var input_locked = false
 
 var player_patron = {
 	"thor" = false,
-	"freya" = true,
+	"freya" = false,
 	"tyr" = false
 }
 
@@ -37,10 +37,10 @@ func _process(delta: float) -> void:
 			player_patron["thor"] = true
 			player_god = true
 		elif Global.patron_god == 2:
-			player_patron["freyr"] = true
+			player_patron["tyr"] = true
 			player_god = true
 		elif Global.patron_god == 3:
-			player_patron["odin"] = true
+			player_patron["freya"] = true
 			player_god = true
 
 # takes lines of dialogue in, and parses based on conditions

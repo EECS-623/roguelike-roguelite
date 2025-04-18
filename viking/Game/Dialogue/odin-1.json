@@ -1,0 +1,8 @@
+[
+	{"name": "[center]Odin[/center]", "text": "Whats good, [color=red]PEEPS[/color])"},
+	{"name": "[center]Odin[/center]", "text": "yes, this is [color=purple]ODIN[/color] -->"},
+	{"name": "[center]Odin[/center]", "text": "Welcome to prototype 2 haha"},
+	{"name": "[center]Odin[/center]", "text": "picking freya and tyr is cool", "condition": ["freya", "tyr"]},
+	{"name": "[center]Odin[/center]", "text": "thor...?", "condition": "thor" },
+	{"name": "[center]Odin[/center]", "text": "something about three threats who threaten to tear down Yggdrasil"}
+]
