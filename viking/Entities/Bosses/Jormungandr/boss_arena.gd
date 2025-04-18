@@ -63,6 +63,7 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		cam.limit_left = -10000000
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
