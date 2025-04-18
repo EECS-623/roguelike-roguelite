@@ -4,5 +4,6 @@
 	{"name": "[center]Odin[/center]", "text": "Welcome to prototype 2 haha"},
 	{"name": "[center]Odin[/center]", "text": "picking freya and tyr is cool", "condition": ["freya", "tyr"]},
 	{"name": "[center]Odin[/center]", "text": "thor...?", "condition": "thor" },
-	{"name": "[center]Odin[/center]", "text": "something about three threats who threaten to tear down Yggdrasil"}
+	{"name": "[center]Odin[/center]", "text": "something about three threats who threaten to tear down Yggdrasil"},
+{"name": "[center]Odin[/center]", "text": "take [color=blue]bifrost[/color] behind me to go save the world!!!"}
 ]
