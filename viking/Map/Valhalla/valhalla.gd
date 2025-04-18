@@ -5,8 +5,11 @@ extends TileMapLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var my_player = player.instantiate()
-	get_tree().current_scene.add_child(my_player)
+
+	if !PlayerManager.player:
+		var my_player = player.instantiate()
+		PlayerManager.player = my_player
+	get_tree().current_scene.add_child(PlayerManager.player)
 	
 
 

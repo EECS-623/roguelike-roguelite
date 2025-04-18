@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=11 format=4 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Texture2D" uid="uid://drn4tckpvfn0e" path="res://Assets/Art/testTS.png" id="1_t15dr"]
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
 [ext_resource type="Script" path="res://Map/Valhalla/valhalla.gd" id="2_ds18k"]
 [ext_resource type="Script" path="res://Map/Valhalla/combat_test.gd" id="4_2kmn7"]
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
-[ext_resource type="PackedScene" uid="uid://bootcm1im0svw" path="res://Entities/Enemies/Draugr/draugr.tscn" id="5_4gurn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]
 texture = ExtResource("1_t15dr")
@@ -62,9 +61,6 @@ script = ExtResource("4_2kmn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_oxpsl")
-
-[node name="Draugr" parent="." instance=ExtResource("5_4gurn")]
-position = Vector2(0, -166)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_entered" from="TreeOfLife" to="TreeOfLife" method="_on_body_entered"]
