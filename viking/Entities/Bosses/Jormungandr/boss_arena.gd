@@ -11,14 +11,14 @@ var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
 	player = PlayerManager.player
-
+	if player == null:
+		player = s_player.instantiate()
 	
 	get_tree().current_scene.add_child(player)
 	
-	if player == null:
-		player = s_player.instantiate()
+	
 	player.position = Vector2(400,400)
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
