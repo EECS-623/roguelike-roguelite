@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var health_bar = $Control/HealthBar
+#@onready var health_bar = $Control/HealthBar
 @onready var mana_bar = $Control/ManaBar
 
 var player
@@ -8,26 +8,13 @@ var health_component
 var mana_component
 
 func _ready():
-	# Initialize in a hidden state (for non-gameplay scenes)
+	# Start hidden by default
 	visible = false
-	
-	# Wait for scene changes
-	get_tree().root.connect("ready", _on_scene_changed)
 
-func _on_scene_changed():
-	# Check if we're in a gameplay scene (one with a player)
-	await get_tree().process_frame
+# Call this function from any scene where you want the HUD to be visible
+func connect_to_player():
 	player = get_tree().get_first_node_in_group("player")
 	
-	if player:
-		# We're in a gameplay scene with a player
-		visible = true
-		_connect_to_player()
-	else:
-		# We're in a menu or other scene without a player
-		visible = false
-		
-func _connect_to_player():
 	if player and player.has_node("HealthComponent"):
 		# Disconnect any existing connections to prevent duplicates
 		if health_component:
@@ -40,15 +27,13 @@ func _connect_to_player():
 		health_component.i_max_health.connect(_on_max_health_changed)
 		
 		# Initialize the health bar
-		health_bar.max_value = health_component.max_health
-		health_bar.value = health_component.current_health
-		
-	# Similar for mana if you're implementing that
+		$Control/HealthBar.max_value = health_component.max_health
+		$Control/HealthBar.value = health_component.current_health
 
 func _on_health_changed(new_health):
 	# Update health bar when health changes
-	health_bar.value = new_health
+	$Control/HealthBar.value = new_health
 
 func _on_max_health_changed(new_max_health):
 	# Update max value if max health changes
-	health_bar.max_value = new_max_health
+	$Control/HealthBar.max_value = new_max_health
