@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=60 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="2_2frng"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_11bys"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]
 [ext_resource type="Script" path="res://Components/SpecialAbilityComponent/cast_fireball.gd" id="35_ratt1"]
 [ext_resource type="Texture2D" uid="uid://gbvq7qkrb6di" path="res://Assets/Art/force_field.png" id="36_pbs0n"]
+[ext_resource type="Script" path="res://Entities/Player/camera_2d.gd" id="37_dpfyb"]
 [ext_resource type="Script" path="res://Entities/Player/force_field.gd" id="37_shw6h"]
 [ext_resource type="PackedScene" uid="uid://bnnuln6wj2vki" path="res://Game/DialogueUI/DialogueUI.tscn" id="39_vyhy8"]
 
@@ -265,6 +266,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rk0fa"]
 radius = 20.025
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhy5m"]
+radius = 128.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77rnh"]
 radius = 23.0
@@ -716,6 +720,11 @@ texture = ExtResource("20_1bccj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rk0fa")
 
+[node name="InteractionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_hhy5m")
+
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
 collision_layer = 0
 collision_mask = 4
@@ -781,7 +790,7 @@ max_health = 100.0
 
 [node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("17_a22r0")
-speed = 300.0
+speed = 900.0
 
 [node name="MagicDamageComponent" type="Node" parent="."]
 script = ExtResource("19_rymoq")
@@ -799,6 +808,7 @@ script = ExtResource("21_mbuf2")
 luck = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("37_dpfyb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("19_4ip0g")
@@ -845,6 +855,8 @@ texture = ExtResource("36_pbs0n")
 
 [node name="DialogueUI" parent="." instance=ExtResource("39_vyhy8")]
 
+[connection signal="body_entered" from="InteractionRange" to="." method="_on_interaction_range_body_entered"]
+[connection signal="body_exited" from="InteractionRange" to="." method="_on_interaction_range_body_exited"]
 [connection signal="ForceFieldOff" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_off"]
 [connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_on"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

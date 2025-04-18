@@ -105,7 +105,7 @@ func _on_body_entered(body):
 		if tile_data and tile_data.get_custom_data("bossteleport"):
 			if(haveKey):
 				print("Start Teleport")
-				get_parent().remove_child(body)
+				remove_child(body)
 				get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Jormungandr/boss_arena.tscn")
 			else:
 				print("No key")

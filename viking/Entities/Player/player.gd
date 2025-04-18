@@ -6,7 +6,9 @@ class_name Player
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var state_machine : PlayerStateMachine = $PlayerStateMachine
 @onready var speed_component = $SpeedComponent
+@onready var interaction_range = $InteractionRange
 
+var npc: CharacterBody2D
 
 #@export var SPEED : float = 300.0
 #@onready var animation_tree = $AnimationTree
@@ -15,13 +17,19 @@ var cardinal_direction: Vector2 = Vector2.ZERO
 var state = "idle"
 signal change_hitbox_direction( new_direction: Vector2 )
 
+var slowed_timer = 0
+var slowed_perc = 0
+var knockback_timer = 0
+var knockback_velocity = Vector2(0,0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#animation_tree.active = true
 	PlayerManager.player = self
 	add_to_group("player")
-	$SpeedComponent.set_speed(200)
-	
+	set_health_label()
+	$HealthBar.max_value = $HealthComponent.max_health
+	$SpeedComponent.set_speed(300)
 	state_machine.initialize(self)
 		# Ensure the health component is emitting signals correctly
 	if has_node("HealthComponent"):
@@ -32,12 +40,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta):
-	#if Input.is_action_pressed("map"):
-		#for enemy in get_tree().get_nodes_in_group("enemies"):
-			#enemy.queue_free()
-
-		#get_tree().change_scene_to_file("res://Map/map.tscn")
-	#set_health_bar()
+	if Input.is_action_just_pressed("interact"):
+		if npc != null:
+			npc.talk()
+		
+	set_health_bar()
 	
 	#if set_state() == true || set_direction() == true:
 		#update_animation()
@@ -49,39 +56,16 @@ func _unhandled_input(event):
 	pass
 		
 func _physics_process(_delta):
-	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	#direction.y = Input.get_action_strength("")
-	direction = Input.get_vector("left", "right", "up", "down").normalized()
-	
-	#velocity = direction * $SpeedComponent.get_speed()
-	#var right = "move_right"
-	#var up = "move_up"
-	#var down = "move_down"
-	#var left = "move_left"
-	#if direction.x < 0:
-		#velocity = direction * $SpeedComponent.get_speed()
-		#_animated_sprite.play(left)
-		
-	#elif direction.x > 0:
-	#	_animated_sprite.flip_h = false
-	#	velocity = direction * $SpeedComponent.get_speed()
-	#	_animated_sprite.play(right)
-		
-	#elif direction.y <0:
-	#	_animated_sprite.flip_h = false
-	#	velocity = direction * $SpeedComponent.get_speed()
-	#	_animated_sprite.play(up)
-		
-	#elif direction.y >0:
-	#	_animated_sprite.flip_h = false
-	#	velocity = direction * $SpeedComponent.get_speed()
-	#	_animated_sprite.play(down)
-		
-	#else:
-	#	velocity = Vector2.ZERO
-	#	_animated_sprite.frame = 1
-	#	_animated_sprite.stop()
-	velocity = direction * speed_component.get_speed()
+	if knockback_timer > 0.0:
+		velocity = knockback_velocity
+		knockback_timer -= _delta
+	elif slowed_timer > 0:
+		direction = Input.get_vector("left", "right", "up", "down").normalized()
+		velocity = direction * speed_component.get_speed() * slowed_perc
+		slowed_timer -= _delta
+	else:
+		direction = Input.get_vector("left", "right", "up", "down").normalized()
+		velocity = direction * speed_component.get_speed()
 	move_and_slide()
 
 #func shoot():
@@ -146,11 +130,16 @@ func animation_direction() -> String:
 		return "right"
 
 func _on_health_component_t_damage(amount: float) -> void:
-	if self:
+	if self and $HealthComponent.current_health > 0:
 		for i in range(2):
 			$AnimatedSprite2D.modulate = Color.RED
 			await get_tree().create_timer(.01).timeout
 			$AnimatedSprite2D.modulate = Color.WHITE
 
 
-		
+func _on_interaction_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("npc"):
+		npc = body
+
+func _on_interaction_range_body_exited(body: Node2D) -> void:
+	npc = null

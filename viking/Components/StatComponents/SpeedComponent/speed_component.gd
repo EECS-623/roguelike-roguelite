@@ -24,6 +24,6 @@ func get_speed():
 func _on_canvas_layer_increase_speed() -> void:
 	print("speed before: ")
 	print(speed)
-	speed += 200.
+	speed += 20
 	print("speed after: ")
 	print(speed)

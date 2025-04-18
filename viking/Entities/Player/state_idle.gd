@@ -29,4 +29,5 @@ func handle_input(_event : InputEvent) -> State:
 			return melee_attack
 		elif _event.button_index == MOUSE_BUTTON_RIGHT:
 			return special_ability
+	
 	return null
