@@ -11,14 +11,14 @@ gradient = SubResource("Gradient_ai54r")
 
 [sub_resource type="Curve" id="Curve_1oxad"]
 max_value = 100.0
-_data = [Vector2(0.0151899, 0), 0.0, 0.0, 0, 0, Vector2(0.787342, 60.8939), 0.0, 0.0, 0, 0, Vector2(1, 61.1732), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0151899, 0), 0.0, 0.0, 0, 0, Vector2(0.653165, 86.3129), 0.0, 0.0, 0, 0, Vector2(1, 86.3129), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_vg5ib"]
 curve = SubResource("Curve_1oxad")
 
 [sub_resource type="Curve" id="Curve_dvbgm"]
-_data = [Vector2(0, 0.734637), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.754997), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_58t5f"]
@@ -28,14 +28,14 @@ curve = SubResource("Curve_dvbgm")
 lifetime_randomness = 0.2
 particle_flag_disable_z = true
 spread = 40.0
-initial_velocity_min = 100.0
-initial_velocity_max = 200.0
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
 gravity = Vector3(0, 0, 0)
 damping_min = 5.0
 damping_max = 10.0
 damping_curve = SubResource("CurveTexture_vg5ib")
-scale_min = 0.15
-scale_max = 0.15
+scale_min = 0.05
+scale_max = 0.05
 scale_curve = SubResource("CurveTexture_58t5f")
 color_ramp = SubResource("GradientTexture1D_fyyc2")
 
@@ -43,7 +43,6 @@ color_ramp = SubResource("GradientTexture1D_fyyc2")
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_2pnvt")
 texture = ExtResource("1_rybpl")
-lifetime = 2.0
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.9

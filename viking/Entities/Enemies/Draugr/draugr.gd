@@ -61,10 +61,6 @@ func _on_health_component_death() -> void:
 	queue_free()
 
 func _on_health_component_t_damage(amount: float) -> void:
-	var knockback_emission = -(raycast_component.player.global_position - global_position).normalized()
-	particles.global_rotation = knockback_emission.angle()
-	particles.restart()
-
 	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.modulate = Color(1,1,1,1)

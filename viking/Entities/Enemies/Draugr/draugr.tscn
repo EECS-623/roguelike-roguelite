@@ -494,6 +494,7 @@ bg_color = Color(1, 1, 1, 1)
 script = ExtResource("1_sgxkm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -1)
 scale = Vector2(0.0994792, 0.0994792)
 sprite_frames = SubResource("SpriteFrames_isbi8")
