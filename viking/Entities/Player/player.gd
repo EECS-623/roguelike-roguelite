@@ -27,8 +27,7 @@ func _ready():
 	#animation_tree.active = true
 	PlayerManager.player = self
 	add_to_group("player")
-	set_health_label()
-	$HealthBar.max_value = $HealthComponent.max_health
+	#$HealthBar.max_value = $HealthComponent.max_health
 	$SpeedComponent.set_speed(300)
 	state_machine.initialize(self)
 		# Ensure the health component is emitting signals correctly
@@ -43,12 +42,10 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		if npc != null:
 			npc.talk()
-		
-	set_health_bar()
 	
 	#if set_state() == true || set_direction() == true:
 		#update_animation()
-		pass
+		#pass
 
 func _unhandled_input(event):
 	#if event is InputEventMouseButton and event.pressed:

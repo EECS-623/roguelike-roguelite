@@ -29,6 +29,12 @@ func _ready() -> void:
 	cam.limit_top = -897
 	cam.limit_bottom = 900
 	
+	HUD.visible = true
+	# Wait a moment for the player to be fully initialized
+	await get_tree().create_timer(0.1).timeout
+	# Connect the HUD to player
+	HUD.connect_to_player()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
