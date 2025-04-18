@@ -46,6 +46,7 @@ offset_right = 472.688
 offset_bottom = 34.784
 theme_override_styles/background = SubResource("StyleBoxFlat_l8cm5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_oe68x")
+max_value = 300.0
 rounded = true
 show_percentage = false
 script = ExtResource("8_vuc6m")
@@ -73,6 +74,7 @@ offset_left = 479.0
 offset_top = 5.0
 offset_right = 582.0
 offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Jormungandr"
 metadata/_edit_use_anchors_ = true
 

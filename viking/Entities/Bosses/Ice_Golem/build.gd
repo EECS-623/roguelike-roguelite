@@ -48,7 +48,19 @@ func is_position_blocked(pos: Vector2) -> bool:
 		if child is Icicle and child.global_position.distance_to(pos) < 45:
 			child.shatter()
 			return false
+	
+	#var space_state = player.get_world_2d().get_direct_space_state()
+	#var shape = CircleShape2D.new()
+	#shape.radius = 45
+	#var shape_transform = Transform2D(0, pos)
+	#var result = space_state.collide_shape(shape, shape_transform)
+#
+	#for collision in result:
+		#if collision.collider is StaticBody2D:
+			#return true
+	
 	return false
+
 
 func spawn_snowflake_pattern(spokes := 6, steps := 4, spacing := 50):
 	var player_position = player.global_position

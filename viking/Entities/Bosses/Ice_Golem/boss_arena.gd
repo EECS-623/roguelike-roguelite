@@ -6,14 +6,25 @@ extends Node2D
 var player = Node2D
 var ice_golem = Node2D
 var dead = false
+var dialogue: DialogueUI
+var first_dialogue
+
+var cam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = s_player.instantiate()
+	player = PlayerManager.player
+	if player == null:
+		player = s_player.instantiate()
 	get_tree().current_scene.add_child(player)
 	player.global_position = Vector2(0, 500)
+	player.direction = Vector2(0, 1)
 	
-	var cam = player.get_node("Camera2D")
+	var dialogue_ui = player.get_node("DialogueUI")
+	dialogue = dialogue_ui
+	play_dialogue("res://Game/Dialogue/ymir-1.json")
+	
+	cam = player.get_node("Camera2D")
 	cam.limit_left = -720
 	cam.limit_right = 720
 	cam.limit_top = -720
@@ -24,18 +35,14 @@ func _ready() -> void:
 	ice_golem.player = player
 	ice_golem.global_position = Vector2(0, -525)
 	get_tree().current_scene.add_child(ice_golem)
-	
-	HUD.visible = true
-	# Wait a moment for the player to be fully initialized
-	await get_tree().create_timer(0.1).timeout
-	# Connect the HUD to player
-	HUD.connect_to_player()
+	ice_golem.get_node("CanvasLayer").visible = false
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if ice_golem == null and not dead:
 		dead = true
+		play_dialogue("res://Game/Dialogue/ymir-2.json")
 		portal_open()
 	
 	
@@ -47,4 +54,31 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-			get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+		cam.limit_left = -10000000
+		cam.limit_right = 10000000
+		cam.limit_top = -10000000
+		cam.limit_bottom = 10000000
+		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+		
+func play_dialogue(path: String) -> void:
+	modulate = Color.DIM_GRAY
+	get_tree().paused = true
+	var words = dialogue.load_dialogue(path)
+	dialogue.dialogue_begin(words)
+	dialogue.connect("dialogue_finished", _on_dialogue_end)
+
+func _on_dialogue_end():
+	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
+	get_tree().paused = false
+	modulate = Color.WHITE
+
+	
+	HUD.visible = true
+	# Wait a moment for the player to be fully initialized
+	await get_tree().create_timer(0.1).timeout
+	# Connect the HUD to player
+	HUD.connect_to_player()
+	
+	if ice_golem != null:
+		ice_golem.get_node("CanvasLayer").visible = true
+		await get_tree().create_timer(1).timeout

@@ -6,34 +6,38 @@ var player = Node2D
 var snake = Node2D
 var snake_dead = false
 var dialogue: DialogueUI
+var cam
+var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	player = PlayerManager.player
+	if player == null:
+		player = s_player.instantiate()
 	
-	player = s_player.instantiate()
-	player.direction = Vector2(0,1)
 	get_tree().current_scene.add_child(player)
+
+	
+	snake = s_snake.instantiate()
+	get_tree().current_scene.add_child(snake)
+	snake.get_node("CanvasLayer").visible = false
+
 	
 	var dialogue_ui = player.get_node("DialogueUI")
 	dialogue = dialogue_ui
 	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
-		
-	snake = s_snake.instantiate()
-	get_tree().current_scene.add_child(snake)
+	
+
 	
 	pulse_thorns()
 	
-	var cam = player.get_node("Camera2D")
+	cam = player.get_node("Camera2D")
 	cam.limit_left = -877
 	cam.limit_right = 924
 	cam.limit_top = -897
 	cam.limit_bottom = 900
 	
-	HUD.visible = true
-	# Wait a moment for the player to be fully initialized
-	await get_tree().create_timer(0.1).timeout
-	# Connect the HUD to player
-	HUD.connect_to_player()
 	
 
 
@@ -57,9 +61,12 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-			#$CollisionShape2D.set_deferred("disabled", true)
-			remove_child(body)
-			get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+		cam.limit_left = -10000000
+		cam.limit_right = 10000000
+		cam.limit_top = -10000000
+		cam.limit_bottom = 10000000
+		remove_child(body)
+		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 
 func pulse_thorns():
 	while true:
@@ -71,6 +78,7 @@ func pulse_thorns():
 			await get_tree().create_timer(0.02).timeout  # "inactive" window
 
 func play_dialogue(path: String) -> void:
+	modulate = Color.DIM_GRAY
 	get_tree().paused = true
 	var words = dialogue.load_dialogue(path)
 	dialogue.dialogue_begin(words)
@@ -79,3 +87,18 @@ func play_dialogue(path: String) -> void:
 func _on_dialogue_end():
 	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
 	get_tree().paused = false
+	modulate = Color.WHITE
+
+	
+	HUD.visible = true
+	# Wait a moment for the player to be fully initialized
+	await get_tree().create_timer(0.1).timeout
+	# Connect the HUD to player
+	HUD.connect_to_player()
+	
+	if snake != null:
+		snake.get_node("CanvasLayer").visible = true
+		await get_tree().create_timer(1).timeout
+		snake.can_move = true
+
+	

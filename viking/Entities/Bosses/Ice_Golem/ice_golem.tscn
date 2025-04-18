@@ -72,6 +72,7 @@ offset_right = 472.688
 offset_bottom = 34.784
 theme_override_styles/background = SubResource("StyleBoxFlat_mtavg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7smhd")
+max_value = 400.0
 rounded = true
 show_percentage = false
 script = ExtResource("4_jxb4j")

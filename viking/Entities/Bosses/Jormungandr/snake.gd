@@ -10,7 +10,7 @@ extends Node2D
 @onready var hp : HealthComponent = $HealthComponent
 
 var snake: Array = []
-var direction = Vector2.LEFT
+var direction = Vector2.DOWN
 var direction_map = {
 	Vector2.LEFT: "Left",
 	Vector2.RIGHT: "Right",
@@ -20,7 +20,7 @@ var direction_map = {
 
 
 # Starting position
-var start_pos: Vector2 = Vector2(500, 500)  
+var start_pos: Vector2 = Vector2(0, -400)  
 var segment_size = 200  
 var snake_size = 12
 
@@ -71,12 +71,12 @@ func spawn_snake():
 	snake.append(head)
 
 	# Set initial direction for head
-	head.set_meta("direction", Vector2.LEFT) # Set initial direction of head
-	update_direction(head, Vector2.LEFT)  # Update head's sprite based on its direction
+	head.set_meta("direction", Vector2.DOWN) # Set initial direction of head
+	update_direction(head, Vector2.DOWN)  # Update head's sprite based on its direction
 	head.get_node("Hurtbox").health_component = hp
 	head.get_node("Hitbox/CollisionShape2D").set_deferred("disabled", true)
 
-	pos.x += segment_size  # Move position for next segment
+	pos.y -= segment_size  # Move position for next segment
 
 	# Spawn alternating body segments
 	for i in range(snake_size-2):
@@ -90,10 +90,10 @@ func spawn_snake():
 			body_part.get_node("Hurtbox").health_component = hp
 
 		
-		body_part.set_meta("direction", Vector2.LEFT)  # Set initial direction of head
-		update_direction(body_part, Vector2.LEFT)
+		body_part.set_meta("direction", Vector2.DOWN)  # Set initial direction of head
+		update_direction(body_part, Vector2.DOWN)
 		
-		pos.x += segment_size  # Move position
+		pos.y -= segment_size  # Move position
 
 	# Spawn tail
 	var tail = s_tail.instantiate()
@@ -103,8 +103,8 @@ func spawn_snake():
 	snake.append(tail)
 
 	# Set initial direction for tail
-	tail.set_meta("direction", Vector2.LEFT)  # Set initial direction of head
-	update_direction(tail, Vector2.LEFT)  # Update tail's sprite based on its direction
+	tail.set_meta("direction", Vector2.DOWN)  # Set initial direction of head
+	update_direction(tail, Vector2.DOWN)  # Update tail's sprite based on its direction
 
 func chase_player(player_position: Vector2):
 	if not can_move:
