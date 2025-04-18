@@ -5,8 +5,10 @@ extends Control
 func _ready() -> void:
 	Wwise.register_game_obj(self, self.name)
 	Wwise.register_listener(self)
-	Wwise.load_bank_id(AK.BANKS.MUSIC)
-	Wwise.post_event_id(AK.EVENTS.MUSIC, self)
+	Wwise.load_bank_id(AK.BANKS.MUSIC_SFX)
+	#Wwise.post_event_id(AK.EVENTS.MUSIC, self)
+	#await get_tree().create_timer(1).timeout
+	#Wwise.post_event_id(AK.EVENTS.SWORD_ATTACK_PC, self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

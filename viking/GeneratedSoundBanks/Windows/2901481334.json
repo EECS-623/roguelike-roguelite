@@ -1,0 +1,329 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2901481334",
+    "Type": "User",
+    "GUID": "{6235D51C-DA0D-4F6F-BFB9-EC0E2F87EA51}",
+    "Language": "SFX",
+    "Hash": "{D6A9C893-A670-057A-BE2C-067AB754CEE9}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_SFX",
+    "ShortName": "Music_SFX",
+    "Path": "2901481334.bnk",
+    "Media": [
+     {
+      "Id": "44839532",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Conversation finish.wav",
+      "CachePath": "8D/{8D185AE1-7EA9-3CA2-CD0C-1B3AED313A7E}.wem"
+     },
+     {
+      "Id": "73337311",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Sword Swing 3.wav",
+      "CachePath": "46/{46C78372-51A1-92D9-9ED9-F89D24E8C759}.wem"
+     },
+     {
+      "Id": "207218380",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Sword Swing 2.wav",
+      "CachePath": "E8/{E8D11A0B-98C3-A2E0-47FA-E60BB449A196}.wem"
+     },
+     {
+      "Id": "210782798",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\game start.wav",
+      "CachePath": "19/{19C1274E-FE2D-E151-B9F4-EA91C90E4AAC}.wem"
+     },
+     {
+      "Id": "341010025",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\key attain.wav",
+      "CachePath": "2D/{2D78F960-1719-696E-BA6F-0F355D05389E}.wem"
+     },
+     {
+      "Id": "344426433",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Sword Swing 1.wav",
+      "CachePath": "9F/{9FB5732D-085E-AEC1-CF1A-596B284E78C9}.wem"
+     },
+     {
+      "Id": "465243681",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\snake bite.wav",
+      "CachePath": "F2/{F2DBDD08-CFA3-ADCA-8B13-FCA7EB395D53}.wem"
+     },
+     {
+      "Id": "499801066",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Boss Death (edited).wav",
+      "CachePath": "56/{56BB00A9-05C8-77D0-BBBA-A21069ECB3E7}.wem"
+     },
+     {
+      "Id": "540481636",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Chest open.wav",
+      "CachePath": "B7/{B7E707AB-8B1E-6961-AC79-09FEE614BB32}.wem"
+     },
+     {
+      "Id": "595634943",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Fireball (pitched).wav",
+      "CachePath": "A5/{A52061B4-E5FD-9923-3852-37E2F0386036}.wem"
+     },
+     {
+      "Id": "746514461",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\XP up.wav",
+      "CachePath": "31/{3144310E-9528-E614-A402-EF10C7517CA3}.wem"
+     },
+     {
+      "Id": "768092416",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Portal-spawn.wav",
+      "CachePath": "E0/{E0A1499E-09DA-9561-9A4C-FA1877BE28E3}.wem"
+     },
+     {
+      "Id": "973955584",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Exports\\Boss spit.wav",
+      "CachePath": "96/{96D39D37-B62F-53F3-9D13-CC469CA1BF9F}.wem"
+     },
+     {
+      "Id": "1031214841",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Valhalla's Gauntlet - Earth Overworld Theme.wav",
+      "CachePath": "60/{60009AF1-8148-3A7D-2CC5-A29CB990AB06}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4052139381",
+      "Name": "Boss_Death",
+      "ObjectPath": "\\Events\\Sound Effects events\\Boss_Death",
+      "GUID": "{ADAC315E-D7DE-4983-9E09-9C0D01872E0B}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.212771",
+      "DurationMax": "3.212771",
+      "MediaRefs": [
+       {
+        "Id": "499801066"
+       }
+      ]
+     },
+     {
+      "Id": "2728948375",
+      "Name": "chest_open",
+      "ObjectPath": "\\Events\\Sound Effects events\\chest_open",
+      "GUID": "{46BD58BF-A142-47BD-B191-74737560F261}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.7597291",
+      "DurationMax": "1.7597291",
+      "MediaRefs": [
+       {
+        "Id": "540481636"
+       }
+      ]
+     },
+     {
+      "Id": "3841200954",
+      "Name": "Fireball",
+      "ObjectPath": "\\Events\\Sound Effects events\\Fireball",
+      "GUID": "{61FB18DA-0325-42A9-A880-8040F9D35A60}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8407083",
+      "DurationMax": "0.8407083",
+      "MediaRefs": [
+       {
+        "Id": "595634943"
+       }
+      ]
+     },
+     {
+      "Id": "4057560717",
+      "Name": "GameStart_menu",
+      "ObjectPath": "\\Events\\Sound Effects events\\GameStart_menu",
+      "GUID": "{5BE0B23A-1209-4E88-93AD-A57F2909E94B}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.8000208",
+      "DurationMax": "1.8000208",
+      "MediaRefs": [
+       {
+        "Id": "210782798"
+       }
+      ]
+     },
+     {
+      "Id": "2239953404",
+      "Name": "Item_Attain",
+      "ObjectPath": "\\Events\\Sound Effects events\\Item_Attain",
+      "GUID": "{3985024A-58BF-4E21-80A1-D9631309FDA7}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4147917",
+      "DurationMax": "1.4147917",
+      "MediaRefs": [
+       {
+        "Id": "746514461"
+       }
+      ]
+     },
+     {
+      "Id": "3520404594",
+      "Name": "Key_attain",
+      "ObjectPath": "\\Events\\Sound Effects events\\Key_attain",
+      "GUID": "{0D2F9E2E-2941-470D-A8AD-C734995F91C6}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5",
+      "DurationMax": "1.5",
+      "MediaRefs": [
+       {
+        "Id": "341010025"
+       }
+      ]
+     },
+     {
+      "Id": "3991942870",
+      "Name": "Music",
+      "ObjectPath": "\\Events\\Music\\Music",
+      "GUID": "{7139470B-55D2-473E-8C5E-9AFAC57F6354}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1031214841"
+       }
+      ]
+     },
+     {
+      "Id": "3599715827",
+      "Name": "Next_dialouge",
+      "ObjectPath": "\\Events\\Sound Effects events\\Next_dialouge",
+      "GUID": "{FDB65143-F021-4DBA-A209-71DC60E977F3}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0805833",
+      "DurationMax": "1.0805833",
+      "MediaRefs": [
+       {
+        "Id": "44839532"
+       }
+      ]
+     },
+     {
+      "Id": "1515870860",
+      "Name": "snake_bite",
+      "ObjectPath": "\\Events\\Sound Effects events\\snake_bite",
+      "GUID": "{396DBEA5-03BB-47F5-A7E8-87D0DC50B33F}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5370748",
+      "DurationMax": "1.5370748",
+      "MediaRefs": [
+       {
+        "Id": "465243681"
+       }
+      ]
+     },
+     {
+      "Id": "4030153040",
+      "Name": "snake_spit",
+      "ObjectPath": "\\Events\\Sound Effects events\\snake_spit",
+      "GUID": "{151C24EC-57EE-477C-8619-D0929D3BF9E0}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1715833",
+      "DurationMax": "1.1715833",
+      "MediaRefs": [
+       {
+        "Id": "973955584"
+       }
+      ]
+     },
+     {
+      "Id": "71202558",
+      "Name": "Spawn",
+      "ObjectPath": "\\Events\\Sound Effects events\\Spawn",
+      "GUID": "{92256652-A5D1-4EF3-B129-FC4DC04CDB6B}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.5453124",
+      "DurationMax": "5.5453124",
+      "MediaRefs": [
+       {
+        "Id": "768092416"
+       }
+      ]
+     },
+     {
+      "Id": "966589581",
+      "Name": "sword_attack_pc",
+      "ObjectPath": "\\Events\\Sound Effects events\\sword_attack_pc",
+      "GUID": "{EB33CA3F-BF65-40EF-B8A7-48216525ADCC}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.66085416",
+      "DurationMax": "0.66085416",
+      "MediaRefs": [
+       {
+        "Id": "73337311"
+       },
+       {
+        "Id": "207218380"
+       },
+       {
+        "Id": "344426433"
+       }
+      ]
+     },
+     {
+      "Id": "476098351",
+      "Name": "sword_swing",
+      "ObjectPath": "\\Events\\Sound Effects events\\sword_swing",
+      "GUID": "{986CF031-20B8-49D3-9FB1-76FA999EB3DC}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.66085416",
+      "DurationMax": "0.66085416",
+      "MediaRefs": [
+       {
+        "Id": "73337311"
+       },
+       {
+        "Id": "207218380"
+       },
+       {
+        "Id": "344426433"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9032A914-280F-0312-31FD-E419776F6977}"
+ }
+}

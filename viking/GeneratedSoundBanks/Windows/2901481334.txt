@@ -1,0 +1,31 @@
+Event	ID	Name			Wwise Object Path	Notes
+	71202558	Spawn			\Sound Effects events\Spawn	
+	476098351	sword_swing			\Sound Effects events\sword_swing	
+	966589581	sword_attack_pc			\Sound Effects events\sword_attack_pc	
+	1515870860	snake_bite			\Sound Effects events\snake_bite	
+	2239953404	Item_Attain			\Sound Effects events\Item_Attain	
+	2728948375	chest_open			\Sound Effects events\chest_open	
+	3520404594	Key_attain			\Sound Effects events\Key_attain	
+	3599715827	Next_dialouge			\Sound Effects events\Next_dialouge	
+	3841200954	Fireball			\Sound Effects events\Fireball	
+	3991942870	Music			\Music\Music	
+	4030153040	snake_spit			\Sound Effects events\snake_spit	
+	4052139381	Boss_Death			\Sound Effects events\Boss_Death	
+	4057560717	GameStart_menu			\Sound Effects events\GameStart_menu	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	44839532	Conversation finish	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\8D\{8D185AE1-7EA9-3CA2-CD0C-1B3AED313A7E}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Conversation finish		207568
+	73337311	Sword Swing 3	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\46\{46C78372-51A1-92D9-9ED9-F89D24E8C759}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Sword Swing 3		103944
+	207218380	Sword Swing 2	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\E8\{E8D11A0B-98C3-A2E0-47FA-E60BB449A196}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Sword Swing 2		74976
+	210782798	game start	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\19\{19C1274E-FE2D-E151-B9F4-EA91C90E4AAC}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\game start		345700
+	341010025	key attain	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\2D\{2D78F960-1719-696E-BA6F-0F355D05389E}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\key attain		132396
+	344426433	Sword Swing 1	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\9F\{9FB5732D-085E-AEC1-CF1A-596B284E78C9}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Sword Swing 1		126980
+	465243681	snake bite	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\F2\{F2DBDD08-CFA3-ADCA-8B13-FCA7EB395D53}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\snake bite		271236
+	499801066	Boss Death (edited)	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\56\{56BB00A9-05C8-77D0-BBBA-A21069ECB3E7}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Boss Death (edited)		616948
+	540481636	Chest open	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\B7\{B7E707AB-8B1E-6961-AC79-09FEE614BB32}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Chest open		337964
+	595634943	Fireball (pitched)	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\A5\{A52061B4-E5FD-9923-3852-37E2F0386036}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Fireball (pitched)		161512
+	746514461	Item Attain	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\31\{3144310E-9528-E614-A402-EF10C7517CA3}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Item Attain		271736
+	768092416	Portal-spawn	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\E0\{E0A1499E-09DA-9561-9A4C-FA1877BE28E3}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Portal-spawn		1064796
+	973955584	Boss spit	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\96\{96D39D37-B62F-53F3-9D13-CC469CA1BF9F}.wem		\Actor-Mixer Hierarchy\Sound Effects\Exports\Boss spit		225040
+	1031214841	Valhalla's Gauntlet - Earth Overworld Theme	C:\Users\willb\Downloads\Valhalla's Gauntlet 2\Valhalla's Gauntlet\.cache\60\{60009AF1-8148-3A7D-2CC5-A29CB990AB06}.wem		\Interactive Music Hierarchy\Default Work Unit\Valhalla's Gauntlet Music\Exploration\Migard - Earth\Valhalla's Gauntlet - Earth Overworld Theme\Valhalla's Gauntlet - Earth Overworld Theme		15552160
+

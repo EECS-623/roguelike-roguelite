@@ -3,6 +3,18 @@ class_name AK
 class EVENTS:
 
 	const MUSIC : int = 3991942870
+	const BOSS_DEATH : int = 4052139381
+	const FIREBALL : int = 3841200954
+	const GAMESTART_MENU : int = 4057560717
+	const ITEM_ATTAIN : int = 2239953404
+	const KEY_ATTAIN : int = 3520404594
+	const NEXT_DIALOUGE : int = 3599715827
+	const SPAWN : int = 71202558
+	const CHEST_OPEN : int = 2728948375
+	const SNAKE_BITE : int = 1515870860
+	const SNAKE_SPIT : int = 4030153040
+	const SWORD_ATTACK_PC : int = 966589581
+	const SWORD_SWING : int = 476098351
 
 class STATES:
 	pass
@@ -28,7 +40,7 @@ class TRIGGERS:
 
 class BANKS:
 
-	const MUSIC : int = 3991942870
+	const MUSIC_SFX : int = 2901481334
 
 class AUX_BUSSES:
 	pass
