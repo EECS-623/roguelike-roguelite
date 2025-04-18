@@ -23,6 +23,7 @@ func _physics_process(delta):
 			var distance = speed * delta
 
 			if (global_position.distance_to(starting_pos) < 2000):
+				rotation += 5 * delta
 				global_position += player_dir * distance
 			else:
 				var slowed = false

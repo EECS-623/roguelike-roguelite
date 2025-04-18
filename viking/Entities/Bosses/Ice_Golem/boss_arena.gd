@@ -13,10 +13,18 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(player)
 	player.global_position = Vector2(0, 500)
 	
+	var cam = player.get_node("Camera2D")
+	cam.limit_left = -720
+	cam.limit_right = 720
+	cam.limit_top = -720
+	cam.limit_bottom = 720
+	
+	
 	ice_golem = s_ice_golem.instantiate()
 	ice_golem.player = player
 	ice_golem.global_position = Vector2(0, -525)
 	get_tree().current_scene.add_child(ice_golem)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
