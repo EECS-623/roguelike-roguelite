@@ -11,14 +11,15 @@ var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
 	player = PlayerManager.player
 	if player == null:
 		player = s_player.instantiate()
 	
 	get_tree().current_scene.add_child(player)
-
 	
+	
+	player.position = Vector2(400,400)
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
 	snake.get_node("CanvasLayer").visible = false
@@ -46,6 +47,7 @@ func _process(delta: float) -> void:
 
 	if snake == null and not snake_dead:
 		snake_dead = true
+		Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
 		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
 		portal_open()
 	elif snake != null:
@@ -61,6 +63,7 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		cam.limit_left = -10000000
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000

@@ -10,6 +10,7 @@ func _ready() -> void:
 		var my_player = player.instantiate()
 		PlayerManager.player = my_player
 	get_tree().current_scene.add_child(PlayerManager.player)
+	Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
   
 	HUD.visible = true
 	# Wait a moment for the player to be fully initialized

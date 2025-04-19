@@ -89,7 +89,7 @@ func _ready() -> void:
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 
-
+var locked = false
 func _on_body_entered(body):
 	if not body.is_in_group("player"):
 		return
@@ -98,13 +98,17 @@ func _on_body_entered(body):
 
 		var cell = local_to_map(body.global_position)
 		var tile_data = get_cell_tile_data(local_to_map(body.global_position))
-		if tile_data and tile_data.get_custom_data("pickupKey"):
+		if tile_data and tile_data.get_custom_data("pickupKey") and locked == false:
 			haveKey = true
 			print("Key aquired")
+			Wwise.post_event_id(AK.EVENTS.KEY_ATTAIN, self)
+			locked = true
 			
 		if tile_data and tile_data.get_custom_data("bossteleport"):
 			if(haveKey):
 				print("Start Teleport")
+				Wwise.post_event_id(AK.EVENTS.CHEST_OPEN, self)
+				await get_tree().create_timer(1).timeout
 				remove_child(body)
 				get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Jormungandr/boss_arena.tscn")
 			else:
