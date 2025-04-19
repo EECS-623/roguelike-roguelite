@@ -78,6 +78,9 @@ func _physics_process(_delta):
 	#$HealthBarLabel.text = "Health: %s" % $HealthComponent.current_health
 
 func _on_health_component_death() -> void:
+	
+	#get_tree().root.add_child(self)
+	#get_parent().remove_child(self)
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
 

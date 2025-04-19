@@ -18,7 +18,7 @@ func connect_to_player():
 	
 	if player and player.has_node("HealthComponent"):
 		# Clean up existing connections
-		if health_component:
+		if is_instance_valid(health_component):
 			if health_component.i_current_health.is_connected(_on_health_changed):
 				health_component.i_current_health.disconnect(_on_health_changed)
 			if health_component.i_max_health.is_connected(_on_max_health_changed):
@@ -42,7 +42,7 @@ func connect_to_player():
 	
 	# Connect to mana component
 	if player and player.has_node("ManaComponent"):
-		if mana_component:
+		if is_instance_valid(mana_component):
 			if mana_component.i_current_mana.is_connected(_on_mana_changed):
 				mana_component.i_current_mana.disconnect(_on_mana_changed)
 			if mana_component.i_max_mana.is_connected(_on_max_mana_changed):

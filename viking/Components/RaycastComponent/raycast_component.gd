@@ -14,9 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !player:
+	if not is_instance_valid(player) and is_instance_valid(PlayerManager.player):
 		player = PlayerManager.player
-	if player and raycast_length != 0:
+	if is_instance_valid(player) and raycast_length != 0:
 		dir_to_player = (player.global_position - global_position).normalized()
 		target_position = dir_to_player * raycast_length
 		if get_collider() == player:

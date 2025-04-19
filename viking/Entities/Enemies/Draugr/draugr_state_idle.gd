@@ -28,11 +28,18 @@ func exit() -> void:
 func state_process(delta : float) -> State:
 	if staggered:
 		return stagger
+	
+	var player := raycast_component.player
+	if !is_instance_valid(player):
+		# No player to track, stay idle
+		draugr.velocity = Vector2.ZERO
+		return null
+	
 	if !cooldown:
-		if draugr.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
+		if draugr.global_position.distance_to(player.global_position) >= raycast_component.raycast_length:
 			return patrol
-		elif draugr.global_position.distance_to(raycast_component.player.global_position) < 100:
-			draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
+		elif draugr.global_position.distance_to(player.global_position) < 100:
+			draugr.direction = (player.global_position - draugr.global_position).normalized()
 			draugr.set_direction()
 			return melee_attack
 		else:
