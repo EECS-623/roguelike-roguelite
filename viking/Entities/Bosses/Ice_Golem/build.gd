@@ -49,15 +49,14 @@ func is_position_blocked(pos: Vector2) -> bool:
 			child.shatter()
 			return false
 	
-	#var space_state = player.get_world_2d().get_direct_space_state()
-	#var shape = CircleShape2D.new()
-	#shape.radius = 45
-	#var shape_transform = Transform2D(0, pos)
-	#var result = space_state.collide_shape(shape, shape_transform)
-#
-	#for collision in result:
-		#if collision.collider is StaticBody2D:
-			#return true
+	var space_state = player.get_world_2d().get_direct_space_state()
+	var point = PhysicsPointQueryParameters2D.new()	
+	point.position = pos
+	var result = space_state.intersect_point(point)
+
+	for collision in result:
+		if collision.collider is StaticBody2D:
+			return true
 	
 	return false
 
