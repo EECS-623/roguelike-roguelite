@@ -87,79 +87,79 @@ func _ready() -> void:
 					print("Placing a 0,2 tile")
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-178, 88)
-					get_parent().add_child(placedItems[totalItemsPlaced])
+					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(195, 218)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 								
 
 					placedItems[totalItemsPlaced] = spike.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-100, -100)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 						
 					
 					placedItems[totalItemsPlaced] = grass.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, -200)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 										
 				
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-210, 190)
-					get_parent().add_child(placedItems[totalItemsPlaced])
+					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
 					
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(170, -207)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 						
 				
 				elif( chosenTile == Vector2i(1, 2)):
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(-210, 210)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 						
 					
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(150, -100)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 									
 
 					placedItems[totalItemsPlaced] = spike.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(200, 150)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 						
 					
 					placedItems[totalItemsPlaced] = grass.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(-100, -100)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 										
 
 					placedItems[totalItemsPlaced] = grass.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(-200, -180)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 						
 				
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(0, -197)
-					get_parent().add_child(placedItems[totalItemsPlaced])
+					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
 					
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(-150, 98)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 										
 
@@ -167,43 +167,43 @@ func _ready() -> void:
 				elif( chosenTile == Vector2i(2, 2)):
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(-205, 209)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 						
 					
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position =Vector2((i+1)*480,(j+1)*480)+Vector2(90, 97)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 							
 					
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(-80, -130)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 													
 					
 					placedItems[totalItemsPlaced] = grass.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(180, 201)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 											
 
 					placedItems[totalItemsPlaced] = grass.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(190, -30)
-					get_parent().add_child(placedItems[totalItemsPlaced])	
+					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 							
 				
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(20, 230)
-					get_parent().add_child(placedItems[totalItemsPlaced])
+					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
 					
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+1)*480,(j+1)*480)+Vector2(120, 170)
-					get_parent().add_child(placedItems[totalItemsPlaced])		
+					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 										
 							
@@ -226,33 +226,33 @@ func _ready() -> void:
 			if( chosenTile == Vector2i(0, 2)):
 				placedItems[totalItemsPlaced] = tree.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-200, 100)
-				get_parent().add_child(placedItems[totalItemsPlaced])	
+				add_child(placedItems[totalItemsPlaced])	
 				totalItemsPlaced += 1			
 						
 				
 				placedItems[totalItemsPlaced] = tree.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(200, 200)
-				get_parent().add_child(placedItems[totalItemsPlaced])					
+				add_child(placedItems[totalItemsPlaced])					
 				totalItemsPlaced += 1
 				
 				placedItems[totalItemsPlaced] = spike.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-100, -100)
-				get_parent().add_child(placedItems[totalItemsPlaced])		
+				add_child(placedItems[totalItemsPlaced])		
 				totalItemsPlaced += 1
 				
 				placedItems[totalItemsPlaced] = grass.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, -200)
-				get_parent().add_child(placedItems[totalItemsPlaced])		
+				add_child(placedItems[totalItemsPlaced])		
 				totalItemsPlaced += 1					
 			
 				placedItems[totalItemsPlaced] = enemy.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-200, 200)
-				get_parent().add_child(placedItems[totalItemsPlaced])
+				add_child(placedItems[totalItemsPlaced])
 				totalItemsPlaced += 1
 				
 				placedItems[totalItemsPlaced] = enemy.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(200, -200)
-				get_parent().add_child(placedItems[totalItemsPlaced])
+				add_child(placedItems[totalItemsPlaced])
 				totalItemsPlaced += 1
 			
 	# Called every frame. 'delta' is the elapsed time since the previous frame.

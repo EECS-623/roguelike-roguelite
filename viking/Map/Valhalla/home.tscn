@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=10 format=4 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Texture2D" uid="uid://x68rj5hjf4yq" path="res://Assets/Art/testTS.png" id="1_t15dr"]
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
 [ext_resource type="Script" path="res://Map/Valhalla/valhalla.gd" id="2_ds18k"]
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
-[ext_resource type="PackedScene" uid="uid://bootcm1im0svw" path="res://Entities/Enemies/Draugr/draugr.tscn" id="6_53hr6"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]
@@ -55,8 +54,6 @@ shape = SubResource("RectangleShape2D_obqig")
 
 [node name="Odin" parent="." instance=ExtResource("6_wfcrd")]
 position = Vector2(0, -209)
-
-[node name="Draugr" parent="." instance=ExtResource("6_53hr6")]
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_entered" from="TreeOfLife" to="TreeOfLife" method="_on_body_entered"]
