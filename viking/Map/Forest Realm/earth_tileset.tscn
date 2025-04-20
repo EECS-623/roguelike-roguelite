@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ceckipgmnrxky"]
 
-[ext_resource type="Texture2D" uid="uid://bo6qxao4ibn64" path="res://Map/Forest Realm/Tile Map.png" id="1_od7mu"]
+[ext_resource type="Texture2D" uid="uid://b6oqo1wkqa0e8" path="res://Map/Forest Realm/Tile Map.png" id="1_od7mu"]
 [ext_resource type="Script" path="res://Map/Forest Realm/earth_tileset.gd" id="2_xorpf"]
 [ext_resource type="Texture2D" uid="uid://buo7aop0poj26" path="res://Map/Forest Realm/plain grass tile asset.png" id="3_7gcjc"]
 

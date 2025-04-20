@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Map/Forest Realm/Map Items/tree.gd" id="2_lykkj"]
 
 [node name="Tree" type="Sprite2D"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 texture = ExtResource("1_3e0rx")
 script = ExtResource("2_lykkj")
