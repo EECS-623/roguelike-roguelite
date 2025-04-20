@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmshguf8o175r"]
+
+[ext_resource type="Texture2D" uid="uid://bbqlt4un5kit" path="res://Map/Forest Realm/Map Items/tree asset.png" id="1_3e0rx"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Map Items/tree.gd" id="2_lykkj"]
+
+[node name="Tree" type="Sprite2D"]
+y_sort_enabled = true
+texture = ExtResource("1_3e0rx")
+script = ExtResource("2_lykkj")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(577, -113)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-48, 852, -206, 924, -538, 981, -954, 920, -1116, 584, -1031, 259, 0, 286, 32, 596)
