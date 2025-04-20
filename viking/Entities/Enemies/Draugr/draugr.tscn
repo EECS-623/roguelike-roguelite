@@ -491,6 +491,7 @@ bg_color = Color(1, 0, 0.294118, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Draugr" type="CharacterBody2D"]
+z_index = -1
 script = ExtResource("1_sgxkm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

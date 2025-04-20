@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Map/Forest Realm/Map Items/grass.gd" id="2_1j4yb"]
 
 [node name="Tree" type="Sprite2D"]
+z_index = 1
+z_as_relative = false
 texture = ExtResource("1_i4xv5")
 script = ExtResource("2_1j4yb")
 
@@ -13,4 +15,4 @@ position = Vector2(577, -113)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 y_sort_enabled = true
-polygon = PackedVector2Array(-403, 446, -590, 467, -789, 429, -846, 289, -823, 45, -365, 56, -357, 280)
+polygon = PackedVector2Array(-458, 373, -769, 373, -774, 284, -778, 279, -812, 210, -374, 193, -357, 280)
