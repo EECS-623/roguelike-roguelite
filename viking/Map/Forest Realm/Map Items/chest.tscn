@@ -1,13 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://bihse5gq366cp"]
+[gd_scene load_steps=6 format=3 uid="uid://bihse5gq366cp"]
 
 [ext_resource type="Script" path="res://Map/Forest Realm/Map Items/chest.gd" id="1_cfs13"]
 [ext_resource type="Texture2D" uid="uid://dowcubjqeac4a" path="res://Map/Forest Realm/Map Items/chest.png" id="2_aoxpu"]
+[ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="3_shbvv"]
 
-[node name="Chest" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w04jp"]
+size = Vector2(1233.33, 767.708)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u8gd"]
+size = Vector2(1700, 2577.92)
+
+[node name="Chest" type="StaticBody2D"]
+z_index = 1
+position = Vector2(-4, 1)
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(160, -99.3754)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_w04jp")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1.52588e-05, 1.90735e-06)
+scale = Vector2(1, 1)
 script = ExtResource("1_cfs13")
 
+[node name="InteractZone" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(99.9999, 593.25)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_1u8gd")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-9, 11)
-scale = Vector2(0.1, 0.1)
+position = Vector2(40, 0)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_aoxpu")
+
+[node name="ButtonPrompt" type="Control" parent="."]
+top_level = true
+z_index = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -80.0
+offset_right = 16.0
+offset_bottom = -48.0
+
+[node name="E" type="Label" parent="ButtonPrompt"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_shbvv")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

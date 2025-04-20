@@ -10,3 +10,4 @@ var bullet_speed: int = 500
 var enemy_speed: int = 1.5
 var xp: int = 0
 var patron_god: int = 0
+var has_key: bool = false
