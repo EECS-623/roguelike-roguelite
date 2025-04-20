@@ -3,7 +3,7 @@ extends TileMapLayer
 @export var tree: PackedScene = preload("res://Map/Forest Realm/Map Items/tree.tscn")
 @export var spike: PackedScene = preload("res://Map/Forest Realm/Map Items/spikes.tscn")
 @export var grass: PackedScene = preload("res://Map/Forest Realm/Map Items/grass.tscn")
-
+@export var chest: PackedScene = preload("res://Map/Forest Realm/Map Items/chest.tscn")
 
 
 var leftmostEdge = -4
@@ -222,7 +222,11 @@ func _ready() -> void:
 
 			#place tile
 			set_cell(position, 0, chosenTile)
-		
+			if (chosenTile == Vector2i(2,0)):
+				placedItems[totalItemsPlaced] = chest.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, -100)
+				add_child(placedItems[totalItemsPlaced])	
+				totalItemsPlaced += 1	
 			if( chosenTile == Vector2i(0, 2)):
 				placedItems[totalItemsPlaced] = tree.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-200, 100)
