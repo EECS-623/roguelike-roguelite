@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 
 	if snake == null and not snake_dead:
 		snake_dead = true
-		Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
+		#Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
 		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
 		portal_open()
 	elif snake != null:
@@ -63,7 +63,7 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
+		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		cam.limit_left = -10000000
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
@@ -84,10 +84,12 @@ func play_dialogue(path: String) -> void:
 	modulate = Color.DIM_GRAY
 	get_tree().paused = true
 	var words = dialogue.load_dialogue(path)
+	dialogue.get_node("AnimationPlayer").play("Jormungandr")
 	dialogue.dialogue_begin(words)
 	dialogue.connect("dialogue_finished", _on_dialogue_end)
 
 func _on_dialogue_end():
+	dialogue.get_node("AnimationPlayer").play("RESET")
 	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
 	get_tree().paused = false
 	modulate = Color.WHITE

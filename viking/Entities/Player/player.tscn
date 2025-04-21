@@ -759,6 +759,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
+position = Vector2(0, 1)
 script = ExtResource("2_m7ndx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

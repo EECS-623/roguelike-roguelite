@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var speed: float = 500.0
-@export var puddle_duration: float = 5.0
+@export var speed: float = 700.0
+@export var puddle_duration: float = 6.0
 
 var target_position: Vector2
 var moving = true

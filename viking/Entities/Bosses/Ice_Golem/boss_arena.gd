@@ -58,17 +58,21 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
 		cam.limit_bottom = 10000000
+		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 		
 func play_dialogue(path: String) -> void:
 	modulate = Color.DIM_GRAY
 	get_tree().paused = true
+	dialogue.get_node("AnimationPlayer").play("Ymir")
 	var words = dialogue.load_dialogue(path)
 	dialogue.dialogue_begin(words)
 	dialogue.connect("dialogue_finished", _on_dialogue_end)
 
 func _on_dialogue_end():
 	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
+	dialogue.get_node("AnimationPlayer").play("RESET")
+
 	get_tree().paused = false
 	modulate = Color.WHITE
 
@@ -82,3 +86,7 @@ func _on_dialogue_end():
 	if ice_golem != null:
 		ice_golem.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
+
+
+func _on_portal_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.

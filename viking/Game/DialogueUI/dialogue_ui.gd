@@ -28,7 +28,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	var text_height = speaker_name.get_content_height()
-	speaker_name.position.y = (background.size.y - text_height) / 2
+	#speaker_name.position.y = (background.size.y - text_height) / 2
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -65,10 +66,12 @@ func dialogue_begin(lines: Array) -> void:
 	current_line = 0
 	visible = true
 	show_line()
+	$AnimationPlayer.play(speaker_name.text)
+
 
 func show_line() -> void:
 	var line = dialogue[current_line]
-	speaker_name.text = line.name
+	speaker_name.text = line.name + ":"
 	current_text = line.text
 	dialogue_text.text = ""
 	char_index = 0
@@ -100,7 +103,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			current_line += 1
 			show_line()
-			Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
+			#Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 		else:
 			dialogue_end()
 		

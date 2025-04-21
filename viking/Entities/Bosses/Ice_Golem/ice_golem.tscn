@@ -1,11 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://chsbggd0fnpvh"]
+[gd_scene load_steps=26 format=3 uid="uid://chsbggd0fnpvh"]
 
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/ice_golem.gd" id="1_7wjgo"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_0c5pm"]
-[ext_resource type="Texture2D" uid="uid://cjtyx8xl2swj6" path="res://Assets/Ice_Golem/ymir demo chibi.png" id="2_nn3cw"]
+[ext_resource type="Texture2D" uid="uid://mwg36xqee7og" path="res://Assets/Ice_Golem/Standing.png" id="2_2w45g"]
+[ext_resource type="Texture2D" uid="uid://dler566kvhwbo" path="res://Assets/Ice_Golem/Stomp 1.png" id="3_14p6p"]
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="3_hq3rk"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="4_jxb4j"]
+[ext_resource type="Texture2D" uid="uid://ch2f8ofdepuam" path="res://Assets/Ice_Golem/Stomp 2.png" id="4_tgsnt"]
 [ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="5_e4mn1"]
+[ext_resource type="Texture2D" uid="uid://vgxh0dn2i2tc" path="res://Assets/Ice_Golem/Snowball Throw.png" id="5_nu5x0"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/ice_golem_state_machine.gd" id="7_3f6ek"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/idle.gd" id="8_ohg0a"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/throw.gd" id="9_t3brh"]
@@ -14,14 +17,44 @@
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/build.gd" id="11_cylvl"]
 [ext_resource type="PackedScene" uid="uid://bjijnk60e54dw" path="res://Entities/Bosses/Ice_Golem/stomp.tscn" id="12_1ufis"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sijh8"]
+atlas = ExtResource("2_2w45g")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxmdj"]
+atlas = ExtResource("5_nu5x0")
+region = Rect2(0, 0, 600, 600)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yjt2p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nn3cw")
+"texture": SubResource("AtlasTexture_sijh8")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2w45g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_14p6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tgsnt")
+}],
+"loop": true,
+"name": &"stomp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxmdj")
+}],
+"loop": true,
+"name": &"throw",
 "speed": 5.0
 }]
 
@@ -34,14 +67,75 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7smhd"]
 bg_color = Color(0.212167, 0.715526, 0.639373, 1)
 
+[sub_resource type="Animation" id="Animation_dbau5"]
+resource_name = "stomp"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"stomp"]
+}
+
+[sub_resource type="Animation" id="Animation_obnlh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0sgc"]
+_data = {
+"RESET": SubResource("Animation_obnlh"),
+"stomp": SubResource("Animation_dbau5")
+}
+
 [node name="IceGolem" type="CharacterBody2D"]
 script = ExtResource("1_7wjgo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
+position = Vector2(2, -24)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_yjt2p")
 animation = &"idle"
-frame_progress = 0.0966859
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5tgcf")
@@ -119,5 +213,10 @@ s_warning = ExtResource("12_1ufis")
 
 [node name="Build" type="Node" parent="IceGolemStateMachine"]
 script = ExtResource("11_cylvl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c0sgc")
+}
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

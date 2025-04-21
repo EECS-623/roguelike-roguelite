@@ -21,9 +21,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
-#
-func update_animation( state: String ) -> void:
-	pass
-#
+
+
 func _on_health_component_death() -> void:
 	queue_free()
