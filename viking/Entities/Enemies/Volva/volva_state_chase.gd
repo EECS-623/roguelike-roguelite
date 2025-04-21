@@ -13,7 +13,7 @@ var staggered: bool = false
 func enter() -> void:
 	staggered = false
 	volva.update_animation("move")
-	raycast_component.raycast_length = 800
+	raycast_component.raycast_length = 900
 	speed_component.set_speed(130)
 	hurtbox.connect("hurt", _on_player_melee_hit)
 	
@@ -23,13 +23,16 @@ func exit() -> void:
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
+	var player = raycast_component.player 
 	
 	if staggered:
 		return stagger
-	if volva.global_position.distance_to(raycast_component.player.global_position) < 100:
+	if volva.global_position.distance_to(player.global_position) < 400 and raycast_component.on_player:
 		return ranged_attack
-	if volva.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
+
+	if volva.global_position.distance_to(player.global_position) >= raycast_component.raycast_length:
 		return patrol
+
 	volva.set_direction()
 	volva.update_animation("move")
 

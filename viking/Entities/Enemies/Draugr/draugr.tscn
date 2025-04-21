@@ -557,7 +557,8 @@ max_health = 50.0
 script = ExtResource("31_1g2gb")
 speed = 100.0
 
-[node name="HealthBarComponent" parent="." instance=ExtResource("32_x7nue")]
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("32_x7nue")]
+health_component = NodePath("../HealthComponent")
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

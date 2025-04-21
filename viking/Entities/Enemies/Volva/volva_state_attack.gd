@@ -5,7 +5,7 @@ var attacking : bool = false
 @onready var volva : Volva = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../VolvaStateIdle"
-#@onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
+@onready var raycast_component = $"../../RaycastComponent"
 
 func enter() -> void:
 	volva.update_animation("attack")
@@ -20,12 +20,11 @@ func exit() -> void:
 	#remove connection when exiting state
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
-	#hitbox.get_child(0).disabled = true
-	
+
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	volva.velocity = Vector2.ZERO
-	
+
 	if !attacking:
 		return idle
 
@@ -41,3 +40,7 @@ func handle_input(_event : InputEvent) -> State:
 # ends the attack (animation name added to avoid compiler issues)
 func end_attack( _animation_name : String) -> void:
 	attacking = false
+
+func fire_bullet(initial_position: Vector2) -> void:
+	var spell_target = (raycast_component.player.global_position - volva.global_position).normalized()
+	volva.add_child(VolvaSpell.new_spell(initial_position, spell_target))

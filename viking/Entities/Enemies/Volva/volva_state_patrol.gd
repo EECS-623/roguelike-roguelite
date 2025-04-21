@@ -15,7 +15,7 @@ var player_collide: bool = false
 var staggered: bool = false
 
 func enter() -> void:
-	raycast_component.raycast_length = 400
+	raycast_component.raycast_length = 600
 	player_collide = false
 	patrol_area_center = volva.global_position
 	raycast_component.connect("player_collision", _on_player_collision)

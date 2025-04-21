@@ -339,6 +339,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(48, 0)],
+"method": &"fire_bullet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ljt7i"]
 resource_name = "attack_down"
@@ -366,6 +380,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(16, 40)],
+"method": &"fire_bullet"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_hmvij"]
@@ -395,6 +423,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-24, -24)],
+"method": &"fire_bullet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_yp63b"]
 resource_name = "attack_left"
@@ -422,6 +464,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-48, 0)],
+"method": &"fire_bullet"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jb06"]

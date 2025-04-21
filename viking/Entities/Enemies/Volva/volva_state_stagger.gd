@@ -6,7 +6,7 @@ var timer: float
 var knockback_direction: Vector2
 @onready var volva = $"../.."
 @onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
-@onready var chase: VolvaStateChase = $"../VolvaStateChase"
+@onready var idle: VolvaStateIdle= $"../VolvaStateIdle"
 @onready var particles = $"../../Particles"
 #@onready var state_machine: DraugrStateMachine =  $".."
 
@@ -27,7 +27,7 @@ func exit() -> void:
 func state_process(delta : float) -> State:
 	timer -= delta
 	if timer <= 0:
-		return chase
+		return idle
 	return null
 
 func state_physics_process(delta: float) -> State:

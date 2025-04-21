@@ -2,7 +2,7 @@ class_name VolvaStateIdle extends State
 
 @onready var volva : Volva = $"../.."
 @onready var patrol : State = $"../VolvaStatePatrol"
-@onready var melee_attack : State = $"../VolvaStateAttack"
+@onready var ranged_attack : State = $"../VolvaStateAttack"
 @onready var chase : State = $"../VolvaStateChase"
 @onready var stagger = $"../VolvaStateStagger"
 @onready var raycast_component : RaycastComponent = $"../../RaycastComponent"
@@ -17,7 +17,7 @@ func enter() -> void:
 	hurtbox.connect("hurt", _on_player_melee_hit)
 	cooldown = true
 	volva.update_animation("idle")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2.5).timeout
 	cooldown_finished()
 
 # what happens when the entity exits a state
@@ -26,6 +26,7 @@ func exit() -> void:
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
+	
 	if staggered:
 		return stagger
 	
@@ -38,10 +39,10 @@ func state_process(delta : float) -> State:
 	if !cooldown:
 		if volva.global_position.distance_to(player.global_position) >= raycast_component.raycast_length:
 			return patrol
-		elif volva.global_position.distance_to(player.global_position) < 100:
+		elif volva.global_position.distance_to(player.global_position) < 400 and raycast_component.on_player:
 			volva.direction = (player.global_position - volva.global_position).normalized()
 			volva.set_direction()
-			return melee_attack
+			return ranged_attack
 		else:
 			return chase
 			
