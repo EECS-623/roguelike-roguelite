@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctggdjf3a5tsq"]
+
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="1_2cp7k"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="2_gqk37"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/reset_visibility_timer.gd" id="3_7ej8x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdehn"]
+draw_center = false
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu7wd"]
+bg_color = Color(1, 0, 0.294118, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7g13l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwro8"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="HealthBarComponent" type="ProgressBar" node_paths=PackedStringArray("health_component", "health_bar_progress", "reset_visibility_timer")]
+offset_left = -31.0
+offset_top = -75.0
+offset_right = 269.0
+offset_bottom = -35.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/background = SubResource("StyleBoxFlat_hdehn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eu7wd")
+step = 0.001
+show_percentage = false
+script = ExtResource("1_2cp7k")
+health_component = NodePath("")
+health_bar_progress = NodePath("HealthBarProgress")
+reset_visibility_timer = NodePath("ResetVisibilityTimer")
+
+[node name="HealthBarProgress" type="ProgressBar" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 40.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_7g13l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hwro8")
+show_percentage = false
+script = ExtResource("2_gqk37")
+
+[node name="ResetVisibilityTimer" type="Timer" parent="."]
+script = ExtResource("3_7ej8x")

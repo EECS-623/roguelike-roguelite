@@ -1,11 +1,35 @@
-extends Node
+class_name VolvaStateStagger extends State
 
+@export var knockback_duration: float = 0.2
+var knockback_velocity: Vector2 = Vector2.ZERO
+var timer: float
+var knockback_direction: Vector2
+@onready var volva = $"../.."
+@onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
+@onready var chase: VolvaStateChase = $"../VolvaStateChase"
+@onready var particles = $"../../Particles"
+#@onready var state_machine: DraugrStateMachine =  $".."
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# what happens when the entity enters a state
+func enter() -> void:
+	var knockback_emission = -(raycast_component.player.global_position - volva.global_position).normalized()
+	particles.global_rotation = knockback_emission.angle()
+	particles.restart()
+	knockback_direction = -(raycast_component.player.global_position - volva.global_position).normalized()
+	timer = knockback_duration
+	knockback_velocity = knockback_direction * 300.0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+# what happens when the entity exits a state
+func exit() -> void:
 	pass
+
+# what happens during _process of the state
+func state_process(delta : float) -> State:
+	timer -= delta
+	if timer <= 0:
+		return chase
+	return null
+
+func state_physics_process(delta: float) -> State:
+	volva.velocity = knockback_velocity
+	return null

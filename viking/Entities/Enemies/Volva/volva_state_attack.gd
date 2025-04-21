@@ -4,8 +4,8 @@ var attacking : bool = false
 
 @onready var volva : Volva = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
-@onready var idle : State = $"../DraugrStateIdle"
-@onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
+@onready var idle : State = $"../VolvaStateIdle"
+#@onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
 
 func enter() -> void:
 	volva.update_animation("attack")
@@ -20,7 +20,7 @@ func exit() -> void:
 	#remove connection when exiting state
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
-	hitbox.get_child(0).disabled = true
+	#hitbox.get_child(0).disabled = true
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:

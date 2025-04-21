@@ -4,7 +4,7 @@ class_name VolvaStateChase extends State
 @onready var volva = $"../.."
 @onready var ranged_attack = $"../VolvaStateAttack"
 @onready var patrol = $"../VolvaStatePatrol"
-@onready var stagger = $"../VolvarStateStagger"
+@onready var stagger = $"../VolvaStateStagger"
 @onready var hurtbox = $"../../Hurtbox"
 @export var speed_component : SpeedComponent
 

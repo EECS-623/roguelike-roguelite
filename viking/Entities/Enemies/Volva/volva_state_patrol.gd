@@ -3,7 +3,7 @@ class_name VolvaStatePatrol extends State
 @onready var patrol_area : PatrolAreaComponent = $"../../PatrolAreaComponent" 
 @onready var volva = $"../.."
 @onready var raycast_component = $"../../RaycastComponent"
-@onready var alert = $"../DraugrStateAlert"
+@onready var alert = $"../VolvaStateAlert"
 @onready var hurtbox = $"../../Hurtbox"
 
 @export var speed_component: SpeedComponent
