@@ -560,5 +560,8 @@ speed = 100.0
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("32_x7nue")]
 health_component = NodePath("../HealthComponent")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 20.0
+
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]
