@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 						var new_teleport_vector = teleport_vector + offset
 						collision = player.move_and_collide(new_teleport_vector, true)
 						if not collision:
-							teleport_vector = new_teleport_vector
+							end_position = new_teleport_vector + start_position
 							break
 				if not collision:
 					# ────── 1) SHAPE QUERY SETUP ──────
