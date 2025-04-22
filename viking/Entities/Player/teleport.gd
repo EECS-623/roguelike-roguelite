@@ -110,35 +110,42 @@ func _process(delta: float) -> void:
 					query.collide_with_areas = true		# include Area2D (if your Hitbox is one)
 					query.collision_mask = (1 << 0) | (1 << 2)  # Layers 1 and 3
 		# make sure this matches your ENEMY layer
-
+					
 					# Actually do the query (limit to 32 hits just in case)
 					var results = player.get_world_2d().direct_space_state.intersect_shape(query, 32)
 					print("Teleport hit count: ", results.size())
 
-					# ────── 2) APPLY DAMAGE ──────
-					for r in results:
-						var enemy = r.collider
-						print(enemy)
-						
-						# If the enemy *has a Hitbox child*, you can trigger it:
-						var health = enemy.get_node_or_null("HealthComponent")
-						if health:
-							health.take_damage(150)
-								#hitbox.emit_signal("hit", player)
-							print("gothere")
+					
 						# OR, if you want to use your Hitbox system:
 						# var hb = Hitbox.new()
 						# hb.is_magic = false
 						# hb.damage = 1000
 						# hb.emit_signal("hit", enemy)
 
+					# ────── 2) APPLY DAMAGE ──────
+					var enemies_to_free = []
+					for r in results:
+						var enemy = r.collider
+						print(enemy)
+
+						# If the enemy *has a Hitbox child*, you can trigger it:
+						if enemy:
+							var health = enemy.get_node_or_null("HealthComponent")
+							if health:
+								enemy.modulate = Color(1,0,0)
+								enemies_to_free.append(health)
+								#health.take_damage(150)
+								#hitbox.emit_signal("hit", player)
+								print("gothere")
 					# ────── 3) COMPLETE THE TELEPORT ──────
 					teleport_begun = true
 					camera.position_smoothing_enabled = true
 					player.global_position = end_position
 					teleport = false
-
-					await get_tree().create_timer(1).timeout
+					await get_tree().create_timer(.5).timeout
+					for selected_enemy in enemies_to_free:
+						selected_enemy.take_damage(150)
+					await get_tree().create_timer(2).timeout
 					teleport = true
 					teleport_begun = false
 					camera.position_smoothing_speed = 18
