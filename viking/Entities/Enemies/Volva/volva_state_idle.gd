@@ -15,10 +15,12 @@ var staggered: bool = false
 func enter() -> void:
 	staggered = false
 	hurtbox.connect("hurt", _on_player_melee_hit)
-	cooldown = true
+
+	if cooldown:
+		await get_tree().create_timer(2.5).timeout
+		cooldown_finished()
+
 	volva.update_animation("idle")
-	await get_tree().create_timer(2.5).timeout
-	cooldown_finished()
 
 # what happens when the entity exits a state
 func exit() -> void:

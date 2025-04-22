@@ -18,6 +18,9 @@ func enter() -> void:
 	knockback_direction = -(raycast_component.player.global_position - volva.global_position).normalized()
 	timer = knockback_duration
 	knockback_velocity = knockback_direction * 300.0
+	
+	# Start cooldown to prevent immediate attack
+	idle.cooldown = true
 
 # what happens when the entity exits a state
 func exit() -> void:
