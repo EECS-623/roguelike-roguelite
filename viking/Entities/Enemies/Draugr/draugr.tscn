@@ -1,14 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=52 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="3_a0hel"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="4_gyuwt"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="4_h1kep"]
-[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="5_gvmp7"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_idle.gd" id="5_i8ex3"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_attack.gd" id="6_cdk8k"]
-[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="6_r6v7i"]
-[ext_resource type="Script" path="res://Components/HealthBarComponent/reset_visibility_timer.gd" id="7_r1u0n"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_machine.gd" id="8_1mk0f"]
 [ext_resource type="Texture2D" uid="uid://dd7v2obosbvla" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Raise.png" id="20_5f48w"]
 [ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="20_ppxgn"]
@@ -31,6 +28,7 @@
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_stagger.gd" id="31_jmjjv"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/draugr_state_alert.gd" id="32_4be21"]
 [ext_resource type="Texture2D" uid="uid://pbe8fghtepv0" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Left Step.png" id="32_h3lf1"]
+[ext_resource type="PackedScene" uid="uid://ctggdjf3a5tsq" path="res://Entities/Enemies/HealthBar/health_bar_component.tscn" id="32_x7nue"]
 [ext_resource type="Texture2D" uid="uid://dbumomae1r285" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Right Step.png" id="33_55fxh"]
 [ext_resource type="Texture2D" uid="uid://84605ll6gn3l" path="res://Entities/Enemies/Draugr/Draugr Assets/Side Standing.png" id="34_b5qsq"]
 [ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="35_cf8yl"]
@@ -470,26 +468,6 @@ height = 106.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lcqk"]
 size = Vector2(60.5, 61)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdehn"]
-draw_center = false
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(1, 1, 1, 1)
-expand_margin_left = 40.0
-expand_margin_top = 40.0
-expand_margin_right = 40.0
-expand_margin_bottom = 40.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu7wd"]
-bg_color = Color(1, 0, 0.294118, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7g13l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwro8"]
-bg_color = Color(1, 1, 1, 1)
-
 [node name="Draugr" type="CharacterBody2D"]
 z_index = -1
 script = ExtResource("1_sgxkm")
@@ -579,33 +557,8 @@ max_health = 50.0
 script = ExtResource("31_1g2gb")
 speed = 100.0
 
-[node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component", "health_bar_progress", "reset_visibility_timer")]
-offset_left = -31.0
-offset_top = -75.0
-offset_right = 269.0
-offset_bottom = -35.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_hdehn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_eu7wd")
-step = 0.001
-show_percentage = false
-script = ExtResource("5_gvmp7")
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("32_x7nue")]
 health_component = NodePath("../HealthComponent")
-health_bar_progress = NodePath("HealthBarProgress")
-reset_visibility_timer = NodePath("ResetVisibilityTimer")
-
-[node name="HealthBarProgress" type="ProgressBar" parent="HealthBarComponent"]
-show_behind_parent = true
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 40.0
-theme_override_styles/background = SubResource("StyleBoxEmpty_7g13l")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hwro8")
-show_percentage = false
-script = ExtResource("6_r6v7i")
-
-[node name="ResetVisibilityTimer" type="Timer" parent="HealthBarComponent"]
-script = ExtResource("7_r1u0n")
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]
