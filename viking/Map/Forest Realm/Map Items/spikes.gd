@@ -5,7 +5,7 @@ extends Sprite2D
 
 func _ready() -> void:
 	var scale = randf()
-	scale = 0.0625 + 0.0625* scale 
+	scale = 0.05 + 0.05* scale 
 	
 	set_scale(Vector2(scale,scale))
 	z_index = -1	

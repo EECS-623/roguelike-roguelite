@@ -15,4 +15,4 @@ z_index = -1
 position = Vector2(577, -113)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-307, 796, -380, 803, -544, 784, -723, 755, -877, 660, -673, 587, -245, 589, -85, 665)
+polygon = PackedVector2Array(-227, 803, -357, 832, -538, 835, -768, 812, -881, 766, -964, 694, -919, 649, -669, 590, -657, 473, -400, 464, -397, 571, -264, 557, -105, 662)

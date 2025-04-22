@@ -15,4 +15,4 @@ position = Vector2(577, -113)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 y_sort_enabled = true
-polygon = PackedVector2Array(-458, 373, -769, 373, -774, 284, -778, 279, -812, 210, -374, 193, -357, 280)
+polygon = PackedVector2Array(-458, 373, -769, 373, -814, 324, -836, 251, -812, 210, -755, 163, -707, 140, -507, 142, -438, 158, -374, 193, -357, 280)
