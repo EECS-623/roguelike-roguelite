@@ -25,7 +25,7 @@ func exit() -> void:
 	attacking = false
 
 	# Start cooldown to prevent immediate attack
-	idle.cooldown = true
+	idle.start_cooldown()
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:

@@ -5,6 +5,7 @@ class_name VolvaStateChase extends State
 @onready var ranged_attack = $"../VolvaStateAttack"
 @onready var patrol = $"../VolvaStatePatrol"
 @onready var stagger = $"../VolvaStateStagger"
+@onready var idle = $"../VolvaStateIdle"
 @onready var hurtbox = $"../../Hurtbox"
 @export var speed_component : SpeedComponent
 
@@ -27,6 +28,7 @@ func state_process(delta : float) -> State:
 	
 	if staggered:
 		return stagger
+	
 	if volva.global_position.distance_to(player.global_position) < 400 and raycast_component.on_player:
 		return ranged_attack
 

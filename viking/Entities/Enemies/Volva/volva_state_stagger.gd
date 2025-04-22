@@ -6,7 +6,8 @@ var timer: float
 var knockback_direction: Vector2
 @onready var volva = $"../.."
 @onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
-@onready var idle: VolvaStateIdle= $"../VolvaStateIdle"
+@onready var idle: VolvaStateIdle = $"../VolvaStateIdle"
+#@onready var idle: VolvaStateIdle = $"../VolvaStateIdle"
 @onready var particles = $"../../Particles"
 #@onready var state_machine: DraugrStateMachine =  $".."
 
@@ -18,13 +19,12 @@ func enter() -> void:
 	knockback_direction = -(raycast_component.player.global_position - volva.global_position).normalized()
 	timer = knockback_duration
 	knockback_velocity = knockback_direction * 300.0
-	
-	# Start cooldown to prevent immediate attack
-	idle.cooldown = true
+
 
 # what happens when the entity exits a state
 func exit() -> void:
-	pass
+	# Start cooldown to prevent immediate attack
+	idle.start_cooldown()
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
