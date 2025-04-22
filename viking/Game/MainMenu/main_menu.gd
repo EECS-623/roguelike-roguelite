@@ -11,6 +11,7 @@ func load_bank_if_needed(bank_id: int) -> void:
 			Global.loaded_banks[bank_id] = true
 		else:
 			print("Failed to load bank:", bank_id)
+			
 func _ready() -> void:
 	Wwise.register_game_obj(self, self.name)
 	Wwise.register_listener(self)

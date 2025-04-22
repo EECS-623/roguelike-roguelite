@@ -11,7 +11,37 @@ var teleport = true
 var teleport_amount = 300
 var teleport_begun = false
 
+
+
 func _process(delta: float) -> void:
+	var offsets = [
+		# First ring (short range)
+		Vector2(0, 30), Vector2(30, 0), Vector2(-30, 0), Vector2(0, -30),
+		Vector2(30, 30), Vector2(-30, -30), Vector2(30, -30), Vector2(-30, 30),
+
+		# Second ring (medium range)
+		Vector2(50, 0), Vector2(-50, 0), Vector2(0, 50), Vector2(0, -50),
+		Vector2(50, 50), Vector2(-50, -50), Vector2(50, -50), Vector2(-50, 50),
+
+		# Third ring (wider square)
+		Vector2(70, 0), Vector2(-70, 0), Vector2(0, 70), Vector2(0, -70),
+		Vector2(70, 70), Vector2(-70, -70), Vector2(70, -70), Vector2(-70, 70),
+
+		# Fourth ring (even wider)
+		Vector2(100, 0), Vector2(-100, 0), Vector2(0, 100), Vector2(0, -100),
+		Vector2(100, 100), Vector2(-100, -100), Vector2(100, -100), Vector2(-100, 100),
+
+		# Diagonal steps between main rings
+		Vector2(60, 30), Vector2(-60, -30), Vector2(60, -30), Vector2(-60, 30),
+		Vector2(30, 60), Vector2(-30, -60), Vector2(30, -60), Vector2(-30, 60),
+
+		# Wide diagonals
+		Vector2(90, 90), Vector2(-90, -90), Vector2(90, -90), Vector2(-90, 90),
+		Vector2(80, 40), Vector2(-80, -40), Vector2(80, -40), Vector2(-80, 40),
+		Vector2(40, 80), Vector2(-40, -80), Vector2(40, -80), Vector2(-40, 80)
+	]
+	offsets.shuffle()
+
 	var camera = $"../../Camera2D"
 	if Input.is_action_just_pressed("right_click") and Global.patron_god == 3:
 		if upgrade_level == 1:
@@ -19,6 +49,15 @@ func _process(delta: float) -> void:
 				
 				var teleport_position = player.direction*teleport_amount
 				var collision = player.move_and_collide(teleport_position, true)
+				if collision:
+					for offset in offsets:
+						var new_teleport_position = teleport_position + offset
+						collision = player.move_and_collide(new_teleport_position, true)
+						if not collision:
+							teleport_position = new_teleport_position
+							break
+
+							
 				if not collision:
 					teleport_begun = true
 					camera.position_smoothing_enabled = true
@@ -40,6 +79,13 @@ func _process(delta: float) -> void:
 
 				# Try to move (so you don't phase through walls)
 				var collision = player.move_and_collide(teleport_vector, true)
+				if collision:
+					for offset in offsets:
+						var new_teleport_vector = teleport_vector + offset
+						collision = player.move_and_collide(new_teleport_vector, true)
+						if not collision:
+							teleport_vector = new_teleport_vector
+							break
 				if not collision:
 					# ────── 1) SHAPE QUERY SETUP ──────
 					var path_length = teleport_vector.length()
@@ -92,7 +138,7 @@ func _process(delta: float) -> void:
 					player.global_position = end_position
 					teleport = false
 
-					await get_tree().create_timer(3).timeout
+					await get_tree().create_timer(1).timeout
 					teleport = true
 					teleport_begun = false
 					camera.position_smoothing_speed = 18
