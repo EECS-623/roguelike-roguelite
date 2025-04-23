@@ -1,10 +1,10 @@
-class_name DraugrStateChase extends State
+class_name DashDraugrStateChase extends State
 
 @onready var raycast_component = $"../../RaycastComponent"
 @onready var draugr = $"../.."
-@onready var melee_attack = $"../DraugrStateAttack"
-@onready var patrol = $"../DraugrStatePatrol"
-@onready var stagger = $"../DraugrStateStagger"
+@onready var melee_attack = $"../DashDraugrStateAttack"
+@onready var patrol = $"../DashDraugrStatePatrol"
+@onready var stagger = $"../DashDraugrStateStagger"
 @onready var hurtbox = $"../../Hurtbox"
 @onready var nav_agent: NavigationAgent2D = $"../../NavigationAgent2D"
 @export var speed_component : SpeedComponent

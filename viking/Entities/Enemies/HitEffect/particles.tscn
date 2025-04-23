@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ce05576vppq3r"]
 
-[ext_resource type="Texture2D" uid="uid://dmfm77phqqy4k" path="res://Entities/Enemies/Draugr/white-circle.png" id="1_rybpl"]
+[ext_resource type="Texture2D" uid="uid://dmfm77phqqy4k" path="res://Entities/Enemies/HitEffect/white-circle.png" id="1_rybpl"]
 
 [sub_resource type="Gradient" id="Gradient_ai54r"]
 offsets = PackedFloat32Array(0.538941, 1)

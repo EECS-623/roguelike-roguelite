@@ -1,5 +1,5 @@
 extends TileMapLayer
-@export var enemy: PackedScene = preload("res://Entities/Enemies/Draugr/draugr.tscn")
+@export var enemy: PackedScene = preload("res://Entities/Enemies/Draugr/Basic Draugr/draugr.tscn")
 @export var tree: PackedScene = preload("res://Map/Forest Realm/Map Items/tree.tscn")
 @export var spike: PackedScene = preload("res://Map/Forest Realm/Map Items/spikes.tscn")
 @export var grass: PackedScene = preload("res://Map/Forest Realm/Map Items/grass.tscn")
