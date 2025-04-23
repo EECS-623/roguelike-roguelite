@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var health_bar = $Control/HealthBar
 @onready var mana_bar = $Control/ManaBar
+@onready var inventory_button = $Control/InventoryButton
 
 var player
 var health_component
@@ -10,6 +11,11 @@ var mana_component
 func _ready():
 	# Start hidden by default
 	visible = false
+	# Connect inventory button
+	inventory_button.pressed.connect(_on_inventory_button_pressed)
+
+func _on_inventory_button_pressed():
+	Inventory.toggle_inventory()
 
 # Call this function from any scene where you want the HUD to be visible
 func connect_to_player():

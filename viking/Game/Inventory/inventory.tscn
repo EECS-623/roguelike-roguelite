@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgabimmw8awtu"]
+
+[ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_4slg2"]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_4slg2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 26.0
+
+[node name="SpeedBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 26.0
+
+[node name="HealthButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpeedButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RuneCount" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 22.0
