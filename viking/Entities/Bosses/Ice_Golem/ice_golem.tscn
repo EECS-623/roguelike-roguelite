@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/ice_golem_state_machine.gd" id="7_3f6ek"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/idle.gd" id="8_ohg0a"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/throw.gd" id="9_t3brh"]
-[ext_resource type="PackedScene" uid="uid://ccvr4jms5lxu1" path="res://Entities/Bosses/Ice_Golem/snowball.tscn" id="10_a4kgv"]
+[ext_resource type="PackedScene" path="res://Entities/Bosses/Ice_Golem/snowball.tscn" id="10_a4kgv"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/smash.gd" id="10_alaek"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/build.gd" id="11_cylvl"]
 [ext_resource type="PackedScene" uid="uid://bjijnk60e54dw" path="res://Entities/Bosses/Ice_Golem/stomp.tscn" id="12_1ufis"]

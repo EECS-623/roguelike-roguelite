@@ -41,3 +41,16 @@ func handle_input(_event : InputEvent) -> State:
 # ends the attack (animation name added to avoid compiler issues)
 func end_attack( _animation_name : String) -> void:
 	attacking = false
+
+func _on_hitbox_hit(body: Variant) -> void:
+	var body_parent = body.get_parent()
+	if body_parent.is_in_group("player"):
+		print("first if")
+		if body_parent.status_effects["frozen"] == false:
+			print("second if")
+			body_parent.status_effects["frozen"] = true
+			var current_speed = body_parent.speed_component.get_speed()
+			body_parent.speed_component.decrease_speed(100)
+			await get_tree().create_timer(2.0).timeout
+			body_parent.speed_component.set_speed(current_speed)
+			body_parent.status_effects["frozen"] = false

@@ -19,9 +19,9 @@ func enter() -> void:
 	raycast_component.raycast_length = 800
 	speed_component.set_speed(130)
 	hurtbox.connect("hurt", _on_player_melee_hit)
-	if raycast_component.player:
-		target_position = raycast_component.player.global_position
-		nav_agent.target_position = target_position
+	#if raycast_component.player:
+	#	target_position = raycast_component.player.global_position
+	#	nav_agent.target_position = target_position
 
 # what happens when the entity exits a state
 func exit() -> void:
@@ -39,23 +39,23 @@ func state_process(delta : float) -> State:
 		return patrol
 		
 	var player_pos = raycast_component.player.global_position
-	if player_pos.distance_to(nav_agent.target_position) > 16:
-		nav_agent.target_position = player_pos
+	#if player_pos.distance_to(nav_agent.target_position) > 16:
+	#	nav_agent.target_position = player_pos
 
-	if not nav_agent.is_navigation_finished():
-		var next_position = nav_agent.get_next_path_position()
-		#print("Next Path Position: ", next_position)
-		var direction = (next_position - draugr.global_position).normalized()
-		draugr.direction = direction
-		draugr.velocity = direction * speed_component.get_speed()
-	else:
-		draugr.velocity = Vector2.ZERO
+	#if not nav_agent.is_navigation_finished():
+	#	var next_position = nav_agent.get_next_path_position()
+	#	#print("Next Path Position: ", next_position)
+	#	var direction = (next_position - draugr.global_position).normalized()
+	#	draugr.direction = direction
+	#	draugr.velocity = direction * speed_component.get_speed()
+	#else:
+	#	draugr.velocity = Vector2.ZERO
 	
 	draugr.set_direction()
 	draugr.update_animation("move")
 
-	#draugr.direction = (raycast_component.player.global_position - draugr.global_position).normalized()
-	#draugr.velocity = draugr.direction * speed_component.get_speed()
+	draugr.direction = (player_pos - draugr.global_position).normalized()
+	draugr.velocity = draugr.direction * speed_component.get_speed()
 
 	return null
 	

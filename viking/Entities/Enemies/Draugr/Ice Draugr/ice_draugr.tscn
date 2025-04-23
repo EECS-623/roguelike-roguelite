@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=3 uid="uid://ncb3dti6kpdw"]
 
-[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Basic Draugr/draugr.gd" id="1_0hutu"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr.gd" id="1_f7rwo"]
 [ext_resource type="Texture2D" uid="uid://dd7v2obosbvla" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Raise.png" id="2_snqka"]
 [ext_resource type="Texture2D" uid="uid://bat4ibt75imql" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Swing.png" id="3_kyhwr"]
 [ext_resource type="Texture2D" uid="uid://ckmnibik2fjm5" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Left Step.png" id="4_ihljm"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ce05576vppq3r" path="res://Entities/Enemies/HitEffect/particles.tscn" id="18_dqg3u"]
 [ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="19_aw3ms"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="20_u32vd"]
-[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Basic Draugr/interactions.gd" id="21_ekgkv"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_interactions.gd" id="21_t3wtk"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="22_fjghd"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_machine.gd" id="23_l60bh"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_patrol.gd" id="24_hbs7b"]
@@ -471,7 +471,7 @@ size = Vector2(60.5, 61)
 
 [node name="IceDraugr" type="CharacterBody2D"]
 z_index = -1
-script = ExtResource("1_0hutu")
+script = ExtResource("1_f7rwo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -514,11 +514,11 @@ position = Vector2(-2, 5)
 shape = SubResource("CapsuleShape2D_ctneo")
 
 [node name="Interactions" type="Node2D" parent="."]
-script = ExtResource("21_ekgkv")
+script = ExtResource("21_t3wtk")
 
 [node name="Hitbox" type="Area2D" parent="Interactions"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("22_fjghd")
 damage = 10.0
 
@@ -530,8 +530,9 @@ disabled = true
 [node name="IceDraugrStateMachine" type="Node" parent="."]
 script = ExtResource("23_l60bh")
 
-[node name="IceDraugrStatePatrol" type="Node" parent="IceDraugrStateMachine"]
+[node name="IceDraugrStatePatrol" type="Node" parent="IceDraugrStateMachine" node_paths=PackedStringArray("speed_component")]
 script = ExtResource("24_hbs7b")
+speed_component = NodePath("../../SpeedComponent")
 
 [node name="IceDraugrStateAlert" type="Node" parent="IceDraugrStateMachine"]
 script = ExtResource("25_mtag8")
@@ -539,8 +540,9 @@ script = ExtResource("25_mtag8")
 [node name="IceDraugrStateAttack" type="Node" parent="IceDraugrStateMachine"]
 script = ExtResource("26_o5wf2")
 
-[node name="IceDraugrStateChase" type="Node" parent="IceDraugrStateMachine"]
+[node name="IceDraugrStateChase" type="Node" parent="IceDraugrStateMachine" node_paths=PackedStringArray("speed_component")]
 script = ExtResource("27_5d5mv")
+speed_component = NodePath("../../SpeedComponent")
 
 [node name="IceDraugrStateDashAttack" type="Node" parent="IceDraugrStateMachine"]
 script = ExtResource("28_1rw3p")
@@ -564,5 +566,7 @@ health_component = NodePath("../HealthComponent")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
+[connection signal="body_entered" from="Interactions/Hitbox" to="Interactions/Hitbox" method="_on_body_entered"]
+[connection signal="hit" from="Interactions/Hitbox" to="IceDraugrStateMachine/IceDraugrStateAttack" method="_on_hitbox_hit"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

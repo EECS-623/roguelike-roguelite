@@ -16,6 +16,7 @@ signal change_hitbox_direction( new_direction: Vector2 )
 func _ready() -> void:
 	add_to_group("enemy")
 	ice_draugr_state_machine.initialize(self)
+	$AnimatedSprite2D.modulate = Color(0.4, 0.6, 0.9)
 	#waggro_range.connect()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,4 +64,4 @@ func _on_health_component_death() -> void:
 func _on_health_component_t_damage(amount: float) -> void:
 	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
 	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.modulate = Color(1,1,1,1)
+	$AnimatedSprite2D.modulate = Color(0.4, 0.6, 0.9)

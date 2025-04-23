@@ -24,3 +24,7 @@ func set_damage(value: float):
 	
 func get_damage() -> float:
 	return damage
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		hit.emit(body)
