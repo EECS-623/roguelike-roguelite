@@ -118,7 +118,7 @@ tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(16, 40)],
@@ -160,7 +160,7 @@ tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(-48, 0)],
@@ -202,7 +202,7 @@ tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(48, 0)],
@@ -244,7 +244,7 @@ tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(-24, -24)],

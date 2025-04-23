@@ -48,6 +48,12 @@ func end_attack( _animation_name : String) -> void:
 	if attacking:
 		attacking = false
 
+func spawn_bullet():
+	pass
+
 func fire_bullet(initial_position: Vector2) -> void:
-	var spell_target = (raycast_component.player.global_position - volva.global_position).normalized()
-	volva.add_child(VolvaSpell.new_spell(initial_position, spell_target))
+	var spell = VolvaSpell.new_spell(initial_position)
+	await get_tree().create_timer(0.4).timeout
+	var spell_target = (raycast_component.player.global_position - volva.global_position).normalized()	
+	spell.target = spell_target
+	volva.add_child(spell)
