@@ -12,9 +12,16 @@ func enter() -> void:
 	player.update_animation("idle")
 	#connects when animation player ends to "end attack" function
 	casting = true
-	ability.cast_ability()
-	await get_tree().create_timer(0.25).timeout
-	end_cast("cast")
+	if ability.cast_ability():
+		# Ability cast successful
+		await get_tree().create_timer(0.25).timeout
+		end_cast("cast")
+	else:
+		# Not enough mana
+		var mana_comp = player.get_node("ManaComponent")
+		if mana_comp:
+			mana_comp.flash_mana_bar_red()
+		casting = false
 
 # what happens when the entity exits a state
 func exit() -> void:

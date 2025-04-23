@@ -7,6 +7,7 @@ extends CanvasLayer
 var player
 var health_component
 var mana_component
+var is_flashing = false
 
 func _ready():
 	# Start hidden by default
@@ -53,19 +54,15 @@ func connect_to_player():
 				mana_component.i_current_mana.disconnect(_on_mana_changed)
 			if mana_component.i_max_mana.is_connected(_on_max_mana_changed):
 				mana_component.i_max_mana.disconnect(_on_max_mana_changed)
-		
+			
 		mana_component = player.get_node("ManaComponent")
-		
-		print("Found mana component - current mana: ", mana_component.current_mana,
-			  " max mana: ", mana_component.max_mana)
-		
 		mana_component.i_current_mana.connect(_on_mana_changed)
 		mana_component.i_max_mana.connect(_on_max_mana_changed)
-		
+		mana_component.flash_red_requested.connect(_on_flash_mana_red)
+			
 		# Initialize the mana bar
 		mana_bar.max_value = mana_component.max_mana
 		mana_bar.value = mana_component.current_mana
-		print("Mana bar initialized with: ", mana_bar.value, "/", mana_bar.max_value)
 
 func _on_health_changed(new_health):
 	health_bar.value = new_health
@@ -73,8 +70,31 @@ func _on_health_changed(new_health):
 func _on_max_health_changed(new_max_health):
 	health_bar.max_value = new_max_health
 
-func _on_mana_changed(new_mana):
+func _on_mana_changed(new_mana: float) -> void:
 	mana_bar.value = new_mana
 
-func _on_max_mana_changed(new_max_mana):
+func _on_max_mana_changed(new_max_mana: float) -> void:
 	mana_bar.max_value = new_max_mana
+
+func _on_flash_mana_red():
+	if is_flashing:
+		return  # Prevent overlapping flashes
+
+	is_flashing = true  # Lock flashing
+
+	print("Flash mana red triggered")
+
+	# Store the original tint once
+	var original_tint = mana_bar.get("tint_progress")
+
+	# Define the flash color (bright red)
+	var flash_color = Color(1, 0, 0)  # Red
+
+	# Flash sequence
+	for i in range(3):
+		mana_bar.set("tint_progress", flash_color)
+		await get_tree().create_timer(0.1).timeout
+		mana_bar.set("tint_progress", original_tint)
+		await get_tree().create_timer(0.1).timeout
+
+	is_flashing = false  # Unlock flashing
