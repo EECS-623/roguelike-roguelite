@@ -1,0 +1,581 @@
+[gd_scene load_steps=40 format=3 uid="uid://c402cxraasnvw"]
+
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva.gd" id="1_206fx"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_machine.gd" id="1_fjf1g"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_patrol.gd" id="2_27k5n"]
+[ext_resource type="Texture2D" uid="uid://o5ei2jhj6mop" path="res://Entities/Enemies/Volva/Volva Assets/Back Attack.png" id="2_jby7t"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_p77k8"]
+[ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="3_nesic"]
+[ext_resource type="Texture2D" uid="uid://b7vjlmdtfdmtr" path="res://Entities/Enemies/Volva/Volva Assets/Back Walking.png" id="3_y2lig"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="4_7wm38"]
+[ext_resource type="Texture2D" uid="uid://dt7141cwobu5i" path="res://Entities/Enemies/Volva/Volva Assets/Front Attack.png" id="4_yvfrx"]
+[ext_resource type="Texture2D" uid="uid://p1n4vwpyq5vp" path="res://Entities/Enemies/Volva/Volva Assets/Front Walking.png" id="5_wp233"]
+[ext_resource type="Texture2D" uid="uid://byfx6tcyadpy3" path="res://Entities/Enemies/Volva/Volva Assets/Side Attack.png" id="6_jvgw3"]
+[ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="7_mul5g"]
+[ext_resource type="Texture2D" uid="uid://cj8ybyo7bg06g" path="res://Entities/Enemies/Volva/Volva Assets/Side Walking.png" id="7_pwy6a"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_idle.gd" id="15_5nwd3"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_alert.gd" id="16_2ct4e"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_stagger.gd" id="17_jmbgj"]
+[ext_resource type="PackedScene" uid="uid://ce05576vppq3r" path="res://Entities/Enemies/HitEffect/particles.tscn" id="20_2w5i5"]
+[ext_resource type="PackedScene" uid="uid://ctggdjf3a5tsq" path="res://Entities/Enemies/HealthBar/health_bar_component.tscn" id="21_8rnt7"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_attack.gd" id="25_qkjd3"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_chase.gd" id="26_0f32c"]
+[ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="28_imw3x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lh72k"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jby7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y2lig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yvfrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wp233")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jvgw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pwy6a")
+}],
+"loop": true,
+"name": &"sprite_frames",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i50s"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="Animation" id="Animation_nw0mn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ljt7i"]
+resource_name = "attack_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(16, 40)],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yp63b"]
+resource_name = "attack_left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-48, 0)],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pr2t6"]
+resource_name = "attack_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(48, 0)],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hmvij"]
+resource_name = "attack_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VolvaStateMachine/VolvaStateAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-24, -24)],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0mpuk"]
+resource_name = "idle_down"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6dsnn"]
+resource_name = "idle_left"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8tdj0"]
+resource_name = "idle_right"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ak2w3"]
+resource_name = "idle_up"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1vrh3"]
+resource_name = "move_down"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lqoce"]
+resource_name = "move_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_867so"]
+resource_name = "move_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lfk20"]
+resource_name = "move_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jb06"]
+_data = {
+"RESET": SubResource("Animation_nw0mn"),
+"attack_down": SubResource("Animation_ljt7i"),
+"attack_left": SubResource("Animation_yp63b"),
+"attack_right": SubResource("Animation_pr2t6"),
+"attack_up": SubResource("Animation_hmvij"),
+"idle_down": SubResource("Animation_0mpuk"),
+"idle_left": SubResource("Animation_6dsnn"),
+"idle_right": SubResource("Animation_8tdj0"),
+"idle_up": SubResource("Animation_ak2w3"),
+"move_down": SubResource("Animation_1vrh3"),
+"move_left": SubResource("Animation_lqoce"),
+"move_right": SubResource("Animation_867so"),
+"move_up": SubResource("Animation_lfk20")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00dd8"]
+radius = 256.125
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fu2vx"]
+radius = 24.0
+height = 64.0
+
+[node name="Volva" type="CharacterBody2D"]
+script = ExtResource("1_206fx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.105556, 0.105556)
+sprite_frames = SubResource("SpriteFrames_lh72k")
+animation = &"sprite_frames"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_3i50s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2jb06")
+}
+
+[node name="RaycastComponent" type="RayCast2D" parent="."]
+script = ExtResource("28_imw3x")
+
+[node name="PatrolAreaComponent" type="Area2D" parent="."]
+script = ExtResource("7_mul5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolAreaComponent"]
+shape = SubResource("CircleShape2D_00dd8")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_p77k8")
+health_component = NodePath("../HealthComponent")
+owner_node = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_fu2vx")
+
+[node name="VolvaStateMachine" type="Node" parent="."]
+script = ExtResource("1_fjf1g")
+
+[node name="VolvaStatePatrol" type="Node" parent="VolvaStateMachine" node_paths=PackedStringArray("speed_component")]
+script = ExtResource("2_27k5n")
+speed_component = NodePath("../../SpeedComponent")
+
+[node name="VolvaStateAlert" type="Node" parent="VolvaStateMachine"]
+script = ExtResource("16_2ct4e")
+
+[node name="VolvaStateChase" type="Node" parent="VolvaStateMachine" node_paths=PackedStringArray("speed_component")]
+script = ExtResource("26_0f32c")
+speed_component = NodePath("../../SpeedComponent")
+
+[node name="VolvaStateAttack" type="Node" parent="VolvaStateMachine"]
+script = ExtResource("25_qkjd3")
+
+[node name="VolvaStateIdle" type="Node" parent="VolvaStateMachine"]
+script = ExtResource("15_5nwd3")
+
+[node name="VolvaStateStagger" type="Node" parent="VolvaStateMachine"]
+script = ExtResource("17_jmbgj")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_7wm38")
+max_health = 40.0
+
+[node name="SpeedComponent" type="Node" parent="."]
+script = ExtResource("3_nesic")
+speed = 100.0
+
+[node name="Particles" parent="." instance=ExtResource("20_2w5i5")]
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("21_8rnt7")]
+health_component = NodePath("../HealthComponent")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

@@ -21,6 +21,10 @@ var slowed_perc = 0
 var knockback_timer = 0
 var knockback_velocity = Vector2(0,0)
 
+var status_effects = {
+	"frozen": false
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#animation_tree.active = true

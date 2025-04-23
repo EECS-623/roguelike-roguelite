@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=12 format=4 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Texture2D" uid="uid://x68rj5hjf4yq" path="res://Assets/Art/testTS.png" id="1_t15dr"]
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
 [ext_resource type="Script" path="res://Map/Valhalla/valhalla.gd" id="2_ds18k"]
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
-[ext_resource type="PackedScene" uid="uid://c402cxraasnvw" path="res://Entities/Enemies/Volva/volva.tscn" id="6_d3xcq"]
+[ext_resource type="PackedScene" uid="uid://c402cxraasnvw" path="res://Entities/Enemies/Volva/Basic Volva/volva.tscn" id="6_d3xcq"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
+[ext_resource type="PackedScene" uid="uid://ds8cbijdwdg57" path="res://Entities/Enemies/Volva/Ice Volva/ice_volva.tscn" id="7_m655h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]
 texture = ExtResource("1_t15dr")
@@ -58,6 +59,9 @@ position = Vector2(0, -209)
 
 [node name="Volva" parent="." instance=ExtResource("6_d3xcq")]
 position = Vector2(-379, 284)
+
+[node name="IceVolva" parent="." instance=ExtResource("7_m655h")]
+position = Vector2(530, 164)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_entered" from="TreeOfLife" to="TreeOfLife" method="_on_body_entered"]

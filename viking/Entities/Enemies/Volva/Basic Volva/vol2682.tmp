@@ -1,8 +1,8 @@
 [gd_scene load_steps=40 format=3 uid="uid://c402cxraasnvw"]
 
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva.gd" id="1_206fx"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_machine.gd" id="1_fjf1g"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_patrol.gd" id="2_27k5n"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva.gd" id="1_206fx"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_machine.gd" id="1_fjf1g"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_patrol.gd" id="2_27k5n"]
 [ext_resource type="Texture2D" uid="uid://o5ei2jhj6mop" path="res://Entities/Enemies/Volva/Volva Assets/Back Attack.png" id="2_jby7t"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_p77k8"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="3_nesic"]
@@ -13,13 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://byfx6tcyadpy3" path="res://Entities/Enemies/Volva/Volva Assets/Side Attack.png" id="6_jvgw3"]
 [ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="7_mul5g"]
 [ext_resource type="Texture2D" uid="uid://cj8ybyo7bg06g" path="res://Entities/Enemies/Volva/Volva Assets/Side Walking.png" id="7_pwy6a"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_idle.gd" id="15_5nwd3"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_alert.gd" id="16_2ct4e"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_stagger.gd" id="17_jmbgj"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_idle.gd" id="15_5nwd3"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_alert.gd" id="16_2ct4e"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_stagger.gd" id="17_jmbgj"]
 [ext_resource type="PackedScene" uid="uid://ce05576vppq3r" path="res://Entities/Enemies/HitEffect/particles.tscn" id="20_2w5i5"]
 [ext_resource type="PackedScene" uid="uid://ctggdjf3a5tsq" path="res://Entities/Enemies/HealthBar/health_bar_component.tscn" id="21_8rnt7"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_attack.gd" id="25_qkjd3"]
-[ext_resource type="Script" path="res://Entities/Enemies/Volva/volva_state_chase.gd" id="26_0f32c"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_attack.gd" id="25_qkjd3"]
+[ext_resource type="Script" path="res://Entities/Enemies/Volva/Basic Volva/volva_state_chase.gd" id="26_0f32c"]
 [ext_resource type="Script" path="res://Components/RaycastComponent/raycast_component.gd" id="28_imw3x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lh72k"]
@@ -578,3 +578,4 @@ speed = 100.0
 health_component = NodePath("../HealthComponent")
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

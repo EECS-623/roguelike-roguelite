@@ -1,11 +1,11 @@
-class_name VolvaStateChase extends State
+class_name IceVolvaStateChase extends State
 
 @onready var raycast_component = $"../../RaycastComponent"
-@onready var volva = $"../.."
-@onready var ranged_attack = $"../VolvaStateAttack"
-@onready var patrol = $"../VolvaStatePatrol"
-@onready var stagger = $"../VolvaStateStagger"
-@onready var idle = $"../VolvaStateIdle"
+@onready var ice_volva = $"../.."
+@onready var ranged_attack = $"../IceVolvaStateAttack"
+@onready var patrol = $"../IceVolvaStatePatrol"
+@onready var stagger = $"../IceVolvaStateStagger"
+@onready var idle = $"../IceVolvaStateIdle"
 @onready var hurtbox = $"../../Hurtbox"
 @export var speed_component : SpeedComponent
 
@@ -13,7 +13,7 @@ var staggered: bool = false
 
 func enter() -> void:
 	staggered = false
-	volva.update_animation("move")
+	ice_volva.update_animation("move")
 	raycast_component.raycast_length = 900
 	speed_component.set_speed(130)
 	hurtbox.connect("hurt", _on_player_melee_hit)
@@ -29,17 +29,17 @@ func state_process(delta : float) -> State:
 	if staggered:
 		return stagger
 	
-	if volva.global_position.distance_to(player.global_position) < 400 and raycast_component.on_player:
+	if ice_volva.global_position.distance_to(player.global_position) < 400 and raycast_component.on_player:
 		return ranged_attack
 
-	if volva.global_position.distance_to(player.global_position) >= raycast_component.raycast_length:
+	if ice_volva.global_position.distance_to(player.global_position) >= raycast_component.raycast_length:
 		return patrol
 
-	volva.set_direction()
-	volva.update_animation("move")
+	ice_volva.set_direction()
+	ice_volva.update_animation("move")
 
-	volva.direction = (raycast_component.player.global_position - volva.global_position).normalized()
-	volva.velocity = volva.direction * speed_component.get_speed()
+	ice_volva.direction = (raycast_component.player.global_position - ice_volva.global_position).normalized()
+	ice_volva.velocity = ice_volva.direction * speed_component.get_speed()
 
 	return null
 	

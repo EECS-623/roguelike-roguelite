@@ -1,7 +1,7 @@
-class_name Volva extends CharacterBody2D
+class_name IceVolva extends CharacterBody2D
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var volva_state_machine : VolvaStateMachine = $VolvaStateMachine
+@onready var ice_volva_state_machine : IceVolvaStateMachine = $IceVolvaStateMachine
 @onready var speed_component: SpeedComponent = $SpeedComponent
 
 var direction : Vector2 = Vector2.ZERO
@@ -13,7 +13,8 @@ signal change_hitbox_direction( new_direction: Vector2 )
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("enemy")
-	volva_state_machine.initialize(self)
+	ice_volva_state_machine.initialize(self)
+	$AnimatedSprite2D.modulate = Color(0.4, 0.6, 0.9)
 	#waggro_range.connect()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,3 +58,8 @@ func animation_direction() -> String:
 func _on_health_component_death() -> void:
 	Global.xp += 1
 	queue_free()
+	
+func _on_health_component_t_damage(amount: float) -> void:
+	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(0.4, 0.6, 0.9)
