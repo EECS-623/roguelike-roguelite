@@ -30,5 +30,4 @@ func use_mana(amount: float) -> bool:
 
 # Call this when there's not enough mana to cast an ability
 func flash_mana_bar_red() -> void:
-	print("i got to flash_mana_bar_red")
 	flash_red_requested.emit()

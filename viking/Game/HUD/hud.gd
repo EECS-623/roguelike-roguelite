@@ -7,6 +7,7 @@ extends CanvasLayer
 var player
 var health_component
 var mana_component
+var is_flashing = false
 
 func _ready():
 	# Start hidden by default
@@ -76,19 +77,24 @@ func _on_max_mana_changed(new_max_mana: float) -> void:
 	mana_bar.max_value = new_max_mana
 
 func _on_flash_mana_red():
-	print("i got here")
-	# Flash the mana bar red a few times
-	var original_color = mana_bar.modulate
-	
-	# Create a simple flash effect using a timer
-	mana_bar.modulate = Color(1, 0, 0)  # Red
-	await get_tree().create_timer(0.1).timeout
-	mana_bar.modulate = original_color
-	await get_tree().create_timer(0.1).timeout
-	mana_bar.modulate = Color(1, 0, 0)  # Red
-	await get_tree().create_timer(0.1).timeout
-	mana_bar.modulate = original_color
-	await get_tree().create_timer(0.1).timeout
-	mana_bar.modulate = Color(1, 0, 0)  # Red
-	await get_tree().create_timer(0.1).timeout
-	mana_bar.modulate = original_color
+	if is_flashing:
+		return  # Prevent overlapping flashes
+
+	is_flashing = true  # Lock flashing
+
+	print("Flash mana red triggered")
+
+	# Store the original tint once
+	var original_tint = mana_bar.get("tint_progress")
+
+	# Define the flash color (bright red)
+	var flash_color = Color(1, 0, 0)  # Red
+
+	# Flash sequence
+	for i in range(3):
+		mana_bar.set("tint_progress", flash_color)
+		await get_tree().create_timer(0.1).timeout
+		mana_bar.set("tint_progress", original_tint)
+		await get_tree().create_timer(0.1).timeout
+
+	is_flashing = false  # Unlock flashing
