@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bk68e1pm40qk8"]
+[gd_scene load_steps=56 format=3 uid="uid://bk68e1pm40qk8"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr.gd" id="1_fv7mw"]
 [ext_resource type="Texture2D" uid="uid://dd7v2obosbvla" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Raise.png" id="2_wm6dp"]
@@ -21,6 +21,14 @@
 [ext_resource type="Script" path="res://Components/PatrolAreaComponent/patrol_area_component.gd" id="19_1rkl1"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="20_j00if"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="22_27lyp"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_machine.gd" id="22_33nan"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_alert.gd" id="23_j36lu"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_attack.gd" id="24_escbt"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_chase.gd" id="25_8tths"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_dash_attack.gd" id="26_xpeq1"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_idle.gd" id="27_f6o5b"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_patrol.gd" id="28_il7t1"]
+[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr_state_stagger.gd" id="29_qp63m"]
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="30_vfwd0"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="31_mvpvc"]
 [ext_resource type="PackedScene" uid="uid://ctggdjf3a5tsq" path="res://Entities/Enemies/HealthBar/health_bar_component.tscn" id="32_cfiif"]
@@ -131,7 +139,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
+"times": PackedFloat32Array(0, 0.3, 0.566667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [5, 6, 9]
@@ -433,6 +441,142 @@ tracks/0/keys = {
 "values": [4, 3, 4, 2]
 }
 
+[sub_resource type="Animation" id="Animation_3j26k"]
+resource_name = "dash_attack_down"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 6, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_0bp34"]
+resource_name = "dash_attack_left"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_a6vfj"]
+resource_name = "dash_attack_right"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c0x5y"]
+resource_name = "dash_attack_up"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnk26"]
 _data = {
 "RESET": SubResource("Animation_hp1ad"),
@@ -440,6 +584,10 @@ _data = {
 "attack_left": SubResource("Animation_vogda"),
 "attack_right": SubResource("Animation_flw7q"),
 "attack_up": SubResource("Animation_hs26q"),
+"dash_attack_down": SubResource("Animation_3j26k"),
+"dash_attack_left": SubResource("Animation_0bp34"),
+"dash_attack_right": SubResource("Animation_a6vfj"),
+"dash_attack_up": SubResource("Animation_c0x5y"),
 "idle_down": SubResource("Animation_a8ocb"),
 "idle_left": SubResource("Animation_xikh7"),
 "idle_right": SubResource("Animation_mddby"),
@@ -460,7 +608,7 @@ height = 82.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lcqk"]
 size = Vector2(60.5, 96)
 
-[node name="Draugr" type="CharacterBody2D"]
+[node name="DashDraugr" type="CharacterBody2D"]
 z_index = -1
 script = ExtResource("1_fv7mw")
 
@@ -480,20 +628,16 @@ libraries = {
 }
 
 [node name="RaycastComponent" type="RayCast2D" parent="."]
-visible = false
 target_position = Vector2(0, 250)
 collision_mask = 7
 script = ExtResource("17_pqr3t")
 
 [node name="Particles" parent="." instance=ExtResource("18_v00od")]
-visible = false
 
 [node name="PatrolAreaComponent" type="Area2D" parent="."]
-visible = false
 script = ExtResource("19_1rkl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolAreaComponent"]
-visible = false
 shape = SubResource("CircleShape2D_4pwm4")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "owner_node")]
@@ -517,6 +661,30 @@ damage = 5.0
 position = Vector2(80, 0)
 shape = SubResource("RectangleShape2D_8lcqk")
 disabled = true
+
+[node name="DashDraugrStateMachine" type="Node" parent="."]
+script = ExtResource("22_33nan")
+
+[node name="DashDraugrStatePatrol" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("28_il7t1")
+
+[node name="DashDraugrStateAlert" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("23_j36lu")
+
+[node name="DashDraugrStateAttack" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("24_escbt")
+
+[node name="DashDraugrStateChase" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("25_8tths")
+
+[node name="DashDraugrStateDashAttack" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("26_xpeq1")
+
+[node name="DashDraugrStateIdle" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("27_f6o5b")
+
+[node name="DashDraugrStateStagger" type="Node" parent="DashDraugrStateMachine"]
+script = ExtResource("29_qp63m")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("30_vfwd0")

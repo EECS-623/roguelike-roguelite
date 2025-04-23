@@ -1,11 +1,13 @@
 class_name DashDraugrStateDashAttack extends State
 
-var attacking : bool = false
-
 @onready var dash_draugr : DashDraugr = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../DashDraugrStateIdle"
 @onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
+@onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
+
+var attacking : bool = false
+var begin_attack: bool = false
 
 func enter() -> void:
 	dash_draugr.update_animation("dash_attack")
@@ -24,7 +26,11 @@ func exit() -> void:
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-	dash_draugr.velocity = Vector2.ZERO
+	
+	if begin_attack:
+		pass
+	else:
+		dash_draugr.velocity = Vector2.ZERO
 	
 	if !attacking:
 		return idle
