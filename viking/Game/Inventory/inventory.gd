@@ -2,8 +2,8 @@ extends CanvasLayer
 
 @onready var health_bar = $Control/HealthBar   
 @onready var speed_bar = $Control/SpeedBar     
-@onready var health_upgrade_btn = $Control/HealthBtn   
-@onready var speed_upgrade_btn = $Control/SpeedBtn     
+@onready var health_upgrade_btn = $Control/HealthButton   
+@onready var speed_upgrade_btn = $Control/SpeedButton     
 @onready var rune_count_label = $Control/RuneCount     
 
 var player
