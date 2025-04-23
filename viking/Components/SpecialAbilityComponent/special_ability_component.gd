@@ -8,5 +8,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func cast_ability() -> void:
-	pass
+func cast_ability() -> bool:
+	return true

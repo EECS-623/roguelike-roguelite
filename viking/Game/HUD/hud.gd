@@ -57,6 +57,7 @@ func connect_to_player():
 		mana_component = player.get_node("ManaComponent")
 		mana_component.i_current_mana.connect(_on_mana_changed)
 		mana_component.i_max_mana.connect(_on_max_mana_changed)
+		mana_component.flash_red_requested.connect(_on_flash_mana_red)
 			
 		# Initialize the mana bar
 		mana_bar.max_value = mana_component.max_mana
@@ -73,3 +74,21 @@ func _on_mana_changed(new_mana: float) -> void:
 
 func _on_max_mana_changed(new_max_mana: float) -> void:
 	mana_bar.max_value = new_max_mana
+
+func _on_flash_mana_red():
+	print("i got here")
+	# Flash the mana bar red a few times
+	var original_color = mana_bar.modulate
+	
+	# Create a simple flash effect using a timer
+	mana_bar.modulate = Color(1, 0, 0)  # Red
+	await get_tree().create_timer(0.1).timeout
+	mana_bar.modulate = original_color
+	await get_tree().create_timer(0.1).timeout
+	mana_bar.modulate = Color(1, 0, 0)  # Red
+	await get_tree().create_timer(0.1).timeout
+	mana_bar.modulate = original_color
+	await get_tree().create_timer(0.1).timeout
+	mana_bar.modulate = Color(1, 0, 0)  # Red
+	await get_tree().create_timer(0.1).timeout
+	mana_bar.modulate = original_color

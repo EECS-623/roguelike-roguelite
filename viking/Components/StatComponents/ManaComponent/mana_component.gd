@@ -7,6 +7,7 @@ var current_mana: float
 
 signal i_current_mana(value: float)  # Signal for mana changes
 signal i_max_mana(value: float)      # Signal for max mana changes
+signal flash_red_requested           # Signal for flashing the mana bar red
 
 func _ready() -> void:
 	current_mana = max_mana
@@ -26,3 +27,8 @@ func use_mana(amount: float) -> bool:
 		i_current_mana.emit(current_mana)
 		return true
 	return false
+
+# Call this when there's not enough mana to cast an ability
+func flash_mana_bar_red() -> void:
+	print("i got to flash_mana_bar_red")
+	flash_red_requested.emit()

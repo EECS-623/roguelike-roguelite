@@ -2,7 +2,8 @@ class_name CastFireball extends SpecialAbilityComponent
 
 @onready var player : Player = $"../.."
 var fireball = preload("res://Entities/Player/Fireball/fireball.tscn")
-
+@onready var mana_component = $"../../ManaComponent"
+var mana_cost: float = 60.0  # Fireball costs 60 mana
 var upgrade_level = 1 #From Will to Josh, this will be what will determine the special upgrade. Just connect a signal and a _on_signal_name_recieved to change it.
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +14,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func cast_ability() -> void:
+func cast_ability() -> bool:
+	# Try to use mana first
+	if !mana_component.use_mana(mana_cost):
+		return false # Not enough mana
+		
 	if Global.patron_god == 1:
 		if upgrade_level == 1: #base lightning
 			var new_fireball = fireball.instantiate()
@@ -85,3 +90,4 @@ func cast_ability() -> void:
 			mini_fireball_three.scale = Vector2(2, 2)
 			mini_fireball_three.direction = shoot_direction
 			mini_fireball_three.rotation = shoot_direction.angle()
+	return true

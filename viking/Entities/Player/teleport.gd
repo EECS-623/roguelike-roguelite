@@ -1,7 +1,12 @@
-extends Node
+extends SpecialAbilityComponent
 @onready var player : Player = $"../.."
 # Called when the node enters the scene tree for the first time.
+
+@onready var mana_component = $"../../ManaComponent"
+var mana_cost: float = 40.0  # Teleport costs 40 mana
+
 var upgrade_level = 2
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -168,3 +173,16 @@ func _process(delta: float) -> void:
 		#await get_tree().create_timer(3).timeout
 		#teleport = true
 		#this was the teleport where it took you anywhere
+
+
+func cast_ability() -> bool:
+	# Try to use mana first
+	if !mana_component.use_mana(mana_cost):
+		return false # Not enough mana
+	
+	# move over ability logic here
+	
+	
+	
+	
+	return true # this will be at the very end of the function
