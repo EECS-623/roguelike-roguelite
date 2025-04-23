@@ -58,6 +58,7 @@ func animation_direction() -> String:
 		return "right"
 
 func _on_health_component_death() -> void:
+	#raycast_component.player.set_speed()
 	Global.xp += 1
 	queue_free()
 
