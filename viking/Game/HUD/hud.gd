@@ -53,19 +53,14 @@ func connect_to_player():
 				mana_component.i_current_mana.disconnect(_on_mana_changed)
 			if mana_component.i_max_mana.is_connected(_on_max_mana_changed):
 				mana_component.i_max_mana.disconnect(_on_max_mana_changed)
-		
+			
 		mana_component = player.get_node("ManaComponent")
-		
-		print("Found mana component - current mana: ", mana_component.current_mana,
-			  " max mana: ", mana_component.max_mana)
-		
 		mana_component.i_current_mana.connect(_on_mana_changed)
 		mana_component.i_max_mana.connect(_on_max_mana_changed)
-		
+			
 		# Initialize the mana bar
 		mana_bar.max_value = mana_component.max_mana
 		mana_bar.value = mana_component.current_mana
-		print("Mana bar initialized with: ", mana_bar.value, "/", mana_bar.max_value)
 
 func _on_health_changed(new_health):
 	health_bar.value = new_health
@@ -73,8 +68,8 @@ func _on_health_changed(new_health):
 func _on_max_health_changed(new_max_health):
 	health_bar.max_value = new_max_health
 
-func _on_mana_changed(new_mana):
+func _on_mana_changed(new_mana: float) -> void:
 	mana_bar.value = new_mana
 
-func _on_max_mana_changed(new_max_mana):
+func _on_max_mana_changed(new_max_mana: float) -> void:
 	mana_bar.max_value = new_max_mana
