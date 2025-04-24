@@ -24,6 +24,7 @@ func remove():
 		target.modulate = Color(1, 1, 1)
 		target.speed_component.set_multiplier(1)
 		
-func configure(factor: float) -> FreezeEffect:
+func configure(factor: float, time: float) -> FreezeEffect:
 	slow_factor = factor
+	timer = time
 	return self

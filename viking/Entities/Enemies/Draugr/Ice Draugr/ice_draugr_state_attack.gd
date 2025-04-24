@@ -45,5 +45,5 @@ func end_attack( _animation_name : String) -> void:
 func _on_hitbox_hit(body: Variant) -> void:
 	var body_parent = body.get_parent()
 	if body_parent.is_in_group("player"):
-		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.7)
+		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.7, 1.0)
 		body.apply_status_effect(freeze_effect)

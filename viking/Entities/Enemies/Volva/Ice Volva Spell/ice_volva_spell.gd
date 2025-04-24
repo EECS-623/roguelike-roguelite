@@ -28,7 +28,7 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		
-		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.5)
+		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.5, 1.5)
 		body.apply_status_effect(freeze_effect)
 		queue_free()
 
