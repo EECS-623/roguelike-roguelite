@@ -1,0 +1,593 @@
+[gd_scene load_steps=44 format=3 uid="uid://dxgbl3xb2jj04"]
+
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/loki.gd" id="1_ya1he"]
+[ext_resource type="Texture2D" uid="uid://g8gb5r44pfb1" path="res://Assets/Loki/Front Standing.png" id="2_yyvr2"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="3_r20gj"]
+[ext_resource type="Texture2D" uid="uid://dyjgi46nsddos" path="res://Assets/Loki/Front Left Step.png" id="3_xsatk"]
+[ext_resource type="Texture2D" uid="uid://dgrfuiwhd64d1" path="res://Assets/Loki/Front Right Step.png" id="4_ce6s0"]
+[ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="4_vthj5"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_component.gd" id="5_nyfaj"]
+[ext_resource type="Texture2D" uid="uid://77lhck8ddbra" path="res://Assets/Loki/Front Spell Casting.png" id="5_s2hlj"]
+[ext_resource type="Texture2D" uid="uid://carm0k364sejq" path="res://Assets/Loki/Front Summon.png" id="6_1ibi0"]
+[ext_resource type="Script" path="res://Components/HealthBarComponent/health_bar_progress.gd" id="6_mn48a"]
+[ext_resource type="Texture2D" uid="uid://b3rs4s2a0ef8d" path="res://Assets/Loki/Back Standing.png" id="7_spdav"]
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/loki_state_machine.gd" id="8_f3iy8"]
+[ext_resource type="Texture2D" uid="uid://nqh5it7rafnl" path="res://Assets/Loki/Back Left Step.png" id="8_pwrt8"]
+[ext_resource type="Texture2D" uid="uid://c65123poat0lo" path="res://Assets/Loki/Back Right Step.png" id="9_cq6wb"]
+[ext_resource type="Texture2D" uid="uid://d3q3n76qakxjh" path="res://Assets/Loki/Back Spell Casting.png" id="10_jg22x"]
+[ext_resource type="Texture2D" uid="uid://bhdtv0l45un5o" path="res://Assets/Loki/Back Summon.png" id="11_fqscc"]
+[ext_resource type="Texture2D" uid="uid://bnsuqw7grnpuy" path="res://Assets/Loki/Left Spell Casting.png" id="12_dqgka"]
+[ext_resource type="Texture2D" uid="uid://7rwpbhno2csh" path="res://Assets/Loki/Left Standing.png" id="13_knlke"]
+[ext_resource type="Texture2D" uid="uid://bxaf30wty4wop" path="res://Assets/Loki/Left Step.png" id="14_1kplj"]
+[ext_resource type="Texture2D" uid="uid://b4l4ss4vk3ahj" path="res://Assets/Loki/Left Summon.png" id="15_mx12u"]
+[ext_resource type="Texture2D" uid="uid://5v28kdr6sb6b" path="res://Assets/Loki/Side Spell Casting.png" id="16_0lkgb"]
+[ext_resource type="Texture2D" uid="uid://ivgogy5mqg8q" path="res://Assets/Loki/Side Standing.png" id="17_phs8f"]
+[ext_resource type="Texture2D" uid="uid://di427r7k4qwip" path="res://Assets/Loki/Side Step.png" id="18_cjaex"]
+[ext_resource type="Texture2D" uid="uid://b8fp12lp6l78j" path="res://Assets/Loki/Side Summon.png" id="19_dwita"]
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/move.gd" id="25_0gxw3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uqp3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yyvr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xsatk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ce6s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s2hlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1ibi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_spdav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pwrt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cq6wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jg22x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fqscc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dqgka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_knlke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1kplj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mx12u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0lkgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_phs8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cjaex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dwita")
+}],
+"loop": true,
+"name": &"all_frames",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woec6"]
+radius = 48.0
+height = 208.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04tmk"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrnln"]
+bg_color = Color(0.212167, 0.715526, 0.639373, 1)
+
+[sub_resource type="Animation" id="Animation_obnlh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"all_frames"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p3hji"]
+resource_name = "move_down"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rcku7"]
+resource_name = "move_up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nomj1"]
+resource_name = "move_right"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rdh0n"]
+resource_name = "move_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_llqlp"]
+resource_name = "projectile_down"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a7ckm"]
+resource_name = "draugr_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7fcyk"]
+resource_name = "projectile_up"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 8, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4gq0n"]
+resource_name = "projectile_left"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [11, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0jrah"]
+resource_name = "projectile_right"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [15, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w3u5v"]
+resource_name = "draugr_up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 9, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i3x4g"]
+resource_name = "draugr_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [11, 13, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a8rog"]
+resource_name = "draugr_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [15, 17, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0sgc"]
+_data = {
+"RESET": SubResource("Animation_obnlh"),
+"draugr_down": SubResource("Animation_a7ckm"),
+"draugr_left": SubResource("Animation_i3x4g"),
+"draugr_right": SubResource("Animation_a8rog"),
+"draugr_up": SubResource("Animation_w3u5v"),
+"move_down": SubResource("Animation_p3hji"),
+"move_left": SubResource("Animation_rdh0n"),
+"move_right": SubResource("Animation_nomj1"),
+"move_up": SubResource("Animation_rcku7"),
+"projectile_down": SubResource("Animation_llqlp"),
+"projectile_left": SubResource("Animation_4gq0n"),
+"projectile_right": SubResource("Animation_0jrah"),
+"projectile_up": SubResource("Animation_7fcyk")
+}
+
+[node name="Loki" type="CharacterBody2D"]
+script = ExtResource("1_ya1he")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_uqp3n")
+animation = &"all_frames"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 10)
+shape = SubResource("CapsuleShape2D_woec6")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+position = Vector2(2, 11)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_r20gj")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_woec6")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_vthj5")
+max_health = 500.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="HealthBarComponent" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("health_component", "health_bar_progress")]
+anchors_preset = -1
+anchor_right = 0.206
+anchor_bottom = 0.042
+offset_left = 473.0
+offset_top = 35.0
+offset_right = 472.688
+offset_bottom = 34.784
+theme_override_styles/background = SubResource("StyleBoxFlat_04tmk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jrnln")
+max_value = 400.0
+rounded = true
+show_percentage = false
+script = ExtResource("5_nyfaj")
+health_component = NodePath("../../HealthComponent")
+health_bar_progress = NodePath("HealthBarProgress")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBarProgress" type="ProgressBar" parent="CanvasLayer/HealthBarComponent" node_paths=PackedStringArray("health_component")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 39.0
+offset_right = -136.065
+offset_bottom = 39.0
+fill_mode = 1
+script = ExtResource("6_mn48a")
+health_component = NodePath("../../../HealthComponent")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 479.0
+offset_top = 5.0
+offset_right = 582.0
+offset_bottom = 28.0
+text = "Loki"
+metadata/_edit_use_anchors_ = true
+
+[node name="LokiStateMachine" type="Node" parent="."]
+script = ExtResource("8_f3iy8")
+
+[node name="Move" type="Node" parent="LokiStateMachine"]
+script = ExtResource("25_0gxw3")
+
+[node name="Teleport" type="Node" parent="LokiStateMachine"]
+
+[node name="SpellCircle" type="Node" parent="LokiStateMachine"]
+
+[node name="Clone" type="Node" parent="LokiStateMachine"]
+
+[node name="Draugr" type="Node" parent="LokiStateMachine"]
+
+[node name="Projectile" type="Node" parent="LokiStateMachine"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c0sgc")
+}
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

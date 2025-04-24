@@ -11,7 +11,6 @@ var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	player = PlayerManager.player
 	if player == null:
 		player = s_player.instantiate()
@@ -19,7 +18,8 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(player)
 	
 	
-	player.position = Vector2(400,400)
+	
+	player.position = Vector2(0,400)
 	snake = s_snake.instantiate()
 	get_tree().current_scene.add_child(snake)
 	snake.get_node("CanvasLayer").visible = false
@@ -29,16 +29,17 @@ func _ready() -> void:
 	dialogue = dialogue_ui
 	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
 	
-
-	
 	pulse_thorns()
 	
 	cam = player.get_node("Camera2D")
-	cam.limit_left = -877
-	cam.limit_right = 924
-	cam.limit_top = -897
+	cam.limit_left = -900
+	cam.limit_right = 900
+	cam.limit_top = -900
 	cam.limit_bottom = 900
-	
+	get_window().content_scale_size = DisplayServer.window_get_size() *1.33
+	dialogue.scale = Vector2(1.33, 1.33)
+	player.get_node("CanvasLayer").scale = Vector2(1.33, 1.33)
+
 	
 
 
@@ -53,7 +54,6 @@ func _process(delta: float) -> void:
 	elif snake != null:
 		snake.chase_player(player.global_position)
 	
-	print(player.get_node("Hurtbox").health_component.current_health)
 
 func portal_open():
 	$Portal.visible = true
@@ -68,6 +68,11 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
 		cam.limit_bottom = 10000000
+		
+		get_window().content_scale_size = DisplayServer.window_get_size()
+		dialogue.scale = Vector2(1, 1)
+		player.get_node("CanvasLayer").scale = Vector2(1, 1)
+		
 		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 

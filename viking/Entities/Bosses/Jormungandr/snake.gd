@@ -20,7 +20,7 @@ var direction_map = {
 
 
 # Starting position
-var start_pos: Vector2 = Vector2(0, -400)  
+var start_pos: Vector2 = Vector2(0, -100)  
 var segment_size = 200  
 var snake_size = 12
 
@@ -128,7 +128,8 @@ func chase_player(player_position: Vector2):
 		direction = Vector2.DOWN
 	elif rand_dir == 3:
 		direction = Vector2.UP
-	else:# Snap to cardinal direction
+	# Snap to cardinal direction
+	else:
 		if abs(direction_to_player.x) > abs(direction_to_player.y):
 			direction = Vector2.RIGHT if direction_to_player.x > 0 else Vector2.LEFT
 		else:

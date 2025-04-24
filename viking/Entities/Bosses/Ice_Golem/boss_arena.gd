@@ -37,6 +37,11 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(ice_golem)
 	ice_golem.get_node("CanvasLayer").visible = false
 	
+	get_window().content_scale_size = DisplayServer.window_get_size() *1.1
+	dialogue.scale = Vector2(1.1, 1.1)
+	player.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
+	ice_golem.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -58,6 +63,11 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
 		cam.limit_bottom = 10000000
+		
+		get_window().content_scale_size = DisplayServer.window_get_size()
+		dialogue.scale = Vector2(1, 1)
+		player.get_node("CanvasLayer").scale = Vector2(1, 1)
+	
 		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 		
@@ -86,7 +96,4 @@ func _on_dialogue_end():
 	if ice_golem != null:
 		ice_golem.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
-
-
-func _on_portal_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	pass # Replace with function body.
+ # Replace with function body.
