@@ -7,12 +7,19 @@ class_name StateSpecialAbility extends PlayerState
 @export var ability: SpecialAbilityComponent
 
 var casting : bool = false
-
 func enter() -> void:
+	if Global.patron_god == 1:
+		ability = get_node("../../SpecialAbility/CastFireball")
+	elif Global.patron_god == 2:
+		ability = get_node("../../SpecialAbility/ForceField")
+	elif Global.patron_god == 3:
+		ability = get_node("../../SpecialAbility/Teleport")
+	
+	print(ability)
 	player.update_animation("idle")
 	#connects when animation player ends to "end attack" function
 	casting = true
-	if ability.cast_ability():
+	if await ability.cast_ability():
 		# Ability cast successful
 		await get_tree().create_timer(0.25).timeout
 		end_cast("cast")
