@@ -40,8 +40,8 @@ func enter() -> void:
 	else:
 		# Not enough mana
 		var mana_comp = player.get_node("ManaComponent")
-		if mana_comp:
-			mana_comp.flash_mana_bar_red()
+		#if mana_comp:
+			#mana_comp.flash_mana_bar_red() # commented out to fix lightning and shield flash glitch
 		casting = false
 
 # what happens when the entity exits a state
