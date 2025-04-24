@@ -6,6 +6,7 @@ class_name Player
 @onready var state_machine : PlayerStateMachine = $PlayerStateMachine
 @onready var speed_component = $SpeedComponent
 @onready var interaction_range = $InteractionRange
+@onready var status_manager = $StatusEffectManager
 
 var npc: CharacterBody2D
 
@@ -147,5 +148,5 @@ func _on_interaction_range_body_entered(body: Node2D) -> void:
 func _on_interaction_range_body_exited(body: Node2D) -> void:
 	npc = null
 
-func apply_status_effect():
-	pass
+func apply_status_effect(effect: StatusEffect):
+	status_manager.apply_status_effect(effect)

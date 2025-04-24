@@ -27,24 +27,10 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
-		hit = true
-		if body.status_effects["frozen"] == false:
-			body.status_effects["frozen"] = true
-			
-			# might move all the code below to something that the player handles.
-			$Sprite2D.visible = false
-			set_deferred("hitbox.monitorable", false)
-			
-			#somehow set the player's speed to lower than it was here
-			var current_speed = body.speed_component.get_speed()
-			body.speed_component.decrease_speed(150)
-			await get_tree().create_timer(2.0).timeout
-			
-			body.speed_component.set_speed(current_speed)
-			body.status_effects["frozen"] = false
-			queue_free()
-		else:
-			queue_free()
+		
+		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.5)
+		body.apply_status_effect(freeze_effect)
+		queue_free()
 
 static func new_spell(initial_position: Vector2):
 	var new_spell: IceVolvaSpell = my_scene.instantiate()

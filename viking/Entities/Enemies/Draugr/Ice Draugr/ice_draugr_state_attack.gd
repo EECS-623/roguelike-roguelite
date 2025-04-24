@@ -45,10 +45,5 @@ func end_attack( _animation_name : String) -> void:
 func _on_hitbox_hit(body: Variant) -> void:
 	var body_parent = body.get_parent()
 	if body_parent.is_in_group("player"):
-		if body_parent.status_effects["frozen"] == false:
-			body_parent.status_effects["frozen"] = true
-			var current_speed = body_parent.speed_component.get_speed()
-			body_parent.speed_component.decrease_speed(100)
-			await get_tree().create_timer(1.0).timeout
-			body_parent.speed_component.set_speed(current_speed)
-			body_parent.status_effects["frozen"] = false
+		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.7)
+		body.apply_status_effect(freeze_effect)

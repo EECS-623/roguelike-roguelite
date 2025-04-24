@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
 [ext_resource type="Script" path="res://Map/Valhalla/valhalla.gd" id="2_ds18k"]
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
+[ext_resource type="PackedScene" uid="uid://ds8cbijdwdg57" path="res://Entities/Enemies/Volva/Ice Volva/ice_volva.tscn" id="6_jfl16"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
-[ext_resource type="PackedScene" uid="uid://ncb3dti6kpdw" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr.tscn" id="8_dy6ob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]
 texture = ExtResource("1_t15dr")
@@ -56,8 +56,8 @@ shape = SubResource("RectangleShape2D_obqig")
 [node name="Odin" parent="." instance=ExtResource("6_wfcrd")]
 position = Vector2(0, -209)
 
-[node name="IceDraugr" parent="." instance=ExtResource("8_dy6ob")]
-position = Vector2(-398, 285)
+[node name="IceVolva" parent="." instance=ExtResource("6_jfl16")]
+position = Vector2(478, 156)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_entered" from="TreeOfLife" to="TreeOfLife" method="_on_body_entered"]

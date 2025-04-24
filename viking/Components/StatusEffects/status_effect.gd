@@ -1,6 +1,5 @@
 class_name StatusEffect extends Node
 
-
 @export var duration: float
 var timer : float = 0.0
 var entity = null # the owner which the effect is applied to
