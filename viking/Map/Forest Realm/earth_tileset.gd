@@ -5,6 +5,7 @@ extends TileMapLayer
 @export var grass: PackedScene = preload("res://Map/Forest Realm/Map Items/grass.tscn")
 @export var chest: PackedScene = preload("res://Map/Forest Realm/Map Items/chest.tscn")
 @export var appleTree: PackedScene = preload("res://Map/Forest Realm/Map Items/apples.tscn")
+@export var apple: PackedScene = preload("res://Map/Forest Realm/Map Items/apple.tscn")
 
 
 var leftmostEdge = -4
@@ -516,11 +517,15 @@ func _ready() -> void:
 				add_child(placedItems[totalItemsPlaced])	
 				totalItemsPlaced += 1			
 			if (chosenTile == Vector2i(0,0)):
-				placedItems[totalItemsPlaced] = appleTree.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-10, 10)
+				placedItems[totalItemsPlaced] = apple.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
 				add_child(placedItems[totalItemsPlaced])							
 				totalItemsPlaced += 1			
 				
+				placedItems[totalItemsPlaced] = apple.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(140, 168)
+				add_child(placedItems[totalItemsPlaced])							
+				totalItemsPlaced += 1						
 			
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 	#add the player
@@ -555,8 +560,6 @@ func _on_body_entered(body):
 			else:
 				print("No key")
 				
-		if tile_data and tile_data.get_custom_data("apple"):
-			print("Start Teleport")
 
 			
 		await get_tree().create_timer(0.1).timeout
