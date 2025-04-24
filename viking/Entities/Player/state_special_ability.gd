@@ -8,43 +8,27 @@ class_name StateSpecialAbility extends PlayerState
 
 var casting : bool = false
 func enter() -> void:
+	#I Know this looks daunting, but it one of the few ways all the components can work with the polymorphism given the async.
 	if Global.patron_god == 1:
 		ability = get_node("../../SpecialAbility/CastFireball")
-		if ability.cast_ability():
-		# Ability cast successful
-			await get_tree().create_timer(0.25).timeout
-			end_cast("cast")
-		else:
-			# Not enough mana
-			var mana_comp = player.get_node("ManaComponent")
-			if mana_comp:
-				mana_comp.flash_mana_bar_red()
-			casting = false
 	elif Global.patron_god == 2:
 		ability = get_node("../../SpecialAbility/ForceField")
-		if ability.cast_ability():
-		# Ability cast successful
-			await get_tree().create_timer(0.25).timeout
-			end_cast("cast")
-		else:
-			# Not enough mana
-			var mana_comp = player.get_node("ManaComponent")
-			if mana_comp:
-				mana_comp.flash_mana_bar_red()
-			casting = false
+
 	elif Global.patron_god == 3:
 		ability = get_node("../../SpecialAbility/Teleport")
-		if await ability.cast_ability():
+
+			
+	if await ability.cast_ability():
 		# Ability cast successful
-			await get_tree().create_timer(0.25).timeout
-			end_cast("cast")
-		else:
+		await get_tree().create_timer(0.25).timeout
+		end_cast("cast")
+	else:
 			# Not enough mana
-			var mana_comp = player.get_node("ManaComponent")
-			if mana_comp:
-				mana_comp.flash_mana_bar_red()
-			casting = false
-	
+		var mana_comp = player.get_node("ManaComponent")
+		if mana_comp:
+			mana_comp.flash_mana_bar_red()
+		casting = false
+			
 	print(ability)
 	player.update_animation("idle")
 	#connects when animation player ends to "end attack" function
