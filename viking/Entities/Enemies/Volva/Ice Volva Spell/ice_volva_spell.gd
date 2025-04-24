@@ -30,6 +30,8 @@ func _on_body_entered(body: Node2D) -> void:
 		hit = true
 		if body.status_effects["frozen"] == false:
 			body.status_effects["frozen"] = true
+			
+			# might move all the code below to something that the player handles.
 			$Sprite2D.visible = false
 			set_deferred("hitbox.monitorable", false)
 			

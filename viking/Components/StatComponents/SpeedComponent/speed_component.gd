@@ -4,6 +4,8 @@ class_name SpeedComponent
 @export var max_speed: float: set = set_max_speed, get = get_max_speed
 @export var speed: float : set = set_speed, get = get_speed
 
+var speed_multiplier: float = 1.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#speed = max_speed

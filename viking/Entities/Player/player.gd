@@ -146,3 +146,6 @@ func _on_interaction_range_body_entered(body: Node2D) -> void:
 
 func _on_interaction_range_body_exited(body: Node2D) -> void:
 	npc = null
+
+func apply_status_effect():
+	pass
