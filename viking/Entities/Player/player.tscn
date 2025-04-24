@@ -919,6 +919,8 @@ script = ExtResource("42_6t5ky")
 
 [connection signal="body_entered" from="InteractionRange" to="." method="_on_interaction_range_body_entered"]
 [connection signal="body_exited" from="InteractionRange" to="." method="_on_interaction_range_body_exited"]
+[connection signal="ForceFieldOff" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_off"]
+[connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_on"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]
 [connection signal="increase_speed" from="CanvasLayer" to="SpeedComponent" method="_on_canvas_layer_increase_speed"]
