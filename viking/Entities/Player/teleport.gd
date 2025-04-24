@@ -92,7 +92,7 @@ func cast_ability() -> bool:
 					camera.position_smoothing_enabled = true
 					player.global_position += teleport_position
 					teleport = false
-					mana_component.use_mana(40)
+					mana_component.use_mana(mana_cost)
 					await get_tree().create_timer(3).timeout
 					teleport = true
 					teleport_begun = false
@@ -170,7 +170,7 @@ func cast_ability() -> bool:
 					# ────── 3) COMPLETE THE TELEPORT ──────
 					teleport_begun = true
 					camera.position_smoothing_enabled = true
-					mana_component.use_mana(40)
+					mana_component.use_mana(mana_cost)
 					player.global_position = end_position
 					teleport = false
 					await get_tree().create_timer(.5).timeout
