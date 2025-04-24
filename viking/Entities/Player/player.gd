@@ -14,6 +14,7 @@ var npc: CharacterBody2D
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
 var cardinal_direction: Vector2 = Vector2.ZERO
+var facing_direction: Vector2 = Vector2.RIGHT  # Track facing direction even when not moving
 var state = "idle"
 signal change_hitbox_direction( new_direction: Vector2 )
 
@@ -66,6 +67,9 @@ func _physics_process(_delta):
 		slowed_timer -= _delta
 	else:
 		direction = Input.get_vector("left", "right", "up", "down").normalized()
+		# Update facing direction whenever player moves
+		if direction != Vector2.ZERO:
+			facing_direction = direction
 		velocity = direction * speed_component.get_speed()
 	move_and_slide()
 

@@ -75,8 +75,12 @@ func cast_ability() -> bool:
 	if Input.is_action_just_pressed("right_click") and Global.patron_god == 3:
 		if upgrade_level == 1:
 			if teleport:
+				# Use facing_direction when player isn't moving
+				var teleport_dir = player.direction
+				if teleport_dir == Vector2.ZERO:
+					teleport_dir = player.facing_direction
 				
-				var teleport_position = player.direction*teleport_amount
+				var teleport_position = teleport_dir * teleport_amount
 				var collision = player.move_and_collide(teleport_position, true)
 				if collision:
 					for offset in offsets:
@@ -104,7 +108,13 @@ func cast_ability() -> bool:
 		if upgrade_level == 2:
 			if teleport:
 				var start_position = player.global_position
-				var teleport_vector = player.direction * teleport_amount
+				
+				# Use facing_direction when player isn't moving
+				var teleport_dir = player.direction
+				if teleport_dir == Vector2.ZERO:
+					teleport_dir = player.facing_direction
+						
+				var teleport_vector = teleport_dir * teleport_amount
 				var end_position = start_position + teleport_vector
 
 				# Try to move (so you don't phase through walls)
@@ -135,9 +145,9 @@ func cast_ability() -> bool:
 					var query = PhysicsShapeQueryParameters2D.new()
 					query.shape = rect_shape
 					query.transform = xform
-					query.exclude = [player]			# don’t hit yourself
-					query.collide_with_bodies = true	# include PhysicsBody2D
-					query.collide_with_areas = true		# include Area2D (if your Hitbox is one)
+					query.exclude = [player]				# don't hit yourself
+					query.collide_with_bodies = true		# include PhysicsBody2D
+					query.collide_with_areas = true			# include Area2D (if your Hitbox is one)
 					query.collision_mask = (1 << 0) | (1 << 2)  # Layers 1 and 3
 		# make sure this matches your ENEMY layer
 					
