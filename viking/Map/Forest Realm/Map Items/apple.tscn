@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq8gb5pxlvilv"]
+
+[ext_resource type="Texture2D" uid="uid://gw8t3ulv6ts6" path="res://Map/Forest Realm/Map Items/APPLE.png" id="1_lkp34"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Map Items/apple.gd" id="2_xpf5q"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_ewhje"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57dpv"]
+radius = 101.533
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xxo7"]
+radius = 101.005
+
+[node name="Spikes" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_lkp34")
+script = ExtResource("2_xpf5q")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_ewhje")
+damage = -10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_57dpv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_1xxo7")
