@@ -18,7 +18,31 @@ var teleport_begun = false
 
 
 
-func _process(delta: float) -> void:
+
+
+					
+					
+					
+					
+				#print(camera.global_position.distance_to(camera.get_target_position()))
+				#if camera.global_position.distance_to(camera.get_target_position()) < 1:
+					#camera.position_smoothing_enabled = false
+	#teleport anywhere script
+	#if teleport:
+		#position = get_global_mouse_position()
+		#teleport = false
+		#await get_tree().create_timer(3).timeout
+		#teleport = true
+		#this was the teleport where it took you anywhere
+
+
+func cast_ability() -> bool:
+	# Try to use mana first
+	if !mana_component.use_mana(mana_cost):
+		return false # Not enough mana
+	
+	# move over ability logic here
+	
 	var offsets = [
 		# First ring (short range)
 		Vector2(0, 30), Vector2(30, 0), Vector2(-30, 0), Vector2(0, -30),
@@ -158,31 +182,6 @@ func _process(delta: float) -> void:
 					await get_tree().create_timer(2).timeout
 					if not teleport_begun:
 						camera.position_smoothing_enabled = false
-
-					
-					
-					
-					
-				#print(camera.global_position.distance_to(camera.get_target_position()))
-				#if camera.global_position.distance_to(camera.get_target_position()) < 1:
-					#camera.position_smoothing_enabled = false
-	#teleport anywhere script
-	#if teleport:
-		#position = get_global_mouse_position()
-		#teleport = false
-		#await get_tree().create_timer(3).timeout
-		#teleport = true
-		#this was the teleport where it took you anywhere
-
-
-func cast_ability() -> bool:
-	# Try to use mana first
-	if !mana_component.use_mana(mana_cost):
-		return false # Not enough mana
-	
-	# move over ability logic here
-	
-	
 	
 	
 	return true # this will be at the very end of the function

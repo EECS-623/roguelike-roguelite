@@ -38,7 +38,7 @@ func _ready():
 	if has_node("HealthComponent"):
 		var health = get_node("HealthComponent")
 		print("Player health component initialized: ", health.current_health, "/", health.max_health)
-	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
