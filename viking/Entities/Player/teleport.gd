@@ -38,7 +38,7 @@ var teleport_begun = false
 
 func cast_ability() -> bool:
 	# Try to use mana first
-	if mana_component.current_mana - 40 < 0:
+	if mana_component.current_mana - mana_cost < 0:
 		return false # Not enough mana
 	
 	# move over ability logic here
