@@ -17,7 +17,7 @@ func enter() -> void:
 	particles.restart()
 	knockback_direction = -(raycast_component.player.global_position - ice_draugr.global_position).normalized()
 	timer = knockback_duration
-	knockback_velocity = knockback_direction * 300.0
+	knockback_velocity = knockback_direction * 600.0
 
 # what happens when the entity exits a state
 func exit() -> void:
