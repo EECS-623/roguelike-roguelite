@@ -12,3 +12,4 @@ var xp: int = 0
 var patron_god: int = 0
 var has_key: bool = false
 var loaded_banks = {}
+var world_level: int = 1

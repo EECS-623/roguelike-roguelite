@@ -8,9 +8,12 @@ func _on_body_entered(body):
 		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		get_parent().remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/earth_tileset.tscn")
-		
-		print("hello")
+		if Global.world_level == 1:
+			
+			get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/earth_tileset.tscn")
+			Global.world_level = 2
+		elif Global.world_level == 2:
+			get_tree().call_deferred("change_scene_to_file", "res://Map/Ice Realm/ice_tileset.tscn")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
