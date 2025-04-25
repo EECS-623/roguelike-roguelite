@@ -29,7 +29,7 @@ func enter() -> void:
 	player.knockback_velocity = dir * strength
 	player.knockback_timer = 0.5 
 
-	remove_child(stomp)
+	get_tree().current_scene.remove_child(stomp)
 	finished = true
 	
 

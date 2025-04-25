@@ -40,6 +40,8 @@ func _ready() -> void:
 	dialogue.scale = Vector2(1.1, 1.1)
 	player.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
 	ice_golem.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
+	HUD.scale = Vector2(1.1, 1.1)
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,6 +68,8 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		get_window().content_scale_size = DisplayServer.window_get_size()
 		dialogue.scale = Vector2(1, 1)
 		player.get_node("CanvasLayer").scale = Vector2(1, 1)
+		HUD.scale = Vector2(1, 1)
+
 	
 		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
