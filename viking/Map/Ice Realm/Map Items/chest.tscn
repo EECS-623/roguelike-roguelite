@@ -1,14 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bihse5gq366cp"]
+[gd_scene load_steps=7 format=3 uid="uid://bihse5gq366cp"]
 
 [ext_resource type="Script" path="res://Map/Ice Realm/Map Items/chest.gd" id="1_ldnqd"]
 [ext_resource type="Texture2D" uid="uid://d3t5i26qj83fn" path="res://Map/Ice Realm/Map Items/ice chest closed.png" id="2_nqxc4"]
-[ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="3_shbvv"]
+[ext_resource type="Texture2D" uid="uid://cq2ahgww7vptt" path="res://Map/Ice Realm/Map Items/ice chest open.png" id="3_0cabb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w04jp"]
 size = Vector2(1233.33, 767.708)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u8gd"]
 size = Vector2(1700, 2577.92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_win2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nqxc4")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0cabb")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
 
 [node name="Chest" type="StaticBody2D"]
 z_index = 1
@@ -29,30 +48,10 @@ position = Vector2(99.9999, 593.25)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_1u8gd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(40, 0)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_nqxc4")
-
-[node name="ButtonPrompt" type="Control" parent="."]
-visible = false
-top_level = true
-z_index = 3
-layout_mode = 3
-anchors_preset = 0
-offset_left = -16.0
-offset_top = -80.0
-offset_right = 16.0
-offset_bottom = -48.0
-
-[node name="E" type="Label" parent="ButtonPrompt"]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 32.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_shbvv")
-text = "E"
-horizontal_alignment = 1
-vertical_alignment = 1
+sprite_frames = SubResource("SpriteFrames_win2f")
+animation = &"open"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
