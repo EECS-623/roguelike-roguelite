@@ -7,6 +7,7 @@ var knockback_direction: Vector2
 @onready var ice_draugr = $"../.."
 @onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
 @onready var chase: IceDraugrStateChase = $"../IceDraugrStateChase"
+@onready var idle: IceDraugrStateIdle = $"../IceDraugrStateIdle"
 @onready var particles = $"../../Particles"
 #@onready var state_machine: IceDraugrStateMachine =  $".."
 
@@ -21,7 +22,7 @@ func enter() -> void:
 
 # what happens when the entity exits a state
 func exit() -> void:
-	pass
+	idle.start_cooldown()
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:

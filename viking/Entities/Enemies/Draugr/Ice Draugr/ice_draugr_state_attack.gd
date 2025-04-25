@@ -21,6 +21,8 @@ func exit() -> void:
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
 	hitbox.get_child(0).disabled = true
+
+	idle.start_cooldown()
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
@@ -45,5 +47,5 @@ func end_attack( _animation_name : String) -> void:
 func _on_hitbox_hit(body: Variant) -> void:
 	var body_parent = body.get_parent()
 	if body_parent.is_in_group("player"):
-		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.7, 1.0)
-		body.apply_status_effect(freeze_effect)
+		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.65, 1.0)
+		body_parent.apply_status_effect(freeze_effect)

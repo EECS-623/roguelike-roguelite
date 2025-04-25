@@ -5,7 +5,7 @@ class_name FreezeEffect extends StatusEffect
 var target
 
 func _ready() -> void:
-	timer = 2.0
+	timer = duration
 
 func update(delta):
 	timer -= delta
@@ -26,5 +26,6 @@ func remove():
 		
 func configure(factor: float, time: float) -> FreezeEffect:
 	slow_factor = factor
+	duration = time
 	timer = time
 	return self

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ncb3dti6kpdw"]
+[gd_scene load_steps=52 format=3 uid="uid://ncb3dti6kpdw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr.gd" id="1_f7rwo"]
 [ext_resource type="Texture2D" uid="uid://dd7v2obosbvla" path="res://Entities/Enemies/Draugr/Draugr Assets/Back Axe Raise.png" id="2_snqka"]
@@ -27,7 +27,6 @@
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_alert.gd" id="25_mtag8"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_attack.gd" id="26_o5wf2"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_chase.gd" id="27_5d5mv"]
-[ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_dash_attack.gd" id="28_1rw3p"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_idle.gd" id="29_1bdtv"]
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr_state_stagger.gd" id="30_h3md1"]
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="30_ipx65"]
@@ -470,7 +469,6 @@ height = 106.0
 size = Vector2(60.5, 61)
 
 [node name="IceDraugr" type="CharacterBody2D"]
-z_index = -1
 script = ExtResource("1_f7rwo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -543,9 +541,6 @@ script = ExtResource("26_o5wf2")
 [node name="IceDraugrStateChase" type="Node" parent="IceDraugrStateMachine" node_paths=PackedStringArray("speed_component")]
 script = ExtResource("27_5d5mv")
 speed_component = NodePath("../../SpeedComponent")
-
-[node name="IceDraugrStateDashAttack" type="Node" parent="IceDraugrStateMachine"]
-script = ExtResource("28_1rw3p")
 
 [node name="IceDraugrStateIdle" type="Node" parent="IceDraugrStateMachine"]
 script = ExtResource("29_1bdtv")
