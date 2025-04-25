@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bootcm1im0svw"]
+[gd_scene load_steps=59 format=3 uid="uid://bootcm1im0svw"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Draugr/Basic Draugr/draugr.gd" id="1_sgxkm"]
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="3_a0hel"]
@@ -127,6 +127,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ynyh0"]
@@ -441,6 +453,21 @@ tracks/0/keys = {
 "values": [4, 3, 4, 2]
 }
 
+[sub_resource type="Animation" id="Animation_ojcht"]
+resource_name = "summon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.611765, 0, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnk26"]
 _data = {
 "RESET": SubResource("Animation_hp1ad"),
@@ -455,7 +482,8 @@ _data = {
 "move_down": SubResource("Animation_roao1"),
 "move_left": SubResource("Animation_rirto"),
 "move_right": SubResource("Animation_52kel"),
-"move_up": SubResource("Animation_r8un8")
+"move_up": SubResource("Animation_r8un8"),
+"summon": SubResource("Animation_ojcht")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pwm4"]

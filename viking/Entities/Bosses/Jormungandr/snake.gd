@@ -20,7 +20,7 @@ var direction_map = {
 
 
 # Starting position
-var start_pos: Vector2 = Vector2(0, -400)  
+var start_pos: Vector2 = Vector2(0, -100)  
 var segment_size = 200  
 var snake_size = 12
 
@@ -128,7 +128,8 @@ func chase_player(player_position: Vector2):
 		direction = Vector2.DOWN
 	elif rand_dir == 3:
 		direction = Vector2.UP
-	else:# Snap to cardinal direction
+	# Snap to cardinal direction
+	else:
 		if abs(direction_to_player.x) > abs(direction_to_player.y):
 			direction = Vector2.RIGHT if direction_to_player.x > 0 else Vector2.LEFT
 		else:
@@ -150,7 +151,7 @@ func bite_attack():
 	dir_str += '_Bite'
 	var anim_player = snake[0].get_node("AnimatedSprite2D/AnimationPlayer")
 	anim_player.play(dir_str)
-	Wwise.post_event_id(AK.EVENTS.SNAKE_BITE, self)
+	#Wwise.post_event_id(AK.EVENTS.SNAKE_BITE, self)
 	await anim_player.animation_finished
 	can_move = true
 	can_bite = true
@@ -163,7 +164,7 @@ func spit_attack(player_position):
 	snake[0].get_node("AnimatedSprite2D").play(bite_str)
 	await get_tree().create_timer(.5).timeout
 	var venom_shot = venom.instantiate()
-	Wwise.post_event_id(AK.EVENTS.SNAKE_SPIT, self)
+	#Wwise.post_event_id(AK.EVENTS.SNAKE_SPIT, self)
 	venom_shot.global_position = snake[0].global_position
 	get_tree().current_scene.add_child(venom_shot)
 	venom_shot.shoot(player_position)

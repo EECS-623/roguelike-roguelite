@@ -12,12 +12,17 @@ var finished = false
 
 # what happens when the entity enters a state
 func enter() -> void:
-	#ice_golem.update_animation("throw")
+	ice_golem.get_node("AnimatedSprite2D").animation = "throw"
+	await get_tree().create_timer(.5).timeout
+
 
 	var snowball = s_snowball.instantiate()
 	snowball.player = player
-	snowball.global_position = ice_golem.global_position
+	snowball.global_position = ice_golem.global_position + Vector2(100, 0)
+
 	get_tree().current_scene.add_child(snowball)
+	ice_golem.get_node("AnimatedSprite2D").animation = "idle"
+
 
 
 	await get_tree().create_timer(1).timeout

@@ -760,6 +760,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("2_m7ndx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -849,7 +850,7 @@ max_health = 100.0
 
 [node name="SpeedComponent" type="Node" parent="."]
 script = ExtResource("17_a22r0")
-speed = 900.0
+speed = 100.0
 
 [node name="MagicDamageComponent" type="Node" parent="."]
 script = ExtResource("19_rymoq")

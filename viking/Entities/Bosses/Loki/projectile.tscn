@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjiplugs8u00g"]
+
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/projectile.gd" id="1_phorl"]
+[ext_resource type="Texture2D" uid="uid://bq0s7yldkcroc" path="res://Assets/Loki/Loki Projectile.png" id="1_rkv3u"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_7eb61"]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_phorl")
+
+[node name="LokiProjectile" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rkv3u")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_7eb61")
+damage = 10.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(33, 0, -15, -25, -15, 29)
+
+[connection signal="hit" from="Hitbox" to="." method="_on_hitbox_hit"]

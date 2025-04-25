@@ -7,7 +7,6 @@ var player = Node2D
 var ice_golem = Node2D
 var dead = false
 var dialogue: DialogueUI
-var first_dialogue
 
 var cam
 
@@ -37,6 +36,11 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(ice_golem)
 	ice_golem.get_node("CanvasLayer").visible = false
 	
+	get_window().content_scale_size = DisplayServer.window_get_size() *1.1
+	dialogue.scale = Vector2(1.1, 1.1)
+	player.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
+	ice_golem.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -58,17 +62,26 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
 		cam.limit_bottom = 10000000
+		
+		get_window().content_scale_size = DisplayServer.window_get_size()
+		dialogue.scale = Vector2(1, 1)
+		player.get_node("CanvasLayer").scale = Vector2(1, 1)
+	
+		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 		
 func play_dialogue(path: String) -> void:
 	modulate = Color.DIM_GRAY
 	get_tree().paused = true
+	dialogue.get_node("AnimationPlayer").play("Ymir")
 	var words = dialogue.load_dialogue(path)
 	dialogue.dialogue_begin(words)
 	dialogue.connect("dialogue_finished", _on_dialogue_end)
 
 func _on_dialogue_end():
 	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
+	dialogue.get_node("AnimationPlayer").play("RESET")
+
 	get_tree().paused = false
 	modulate = Color.WHITE
 
@@ -82,3 +95,4 @@ func _on_dialogue_end():
 	if ice_golem != null:
 		ice_golem.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
+ # Replace with function body.

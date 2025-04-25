@@ -11,10 +11,10 @@ var tween: Tween
 
 # what happens when the entity enters a state
 func enter() -> void:
-	#ice_golem.update_animation("smash")
 	var stomp = s_warning.instantiate()
 	stomp.global_position = Vector2(0, -385)
 	get_tree().current_scene.add_child(stomp)
+	ice_golem.get_node("AnimationPlayer").play("stomp")
 	stomp.get_node("AnimationPlayer").play("stomp_incoming")
 	await get_tree().create_timer(2).timeout
 	stomp.visible = false

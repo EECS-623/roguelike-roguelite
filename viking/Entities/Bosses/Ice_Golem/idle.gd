@@ -26,7 +26,6 @@ var near_weights = {
 
 # what happens when the entity enters a state
 func enter() -> void:
-	#ice_golem.update_animation("idle")
 	idle_timer = randf_range(1, 2.5)
 	move_timer = randf_range(.5, 2)
 

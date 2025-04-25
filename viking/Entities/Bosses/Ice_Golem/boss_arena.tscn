@@ -94,3 +94,5 @@ sprite_frames = SubResource("SpriteFrames_25g5s")
 libraries = {
 "": SubResource("AnimationLibrary_1sfcd")
 }
+
+[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d32rfqromax4l"]
+[gd_scene load_steps=8 format=3 uid="uid://d32rfqromax4l"]
 
 [ext_resource type="Texture2D" uid="uid://d1msbis8pseg" path="res://Assets/Jormungandr/Facing_Back_Body.png" id="1_17lsg"]
 [ext_resource type="Texture2D" uid="uid://jropj53d1ars" path="res://Assets/Jormungandr/Facing_Front_Body.png" id="2_03bx0"]
 [ext_resource type="Texture2D" uid="uid://bu0xoibp2bxj6" path="res://Assets/Jormungandr/Facing_Side_Body.png" id="3_a7tic"]
 [ext_resource type="Texture2D" uid="uid://bganqk28g5v5v" path="res://Assets/Jormungandr/Facing_Right_Body .png" id="3_d4a5n"]
+[ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="5_bl1vb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkt8x"]
 animations = [{
@@ -51,4 +52,12 @@ sprite_frames = SubResource("SpriteFrames_wkt8x")
 animation = &"Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w4amx")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_bl1vb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_w4amx")

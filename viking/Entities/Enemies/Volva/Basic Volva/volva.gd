@@ -10,9 +10,16 @@ var state = "idle"
 var player : CharacterBody2D
 signal change_hitbox_direction( new_direction: Vector2 )
 
+var summon = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("enemy")
+	
+	if summon:
+		animation_player.play("summon")
+		await get_tree().create_timer(1).timeout
+	
 	volva_state_machine.initialize(self)
 	#waggro_range.connect()
 
