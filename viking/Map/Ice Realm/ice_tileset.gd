@@ -252,6 +252,8 @@ func _on_body_entered(body):
 			else:
 				print("No key")
 				
-
+		if tile_data and tile_data.get_custom_data("ice"):
+			print("You're on thin ice")
+				
 			
 		await get_tree().create_timer(0.1).timeout
