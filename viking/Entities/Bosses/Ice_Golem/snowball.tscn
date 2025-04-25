@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccvr4jms5lxu1"]
 
-[ext_resource type="Texture2D" uid="uid://bvuumt7tul4vu" path="res://Assets/Ice_Golem/snowball.png" id="1_55sf1"]
+[ext_resource type="Texture2D" uid="uid://bib80qlds8844" path="res://Assets/Ice_Golem/Snowball.png" id="1_55sf1"]
 [ext_resource type="Script" path="res://Entities/Bosses/Ice_Golem/snowball.gd" id="1_mf1f1"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_8ixwj"]
 
@@ -23,7 +23,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_mf1f1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_8nkf3")
 
 [node name="Hitbox" type="Area2D" parent="."]

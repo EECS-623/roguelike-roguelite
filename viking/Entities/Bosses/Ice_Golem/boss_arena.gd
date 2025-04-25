@@ -7,7 +7,6 @@ var player = Node2D
 var ice_golem = Node2D
 var dead = false
 var dialogue: DialogueUI
-var first_dialogue
 
 var cam
 

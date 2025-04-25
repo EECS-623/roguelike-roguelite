@@ -23,8 +23,14 @@ func _ready() -> void:
 	loki = s_loki.instantiate()
 	loki.player = player
 	get_tree().current_scene.add_child(loki)
-	loki.get_node("CanvasLayer").visible = false
-
+	
+	
+	#loki.get_node("CanvasLayer").visible = false
+	HUD.visible = true
+	# Wait a moment for the player to be fully initialized
+	await get_tree().create_timer(0.1).timeout
+	# Connect the HUD to player
+	HUD.connect_to_player()
 	
 	var dialogue_ui = player.get_node("DialogueUI")
 	dialogue = dialogue_ui

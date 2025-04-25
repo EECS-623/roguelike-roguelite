@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7fe0v7g67hje"
-path="res://.godot/imported/icicle.png-219c115d19b950454bf72bb0fd3818c4.ctex"
+uid="uid://bq0s7yldkcroc"
+path="res://.godot/imported/Loki Projectile.png-e4a9f6073a7881d035ae2ef6fce02571.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ice_Golem/icicle.png"
-dest_files=["res://.godot/imported/icicle.png-219c115d19b950454bf72bb0fd3818c4.ctex"]
+source_file="res://Assets/Loki/Loki Projectile.png"
+dest_files=["res://.godot/imported/Loki Projectile.png-e4a9f6073a7881d035ae2ef6fce02571.ctex"]
 
 [params]
 

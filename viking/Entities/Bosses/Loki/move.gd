@@ -18,7 +18,7 @@ var far_actions = ["Teleport", "Draugr", "Icicle"]
 
 # what happens when the entity enters a state
 func enter() -> void:
-	move_timer = randf_range(1, 2.5)
+	move_timer = randf_range(2, 4)
 	change_dir_timer = randf_range(.1, .75)
 
 # what happens when the entity exits a state
@@ -34,8 +34,8 @@ func state_physics_process(delta: float) -> State:
 	move_timer -= delta
 	change_dir_timer -= delta
 	
-	#if move_timer <= 0:
-		#return choose_state()
+	if move_timer <= 0:
+		return choose_state()
 		
 	if change_dir_timer <= 0:
 		loki.velocity = move()
@@ -66,7 +66,7 @@ func choose_state():
 	else:
 		new_state = actions[randi_range(0, 4)]
 	
-	return get_state_by_name("Move")
+	return get_state_by_name("Summon") if randf() > .75 else get_state_by_name("Projectile")
 	
 	#return get_state_by_name(new_state)
 	
@@ -94,32 +94,35 @@ func move():
 	else:
 		move_dir = direction_to_player.orthogonal().normalized() * (1  if randf() > 0.5 else -1)
 		move_speed *= .8
-		
-		
-	if abs(move_dir.x) > abs(move_dir.y):
-		animation_direction = "right" if move_dir.x > 0 else "left"
-	else:
-		animation_direction = "down" if move_dir.y > 0 else "up"
-	loki.get_node("AnimationPlayer").play("move_"+animation_direction)
 	
 	move_dir = find_clear_direction(move_dir)
+
+	loki.update_animation("move", move_dir)
+		
 	return (move_dir * move_speed)
 	
 
 #This function is to help avoiding getting cornered
 #It looks for directions near move_dir without many collision shapes
+#It also rewards heading towards the center of the map
 func find_clear_direction(base_dir: Vector2) -> Vector2:
 	var best_dir = base_dir
 	var best_score = -INF
+	var center = Vector2(0, 0)  # or your actual map center
 
 	for i in range(8):
 		var angle = deg_to_rad(i * 45) # Check in 45° increments
 		var dir = base_dir.rotated(angle).normalized()
 		var offset = dir * 50
+		var new_pos = loki.global_position + offset
 
 		if not loki.test_move(loki.transform, offset):
-			var score = 1.0 - abs(angle) / PI # favor directions closer to original
+			var closeness_score = 1.0 - (new_pos.distance_to(center) / 1000.0) # tweak divisor for weight
+			var angle_score = 1.0 - abs(angle) / PI
+			var score = angle_score + closeness_score
+
 			if score > best_score:
 				best_score = score
 				best_dir = dir
+
 	return best_dir

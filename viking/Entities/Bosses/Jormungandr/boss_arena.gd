@@ -7,7 +7,6 @@ var snake = Node2D
 var snake_dead = false
 var dialogue: DialogueUI
 var cam
-var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

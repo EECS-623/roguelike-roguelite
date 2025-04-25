@@ -62,6 +62,7 @@ _data = {
 }
 
 [node name="BossArena" type="Node2D"]
+z_index = -1
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_joll7")
 s_loki = ExtResource("2_smpcd")
