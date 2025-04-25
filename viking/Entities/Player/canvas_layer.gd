@@ -10,7 +10,7 @@ signal increase_speed
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	$Relics.text = "Relics: %s" % Global.relics
-	$XP.text = "XP: %s" % Global.xp
+	$XP.text = "Runes: %s" % Global.xp
 
 
 

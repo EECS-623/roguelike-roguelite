@@ -42,6 +42,6 @@ func get_multiplier():
 func _on_canvas_layer_increase_speed() -> void:
 	print("speed before: ")
 	print(speed)
-	speed += 20
+	speed += 40
 	print("speed after: ")
 	print(speed)
