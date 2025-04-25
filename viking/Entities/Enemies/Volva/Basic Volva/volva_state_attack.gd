@@ -24,7 +24,6 @@ func exit() -> void:
 		animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
 
-	# Start cooldown to prevent immediate attack
 	idle.start_cooldown()
 
 # what happens during _process of the state

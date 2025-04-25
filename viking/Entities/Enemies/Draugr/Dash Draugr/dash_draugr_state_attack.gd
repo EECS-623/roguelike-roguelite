@@ -5,7 +5,8 @@ var attacking : bool = false
 @onready var dash_draugr : DashDraugr = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../DashDraugrStateIdle"
-@onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
+@onready var hitbox: Hitbox = $"../../Hitbox"
+@onready var raycast_component = $"../../RaycastComponent"
 
 func enter() -> void:
 	dash_draugr.update_animation("attack")
@@ -21,6 +22,8 @@ func exit() -> void:
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
 	hitbox.get_child(0).disabled = true
+	
+	idle.start_cooldown()
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
@@ -41,3 +44,9 @@ func handle_input(_event : InputEvent) -> State:
 # ends the attack (animation name added to avoid compiler issues)
 func end_attack( _animation_name : String) -> void:
 	attacking = false
+
+func rotate_hitbox() -> void:
+	if raycast_component.player:
+		var player = raycast_component.player
+		var direction = (player.global_position - dash_draugr.global_position).normalized()
+		hitbox.rotation = direction.angle()

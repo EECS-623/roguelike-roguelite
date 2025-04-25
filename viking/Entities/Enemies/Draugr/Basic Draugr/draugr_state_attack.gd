@@ -21,7 +21,9 @@ func exit() -> void:
 	animation_player.animation_finished.disconnect( end_attack )
 	attacking = false
 	hitbox.get_child(0).disabled = true
-	
+
+	idle.start_cooldown()
+		
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	draugr.velocity = Vector2.ZERO

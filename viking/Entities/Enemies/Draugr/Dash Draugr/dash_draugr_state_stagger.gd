@@ -7,6 +7,7 @@ var knockback_direction: Vector2
 @onready var dash_draugr = $"../.."
 @onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
 @onready var chase: DashDraugrStateChase = $"../DashDraugrStateChase"
+@onready var idle: DashDraugrStateIdle = $"../DashDraugrStateIdle"
 @onready var particles = $"../../Particles"
 #@onready var state_machine: DashDraugrStateMachine =  $".."
 
@@ -17,17 +18,17 @@ func enter() -> void:
 	particles.restart()
 	knockback_direction = -(raycast_component.player.global_position - dash_draugr.global_position).normalized()
 	timer = knockback_duration
-	knockback_velocity = knockback_direction * 600.0
+	knockback_velocity = knockback_direction * 300.0
 
 # what happens when the entity exits a state
 func exit() -> void:
-	pass
+	idle.start_cooldown()
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	timer -= delta
 	if timer <= 0:
-		return chase
+		return idle
 	return null
 
 func state_physics_process(delta: float) -> State:

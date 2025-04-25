@@ -10,6 +10,7 @@ class_name DashDraugrStateIdle extends State
 
 var cooldown : bool
 var staggered: bool = false
+var cooldown_timer
 
 # what happens when the entity enters a state
 func enter() -> void:
@@ -17,8 +18,6 @@ func enter() -> void:
 	hurtbox.connect("hurt", _on_player_melee_hit)
 	cooldown = true
 	dash_draugr.update_animation("idle")
-	await get_tree().create_timer(1).timeout
-	cooldown_finished()
 
 # what happens when the entity exits a state
 func exit() -> void:
@@ -26,6 +25,13 @@ func exit() -> void:
 
 # what happens during _process of the state
 func state_process(delta : float) -> State:
+
+	if cooldown:
+		cooldown_timer -= delta
+		if cooldown_timer <= 0.0:
+			cooldown = false
+			print("Cooldown finished")
+	
 	if staggered:
 		return stagger
 	
@@ -55,8 +61,10 @@ func state_physics_process(delta: float) -> State:
 func handle_input(_event : InputEvent) -> State:
 	return null
 
-func cooldown_finished() -> void:
-	cooldown = false
+func start_cooldown(time: float = 2.0) -> void:
+	if not cooldown:
+		cooldown = true
+		cooldown_timer = time
 
 func _on_player_melee_hit(body) -> void:
 	#this code is so bad lmao
