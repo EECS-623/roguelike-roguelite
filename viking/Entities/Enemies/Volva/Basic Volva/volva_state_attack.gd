@@ -6,10 +6,15 @@ var attacking : bool = false
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../VolvaStateIdle"
 @onready var raycast_component = $"../../RaycastComponent"
+@onready var stagger = $"../VolvaStateStagger"
+@onready var hurtbox = $"../../Hurtbox"
 
+var staggered: bool = false
 func enter() -> void:
+	staggered = false
 	volva.update_animation("attack")
-	
+	if !hurtbox.is_connected("hurt", _on_player_melee_hit):
+		hurtbox.connect("hurt", _on_player_melee_hit)
 	#connects when animation player ends to "end attack" function
 	if not animation_player.is_connected("animation_finished", end_attack):
 		animation_player.animation_finished.connect( end_attack )
@@ -19,6 +24,7 @@ func enter() -> void:
 
 # what happens when the entity exits a state
 func exit() -> void:
+	hurtbox.disconnect("hurt", _on_player_melee_hit)
 	#remove connection when exiting state
 	if animation_player.is_connected("animation_finished", end_attack):
 		animation_player.animation_finished.disconnect( end_attack )
@@ -30,6 +36,9 @@ func exit() -> void:
 func state_process(delta : float) -> State:
 	volva.velocity = Vector2.ZERO
 
+	if staggered:
+		return stagger
+	
 	if !attacking:
 		return idle
 
@@ -56,3 +65,8 @@ func fire_bullet(initial_position: Vector2) -> void:
 	var spell_target = (raycast_component.player.global_position - volva.global_position).normalized()	
 	spell.target = spell_target
 	volva.add_child(spell)
+
+func _on_player_melee_hit(body) -> void:
+	#this code is so bad lmao
+	if body.get_parent().get_parent().is_in_group("player"):
+		staggered = true

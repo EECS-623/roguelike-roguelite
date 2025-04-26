@@ -27,6 +27,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		queue_free()
 		print("hit player")
+	else:
+		queue_free()
 
 static func new_spell(initial_position: Vector2):
 	var new_spell: VolvaSpell = my_scene.instantiate()

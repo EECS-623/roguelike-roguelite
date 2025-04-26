@@ -31,6 +31,8 @@ func _on_body_entered(body: Node2D) -> void:
 		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.5, 1.5)
 		body.apply_status_effect(freeze_effect)
 		queue_free()
+	else:
+		queue_free()
 
 static func new_spell(initial_position: Vector2):
 	var new_spell: IceVolvaSpell = my_scene.instantiate()

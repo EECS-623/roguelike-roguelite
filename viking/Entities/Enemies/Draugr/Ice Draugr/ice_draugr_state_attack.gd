@@ -5,11 +5,17 @@ var attacking : bool = false
 @onready var ice_draugr : IceDraugr = $"../.."
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var idle : State = $"../IceDraugrStateIdle"
+@onready var stagger = $"../IceDraugrStateStagger"
 @onready var hitbox: Hitbox = $"../../Interactions/Hitbox"
+@onready var hurtbox = $"../../Hurtbox"
+
+var staggered: bool = false
 
 func enter() -> void:
+	staggered = false
 	ice_draugr.update_animation("attack")
-	
+	if !hurtbox.is_connected("hurt", _on_player_melee_hit):
+		hurtbox.connect("hurt", _on_player_melee_hit)
 	#connects when animation player ends to "end attack" function
 	animation_player.animation_finished.connect( end_attack )
 	attacking = true
@@ -19,6 +25,7 @@ func enter() -> void:
 func exit() -> void:
 	#remove connection when exiting state
 	animation_player.animation_finished.disconnect( end_attack )
+	hurtbox.disconnect("hurt", _on_player_melee_hit)
 	attacking = false
 	hitbox.get_child(0).disabled = true
 
@@ -27,6 +34,9 @@ func exit() -> void:
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	ice_draugr.velocity = Vector2.ZERO
+	
+	if staggered:
+		return stagger
 	
 	if !attacking:
 		return idle
@@ -49,3 +59,8 @@ func _on_hitbox_hit(body: Variant) -> void:
 	if body_parent.is_in_group("player"):
 		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.65, 1.0)
 		body_parent.apply_status_effect(freeze_effect)
+
+func _on_player_melee_hit(body) -> void:
+	#this code is so bad lmao
+	if body.get_parent().get_parent().is_in_group("player"):
+		staggered = true
