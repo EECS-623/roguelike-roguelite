@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gbvq7qkrb6di"
-path="res://.godot/imported/force_field.png-c279d682808249fadb3bddc0281a0f85.ctex"
+uid="uid://ck80sjqeuqnr4"
+path="res://.godot/imported/Lightning Bolt Powered Up.png-b351503448139924ab5f63cd6b11428c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/force_field.png"
-dest_files=["res://.godot/imported/force_field.png-c279d682808249fadb3bddc0281a0f85.ctex"]
+source_file="res://Assets/Art/Lightning Bolt Powered Up.png"
+dest_files=["res://.godot/imported/Lightning Bolt Powered Up.png-b351503448139924ab5f63cd6b11428c.ctex"]
 
 [params]
 

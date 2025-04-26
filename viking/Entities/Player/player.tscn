@@ -37,9 +37,9 @@
 [ext_resource type="Script" path="res://Entities/Player/teleport.gd" id="25_c7d0u"]
 [ext_resource type="Script" path="res://Entities/Player/state_special_ability.gd" id="27_4h18t"]
 [ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]
-[ext_resource type="Texture2D" uid="uid://gbvq7qkrb6di" path="res://Assets/Art/force_field.png" id="36_pbs0n"]
 [ext_resource type="Script" path="res://Entities/Player/camera_2d.gd" id="37_dpfyb"]
 [ext_resource type="PackedScene" uid="uid://bnnuln6wj2vki" path="res://Game/DialogueUI/DialogueUI.tscn" id="39_vyhy8"]
+[ext_resource type="Texture2D" uid="uid://canjlmt2h3cmw" path="res://Assets/Art/Protection Shield.png" id="40_kub50"]
 [ext_resource type="Script" path="res://Components/WwiseManager/wwise_manager.gd" id="42_6t5ky"]
 [ext_resource type="Script" path="res://Components/StatusEffects/status_effect_manager.gd" id="43_xg10m"]
 
@@ -950,11 +950,12 @@ luck = 10.0
 script = ExtResource("37_dpfyb")
 
 [node name="Force_field" type="TextureRect" parent="."]
-offset_left = -69.0
-offset_top = -61.0
-offset_right = 75.0
-offset_bottom = 61.0
-texture = ExtResource("36_pbs0n")
+offset_left = -73.0
+offset_top = -69.0
+offset_right = 72.0
+offset_bottom = 73.0
+texture = ExtResource("40_kub50")
+expand_mode = 1
 
 [node name="DialogueUI" parent="." instance=ExtResource("39_vyhy8")]
 

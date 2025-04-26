@@ -38,10 +38,10 @@ func cast_ability() -> bool:
 	# move over ability logic here
 	if Input.is_action_just_pressed("right_click") and Global.patron_god == 2:
 		#$"../../Force_field".modulate.a = 1.0
-		player.modulate = Color(0.25, 0.5, 1, 1) #LIGHT BLUE
+		#player.modulate = Color(0.25, 0.5, 1, 1) #LIGHT BLUE
 		ForceFieldOn.emit()
 		timer.start(shield_time)
-		#$"../../Force_field".modulate.a = 0
+		$"../../Force_field".modulate.a = 1
 		#player.modulate = original_player_color
 		#ForceFieldOff.emit()
 	
@@ -50,6 +50,6 @@ func cast_ability() -> bool:
 	return true # this will be at the very end of the function
 func _on_timer_timeout() -> void:
 	# Actions that happen after the 3-second delay
-	#$"../../Force_field".modulate.a = 0
-	player.modulate = original_player_color
+	$"../../Force_field".modulate.a = 0
+	#player.modulate = original_player_color
 	ForceFieldOff.emit()
