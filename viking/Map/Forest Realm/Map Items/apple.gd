@@ -27,6 +27,7 @@ func _on_body_entered(body):
 	$Hitbox/CollisionShape2D.disabled = true
 	
 	print("apple eaten")
+	Wwise.post_event_id(AK.EVENTS.APPLE_HEAL, self)
 	
 	queue_free()
 

@@ -687,6 +687,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [7, 6, 7, 5]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_lvx5v"]
 resource_name = "move_left"
@@ -704,6 +724,26 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 10, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.4, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_c5bsf"]
@@ -723,6 +763,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [14, 15, 14, 15]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.433333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_besu3"]
 resource_name = "move_up"
@@ -740,6 +800,26 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [2, 1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tal4c"]

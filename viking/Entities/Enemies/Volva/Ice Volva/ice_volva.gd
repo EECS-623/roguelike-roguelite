@@ -57,6 +57,7 @@ func animation_direction() -> String:
 
 func _on_health_component_death() -> void:
 	Global.xp += 1
+	Wwise.post_event_id(AK.EVENTS.WITCH_DEATH, self)
 	queue_free()
 	
 func _on_health_component_t_damage(amount: float) -> void:

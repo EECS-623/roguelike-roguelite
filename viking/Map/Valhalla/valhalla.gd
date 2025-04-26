@@ -11,7 +11,7 @@ func _ready() -> void:
 		PlayerManager.player = my_player
 	get_tree().current_scene.add_child(PlayerManager.player)
 	Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
-  
+	Wwise.post_event_id(AK.EVENTS.VALHALLA, self)
 	HUD.visible = true
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout

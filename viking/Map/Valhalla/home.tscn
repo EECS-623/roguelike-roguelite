@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=14 format=4 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Texture2D" uid="uid://x68rj5hjf4yq" path="res://Assets/Art/testTS.png" id="1_t15dr"]
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_562mr"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Map/Valhalla/tree_of_life.gd" id="4_o84d6"]
 [ext_resource type="PackedScene" uid="uid://ncb3dti6kpdw" path="res://Entities/Enemies/Draugr/Ice Draugr/ice_draugr.tscn" id="6_fxpy5"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
+[ext_resource type="WwiseState" uid="uid://dvsjx3fm6qxqu" path="res://Wwise/resources/State/{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}.tres" id="7_qeyeg"]
+[ext_resource type="WwiseState" uid="uid://djuhga2g8bl2d" path="res://Wwise/resources/State/{8DF788D8-2055-47C7-A392-11D06E665614}.tres" id="8_noni0"]
+[ext_resource type="WwiseState" uid="uid://ciu17avhmxh4a" path="res://Wwise/resources/State/{B145CCFA-6037-4756-8DAC-6458381FE61D}.tres" id="9_j3snd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qi8p"]
 texture = ExtResource("1_t15dr")
@@ -57,6 +60,18 @@ shape = SubResource("RectangleShape2D_obqig")
 position = Vector2(0, -209)
 
 [node name="IceDraugr" parent="." instance=ExtResource("6_fxpy5")]
+
+[node name="AkState_PlayerLife" type="AkState" parent="."]
+state = ExtResource("7_qeyeg")
+trigger_on = 2
+
+[node name="AkState_Location" type="AkState" parent="."]
+state = ExtResource("8_noni0")
+trigger_on = 2
+
+[node name="AkState_PlayerState" type="AkState" parent="."]
+state = ExtResource("9_j3snd")
+trigger_on = 2
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_entered" from="TreeOfLife" to="TreeOfLife" method="_on_body_entered"]
