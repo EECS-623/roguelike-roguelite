@@ -72,7 +72,7 @@ func cast_ability() -> bool:
 	offsets.shuffle()
 
 	var camera = $"../../Camera2D"
-	if Input.is_action_just_pressed("right_click") and Global.patron_god == 3:
+	if Global.patron_god == 3:
 		if Global.upgrade_level == 1:
 			if teleport:
 				# Use facing_direction when player isn't moving
@@ -105,7 +105,7 @@ func cast_ability() -> bool:
 					if not teleport_begun:
 						camera.position_smoothing_enabled = false
 					
-		if Global.upgrade_level == 2 or Global.upgrade_level == 1:
+		if Global.upgrade_level == 2:
 			if teleport:
 				var start_position = player.global_position
 				
