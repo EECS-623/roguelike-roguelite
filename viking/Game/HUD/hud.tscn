@@ -9,16 +9,16 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_loqv1"]
 gradient = SubResource("Gradient_v05fk")
-width = 214
-height = 14
+width = 231
+height = 16
 
 [sub_resource type="Gradient" id="Gradient_6mspl"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_67bl0"]
 gradient = SubResource("Gradient_6mspl")
-width = 214
-height = 15
+width = 231
+height = 16
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_y7em1")
@@ -31,27 +31,29 @@ offset_bottom = 8.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_right = 296.0
-offset_bottom = 152.0
+offset_right = 224.0
+offset_bottom = 120.0
 texture = ExtResource("2_el1ig")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="HealthBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 32.0
-offset_right = 235.0
-offset_bottom = 46.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 247.0
+offset_bottom = 40.0
+scale = Vector2(0.7, 0.7)
 texture_progress = SubResource("GradientTexture2D_loqv1")
 tint_progress = Color(0.894118, 0.286275, 0.188235, 1)
 
 [node name="ManaBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 79.0
-offset_right = 235.0
-offset_bottom = 94.0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 247.0
+offset_bottom = 76.0
+scale = Vector2(0.7, 0.7)
 texture_progress = SubResource("GradientTexture2D_67bl0")
 tint_progress = Color(0.705882, 0.34902, 0.921569, 1)
 
@@ -59,9 +61,10 @@ tint_progress = Color(0.705882, 0.34902, 0.921569, 1)
 show_behind_parent = true
 layout_mode = 0
 offset_left = 8.0
-offset_top = 20.0
-offset_right = 253.0
-offset_bottom = 103.0
+offset_top = 16.0
+offset_right = 265.0
+offset_bottom = 109.0
+scale = Vector2(0.7, 0.7)
 color = Color(0.760784, 0.72549, 0.603922, 1)
 
 [node name="InventoryButton" type="TextureButton" parent="Control"]
