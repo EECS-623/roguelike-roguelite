@@ -33,7 +33,8 @@ var teleport_begun = false
 		#await get_tree().create_timer(3).timeout
 		#teleport = true
 		#this was the teleport where it took you anywhere
-
+func upgrade_ability():
+	teleport_amount += 50
 
 func cast_ability() -> bool:
 	# Try to use mana first
@@ -72,7 +73,7 @@ func cast_ability() -> bool:
 
 	var camera = $"../../Camera2D"
 	if Input.is_action_just_pressed("right_click") and Global.patron_god == 3:
-		if Global.upgrade_level == 10:
+		if Global.upgrade_level == 1:
 			if teleport:
 				# Use facing_direction when player isn't moving
 				var teleport_dir = player.direction

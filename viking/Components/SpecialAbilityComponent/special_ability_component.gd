@@ -10,3 +10,6 @@ func _process(delta: float) -> void:
 
 func cast_ability() -> bool:
 	return true
+	
+func upgrade_ability():
+	pass

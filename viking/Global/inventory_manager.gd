@@ -61,7 +61,8 @@ func upgrade_stat(stat_name: String, player) -> bool:
 		"magic_ability":
 			if magic_ability_level < MAX_STAT_LEVEL:
 				magic_ability_level += 1
-				# Wait on magic ability implementation for now
+				if player.has_node("SpecialAbilityComponent"):
+					player.get_node("SpecialAbilityComponent").upgrade_ability()
 				success = true
 				
 		"speed":

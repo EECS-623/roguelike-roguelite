@@ -29,7 +29,9 @@ func _ready() -> void:
 		##$"../../Force_field".modulate.a = 0
 		#player.modulate = original_player_color
 		#ForceFieldOff.emit()
-
+func upgrade_ability():
+	shield_time += 1
+	
 func cast_ability() -> bool:
 	# Try to use mana first
 	if !mana_component.use_mana(mana_cost):
