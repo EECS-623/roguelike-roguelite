@@ -11,7 +11,13 @@ extends CanvasLayer
 @onready var speed_btn = $Control/SpeedButton
 @onready var mana_regen_btn = $Control/ManaRegenButton
 @onready var max_health_btn = $Control/MaxHealthButton
-	
+
+@onready var melee_damage_max = $Control/MeleeDamageMAX
+@onready var magic_ability_max = $Control/MagicAbilityMAX
+@onready var speed_max = $Control/SpeedMAX    
+@onready var mana_regen_max = $Control/ManaRegenMAX
+@onready var max_health_max = $Control/MaxHealthMAX
+
 @onready var rune_count_label = $Control/RuneCount     
 
 var player
@@ -87,51 +93,51 @@ func _update_buttons():
 	var melee_level = InventoryManager.get_stat_level("melee_damage")
 	var melee_max = InventoryManager.get_stat_max_level("melee_damage")
 	if melee_level >= melee_max:
-		melee_damage_btn.text = "MAX"
-		melee_damage_btn.disabled = true
+		melee_damage_btn.visible = false
+		melee_damage_max.visible = true
 	else:
-		melee_damage_btn.text = "Upgrade (" + str(InventoryManager.UPGRADE_COST) + " runes)"
-		melee_damage_btn.disabled = !has_enough_runes
+		melee_damage_btn.visible = has_enough_runes
+		melee_damage_max.visible = false
 	
 	# Update magic ability button
 	var magic_level = InventoryManager.get_stat_level("magic_ability")
 	var magic_max = InventoryManager.get_stat_max_level("magic_ability")
 	if magic_level >= magic_max:
-		magic_ability_btn.text = "MAX"
-		magic_ability_btn.disabled = true
+		magic_ability_btn.visible = false
+		magic_ability_max.visible = true
 	else:
-		magic_ability_btn.text = "Upgrade (" + str(InventoryManager.UPGRADE_COST) + " runes)"
-		magic_ability_btn.disabled = !has_enough_runes
+		magic_ability_btn.visible = has_enough_runes
+		magic_ability_max.visible = false
 	
 	# Update speed button
 	var speed_level = InventoryManager.get_stat_level("speed")
 	var speed_max = InventoryManager.get_stat_max_level("speed")
 	if speed_level >= speed_max:
-		speed_btn.text = "MAX"
-		speed_btn.disabled = true
+		speed_btn.visible = false
+		speed_max.visible = true
 	else:
-		speed_btn.text = "Upgrade (" + str(InventoryManager.UPGRADE_COST) + " runes)"
-		speed_btn.disabled = !has_enough_runes
+		speed_btn.visible = has_enough_runes
+		speed_max.visible = false
 	
 	# Update mana regen button
 	var mana_level = InventoryManager.get_stat_level("mana_regen")
 	var mana_max = InventoryManager.get_stat_max_level("mana_regen")
 	if mana_level >= mana_max:
-		mana_regen_btn.text = "MAX"
-		mana_regen_btn.disabled = true
+		mana_regen_btn.visible = false
+		mana_regen_max.visible = true
 	else:
-		mana_regen_btn.text = "Upgrade (" + str(InventoryManager.UPGRADE_COST) + " runes)"
-		mana_regen_btn.disabled = !has_enough_runes
+		mana_regen_btn.visible = has_enough_runes
+		mana_regen_max.visible = false
 	
 	# Update max health button
 	var health_level = InventoryManager.get_stat_level("max_health")
 	var health_max = InventoryManager.get_stat_max_level("max_health")
 	if health_level >= health_max:
-		max_health_btn.text = "MAX"
-		max_health_btn.disabled = true
+		max_health_btn.visible = false
+		max_health_max.visible = true
 	else:
-		max_health_btn.text = "Upgrade (" + str(InventoryManager.UPGRADE_COST) + " runes)"
-		max_health_btn.disabled = !has_enough_runes
+		max_health_btn.visible = has_enough_runes
+		max_health_max.visible = false
 
 func _on_melee_damage_upgrade_pressed():
 	InventoryManager.upgrade_stat("melee_damage", player)
