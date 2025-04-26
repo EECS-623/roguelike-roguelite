@@ -11,6 +11,7 @@ var hit: bool = false
 
 func _ready():
 	# Normalize direction to ensure consistent speed
+	$Sprite2D.modulate = Color(0.4, 0.6, 0.9)
 	add_to_group("enemy_bullet")
 	add_to_group("enemy")
 	hitbox.monitorable = false
@@ -31,6 +32,8 @@ func _on_body_entered(body: Node2D) -> void:
 		var freeze_effect = preload("res://Components/StatusEffects/freeze_effect.gd").new().configure(0.5, 1.5)
 		body.apply_status_effect(freeze_effect)
 		queue_free()
+	elif (body.is_in_group("enemy")):
+		return
 	else:
 		queue_free()
 

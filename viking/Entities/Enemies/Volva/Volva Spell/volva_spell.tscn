@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://owco50o7n1cg"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Volva/Volva Spell/volva_spell.gd" id="1_gv2a6"]
+[ext_resource type="Texture2D" uid="uid://csvh68pgqb4ko" path="res://Entities/Enemies/Volva/Volva Assets/Witch Attack.png" id="2_2n540"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="2_6iayr"]
-[ext_resource type="Texture2D" uid="uid://cck24kfoi2lw5" path="res://Assets/Art/portal.png" id="2_7i4tu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4djp"]
 radius = 21.095
@@ -14,9 +14,9 @@ radius = 21.0
 script = ExtResource("1_gv2a6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.8147e-06, 0)
-scale = Vector2(0.114444, 0.127423)
-texture = ExtResource("2_7i4tu")
+position = Vector2(-3, 1)
+scale = Vector2(0.134, 0.149)
+texture = ExtResource("2_2n540")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
