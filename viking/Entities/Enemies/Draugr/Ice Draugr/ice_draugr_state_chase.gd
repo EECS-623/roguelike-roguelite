@@ -38,24 +38,24 @@ func state_process(delta : float) -> State:
 	if ice_draugr.global_position.distance_to(raycast_component.player.global_position) >= raycast_component.raycast_length:
 		return patrol
 		
-	#var player_pos = raycast_component.player.global_position
-	#if player_pos.distance_to(nav_agent.target_position) > 16:
-	#	nav_agent.target_position = player_pos
+	var player_pos = raycast_component.player.global_position
+	if player_pos.distance_to(nav_agent.target_position) > 16:
+		nav_agent.target_position = player_pos
 
-	#if not nav_agent.is_navigation_finished():
-	#	var next_position = nav_agent.get_next_path_position()
-		#print("Next Path Position: ", next_position)
-	#	var direction = (next_position - ice_draugr.global_position).normalized()
-	#	ice_draugr.direction = direction
-	#	ice_draugr.velocity = direction * speed_component.get_speed()
-	#else:
-	#	ice_draugr.velocity = Vector2.ZERO
+	if not nav_agent.is_navigation_finished():
+		var next_position = nav_agent.get_next_path_position()
+		print("Next Path Position: ", next_position)
+		var direction = (next_position - ice_draugr.global_position).normalized()
+		ice_draugr.direction = direction
+		ice_draugr.velocity = direction * speed_component.get_speed()
+	else:
+		ice_draugr.velocity = Vector2.ZERO
 	
 	ice_draugr.set_direction()
 	ice_draugr.update_animation("move")
 
-	ice_draugr.direction = (raycast_component.player.global_position - ice_draugr.global_position).normalized()
-	ice_draugr.velocity = ice_draugr.direction * speed_component.get_speed()
+	#ice_draugr.direction = (raycast_component.player.global_position - ice_draugr.global_position).normalized()
+	#ice_draugr.velocity = ice_draugr.direction * speed_component.get_speed()
 
 	return null
 	
