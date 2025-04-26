@@ -107,5 +107,13 @@ position = Vector2(146.5, 675.5)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_5eqwv")
 
+[node name="Collision_Houses" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-490, -348)
+polygon = PackedVector2Array(-75, -165, -218, -48, -287, 164, -293, 401, -129, 405, 92, 403, 117, 180, 119, 84, 58, -81)
+
+[node name="Collision_Houses2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(740, -204)
+polygon = PackedVector2Array(-75, -165, -218, -48, -287, 164, -293, 401, -129, 405, 92, 403, 117, 180, 119, 84, 58, -81)
+
 [connection signal="body_entered" from="StaticBody2D/Area2D_Tree_Travel" to="." method="_on_area_2d_tree_travel_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Portal_Travel" to="." method="_on_area_2d_portal_travel_body_entered"]
