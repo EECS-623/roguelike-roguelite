@@ -1,14 +1,11 @@
 extends Node
 
+# Reference to the inventory scene
+var inventory_scene: CanvasLayer
+
 # Stat levels
 const MAX_STAT_LEVEL = 5
 const UPGRADE_COST = 2
-
-var melee_damage_level = 0
-var magic_ability_level = 0  
-var speed_level = 0
-var mana_regen_level = 0
-var max_health_level = 0
 
 # Stat upgrade amounts
 const MELEE_DAMAGE_BOOST = 2    # Increases by 2 per level
@@ -16,12 +13,29 @@ const SPEED_BOOST = 30          # Increases by 30 per level
 const MANA_REGEN_BOOST = 1.0    # Increases by 1.0 per level
 const MAX_HEALTH_BOOST = 15     # Increases by 15 per level
 
+var melee_damage_level = 0
+var magic_ability_level = 0  
+var speed_level = 0
+var mana_regen_level = 0
+var max_health_level = 0
+
 # Signal when stats change
 signal stats_changed
 
 func _ready():
 	# We don't need to find the inventory in _ready() since it's an autoload
 	pass
+
+# Add this reset function to reset all stats
+func reset_stats() -> void:
+	melee_damage_level = 0
+	magic_ability_level = 0
+	speed_level = 0
+	mana_regen_level = 0
+	max_health_level = 0
+	Global.xp = 0
+	stats_changed.emit()
+	print("Stats and runes reset")
 
 func toggle_inventory():
 	# Since Inventory is a global singleton, we can access it directly
