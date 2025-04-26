@@ -1,46 +1,77 @@
 extends CanvasLayer
 
-@onready var health_bar = $Control/HealthBar   
-@onready var speed_bar = $Control/SpeedBar     
-@onready var health_upgrade_btn = $Control/HealthButton   
-@onready var speed_upgrade_btn = $Control/SpeedButton     
+@onready var melee_damage_bar = $Control/MeleeDamageBar
+@onready var magic_ability_bar = $Control/MagicAbilityBar
+@onready var speed_bar = $Control/SpeedBar    
+@onready var mana_regen_bar = $Control/ManaRegenBar
+@onready var max_health_bar = $Control/MaxHealthBar   
+ 
+@onready var melee_damage_btn = $Control/MeleeDamageButton
+@onready var magic_ability_btn = $Control/MagicAbilityButton
+@onready var speed_btn = $Control/SpeedButton
+@onready var mana_regen_btn = $Control/ManaRegenButton
+@onready var max_health_btn = $Control/MaxHealthButton
+
+@onready var melee_damage_max = $Control/MeleeDamageMAX
+@onready var magic_ability_max = $Control/MagicAbilityMAX
+@onready var speed_max = $Control/SpeedMAX    
+@onready var mana_regen_max = $Control/ManaRegenMAX
+@onready var max_health_max = $Control/MaxHealthMAX
+
 @onready var rune_count_label = $Control/RuneCount     
 
 var player
+var last_checked_runes = 0
 var health_component
 var speed_component
-
-# Stat max values
-const MAX_HEALTH = 200
-const MAX_SPEED = 300
+var mana_component
+var magic_component
+var physical_damage_component
 
 func _ready():
 	# Start hidden by default
 	visible = false
 	
+	# Hide all MAX labels initially
+	melee_damage_max.visible = false
+	magic_ability_max.visible = false
+	speed_max.visible = false
+	mana_regen_max.visible = false
+	max_health_max.visible = false
+	
 	# Connect button signals
-	health_upgrade_btn.pressed.connect(_on_health_upgrade_pressed)
-	speed_upgrade_btn.pressed.connect(_on_speed_upgrade_pressed)
+	melee_damage_btn.pressed.connect(_on_melee_damage_upgrade_pressed)
+	magic_ability_btn.pressed.connect(_on_magic_ability_upgrade_pressed)
+	speed_btn.pressed.connect(_on_speed_upgrade_pressed)
+	mana_regen_btn.pressed.connect(_on_mana_regen_upgrade_pressed)
+	max_health_btn.pressed.connect(_on_max_health_upgrade_pressed)
+	
+	# Connect to stat changes
+	InventoryManager.stats_changed.connect(update_display)
 
-# This is the missing function that was causing the error
+func _process(_delta):
+	if visible:
+		# Only update rune count when visible to save processing
+		rune_count_label.text = str(Global.xp)
+		
+		# Check if buttons need to be updated (e.g., if runes were gained/lost)
+		var current_runes = Global.xp
+		if current_runes != last_checked_runes:
+			last_checked_runes = current_runes
+			_update_buttons()
+
 func connect_to_player():
 	player = get_tree().get_first_node_in_group("player")
-	print("Inventory connecting to player: ", player != null)
 	
 	if player:
-		# Connect to health component
-		if player.has_node("HealthComponent"):
-			health_component = player.get_node("HealthComponent")
-			print("Found health component - max health: ", health_component.max_health)
-		
-		# Connect to speed component
-		if player.has_node("SpeedComponent"):
-			speed_component = player.get_node("SpeedComponent")
-			print("Found speed component - speed: ", speed_component.speed)
-		
-		# Update the UI bars
-		update_display()
-		
+		# Connect to components
+		health_component = player.get_node_or_null("HealthComponent")
+		speed_component = player.get_node_or_null("SpeedComponent")
+		mana_component = player.get_node_or_null("ManaComponent")
+		magic_component = player.get_node_or_null("MagicDamageComponent")
+		physical_damage_component = player.get_node_or_null("PhysicalDamageComponent")
+
+# Used by both the HUD inventory button and inventory_manager
 func toggle_visibility():
 	visible = !visible
 	
@@ -49,79 +80,99 @@ func toggle_visibility():
 
 func update_display():
 	if !player:
-		return
+		connect_to_player()
+		if !player:
+			return
 		
-	# Update health bar
-	if health_component:
-		health_bar.max_value = MAX_HEALTH
-		health_bar.value = health_component.max_health
-		
-	# Update speed bar
-	if speed_component:
-		speed_bar.max_value = MAX_SPEED
-		speed_bar.value = speed_component.speed
-		
-	# Update rune count from player's XP
-	var xp_label = player.get_node_or_null("CanvasLayer/XP")
-	if xp_label:
-		var rune_count = int(xp_label.text)
-		rune_count_label.text = "Runes: " + str(rune_count)
+	# Update progress bars
+	melee_damage_bar.max_value = InventoryManager.MAX_STAT_LEVEL
+	melee_damage_bar.value = InventoryManager.get_stat_level("melee_damage")
 	
-	# Update button states
+	magic_ability_bar.max_value = InventoryManager.MAX_STAT_LEVEL
+	magic_ability_bar.value = InventoryManager.get_stat_level("magic_ability")
+	
+	speed_bar.max_value = InventoryManager.MAX_STAT_LEVEL
+	speed_bar.value = InventoryManager.get_stat_level("speed")
+	
+	mana_regen_bar.max_value = InventoryManager.MAX_STAT_LEVEL
+	mana_regen_bar.value = InventoryManager.get_stat_level("mana_regen")
+	
+	max_health_bar.max_value = InventoryManager.MAX_STAT_LEVEL
+	max_health_bar.value = InventoryManager.get_stat_level("max_health")
+	
+	# Update rune count directly from Global
+	rune_count_label.text = str(Global.xp)
+	
+	# Update buttons
 	_update_buttons()
 
 func _update_buttons():
-	var xp_label = player.get_node_or_null("CanvasLayer/XP") 
-	var runes = 0
-	if xp_label:
-		runes = int(xp_label.text)
+	var has_enough_runes = Global.xp >= InventoryManager.UPGRADE_COST
 	
-	# Disable upgrade buttons if no runes or max stat reached
-	health_upgrade_btn.disabled = runes <= 0 || health_component.max_health >= MAX_HEALTH
-	speed_upgrade_btn.disabled = runes <= 0 || speed_component.speed >= MAX_SPEED
-	
-	# Change to "Max" if reached max
-	if health_component.max_health >= MAX_HEALTH:
-		health_upgrade_btn.text = "Max"
+	# Update melee damage button
+	var melee_level = InventoryManager.get_stat_level("melee_damage")
+	if melee_level >= InventoryManager.MAX_STAT_LEVEL:
+		melee_damage_btn.visible = false
+		melee_damage_max.visible = true
 	else:
-		health_upgrade_btn.text = "Upgrade"
+		melee_damage_btn.visible = has_enough_runes
+		melee_damage_max.visible = false
 	
-	if speed_component.speed >= MAX_SPEED:
-		speed_upgrade_btn.text = "Max"
+	# Update magic ability button
+	var magic_level = InventoryManager.get_stat_level("magic_ability")
+	if magic_level >= InventoryManager.MAX_STAT_LEVEL:
+		magic_ability_btn.visible = false
+		magic_ability_max.visible = true
 	else:
-		speed_upgrade_btn.text = "Upgrade"
+		magic_ability_btn.visible = has_enough_runes
+		magic_ability_max.visible = false
+	
+	# Update speed button
+	var speed_level = InventoryManager.get_stat_level("speed")
+	if speed_level >= InventoryManager.MAX_STAT_LEVEL:
+		speed_btn.visible = false
+		speed_max.visible = true
+	else:
+		speed_btn.visible = has_enough_runes
+		speed_max.visible = false
+	
+	# Update mana regen button
+	var mana_level = InventoryManager.get_stat_level("mana_regen")
+	if mana_level >= InventoryManager.MAX_STAT_LEVEL:
+		mana_regen_btn.visible = false
+		mana_regen_max.visible = true
+	else:
+		mana_regen_btn.visible = has_enough_runes
+		mana_regen_max.visible = false
+	
+	# Update max health button
+	var health_level = InventoryManager.get_stat_level("max_health")
+	if health_level >= InventoryManager.MAX_STAT_LEVEL:
+		max_health_btn.visible = false
+		max_health_max.visible = true
+	else:
+		max_health_btn.visible = has_enough_runes
+		max_health_max.visible = false
 
-func _on_health_upgrade_pressed():
-	var xp_label = player.get_node_or_null("CanvasLayer/XP")
-	if !xp_label:
-		return
-		
-	var runes = int(xp_label.text)
-	
-	if runes > 0 and health_component.max_health < MAX_HEALTH:
-		# Increase max health by 10 (without healing)
-		health_component.max_health += 10
-		health_component.i_max_health.emit(health_component.max_health)
-		
-		# Spend a rune (update XP)
-		xp_label.text = str(runes - 1)
-		
-		# Update the display
-		update_display()
+func _on_melee_damage_upgrade_pressed():
+	InventoryManager.upgrade_stat("melee_damage", player)
+	update_display()
+
+func _on_magic_ability_upgrade_pressed():
+	InventoryManager.upgrade_stat("magic_ability", player)
+	update_display()
 
 func _on_speed_upgrade_pressed():
-	var xp_label = player.get_node_or_null("CanvasLayer/XP")
-	if !xp_label:
-		return
-		
-	var runes = int(xp_label.text)
-	
-	if runes > 0 and speed_component.speed < MAX_SPEED:
-		# Increase speed by 10
-		speed_component.set_speed(speed_component.speed + 10)
-		
-		# Spend a rune (update XP)
-		xp_label.text = str(runes - 1)
-		
-		# Update the display
-		update_display()
+	InventoryManager.upgrade_stat("speed", player)
+	update_display()
+
+func _on_mana_regen_upgrade_pressed():
+	InventoryManager.upgrade_stat("mana_regen", player)
+	update_display()
+
+func _on_max_health_upgrade_pressed():
+	InventoryManager.upgrade_stat("max_health", player)
+	update_display()
+
+func _on_close_button_pressed():
+	toggle_visibility()

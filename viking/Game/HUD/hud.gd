@@ -16,7 +16,8 @@ func _ready():
 	inventory_button.pressed.connect(_on_inventory_button_pressed)
 
 func _on_inventory_button_pressed():
-	Inventory.toggle_inventory()
+	# Toggle the inventory directly
+	Inventory.toggle_visibility()
 
 # Call this function from any scene where you want the HUD to be visible
 func connect_to_player():
