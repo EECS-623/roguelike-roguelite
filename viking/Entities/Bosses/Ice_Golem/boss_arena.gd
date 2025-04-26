@@ -38,9 +38,9 @@ func _ready() -> void:
 	
 	get_window().content_scale_size = DisplayServer.window_get_size() *1.1
 	dialogue.scale = Vector2(1.1, 1.1)
-	player.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
 	ice_golem.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
 	HUD.scale = Vector2(1.1, 1.1)
+	Inventory.scale = Vector2(1.1, 1.1)
 
 	
 
@@ -67,8 +67,8 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		
 		get_window().content_scale_size = DisplayServer.window_get_size()
 		dialogue.scale = Vector2(1, 1)
-		player.get_node("CanvasLayer").scale = Vector2(1, 1)
 		HUD.scale = Vector2(1, 1)
+		Inventory.scale = Vector2(1, 1)
 
 	
 		remove_child(body)
