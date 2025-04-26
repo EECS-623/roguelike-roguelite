@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgabimmw8awtu"]
+[gd_scene load_steps=6 format=3 uid="uid://cgabimmw8awtu"]
 
 [ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
 [ext_resource type="Texture2D" uid="uid://ckryhis5u3knp" path="res://Assets/Art/HUD/Final Stat Box.png" id="2_smiq0"]
 [ext_resource type="Texture2D" uid="uid://c8gs77b5u75fr" path="res://Assets/Art/HUD/Plus Box.png" id="3_kjioq"]
+[ext_resource type="Texture2D" uid="uid://bmv27yph1e7mt" path="res://Assets/Art/HUD/Stat Box Rune Counter Icon.png" id="3_ylby3"]
 [ext_resource type="Texture2D" uid="uid://boqcamfafiuj0" path="res://Assets/Art/HUD/Grey Box.png" id="4_qna3u"]
 
 [node name="Inventory" type="CanvasLayer"]
@@ -26,8 +27,13 @@ stretch_mode = 4
 
 [node name="Rune" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 511.0
+offset_top = 532.0
+offset_right = 583.0
+offset_bottom = 605.0
+texture = ExtResource("3_ylby3")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="MeleeDamageBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
@@ -66,8 +72,13 @@ offset_bottom = 576.0
 
 [node name="RuneCount" type="Label" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 22.0
+offset_left = 552.0
+offset_top = 516.0
+offset_right = 598.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(0.913725, 0.886275, 0.760784, 1)
+theme_override_font_sizes/font_size = 8
+text = "0"
 
 [node name="MeleeDamageButton" type="TextureButton" parent="Control"]
 layout_mode = 0

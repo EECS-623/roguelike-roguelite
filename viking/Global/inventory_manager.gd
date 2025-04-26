@@ -23,7 +23,7 @@ func toggle_inventory():
 
 func upgrade_stat(stat_name: String, player) -> bool:
 	# Check if player has enough runes
-	if player.xp < UPGRADE_COST:
+	if Global.xp < UPGRADE_COST:
 		return false
 		
 	var success = false
@@ -74,7 +74,7 @@ func upgrade_stat(stat_name: String, player) -> bool:
 	
 	# If upgrade was successful, spend the runes
 	if success:
-		player.xp -= UPGRADE_COST
+		Global.xp -= UPGRADE_COST
 		stats_changed.emit()
 		
 	return success

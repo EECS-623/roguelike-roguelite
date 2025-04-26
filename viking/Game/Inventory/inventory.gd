@@ -21,6 +21,7 @@ extends CanvasLayer
 @onready var rune_count_label = $Control/RuneCount     
 
 var player
+var last_checked_runes = 0
 var health_component
 var speed_component
 var mana_component
@@ -40,6 +41,17 @@ func _ready():
 	
 	# Connect to stat changes
 	InventoryManager.stats_changed.connect(update_display)
+
+func _process(_delta):
+	if visible:
+		# Only update rune count when visible to save processing
+		rune_count_label.text = str(Global.xp)
+		
+		# Check if buttons need to be updated (e.g., if runes were gained/lost)
+		var current_runes = Global.xp
+		if current_runes != last_checked_runes:
+			last_checked_runes = current_runes
+			_update_buttons()
 
 func connect_to_player():
 	player = get_tree().get_first_node_in_group("player")
@@ -61,7 +73,9 @@ func toggle_visibility():
 
 func update_display():
 	if !player:
-		return
+		connect_to_player()
+		if !player:
+			return
 		
 	# Update progress bars
 	melee_damage_bar.max_value = InventoryManager.MAX_STAT_LEVEL
@@ -79,15 +93,15 @@ func update_display():
 	max_health_bar.max_value = InventoryManager.MAX_STAT_LEVEL
 	max_health_bar.value = InventoryManager.get_stat_level("max_health")
 	
-	# Update rune count
-	rune_count_label.text = "Runes: " + str(player.xp)
+	# Update rune count directly from Global
+	rune_count_label.text = str(Global.xp)
 	
 	# Update buttons
 	_update_buttons()
 
 func _update_buttons():
-	# Check rune count
-	var has_enough_runes = player.xp >= InventoryManager.UPGRADE_COST
+	# Check rune count directly from Global
+	var has_enough_runes = Global.xp >= InventoryManager.UPGRADE_COST
 	
 	# Update melee damage button
 	var melee_level = InventoryManager.get_stat_level("melee_damage")
