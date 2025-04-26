@@ -3,7 +3,6 @@ class_name WwiseManager extends Node2D
 @onready var ak = load("res://Wwise/resources/wwise_ids.gd")
 
 var music_dict := {
-	"MUSIC" = AK.EVENTS.MUSIC,
 	 "BOSS_DEATH"  = AK.EVENTS.BOSS_DEATH,
 	 "FIREBALL"  = AK.EVENTS.FIREBALL,
 	 "GAMESTART_MENU"  = AK.EVENTS.GAMESTART_MENU,
@@ -16,6 +15,8 @@ var music_dict := {
 	 "SNAKE_SPIT"  = AK.EVENTS.SNAKE_SPIT,
 	 "SWORD_ATTACK_PC"  = AK.EVENTS.SWORD_ATTACK_PC,
 	 "SWORD_SWING"  = AK.EVENTS.SWORD_SWING,
+	"FOOTSTEP_SOFTGROUND" = AK.EVENTS.FOOTSTEP_SOFTGROUND
+	
 }
  #Called when the node enters the scene tree for the first time.
 func _ready() -> void:

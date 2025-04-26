@@ -65,9 +65,11 @@ func animation_direction() -> String:
 
 func _on_health_component_death() -> void:
 	Global.xp += 1
+	Wwise.post_event_id(AK.EVENTS.SKELETON_DEATH, self)
 	queue_free()
 
 func _on_health_component_t_damage(amount: float) -> void:
+	Wwise.post_event_id(AK.EVENTS.SKELETON_HIT, self)
 	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.modulate = Color(1,1,1,1)

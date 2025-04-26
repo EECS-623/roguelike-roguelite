@@ -10,11 +10,29 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{8211EA32-DCE5-28B8-77AA-FC48DB76F216}",
+    "Hash": "{10226A5F-D3F9-6D52-BFB8-5ADD8ACC381F}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "1355168291.bnk",
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "89371604",
+       "Name": "Meter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX Mixer\\[Effect Slot [0]: (Meter)]\\Meter (Custom)",
+       "GUID": "{EF0AEE48-BBB4-4690-A7CF-67C03EC5DE39}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      },
+      {
+       "Id": "825702166",
+       "Name": "Meter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music Mixer\\[Effect Slot [0]: (Meter)]\\Meter (Custom)",
+       "GUID": "{403484F6-9E8B-4D81-8D64-78B08318001D}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      }
+     ],
      "AudioDevices": [
       {
        "Id": "2317455096",
@@ -35,6 +53,32 @@
      ]
     },
     "Busses": [
+     {
+      "Id": "752057341",
+      "Name": "Music Mixer",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Music Mixer",
+      "GUID": "{F6FABA97-D3AE-4B73-B337-B4A8E7494D6B}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "825702166"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "2790597333",
+      "Name": "SFX Mixer",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX Mixer",
+      "GUID": "{368CE05D-827C-41EF-A150-C0EC6FCE2688}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "89371604"
+        }
+       ]
+      }
+     },
      {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
@@ -60,6 +104,12 @@
       "Name": "SS_Air_Fear",
       "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Fear",
       "GUID": "{F72E0659-4346-4E1C-A1B1-DAB46A05101E}"
+     },
+     {
+      "Id": "1883033791",
+      "Name": "Sidechain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Sidechain",
+      "GUID": "{B7223F81-BDA4-4C18-8824-02AA681E6E5F}"
      },
      {
       "Id": "2648548617",
@@ -102,6 +152,151 @@
       "Name": "SS_Air_Turbulence",
       "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Turbulence",
       "GUID": "{EDA87B19-73AA-40A0-9F19-2073606DB710}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "444815956",
+      "Name": "playerLife",
+      "ObjectPath": "\\States\\Default Work Unit\\playerLife",
+      "GUID": "{8915403D-2E66-4272-AF92-01F0EEF41C24}",
+      "States": [
+       {
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Alive",
+        "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\None",
+        "GUID": "{C7966577-CB66-4AF5-8F24-00A468DCB352}"
+       },
+       {
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Dead",
+        "GUID": "{61035F3B-22B4-4E75-825D-0B051DF8F1FB}"
+       }
+      ]
+     },
+     {
+      "Id": "1176052424",
+      "Name": "Location",
+      "ObjectPath": "\\States\\Default Work Unit\\Location",
+      "GUID": "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}",
+      "States": [
+       {
+        "Id": "117665206",
+        "Name": "Jotunheim",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Jotunheim",
+        "GUID": "{3174C54E-1CE5-482D-AC38-786A1DF492EB}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\None",
+        "GUID": "{9F9D350D-30F3-4966-81BC-3F30024B42B7}"
+       },
+       {
+        "Id": "2538683795",
+        "Name": "Midgard",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Midgard",
+        "GUID": "{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}"
+       },
+       {
+        "Id": "3702692096",
+        "Name": "Valhalla",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Valhalla",
+        "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+       },
+       {
+        "Id": "4129822198",
+        "Name": "Boss_Arena",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Boss_Arena",
+        "GUID": "{AC7E8BC5-E9A6-4356-A5D3-403A25B8BE1E}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "playerState",
+      "ObjectPath": "\\States\\Default Work Unit\\playerState",
+      "GUID": "{EF1D7354-0CDF-4325-B91E-7DC316D9D946}",
+      "States": [
+       {
+        "Id": "89505537",
+        "Name": "Gameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Gameplay",
+        "GUID": "{B145CCFA-6037-4756-8DAC-6458381FE61D}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\None",
+        "GUID": "{49C49D1F-C478-4710-91E1-0EDB01177560}"
+       },
+       {
+        "Id": "1560169506",
+        "Name": "Boss",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Boss",
+        "GUID": "{CBFFCBC5-94E0-4BEE-9487-B32E124CCC65}"
+       },
+       {
+        "Id": "1686739444",
+        "Name": "Story",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Story",
+        "GUID": "{8E5016F3-E4CC-4312-A85D-B6B3EA171C52}"
+       },
+       {
+        "Id": "2600172515",
+        "Name": "preBoss",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\preBoss",
+        "GUID": "{15964738-8B1D-44C4-992D-4872FF5C7F15}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Title",
+        "GUID": "{7ECAF9B7-8628-4157-A87E-B7656F4035CE}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "89505537",
+      "Name": "Gameplay",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Gameplay",
+      "GUID": "{40ACD11E-9A6B-4B38-AC34-048E450FB3B7}",
+      "Switches": [
+       {
+        "Id": "579523862",
+        "Name": "Explore",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Gameplay\\Explore",
+        "GUID": "{CCBD3314-F6C7-4D8A-8EED-5993939B3584}"
+       },
+       {
+        "Id": "1754255536",
+        "Name": "Clear",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Gameplay\\Clear",
+        "GUID": "{5124EA9D-376D-45C1-A9B5-57B67959E945}"
+       },
+       {
+        "Id": "2764240573",
+        "Name": "Combat",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Gameplay\\Combat",
+        "GUID": "{C3190389-64ED-47A0-91F7-AD46C5C89043}"
+       }
+      ]
+     },
+     {
+      "Id": "1984334996",
+      "Name": "Boss_Defeat_Count",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Boss_Defeat_Count",
+      "GUID": "{7B060D05-E25B-47AD-9ABC-1123C0BEE291}",
+      "Switches": []
      }
     ],
     "AcousticTextures": [
@@ -583,6 +778,6 @@
     ]
    }
   ],
-  "FileHash": "{BCA7D491-E6AC-0633-8798-4097FB062975}"
+  "FileHash": "{A07A3053-D213-6E77-F772-09A255863139}"
  }
 }

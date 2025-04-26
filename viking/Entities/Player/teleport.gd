@@ -5,7 +5,6 @@ extends SpecialAbilityComponent
 @onready var mana_component = $"../../ManaComponent"
 var mana_cost: float = 40.0  # Teleport costs 40 mana
 
-var upgrade_level = 2
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -73,7 +72,7 @@ func cast_ability() -> bool:
 
 	var camera = $"../../Camera2D"
 	if Input.is_action_just_pressed("right_click") and Global.patron_god == 3:
-		if upgrade_level == 1:
+		if Global.upgrade_level == 10:
 			if teleport:
 				# Use facing_direction when player isn't moving
 				var teleport_dir = player.direction
@@ -105,7 +104,7 @@ func cast_ability() -> bool:
 					if not teleport_begun:
 						camera.position_smoothing_enabled = false
 					
-		if upgrade_level == 2:
+		if Global.upgrade_level == 2 or Global.upgrade_level == 1:
 			if teleport:
 				var start_position = player.global_position
 				

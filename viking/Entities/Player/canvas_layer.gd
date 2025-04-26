@@ -15,7 +15,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_speed_pressed() -> void:
+
 	if Global.xp > 0:
+		Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 		Global.xp -= 1
 		increase_speed.emit()
 		#Global.player_speed += 30
@@ -23,11 +25,14 @@ func _on_speed_pressed() -> void:
 
 func _on_bullet_speed_pressed() -> void:
 	if Global.xp > 0:
-			Global.xp -= 1
+		Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
+		Global.xp -= 1
 			#Global.bullet_speed += 30
 
 
 func _on_health_pressed() -> void:
+	
 	if Global.xp > 0:
-			Global.xp -= 1
+		Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
+		Global.xp -= 1
 			#Global.player_health += 20
