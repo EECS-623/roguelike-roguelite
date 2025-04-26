@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=14 format=3 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/valhalla.gd" id="2_ds18k"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
@@ -14,16 +14,19 @@ size = Vector2(0.620001, 12.17)
 size = Vector2(1.805, 12.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vph3o"]
-size = Vector2(3.1, 0.82)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cto0l"]
-size = Vector2(9.64, 1.4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ug18"]
-size = Vector2(6.67, 1.31)
+size = Vector2(18.13, 1.08)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eqwv"]
-size = Vector2(2.85, 1.57)
+size = Vector2(18.64, 2.01)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvjpn"]
+size = Vector2(27, 395)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kguog"]
+size = Vector2(48, 582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l38rq"]
+size = Vector2(60.5, 64.5)
 
 [node name="Valhalla" type="Node2D"]
 position = Vector2(-1, 1)
@@ -76,36 +79,20 @@ expand_mode = 1
 [node name="Area2D_Tree_Travel" type="Area2D" parent="StaticBody2D"]
 
 [node name="Collision_Travel_to_Tree" type="CollisionShape2D" parent="StaticBody2D/Area2D_Tree_Travel"]
-position = Vector2(134, -629)
+position = Vector2(5.49997, -616)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_vph3o")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-483, 672)
-scale = Vector2(100, 100)
-shape = SubResource("RectangleShape2D_cto0l")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(614.5, 666.5)
-scale = Vector2(100, 100)
-shape = SubResource("RectangleShape2D_0ug18")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(583, -667)
-scale = Vector2(100, 100)
-shape = SubResource("RectangleShape2D_0ug18")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-489, -658)
-scale = Vector2(100, 100)
-shape = SubResource("RectangleShape2D_cto0l")
 
 [node name="Area2D_Portal_Travel" type="Area2D" parent="StaticBody2D"]
 
 [node name="CollisionShape_Portal_Travel" type="CollisionShape2D" parent="StaticBody2D/Area2D_Portal_Travel"]
-position = Vector2(146.5, 675.5)
+position = Vector2(33, 653.5)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_5eqwv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(204, 50)
+polygon = PackedVector2Array(31, -15, 65, -11, 83, 69, 93, 125, 101, 527, 57, 543, 30, 85)
 
 [node name="Collision_Houses" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-490, -348)
@@ -114,6 +101,38 @@ polygon = PackedVector2Array(-75, -165, -218, -48, -287, 164, -293, 401, -129, 4
 [node name="Collision_Houses2" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(740, -204)
 polygon = PackedVector2Array(-75, -165, -218, -48, -287, 164, -293, 401, -129, 405, 92, 403, 117, 180, 119, 84, 58, -81)
+
+[node name="CollisionShape_Railing" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(256, -442)
+shape = SubResource("RectangleShape2D_xvjpn")
+
+[node name="CollisionShape_Railing_2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5.5, -399.5)
+shape = SubResource("RectangleShape2D_xvjpn")
+
+[node name="CollisionShape_Railing_Low" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10, 287)
+shape = SubResource("RectangleShape2D_kguog")
+
+[node name="CollisionPolygon_Horse_Statue" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(364, 160)
+polygon = PackedVector2Array(37, 158, 5, 164, -5, 99, 39, 92, 64, 131, 97, 306, 112, 396, -5, 400, -4, 330, 11, 282, 24, 192)
+
+[node name="CollisionPolygon_Horse_Statue2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(322, -645)
+polygon = PackedVector2Array(37, 158, 5, 164, -5, 99, 39, 92, 64, 131, 82.3953, 228.55, 97, 306, 112, 396, -5, 400, -4, 330, 11, 282, 24, 192)
+
+[node name="CollisionPolygon_Horse_Statue3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-211, 165)
+polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 150, 68, 127, 80.5388, 218.705, 97, 306, 112, 396, -5, 400, -4, 330, 11, 282, 24, 192)
+
+[node name="CollisionPolygon_Horse_Statue4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-167, -651)
+polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 150, 68, 127, 80.5388, 218.705, 97, 306, 112, 396, -5, 400, -4, 330, 11, 282, 24, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(253.25, -249.25)
+shape = SubResource("RectangleShape2D_l38rq")
 
 [connection signal="body_entered" from="StaticBody2D/Area2D_Tree_Travel" to="." method="_on_area_2d_tree_travel_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Portal_Travel" to="." method="_on_area_2d_portal_travel_body_entered"]
