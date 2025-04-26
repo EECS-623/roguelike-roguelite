@@ -71,7 +71,6 @@ func upgrade_stat(stat_name: String, player) -> bool:
 				if player.has_node("HealthComponent"):
 					var health_component = player.get_node("HealthComponent")
 					health_component.max_health += MAX_HEALTH_BOOST
-					health_component.current_health += MAX_HEALTH_BOOST  # Also heal when upgrading max health
 					health_component.i_max_health.emit(health_component.max_health)
 					health_component.i_current_health.emit(health_component.current_health)
 				success = true
