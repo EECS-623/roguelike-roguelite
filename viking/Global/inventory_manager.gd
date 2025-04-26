@@ -93,6 +93,7 @@ func upgrade_stat(stat_name: String, player) -> bool:
 	# If upgrade was successful, spend the runes
 	if success:
 		Global.xp -= UPGRADE_COST
+		Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
 		stats_changed.emit()
 		
 	return success
