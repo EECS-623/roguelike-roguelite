@@ -5,6 +5,7 @@ class_name StateSpecialAbility extends PlayerState
 @onready var move: StateMove = $"../StateMove"
 @onready var hitbox: Hitbox = $"../../MeleeHitboxInteractions/Hitbox"
 @export var ability: SpecialAbilityComponent
+@onready var speed_component : SpeedComponent = $"../../SpeedComponent"
 
 var casting : bool = false
 func enter() -> void:
@@ -13,10 +14,10 @@ func enter() -> void:
 		ability = get_node("../../SpecialAbility/CastFireball")
 	elif Global.patron_god == 2:
 		ability = get_node("../../SpecialAbility/ForceField")
-
 	elif Global.patron_god == 3:
 		ability = get_node("../../SpecialAbility/Teleport")
-
+	
+	casting = true
 			
 	if await ability.cast_ability():
 		# Ability cast successful
@@ -32,17 +33,17 @@ func enter() -> void:
 	print(ability)
 	player.update_animation("idle")
 	#connects when animation player ends to "end attack" function
-	casting = true
-	if await ability.cast_ability():
+	#casting = true
+	#if await ability.cast_ability():
 		# Ability cast successful
-		await get_tree().create_timer(0.25).timeout
-		end_cast("cast")
-	else:
+	#	await get_tree().create_timer(0.25).timeout
+	#	end_cast("cast")
+	#else:
 		# Not enough mana
-		var mana_comp = player.get_node("ManaComponent")
+	#	var mana_comp = player.get_node("ManaComponent")
 		#if mana_comp:
 			#mana_comp.flash_mana_bar_red() # commented out to fix lightning and shield flash glitch
-		casting = false
+	#	casting = false
 
 # what happens when the entity exits a state
 func exit() -> void:
@@ -53,12 +54,18 @@ func exit() -> void:
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	
-	player.velocity = Vector2.ZERO
+	if casting:
+		player.velocity = Vector2.ZERO
+	else:
+		player.velocity = player.direction * speed_component.get_speed()
+	player.set_direction()
 	if !casting:
 		if player.direction == Vector2.ZERO:
+			idle.action_in_progress = false
 			print("idle now")
 			return idle
 		else:
+			move.action_in_progress = false
 			return move
 		
 	return null
