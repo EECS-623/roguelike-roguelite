@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var health_bar = $Control/HealthBar
 @onready var mana_bar = $Control/ManaBar
 @onready var inventory_button = $Control/InventoryButton
-
+var connected: bool = false
 var player
 var health_component
 var mana_component
@@ -21,6 +21,7 @@ func _on_inventory_button_pressed():
 
 # Call this function from any scene where you want the HUD to be visible
 func connect_to_player():
+	connected = true
 	player = get_tree().get_first_node_in_group("player")
 	print("HUD connecting to player: ", player != null)
 	

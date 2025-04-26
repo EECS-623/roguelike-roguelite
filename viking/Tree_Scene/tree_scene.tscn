@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://wfcljrigq7q4"]
+
+[ext_resource type="Texture2D" uid="uid://cddxt6rfemlrn" path="res://Map/Valhalla/New_Valhalla_Art/valhalla tree area.png" id="1_41u6e"]
+[ext_resource type="Script" path="res://Tree_Scene/tree_scene.gd" id="1_qvpjr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyam8"]
+size = Vector2(0.970001, 12.12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxic"]
+size = Vector2(20, 1.67)
+
+[node name="TreeScene" type="Node2D"]
+script = ExtResource("1_qvpjr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -600.0
+offset_right = 900.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_41u6e")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-951.5, -3.99997)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_vyam8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(951, 0)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_vyam8")
+
+[node name="Area2D_Home" type="Area2D" parent="StaticBody2D"]
+
+[node name="Collision_Go_to_Home" type="CollisionShape2D" parent="StaticBody2D/Area2D_Home"]
+position = Vector2(0, 661.5)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_mnxic")
+
+[node name="Area2D_Go_to_Boss" type="Area2D" parent="StaticBody2D"]
+
+[node name="Collision_Go_to_Boss" type="CollisionShape2D" parent="StaticBody2D/Area2D_Go_to_Boss"]
+position = Vector2(-3, -593)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_mnxic")
+
+[connection signal="body_entered" from="StaticBody2D/Area2D_Home" to="." method="_on_area_2d_home_body_entered"]
