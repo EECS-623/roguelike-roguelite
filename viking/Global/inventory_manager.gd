@@ -10,6 +10,12 @@ var speed_level = 0
 var mana_regen_level = 0
 var max_health_level = 0
 
+# Stat upgrade amounts
+const MELEE_DAMAGE_BOOST = 2    # Increases by 2 per level
+const SPEED_BOOST = 30          # Increases by 30 per level
+const MANA_REGEN_BOOST = 1.0    # Increases by 1.0 per level
+const MAX_HEALTH_BOOST = 15     # Increases by 15 per level
+
 # Signal when stats change
 signal stats_changed
 
@@ -35,15 +41,13 @@ func upgrade_stat(stat_name: String, player) -> bool:
 				melee_damage_level += 1
 				# Apply the stat boost to the player
 				if player.has_node("PhysicalDamageComponent"):
-					player.get_node("PhysicalDamageComponent").physical_damage += 1
+					player.get_node("PhysicalDamageComponent").physical_damage += MELEE_DAMAGE_BOOST
 				success = true
 				
 		"magic_ability":
 			if magic_ability_level < MAX_STAT_LEVEL:
 				magic_ability_level += 1
-				# Apply the stat boost to the player
-				if player.has_node("MagicDamageComponent"):
-					player.get_node("MagicDamageComponent").magic_damage += 1
+				# Wait on magic ability implementation for now
 				success = true
 				
 		"speed":
@@ -51,14 +55,14 @@ func upgrade_stat(stat_name: String, player) -> bool:
 				speed_level += 1
 				if player.has_node("SpeedComponent"):
 					player.get_node("SpeedComponent").set_speed(
-						player.get_node("SpeedComponent").speed + 10)
+						player.get_node("SpeedComponent").speed + SPEED_BOOST)
 				success = true
 				
 		"mana_regen":
 			if mana_regen_level < MAX_STAT_LEVEL:
 				mana_regen_level += 1
 				if player.has_node("ManaComponent"):
-					player.get_node("ManaComponent").mana_regeneration_rate += 0.5
+					player.get_node("ManaComponent").mana_regeneration_rate += MANA_REGEN_BOOST
 				success = true
 				
 		"max_health":
@@ -66,8 +70,8 @@ func upgrade_stat(stat_name: String, player) -> bool:
 				max_health_level += 1
 				if player.has_node("HealthComponent"):
 					var health_component = player.get_node("HealthComponent")
-					health_component.max_health += 10
-					health_component.current_health += 10  # Also heal when upgrading max health
+					health_component.max_health += MAX_HEALTH_BOOST
+					health_component.current_health += MAX_HEALTH_BOOST  # Also heal when upgrading max health
 					health_component.i_max_health.emit(health_component.max_health)
 					health_component.i_current_health.emit(health_component.current_health)
 				success = true

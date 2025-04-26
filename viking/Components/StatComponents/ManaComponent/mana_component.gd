@@ -2,7 +2,7 @@ extends Node
 class_name ManaComponent
 
 @export var max_mana: float = 100.0
-@export var mana_regeneration_rate: float = 10.0  # Mana points per second
+@export var mana_regeneration_rate: float = 5.0  # Mana points per second
 var current_mana: float
 
 signal i_current_mana(value: float)  # Signal for mana changes
