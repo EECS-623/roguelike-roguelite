@@ -1,14 +1,24 @@
 extends CanvasLayer
 
-@onready var health_bar = $Control/HealthBar   
-@onready var speed_bar = $Control/SpeedBar     
-@onready var health_upgrade_btn = $Control/HealthButton   
-@onready var speed_upgrade_btn = $Control/SpeedButton     
+@onready var melee_damage_bar = $Control/MeleeDamageBar
+@onready var magic_ability_bar = $Control/MagicAbilityBar
+@onready var speed_bar = $Control/SpeedBar    
+@onready var mana_regen_bar = $Control/ManaRegenBar
+@onready var max_health_bar = $Control/MaxHealthBar   
+ 
+@onready var melee_damage_btn = $Control/MeleeDamageButton
+@onready var magic_ability_btn = $Control/MagicAbilityButton
+@onready var speed_btn = $Control/SpeedButton
+@onready var mana_regen_btn = $Control/ManaRegenButton
+@onready var max_health_btn = $Control/MaxHealthButton
+	
 @onready var rune_count_label = $Control/RuneCount     
 
 var player
 var health_component
 var speed_component
+var mana_componenet
+
 
 # Stat max values
 const MAX_HEALTH = 200

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cgabimmw8awtu"]
+[gd_scene load_steps=2 format=3 uid="uid://cgabimmw8awtu"]
+
+[ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
 
 [node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_x7e21")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -13,7 +16,12 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HealthBar" type="ProgressBar" parent="Control"]
+[node name="MeleeDamageBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 26.0
+
+[node name="MagicAbilityBar" type="ProgressBar" parent="Control"]
 layout_mode = 0
 offset_right = 4.0
 offset_bottom = 26.0
@@ -23,12 +31,37 @@ layout_mode = 0
 offset_right = 4.0
 offset_bottom = 26.0
 
-[node name="HealthButton" type="TextureButton" parent="Control"]
+[node name="ManaRegenBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 26.0
+
+[node name="MaxHealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 26.0
+
+[node name="MeleeDamageButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MagicAbilityButton" type="TextureButton" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SpeedButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ManaRegenButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MaxHealthButton" type="TextureButton" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
