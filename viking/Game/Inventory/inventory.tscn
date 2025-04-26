@@ -1,10 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgabimmw8awtu"]
+[gd_scene load_steps=16 format=3 uid="uid://cgabimmw8awtu"]
 
 [ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
 [ext_resource type="Texture2D" uid="uid://ckryhis5u3knp" path="res://Assets/Art/HUD/Final Stat Box.png" id="2_smiq0"]
 [ext_resource type="Texture2D" uid="uid://c8gs77b5u75fr" path="res://Assets/Art/HUD/Plus Box.png" id="3_kjioq"]
 [ext_resource type="Texture2D" uid="uid://bmv27yph1e7mt" path="res://Assets/Art/HUD/Stat Box Rune Counter Icon.png" id="3_ylby3"]
 [ext_resource type="Texture2D" uid="uid://boqcamfafiuj0" path="res://Assets/Art/HUD/Grey Box.png" id="4_qna3u"]
+
+[sub_resource type="Gradient" id="Gradient_fu21e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fhco"]
+gradient = SubResource("Gradient_fu21e")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_rp8uh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_suss5"]
+gradient = SubResource("Gradient_rp8uh")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_ra6nf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j2vsi"]
+gradient = SubResource("Gradient_ra6nf")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_1tfy1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hbj1x"]
+gradient = SubResource("Gradient_1tfy1")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_a6h2i"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jiart"]
+gradient = SubResource("Gradient_a6h2i")
+width = 106
+height = 6
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_x7e21")
@@ -41,6 +81,9 @@ offset_left = 212.0
 offset_top = 531.0
 offset_right = 318.0
 offset_bottom = 536.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_8fhco")
+tint_progress = Color(0.254902, 0.509804, 0.72549, 1)
 
 [node name="MagicAbilityBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
@@ -48,6 +91,9 @@ offset_left = 212.0
 offset_top = 570.0
 offset_right = 318.0
 offset_bottom = 576.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_suss5")
+tint_progress = Color(0.258824, 0.796078, 0.211765, 1)
 
 [node name="SpeedBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
@@ -55,6 +101,9 @@ offset_left = 212.0
 offset_top = 610.0
 offset_right = 318.0
 offset_bottom = 616.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_j2vsi")
+tint_progress = Color(0.87451, 0.545098, 0.254902, 1)
 
 [node name="ManaRegenBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
@@ -62,6 +111,9 @@ offset_left = 353.0
 offset_top = 531.0
 offset_right = 459.0
 offset_bottom = 536.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_hbj1x")
+tint_progress = Color(0.627451, 0.360784, 0.776471, 1)
 
 [node name="MaxHealthBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
@@ -69,6 +121,9 @@ offset_left = 353.0
 offset_top = 570.0
 offset_right = 459.0
 offset_bottom = 576.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_jiart")
+tint_progress = Color(0.792157, 0.231373, 0.176471, 1)
 
 [node name="RuneCount" type="Label" parent="Control"]
 layout_mode = 0

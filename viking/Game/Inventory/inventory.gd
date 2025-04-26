@@ -32,6 +32,13 @@ func _ready():
 	# Start hidden by default
 	visible = false
 	
+	# Hide all MAX labels initially
+	melee_damage_max.visible = false
+	magic_ability_max.visible = false
+	speed_max.visible = false
+	mana_regen_max.visible = false
+	max_health_max.visible = false
+	
 	# Connect button signals
 	melee_damage_btn.pressed.connect(_on_melee_damage_upgrade_pressed)
 	magic_ability_btn.pressed.connect(_on_magic_ability_upgrade_pressed)
@@ -100,13 +107,11 @@ func update_display():
 	_update_buttons()
 
 func _update_buttons():
-	# Check rune count directly from Global
 	var has_enough_runes = Global.xp >= InventoryManager.UPGRADE_COST
 	
 	# Update melee damage button
 	var melee_level = InventoryManager.get_stat_level("melee_damage")
-	var melee_max = InventoryManager.get_stat_max_level("melee_damage")
-	if melee_level >= melee_max:
+	if melee_level >= InventoryManager.MAX_STAT_LEVEL:
 		melee_damage_btn.visible = false
 		melee_damage_max.visible = true
 	else:
@@ -115,8 +120,7 @@ func _update_buttons():
 	
 	# Update magic ability button
 	var magic_level = InventoryManager.get_stat_level("magic_ability")
-	var magic_max = InventoryManager.get_stat_max_level("magic_ability")
-	if magic_level >= magic_max:
+	if magic_level >= InventoryManager.MAX_STAT_LEVEL:
 		magic_ability_btn.visible = false
 		magic_ability_max.visible = true
 	else:
@@ -125,8 +129,7 @@ func _update_buttons():
 	
 	# Update speed button
 	var speed_level = InventoryManager.get_stat_level("speed")
-	var speed_max = InventoryManager.get_stat_max_level("speed")
-	if speed_level >= speed_max:
+	if speed_level >= InventoryManager.MAX_STAT_LEVEL:
 		speed_btn.visible = false
 		speed_max.visible = true
 	else:
@@ -135,8 +138,7 @@ func _update_buttons():
 	
 	# Update mana regen button
 	var mana_level = InventoryManager.get_stat_level("mana_regen")
-	var mana_max = InventoryManager.get_stat_max_level("mana_regen")
-	if mana_level >= mana_max:
+	if mana_level >= InventoryManager.MAX_STAT_LEVEL:
 		mana_regen_btn.visible = false
 		mana_regen_max.visible = true
 	else:
@@ -145,8 +147,7 @@ func _update_buttons():
 	
 	# Update max health button
 	var health_level = InventoryManager.get_stat_level("max_health")
-	var health_max = InventoryManager.get_stat_max_level("max_health")
-	if health_level >= health_max:
+	if health_level >= InventoryManager.MAX_STAT_LEVEL:
 		max_health_btn.visible = false
 		max_health_max.visible = true
 	else:
