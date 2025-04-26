@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgabimmw8awtu"]
+[gd_scene load_steps=3 format=3 uid="uid://cgabimmw8awtu"]
 
 [ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
+[ext_resource type="Texture2D" uid="uid://ckryhis5u3knp" path="res://Assets/Art/HUD/Final Stat Box.png" id="2_smiq0"]
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_x7e21")
@@ -13,38 +14,55 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 88.0
+offset_top = 416.0
+offset_right = 1200.0
+offset_bottom = 712.0
+texture = ExtResource("2_smiq0")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="MeleeDamageBar" type="ProgressBar" parent="Control"]
+[node name="MeleeDamageBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 26.0
+offset_left = 212.0
+offset_top = 531.0
+offset_right = 318.0
+offset_bottom = 536.0
 
-[node name="MagicAbilityBar" type="ProgressBar" parent="Control"]
+[node name="MagicAbilityBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 26.0
+offset_left = 212.0
+offset_top = 570.0
+offset_right = 318.0
+offset_bottom = 576.0
 
-[node name="SpeedBar" type="ProgressBar" parent="Control"]
+[node name="SpeedBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 26.0
+offset_left = 212.0
+offset_top = 610.0
+offset_right = 318.0
+offset_bottom = 616.0
 
-[node name="ManaRegenBar" type="ProgressBar" parent="Control"]
+[node name="ManaRegenBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 26.0
+offset_left = 353.0
+offset_top = 531.0
+offset_right = 459.0
+offset_bottom = 536.0
 
-[node name="MaxHealthBar" type="ProgressBar" parent="Control"]
+[node name="MaxHealthBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 26.0
+offset_left = 353.0
+offset_top = 570.0
+offset_right = 459.0
+offset_bottom = 576.0
 
 [node name="MeleeDamageButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 184.0
+offset_top = 272.0
+offset_right = 320.0
+offset_bottom = 384.0
 
 [node name="MagicAbilityButton" type="TextureButton" parent="Control"]
 layout_mode = 0
