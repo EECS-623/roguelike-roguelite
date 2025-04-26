@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://5mwxhpnm647w"]
 
-[ext_resource type="Script" path="res://Map/Valhalla/valhalla.gd" id="2_ds18k"]
+[ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_ds18k"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
 [ext_resource type="WwiseState" uid="uid://dvsjx3fm6qxqu" path="res://Wwise/resources/State/{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}.tres" id="7_qeyeg"]
 [ext_resource type="WwiseState" uid="uid://djuhga2g8bl2d" path="res://Wwise/resources/State/{8DF788D8-2055-47C7-A392-11D06E665614}.tres" id="8_noni0"]
@@ -28,7 +28,7 @@ size = Vector2(48, 582)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l38rq"]
 size = Vector2(60.5, 64.5)
 
-[node name="Valhalla" type="Node2D"]
+[node name="Home" type="Node2D"]
 position = Vector2(-1, 1)
 script = ExtResource("2_ds18k")
 

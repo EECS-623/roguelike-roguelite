@@ -47,4 +47,5 @@ func _on_area_2d_portal_travel_body_entered(body: Node2D) -> void:
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
+		#PlayerManager.player.global_position = Vector2(0,520)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/Portal_Scene/Portal_Scene.tscn")
