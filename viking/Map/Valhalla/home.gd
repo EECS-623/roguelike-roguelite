@@ -39,7 +39,7 @@ func _on_area_2d_tree_travel_body_entered(body: Node2D) -> void:
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Tree_Scene/tree_scene.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/Tree_Scene/tree_scene.tscn")
 
 
 func _on_area_2d_portal_travel_body_entered(body: Node2D) -> void:

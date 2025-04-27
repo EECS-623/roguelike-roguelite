@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wfcljrigq7q4"]
 
 [ext_resource type="Texture2D" uid="uid://cddxt6rfemlrn" path="res://Map/Valhalla/New_Valhalla_Art/valhalla tree area.png" id="1_41u6e"]
-[ext_resource type="Script" path="res://Tree_Scene/tree_scene.gd" id="1_qvpjr"]
+[ext_resource type="Script" path="res://Map/Valhalla/Tree_Scene/tree_scene.gd" id="1_qvpjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4lif"]
 size = Vector2(592.766, 92.6125)
