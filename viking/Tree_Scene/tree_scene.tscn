@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://wfcljrigq7q4"]
+[gd_scene load_steps=7 format=3 uid="uid://wfcljrigq7q4"]
 
 [ext_resource type="Texture2D" uid="uid://cddxt6rfemlrn" path="res://Map/Valhalla/New_Valhalla_Art/valhalla tree area.png" id="1_41u6e"]
 [ext_resource type="Script" path="res://Tree_Scene/tree_scene.gd" id="1_qvpjr"]
@@ -11,6 +11,9 @@ size = Vector2(0.970001, 12.12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxic"]
 size = Vector2(17.9673, 0.289304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xq3gl"]
+size = Vector2(20, 0.68)
 
 [node name="TreeScene" type="Node2D"]
 script = ExtResource("1_qvpjr")
@@ -58,6 +61,11 @@ scale = Vector2(0.997924, 1)
 position = Vector2(0.501056, 603.5)
 scale = Vector2(100, 100.241)
 shape = SubResource("RectangleShape2D_mnxic")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(24, -600)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_xq3gl")
 
 [connection signal="body_entered" from="StaticBody2D/Area2D_to_Loki" to="." method="_on_area_2d_to_loki_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Home" to="." method="_on_area_2d_home_body_entered"]

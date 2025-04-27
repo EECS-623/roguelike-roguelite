@@ -14,10 +14,10 @@ size = Vector2(0.620001, 12.17)
 size = Vector2(1.805, 12.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vph3o"]
-size = Vector2(18.13, 1.08)
+size = Vector2(18.13, 0.22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eqwv"]
-size = Vector2(18.64, 2.01)
+size = Vector2(18.64, 0.14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvjpn"]
 size = Vector2(27, 395)
@@ -79,14 +79,14 @@ expand_mode = 1
 [node name="Area2D_Tree_Travel" type="Area2D" parent="StaticBody2D"]
 
 [node name="Collision_Travel_to_Tree" type="CollisionShape2D" parent="StaticBody2D/Area2D_Tree_Travel"]
-position = Vector2(5.49997, -616)
+position = Vector2(22, -455)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_vph3o")
 
 [node name="Area2D_Portal_Travel" type="Area2D" parent="StaticBody2D"]
 
 [node name="CollisionShape_Portal_Travel" type="CollisionShape2D" parent="StaticBody2D/Area2D_Portal_Travel"]
-position = Vector2(33, 653.5)
+position = Vector2(41, 483)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_5eqwv")
 
