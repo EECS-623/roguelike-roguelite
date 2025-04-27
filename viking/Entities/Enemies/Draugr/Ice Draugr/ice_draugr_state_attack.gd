@@ -61,6 +61,7 @@ func _on_hitbox_hit(body: Variant) -> void:
 		body_parent.apply_status_effect(freeze_effect)
 
 func _on_player_melee_hit(body) -> void:
+	var entity = body.get_parent().get_parent()
 	#this code is so bad lmao
-	if body.get_parent().get_parent().is_in_group("player"):
+	if entity.is_in_group("player") and body.is_melee:
 		staggered = true

@@ -7,10 +7,12 @@ var attacking : bool = false
 @onready var idle : State = $"../DashDraugrStateIdle"
 @onready var hitbox: Hitbox = $"../../Hitbox"
 @onready var raycast_component = $"../../RaycastComponent"
+@onready var stagger = $"../VolvaStateStagger"
+var staggered: bool = false
 
 func enter() -> void:
 	dash_draugr.update_animation("attack")
-	
+	staggered = false
 	#connects when animation player ends to "end attack" function
 	animation_player.animation_finished.connect( end_attack )
 	attacking = true
@@ -28,6 +30,9 @@ func exit() -> void:
 # what happens during _process of the state
 func state_process(delta : float) -> State:
 	dash_draugr.velocity = Vector2.ZERO
+
+	if staggered:
+		return stagger
 	
 	if !attacking:
 		return idle
@@ -50,3 +55,9 @@ func rotate_hitbox() -> void:
 		var player = raycast_component.player
 		var direction = (player.global_position - dash_draugr.global_position).normalized()
 		hitbox.rotation = direction.angle()
+
+func _on_player_melee_hit(body) -> void:
+	var entity = body.get_parent().get_parent()
+	#this code is so bad lmao
+	if entity.is_in_group("player") and body.is_melee:
+		staggered = true

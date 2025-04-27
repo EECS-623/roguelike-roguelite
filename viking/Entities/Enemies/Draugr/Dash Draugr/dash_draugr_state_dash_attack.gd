@@ -5,14 +5,17 @@ class_name DashDraugrStateDashAttack extends State
 @onready var idle : State = $"../DashDraugrStateIdle"
 @onready var hitbox: Hitbox = $"../../Hitbox"
 @onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
+@onready var stagger = $"../VolvaStateStagger"
 
 var attacking : bool = false
 var begin_attack: bool = false
 var distance: float = 100.0
 var direction: Vector2
 var max_dash_distance = 300
+var staggered: bool = false
 
 func enter() -> void:
+	staggered = false
 	begin_attack = false
 	if raycast_component.player:
 		var dir = (raycast_component.player.global_position - dash_draugr.global_position).normalized()
@@ -35,7 +38,10 @@ func exit() -> void:
 	
 # what happens during _process of the state
 func state_process(delta : float) -> State:
-	
+
+	if staggered:
+		return stagger
+
 	if begin_attack:
 		dash_draugr.velocity = direction * (distance / 0.4)
 	else:
@@ -74,3 +80,9 @@ func dash_attack() -> void:
 	#	var direction = (player.global_position - dash_draugr.global_position).normalized()
 	#	distance = player.global_position.distance_to(dash_draugr.global_position) - 150
 	#	dash_draugr.velocity = direction * (distance / 0.4)
+
+func _on_player_melee_hit(body) -> void:
+	var entity = body.get_parent().get_parent()
+	#this code is so bad lmao
+	if entity.is_in_group("player") and body.is_melee:
+		staggered = true

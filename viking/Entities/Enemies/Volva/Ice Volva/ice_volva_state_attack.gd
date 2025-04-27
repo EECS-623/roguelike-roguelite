@@ -68,6 +68,7 @@ func fire_bullet(initial_position: Vector2) -> void:
 	ice_volva.add_child(spell)
 	
 func _on_player_melee_hit(body) -> void:
+	var entity = body.get_parent().get_parent()
 	#this code is so bad lmao
-	if body.get_parent().get_parent().is_in_group("player"):
+	if entity.is_in_group("player") and body.is_melee:
 		staggered = true
