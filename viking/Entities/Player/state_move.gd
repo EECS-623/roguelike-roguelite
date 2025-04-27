@@ -32,10 +32,10 @@ func state_physics_process(delta: float) -> State:
 # what happens when obtaining an input in this state
 func handle_input(_event : InputEvent) -> State:
 	if _event is InputEventMouseButton and _event.pressed:
-		if _event.button_index == MOUSE_BUTTON_LEFT and !action_in_progress:
-			action_in_progress = true
+		if _event.button_index == MOUSE_BUTTON_LEFT:
+			#action_in_progress = true
 			return melee_attack
-		elif _event.button_index == MOUSE_BUTTON_RIGHT and !action_in_progress:
-			action_in_progress = true
+		elif _event.button_index == MOUSE_BUTTON_RIGHT:
+			#action_in_progress = true
 			return special_ability
 	return null

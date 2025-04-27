@@ -61,11 +61,11 @@ func state_process(delta : float) -> State:
 	player.set_direction()
 	if !casting:
 		if player.direction == Vector2.ZERO:
-			idle.action_in_progress = false
+			#idle.action_in_progress = false
 			print("idle now")
 			return idle
 		else:
-			move.action_in_progress = false
+			#move.action_in_progress = false
 			return move
 		
 	return null

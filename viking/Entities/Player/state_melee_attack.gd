@@ -25,16 +25,16 @@ func exit() -> void:
 func state_process(delta : float) -> State:
 	
 	if attacking:
-		#player.velocity = Vector2.ZERO
-		pass
+		player.velocity = Vector2.ZERO
+		#pass
 	else:
 		player.velocity = player.direction * speed_component.get_speed()
 	if !attacking:
 		if player.direction == Vector2.ZERO:
-			idle.action_in_progress = false
+			#idle.action_in_progress = false
 			return idle
 		else:
-			move.action_in_progress = false
+			#move.action_in_progress = false
 			return move
 		
 	return null

@@ -893,6 +893,7 @@ script = ExtResource("21_buioh")
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("5_6and8")
+is_melee = true
 damage = 10.0
 physical_damage = NodePath("../../PhysicalDamageComponent")
 magic_damage = NodePath("../../MagicDamageComponent")

@@ -5,6 +5,7 @@ extends Area2D
 class_name Hitbox
 
 @export var is_magic : bool
+@export var is_melee : bool
 @export var damage: float = 0 : set = set_damage, get = get_damage
 @export var physical_damage : PhysicalDamageComponent
 @export var magic_damage : MagicDamageComponent
