@@ -188,11 +188,11 @@ func cast_ability() -> bool:
 					var old_camera_position = camera.global_position
 					player.global_position = end_position
 					teleport = false
+					start_camera_lerp(old_camera_position, player.global_position)
+					
 					await get_tree().create_timer(.5).timeout
 					for selected_enemy in enemies_to_free:
 						selected_enemy.take_damage(150)
-
-					start_camera_lerp(old_camera_position, player.global_position)
 
 					teleport = true
 					teleport_begun = false
