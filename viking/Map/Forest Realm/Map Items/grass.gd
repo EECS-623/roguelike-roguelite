@@ -5,4 +5,4 @@ func _ready() -> void:
 	scale = 0.1 + 0.1* scale 
 	
 	set_scale(Vector2(scale,scale))
-	z_index = -1	
+	#z_index = -1	
