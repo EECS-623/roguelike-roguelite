@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		dialogue_started = true
 		var dialogue_ui = player_body.get_node("DialogueUI")
 		dialogue = dialogue_ui
-		play_dialogue("res://Game/Dialogue/odin-1.json")
+		play_dialogue("res://Game/Dialogue/odin-valhalla-1.json")
 
 func _on_npc_interaction_area_player_entered(body: CharacterBody2D) -> void:
 	player_body = body

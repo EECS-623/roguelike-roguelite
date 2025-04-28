@@ -1,0 +1,12 @@
+[
+	{"name": "[center]Loki[/center]", "text": "Hmm?"},
+	{"name": "[center]Loki[/center]", "text": "Hello, [color=#FF0000][i]FOOL,[/i][/color] have you come to stop me?"},
+	{"name": "[center]Loki[/center]", "text": "A futile effort, my godly power far exceeds your own!"},
+	{"name": "[center]Loki[/center]", "text": "Ah, I see..."},
+	{"name": "[center]Loki[/center]", "text": "Despite it all, your resolve remains unwavered"},
+	{"name": "[center]Loki[/center]", "text": "hehehehehe"},
+	{"name": "[center]Loki[/center]", "text": "You cannot hope to prevent [color=#00BFFF][i]Ragnarök![/i][/color]"},
+	{"name": "[center]Loki[/center]", "text": "Show me your tenacity, Champion of Freya!", "condition": "freya"},
+	{"name": "[center]Loki[/center]", "text": "Show me your strength, Champion of Thor!", "condition": "thor"},
+	{"name": "[center]Loki[/center]", "text": "Show me your valor, Champion of Tyr!", "condition": "tyr"}
+]
