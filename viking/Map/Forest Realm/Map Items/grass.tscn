@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Map/Forest Realm/Map Items/grass.gd" id="2_1j4yb"]
 
 [node name="Tree" type="Sprite2D"]
-z_index = 1
+z_index = 2
 texture = ExtResource("1_i4xv5")
 script = ExtResource("2_1j4yb")
 
