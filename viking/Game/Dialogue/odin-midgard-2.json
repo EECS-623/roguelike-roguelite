@@ -1,10 +1,9 @@
 [
 	{"name": "[center]Odin[/center]", "text": "[color=#FF0000][i]WARRIOR![/i][/color]"},
-	{"name": "[center]Odin[/center]", "text": "Welcome to [color=#32CD32][i]Midgard[/i][/color], the Human Realm! "},
-	{"name": "[center]Odin[/center]", "text": "What once was a peaceful realm, has become a calamity, thanks to Jörmungandr..."},
-	{"name": "[center]Odin[/center]", "text": "He has laid his deadly thorns all over this once beautiful land, be cautious or they’ll injure you!"},
-	{"name": "[center]Odin[/center]", "text": "If you’re feeling weary, this Apple Tree may help to recover your strength so you can battle on"},
-	{"name": "[center]Odin[/center]", "text": "Jörmungandr’s Den lies behind the thorn protected door, you’ll need to gather all 3 keys before you may challenge him"},
-	{"name": "[center]Odin[/center]", "text": "Find them all and return here to prepare for the ensuing battle"},
-	{"name": "[center]Odin[/center]", "text": "Good luck, [color=#FF0000][i]WARRIOR![/i][/color]", "condition": "freya"},
+	{"name": "[center]Odin[/center]", "text": "You’ve found the keys, and may now face off against the mighty [color=#771f6c][i]Jörmungandr[/i][/color]"},
+	{"name": "[center]Odin[/center]", "text": "Heed my words and you’ll live to fight another day:"},
+	{"name": "[center]Odin[/center]", "text": "Beware of his mighty bite! It’s vicious, but leaves an opportunity to strike back"},
+	{"name": "[center]Odin[/center]", "text": "His venomous spit will cover the battlefield, be careful not to step in the lingering pools of acid!"},
+	{"name": "[center]Odin[/center]", "text": "Travel North, and you’ll find the serpent’s den"},
+	{"name": "[center]Odin[/center]", "text": "The World Serpent is a formidable beast but keep strong [color=#FF0000][i]WARRIOR[/i][/color] and you’ll defeat him!"},
 ]
