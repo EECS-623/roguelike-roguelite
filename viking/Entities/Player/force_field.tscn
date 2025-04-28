@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cohebo0cbsqan"]
+
+[ext_resource type="Script" path="res://Entities/Player/force_field.gd" id="1_gvda2"]
+
+[node name="ForceField" type="Node"]
+script = ExtResource("1_gvda2")

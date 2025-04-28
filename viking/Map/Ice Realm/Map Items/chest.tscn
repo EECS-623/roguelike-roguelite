@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bihse5gq366cp"]
+
+[ext_resource type="Script" path="res://Map/Ice Realm/Map Items/chest.gd" id="1_ldnqd"]
+[ext_resource type="Texture2D" uid="uid://d3t5i26qj83fn" path="res://Map/Ice Realm/Map Items/ice chest closed.png" id="2_nqxc4"]
+[ext_resource type="Texture2D" uid="uid://cq2ahgww7vptt" path="res://Map/Ice Realm/Map Items/ice chest open.png" id="3_0cabb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w04jp"]
+size = Vector2(1233.33, 767.708)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u8gd"]
+size = Vector2(1700, 2577.92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_win2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nqxc4")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0cabb")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Chest" type="StaticBody2D"]
+z_index = 1
+position = Vector2(-4, 1)
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(160, -99.3754)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_w04jp")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1.52588e-05, 1.90735e-06)
+script = ExtResource("1_ldnqd")
+
+[node name="InteractZone" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(99.9999, 593.25)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_1u8gd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_win2f")
+animation = &"open"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -5,6 +5,7 @@ extends Area2D
 class_name Hitbox
 
 @export var is_magic : bool
+@export var is_melee : bool
 @export var damage: float = 0 : set = set_damage, get = get_damage
 @export var physical_damage : PhysicalDamageComponent
 @export var magic_damage : MagicDamageComponent
@@ -24,3 +25,7 @@ func set_damage(value: float):
 	
 func get_damage() -> float:
 	return damage
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		hit.emit(body)

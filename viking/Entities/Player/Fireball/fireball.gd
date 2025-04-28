@@ -8,6 +8,7 @@ var rotation_angle
 func _ready() -> void:
 	#add_to_group("player")
 	##direction = direction.normalized()
+	$AnimatedSprite2D.play("lightning")
 	var timer = Timer.new()
 	add_child(timer)
 	timer.one_shot = true

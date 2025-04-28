@@ -1,0 +1,71 @@
+class_name Volva extends CharacterBody2D
+
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var volva_state_machine : VolvaStateMachine = $VolvaStateMachine
+@onready var speed_component: SpeedComponent = $SpeedComponent
+
+var direction : Vector2 = Vector2.ZERO
+var cardinal_direction: Vector2 = Vector2.ZERO
+var state = "idle"
+var player : CharacterBody2D
+signal change_hitbox_direction( new_direction: Vector2 )
+
+var summon = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	add_to_group("enemy")
+	
+	if summon:
+		animation_player.play("summon")
+		await get_tree().create_timer(1).timeout
+	
+	volva_state_machine.initialize(self)
+	#waggro_range.connect()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
+	#global_position += velocity
+	#velocity = direction * speed_component.get_speed()
+	move_and_collide(velocity * delta)
+
+func set_direction() -> bool:
+	var new_direction : Vector2 = cardinal_direction
+	if direction == Vector2.ZERO:
+		return false
+	if abs(direction.x) > abs(direction.y):
+		new_direction = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
+	else:
+		new_direction = Vector2.DOWN if direction.y > 0 else Vector2.UP
+		
+	if new_direction == cardinal_direction:
+		return false
+	
+	cardinal_direction = new_direction
+	change_hitbox_direction.emit(cardinal_direction)
+	return true
+
+func update_animation( state: String ) -> void:
+	animation_player.play( state + "_" + animation_direction())
+
+func animation_direction() -> String:
+	if cardinal_direction == Vector2.DOWN:
+		return "down"
+	elif cardinal_direction == Vector2.UP:
+		return "up"
+	elif cardinal_direction == Vector2.LEFT:
+		return "left"
+	else:
+		return "right"
+
+func _on_health_component_death() -> void:
+	Global.xp += 1
+	queue_free()
+
+func _on_health_component_t_damage(amount: float) -> void:
+	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1,1,1,1)

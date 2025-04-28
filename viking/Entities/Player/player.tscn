@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=63 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="2_2frng"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_11bys"]
@@ -24,24 +24,24 @@
 [ext_resource type="Script" path="res://Components/StatComponents/HealthComponent/health_component.gd" id="16_ulyav"]
 [ext_resource type="Script" path="res://Components/StatComponents/SpeedComponent/speed_component.gd" id="17_a22r0"]
 [ext_resource type="Script" path="res://Components/StatComponents/ManaComponent/mana_component.gd" id="18_6hj8y"]
-[ext_resource type="Script" path="res://Entities/Player/canvas_layer.gd" id="19_4ip0g"]
 [ext_resource type="Script" path="res://Components/StatComponents/MagicDamageComponent/magic_damage_component.gd" id="19_rymoq"]
 [ext_resource type="Texture2D" uid="uid://0kf7jjt4hsgo" path="res://Entities/Effects/Melee Hit Effect.png" id="20_1bccj"]
 [ext_resource type="Script" path="res://Components/StatComponents/PhysicalDamageComponent/physical_damage_component.gd" id="20_hmsjh"]
 [ext_resource type="Script" path="res://Entities/Player/melee_hitbox_interactions.gd" id="21_buioh"]
 [ext_resource type="Script" path="res://Components/StatComponents/LuckComponent/luck_component.gd" id="21_mbuf2"]
 [ext_resource type="Script" path="res://Entities/Player/state_idle.gd" id="23_qyisa"]
+[ext_resource type="PackedScene" uid="uid://bvfb7xowrwgnh" path="res://Entities/Player/cast_fireball.tscn" id="24_po0fm"]
 [ext_resource type="Script" path="res://Entities/Player/state_move.gd" id="24_vnqw2"]
 [ext_resource type="Script" path="res://Entities/Player/state_melee_attack.gd" id="25_7u812"]
+[ext_resource type="PackedScene" uid="uid://cohebo0cbsqan" path="res://Entities/Player/force_field.tscn" id="25_aejhs"]
 [ext_resource type="Script" path="res://Entities/Player/teleport.gd" id="25_c7d0u"]
 [ext_resource type="Script" path="res://Entities/Player/state_special_ability.gd" id="27_4h18t"]
 [ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]
-[ext_resource type="Script" path="res://Components/SpecialAbilityComponent/cast_fireball.gd" id="35_ratt1"]
-[ext_resource type="Texture2D" uid="uid://gbvq7qkrb6di" path="res://Assets/Art/force_field.png" id="36_pbs0n"]
 [ext_resource type="Script" path="res://Entities/Player/camera_2d.gd" id="37_dpfyb"]
-[ext_resource type="Script" path="res://Entities/Player/force_field.gd" id="37_shw6h"]
 [ext_resource type="PackedScene" uid="uid://bnnuln6wj2vki" path="res://Game/DialogueUI/DialogueUI.tscn" id="39_vyhy8"]
+[ext_resource type="Texture2D" uid="uid://canjlmt2h3cmw" path="res://Assets/Art/Protection Shield.png" id="40_kub50"]
 [ext_resource type="Script" path="res://Components/WwiseManager/wwise_manager.gd" id="42_6t5ky"]
+[ext_resource type="Script" path="res://Components/StatusEffects/status_effect_manager.gd" id="43_xg10m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yot1s"]
 animations = [{
@@ -264,6 +264,9 @@ animations = [{
 "name": &"move_up",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqdyn"]
+radius = 8.19888
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rk0fa"]
 radius = 20.025
@@ -686,6 +689,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [7, 6, 7, 5]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_lvx5v"]
 resource_name = "move_left"
@@ -703,6 +726,26 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 10, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.4, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_c5bsf"]
@@ -722,6 +765,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [14, 15, 14, 15]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.433333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_besu3"]
 resource_name = "move_up"
@@ -739,6 +802,26 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [2, 1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WwiseManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}, {
+"args": ["FOOTSTEP_SOFTGROUND"],
+"method": &"play_wwise_event"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tal4c"]
@@ -769,6 +852,15 @@ sprite_frames = SubResource("SpriteFrames_yot1s")
 animation = &"animation_frames"
 frame = 4
 
+[node name="ShieldDamage" type="Area2D" parent="."]
+position = Vector2(43, 0)
+scale = Vector2(0.0841667, 0.0841667)
+
+[node name="ShieldCollision" type="CollisionShape2D" parent="ShieldDamage"]
+position = Vector2(-510.891, 59.4059)
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_qqdyn")
+
 [node name="MeleeEffect" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(43, 0)
@@ -797,11 +889,14 @@ shape = SubResource("CapsuleShape2D_77rnh")
 [node name="MeleeHitboxInteractions" type="Node2D" parent="."]
 script = ExtResource("21_buioh")
 
-[node name="Hitbox" type="Area2D" parent="MeleeHitboxInteractions"]
+[node name="Hitbox" type="Area2D" parent="MeleeHitboxInteractions" node_paths=PackedStringArray("physical_damage", "magic_damage")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("5_6and8")
+is_melee = true
 damage = 10.0
+physical_damage = NodePath("../../PhysicalDamageComponent")
+magic_damage = NodePath("../../MagicDamageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitboxInteractions/Hitbox"]
 position = Vector2(43, 0)
@@ -810,11 +905,9 @@ disabled = true
 
 [node name="SpecialAbility" type="Node2D" parent="."]
 
-[node name="CastFireball" type="Node" parent="SpecialAbility"]
-script = ExtResource("35_ratt1")
+[node name="CastFireball" parent="SpecialAbility" instance=ExtResource("24_po0fm")]
 
-[node name="ForceField" type="Node" parent="SpecialAbility"]
-script = ExtResource("37_shw6h")
+[node name="ForceField" parent="SpecialAbility" instance=ExtResource("25_aejhs")]
 
 [node name="Teleport" type="Node" parent="SpecialAbility"]
 script = ExtResource("25_c7d0u")
@@ -837,9 +930,11 @@ speed_component = NodePath("../../SpeedComponent")
 [node name="StateMeleeAttack" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("25_7u812")
 
-[node name="StateSpecialAbility" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ability")]
+[node name="StateSpecialAbility" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("27_4h18t")
-ability = NodePath("../../SpecialAbility/CastFireball")
+
+[node name="StatusEffectManager" type="Node" parent="."]
+script = ExtResource("43_xg10m")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("16_ulyav")
@@ -867,61 +962,25 @@ luck = 10.0
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("37_dpfyb")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("19_4ip0g")
-
-[node name="Relics" type="TextEdit" parent="CanvasLayer"]
-offset_left = 986.0
-offset_top = 577.0
-offset_right = 1080.0
-offset_bottom = 610.0
-
-[node name="XP" type="TextEdit" parent="CanvasLayer"]
-offset_left = 985.0
-offset_top = 533.0
-offset_right = 1079.0
-offset_bottom = 565.0
-
-[node name="Bullet_Speed" type="Button" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 512.0
-offset_right = 142.0
-offset_bottom = 561.0
-text = "Bullet Speed"
-
-[node name="Health" type="Button" parent="CanvasLayer"]
-offset_left = 17.0
-offset_top = 464.0
-offset_right = 143.0
-offset_bottom = 506.0
-text = "Health"
-
-[node name="Speed" type="Button" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 567.0
-offset_right = 141.0
-offset_bottom = 616.0
-text = "Player Speed"
-
 [node name="Force_field" type="TextureRect" parent="."]
-offset_left = -69.0
-offset_top = -61.0
-offset_right = 75.0
-offset_bottom = 61.0
-texture = ExtResource("36_pbs0n")
+offset_left = -73.0
+offset_top = -68.0
+offset_right = 72.0
+offset_bottom = 74.0
+texture = ExtResource("40_kub50")
+expand_mode = 1
 
 [node name="DialogueUI" parent="." instance=ExtResource("39_vyhy8")]
 
 [node name="WwiseManager" type="Node2D" parent="."]
 script = ExtResource("42_6t5ky")
 
+[connection signal="body_entered" from="ShieldDamage" to="." method="_on_shield_damage_body_entered"]
 [connection signal="body_entered" from="InteractionRange" to="." method="_on_interaction_range_body_entered"]
 [connection signal="body_exited" from="InteractionRange" to="." method="_on_interaction_range_body_exited"]
+[connection signal="ForceFieldOff" from="SpecialAbility/ForceField" to="." method="_on_force_field_force_field_off"]
 [connection signal="ForceFieldOff" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_off"]
+[connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="." method="_on_force_field_force_field_on"]
 [connection signal="ForceFieldOn" from="SpecialAbility/ForceField" to="HealthComponent" method="_on_force_field_force_field_on"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
 [connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]
-[connection signal="increase_speed" from="CanvasLayer" to="SpeedComponent" method="_on_canvas_layer_increase_speed"]
-[connection signal="pressed" from="CanvasLayer/Bullet_Speed" to="CanvasLayer" method="_on_bullet_speed_pressed"]
-[connection signal="pressed" from="CanvasLayer/Health" to="CanvasLayer" method="_on_health_pressed"]
-[connection signal="pressed" from="CanvasLayer/Speed" to="CanvasLayer" method="_on_speed_pressed"]

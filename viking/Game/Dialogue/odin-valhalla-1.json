@@ -1,0 +1,14 @@
+[
+	{"name": "[center]Odin[/center]", "text": "Greetings, [color=#FF0000][i]WARRIOR...[/i][/color]"},
+	{"name": "[center]Odin[/center]", "text": "I am Odin and this is Valhalla, the eternal battlefield"},
+	{"name": "[center]Odin[/center]", "text": "We’ve not much time now, so let me tell you why I’ve summoned you, noble fighter"},
+	{"name": "[center]Odin[/center]", "text": "Yggdrasil calls out... [color=#00BFFF][i]Ragnarök[/i][/color] threatens the nine realms"},
+	{"name": "[center]Odin[/center]", "text": "A cataclysmic event, but one we can prevent with your help [color=#FF0000][i]WARRIOR...[/i][/color]"},
+	{"name": "[center]Odin[/center]", "text": "Collect the two powerful relics from the beasts of [color=#32CD32][i]Midgard[/i][/color] and [color=#1E90FF][i]Jotunheim[/i][/color] and return them here and together we can prevent it!"},
+	{"name": "[center]Odin[/center]", "text": "A treacherous path awaits you, but no matter! Your noble strength will overpower all who oppose you!"},
+	{"name": "[center]Odin[/center]", "text": "Freya’s blessing is with you! Her mystical cloak of feathers will grant you immense agility!", "condition": "freya"},
+	{"name": "[center]Odin[/center]", "text": "The power of Thor is within you! His ferocious lightning will be a great boon in your quest!", "condition": "thor" },
+	{"name": "[center]Odin[/center]", "text": "The champion of Tyr! His mighty shield will grant you powerful protection from your foes!", "condition": "tyr" },
+	{"name": "[center]Odin[/center]", "text": "The fate of the nine realms rests now in your hands [color=red][i]WARRIOR...[/i][/color]"},
+	{"name": "[center]Odin[/center]", "text": "Now go forth! Onwards to [color=#32CD32][i]Midgard[/i][/color] where the first relic lies!"}
+]

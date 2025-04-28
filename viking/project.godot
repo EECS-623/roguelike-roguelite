@@ -21,6 +21,8 @@ Global="*res://Global/global.gd"
 PlayerManager="*res://Global/player_manager.gd"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 HUD="*res://Game/HUD/hud.tscn"
+Inventory="*res://Game/Inventory/inventory.tscn"
+InventoryManager="*res://Global/inventory_manager.gd"
 
 [display]
 

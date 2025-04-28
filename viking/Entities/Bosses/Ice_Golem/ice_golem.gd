@@ -24,4 +24,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_health_component_death() -> void:
+	Global.world_level = 3
 	queue_free()

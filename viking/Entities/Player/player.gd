@@ -6,6 +6,7 @@ class_name Player
 @onready var state_machine : PlayerStateMachine = $PlayerStateMachine
 @onready var speed_component = $SpeedComponent
 @onready var interaction_range = $InteractionRange
+@onready var status_manager = $StatusEffectManager
 
 var npc: CharacterBody2D
 
@@ -13,13 +14,18 @@ var npc: CharacterBody2D
 #@onready var animation_tree = $AnimationTree
 var direction : Vector2 = Vector2.ZERO
 var cardinal_direction: Vector2 = Vector2.ZERO
+var facing_direction: Vector2 = Vector2.RIGHT  # Track facing direction even when not moving
 var state = "idle"
 signal change_hitbox_direction( new_direction: Vector2 )
-
+var ForceFieldOn: bool = false
 var slowed_timer = 0
 var slowed_perc = 0
 var knockback_timer = 0
 var knockback_velocity = Vector2(0,0)
+
+var status_effects = {
+	"frozen": false
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +39,7 @@ func _ready():
 	if has_node("HealthComponent"):
 		var health = get_node("HealthComponent")
 		print("Player health component initialized: ", health.current_health, "/", health.max_health)
-	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -61,6 +67,9 @@ func _physics_process(_delta):
 		slowed_timer -= _delta
 	else:
 		direction = Input.get_vector("left", "right", "up", "down").normalized()
+		# Update facing direction whenever player moves
+		if direction != Vector2.ZERO:
+			facing_direction = direction
 		velocity = direction * speed_component.get_speed()
 	move_and_slide()
 
@@ -78,6 +87,9 @@ func _physics_process(_delta):
 	#$HealthBarLabel.text = "Health: %s" % $HealthComponent.current_health
 
 func _on_health_component_death() -> void:
+	
+	#get_tree().root.add_child(self)
+	#get_parent().remove_child(self)
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
 
@@ -139,3 +151,22 @@ func _on_interaction_range_body_entered(body: Node2D) -> void:
 
 func _on_interaction_range_body_exited(body: Node2D) -> void:
 	npc = null
+
+func apply_status_effect(effect: StatusEffect):
+	status_manager.apply_status_effect(effect)
+
+
+
+func _on_shield_damage_body_entered(body: Node2D) -> void:
+	if Global.upgrade_level == 2 and ForceFieldOn and not(body.is_in_group("player")):
+		var health = body.get_node_or_null("HealthComponent")
+		if health:
+			health.take_damage(20)
+
+
+func _on_force_field_force_field_off() -> void:
+	ForceFieldOn = false
+
+
+func _on_force_field_force_field_on() -> void:
+	ForceFieldOn = true
