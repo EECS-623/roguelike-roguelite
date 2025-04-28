@@ -5,6 +5,7 @@ extends SpecialAbilityComponent
 @onready var mana_component = $"../../ManaComponent"
 var mana_cost: float = 40.0  # Teleport costs 40 mana
 
+@onready var camera = $"../../Camera2D"
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -71,7 +72,6 @@ func cast_ability() -> bool:
 	]
 	offsets.shuffle()
 
-	var camera = $"../../Camera2D"
 	if Global.patron_god == 3:
 		if Global.upgrade_level == 1:
 			if teleport:
@@ -93,17 +93,21 @@ func cast_ability() -> bool:
 							
 				if not collision:
 					teleport_begun = true
-					camera.position_smoothing_enabled = true
+					camera.position_smoothing_enabled = false
+					var old_camera_position = camera.global_position
 					player.global_position += teleport_position
+					
+					start_camera_lerp(old_camera_position, player.global_position)
+					
 					teleport = false
 					mana_component.use_mana(mana_cost)
-					await get_tree().create_timer(3).timeout
+					#await get_tree().create_timer(3).timeout
 					teleport = true
 					teleport_begun = false
-					camera.position_smoothing_speed = 18
-					await get_tree().create_timer(2).timeout
-					if not teleport_begun:
-						camera.position_smoothing_enabled = false
+					#camera.position_smoothing_speed = 18
+					#await get_tree().create_timer(2).timeout
+					#if not teleport_begun:
+					#	camera.position_smoothing_enabled = false
 					
 		if Global.upgrade_level == 2:
 			if teleport:
@@ -195,5 +199,20 @@ func cast_ability() -> bool:
 					if not teleport_begun:
 						camera.position_smoothing_enabled = false
 	
-	
 	return true # this will be at the very end of the function
+
+func start_camera_lerp(from_position: Vector2, to_position: Vector2):
+	async_camera_lerp(from_position, to_position)
+
+func async_camera_lerp(from_position: Vector2, to_position: Vector2):
+	var lerp_time := 0.0
+	var duration := 0.3
+	
+	while lerp_time < duration:
+		lerp_time += get_process_delta_time()
+		var t := lerp_time / duration
+		camera.global_position = from_position.lerp(to_position, t)
+		await get_tree().process_frame
+	
+	camera.global_position = to_position
+	camera.position_smoothing_enabled = true
