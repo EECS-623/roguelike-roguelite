@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgabimmw8awtu"]
+[gd_scene load_steps=18 format=3 uid="uid://cgabimmw8awtu"]
 
 [ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
 [ext_resource type="Texture2D" uid="uid://ckryhis5u3knp" path="res://Assets/Art/HUD/Final Stat Box.png" id="2_smiq0"]
 [ext_resource type="Texture2D" uid="uid://c8gs77b5u75fr" path="res://Assets/Art/HUD/Plus Box.png" id="3_kjioq"]
 [ext_resource type="Texture2D" uid="uid://bmv27yph1e7mt" path="res://Assets/Art/HUD/Stat Box Rune Counter Icon.png" id="3_ylby3"]
 [ext_resource type="Texture2D" uid="uid://boqcamfafiuj0" path="res://Assets/Art/HUD/Grey Box.png" id="4_qna3u"]
+[ext_resource type="Texture2D" uid="uid://bqgmgpqrxxk1e" path="res://Assets/Art/Keys/Forrest Level Key.png" id="6_gyn1f"]
+[ext_resource type="Texture2D" uid="uid://cxcjln1klgpuu" path="res://Assets/Art/Artifacts/Jörmungandr's Tail.png" id="7_8nws7"]
 
 [sub_resource type="Gradient" id="Gradient_fu21e"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -234,3 +236,62 @@ offset_bottom = 565.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 text = "MAX"
+
+[node name="ForrestKey1" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 608.0
+offset_right = 1244.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_gyn1f")
+
+[node name="ForrestKey2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 608.0
+offset_right = 1320.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_gyn1f")
+
+[node name="ForrestKey3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 608.0
+offset_right = 1395.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_gyn1f")
+
+[node name="ForrestArtifact" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 533.0
+offset_right = 1509.0
+offset_bottom = 833.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_8nws7")
+
+[node name="IceKey1" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IceKey2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IceKey3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IceArtifact" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
