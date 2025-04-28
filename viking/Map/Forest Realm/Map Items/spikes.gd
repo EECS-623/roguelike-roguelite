@@ -13,10 +13,10 @@ func _ready() -> void:
 	while(true):
 		$Hitbox/CollisionShape2D.disabled = true
 
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(2).timeout
 		$Hitbox/CollisionShape2D.disabled = false
 		
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(2).timeout
 
 
 		
