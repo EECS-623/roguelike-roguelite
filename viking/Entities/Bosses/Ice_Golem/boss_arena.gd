@@ -6,8 +6,8 @@ extends Node2D
 var player = Node2D
 var ice_golem = Node2D
 var dead = false
-var dialogue: DialogueUI
 
+var dialogue: DialogueUI
 var cam
 
 # Called when the node enters the scene tree for the first time.
@@ -47,9 +47,18 @@ func _process(delta: float) -> void:
 	if ice_golem == null and not dead:
 		dead = true
 		play_dialogue("res://Game/Dialogue/ymir-2.json")
-		portal_open()
+
 	
-	
+
+func drop_artifact():
+	$Artifact.visible = true
+	$Artifact/CollisionShape2D.disabled = false
+
+func _on_artifact_body_entered(body: Node2D) -> void:
+	$Artifact.visible = false
+	await get_tree().create_timer(.1).timeout
+	portal_open()
+
 func portal_open():
 	$Portal.visible = true
 	$Portal/CollisionShape2D.disabled = false
@@ -95,4 +104,5 @@ func _on_dialogue_end():
 	if ice_golem != null:
 		ice_golem.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
- # Replace with function body.
+	else:
+		drop_artifact()

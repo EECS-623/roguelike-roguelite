@@ -6,6 +6,7 @@ class_name Summon extends State
 
 
 
+var summoned
 
 var loki
 var player
@@ -18,17 +19,21 @@ var finished = false
 
 # what happens when the entity enters a state
 func enter() -> void:
-	finished = false
-	direction_to_player = (player.global_position - loki.global_position).normalized()
+	
+	#Loki, Player, Portal, Area2D and 6 summoned enemies (clones, draugrs, witches)
+	if len(get_tree().current_scene.get_children()) <= 10:
+		finished = false
+		direction_to_player = (player.global_position - loki.global_position).normalized()
 
-	var witch = true if randf() > .75 else false
+		var witch = true if randf() > .75 else false
 
-	if witch:
-		summon_witch()
-	else:
-		summon_draugrs()
+		if witch:
+			summon_witch()
+		else:
+			summon_draugrs()
 
-	await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(4).timeout
+		
 	finished = true
 
 
@@ -70,3 +75,7 @@ func summon_draugrs():
 		draugr.summon = true
 		
 		get_tree().current_scene.add_child(draugr)
+
+	
+func can_move_during():
+	return false

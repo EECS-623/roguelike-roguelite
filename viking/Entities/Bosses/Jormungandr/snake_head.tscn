@@ -1,15 +1,15 @@
 [gd_scene load_steps=25 format=3 uid="uid://mxdy1u6rcsr3"]
 
-[ext_resource type="Texture2D" uid="uid://bkhmnhvxlglx7" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Front Head.png" id="1_atuks"]
-[ext_resource type="Texture2D" uid="uid://dawtb28x47tpg" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Front Head Bite.png" id="2_stll3"]
+[ext_resource type="Texture2D" uid="uid://bkhmnhvxlglx7" path="res://Assets/Jormungandr/Facing Front Head.png" id="1_atuks"]
+[ext_resource type="Texture2D" uid="uid://dawtb28x47tpg" path="res://Assets/Jormungandr/Facing Front Head Bite.png" id="2_stll3"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="2_xjvuv"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_4y5da"]
-[ext_resource type="Texture2D" uid="uid://dw61liux82uut" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Back Head.png" id="5_d5n4j"]
-[ext_resource type="Texture2D" uid="uid://7trxh16fm24h" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Side Head Right.png" id="5_ljar2"]
-[ext_resource type="Texture2D" uid="uid://bw8x42nsgattt" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Side Head Bite Right.png" id="6_n08vx"]
-[ext_resource type="Texture2D" uid="uid://beccdiqbhg802" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Back Head Bite.png" id="6_siioi"]
-[ext_resource type="Texture2D" uid="uid://ce50sxb4djgkc" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Side Head.png" id="7_nrvxe"]
-[ext_resource type="Texture2D" uid="uid://b4tym01tp25sq" path="res://Assets/Jormungandr/Grass Boss/Snake Animations/Facing Side Head Bite.png" id="8_0ewtc"]
+[ext_resource type="Texture2D" uid="uid://dw61liux82uut" path="res://Assets/Jormungandr/Facing Back Head.png" id="5_d5n4j"]
+[ext_resource type="Texture2D" uid="uid://7trxh16fm24h" path="res://Assets/Jormungandr/Facing Side Head Right.png" id="5_ljar2"]
+[ext_resource type="Texture2D" uid="uid://bw8x42nsgattt" path="res://Assets/Jormungandr/Facing Side Head Bite Right.png" id="6_n08vx"]
+[ext_resource type="Texture2D" uid="uid://beccdiqbhg802" path="res://Assets/Jormungandr/Facing Back Head Bite.png" id="6_siioi"]
+[ext_resource type="Texture2D" uid="uid://ce50sxb4djgkc" path="res://Assets/Jormungandr/Facing Side Head.png" id="7_nrvxe"]
+[ext_resource type="Texture2D" uid="uid://b4tym01tp25sq" path="res://Assets/Jormungandr/Facing Side Head Bite.png" id="8_0ewtc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pmlcv"]
 animations = [{

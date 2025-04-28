@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://d32rfqromax4l"]
 
-[ext_resource type="Texture2D" uid="uid://d1msbis8pseg" path="res://Assets/Jormungandr/Facing_Back_Body.png" id="1_17lsg"]
-[ext_resource type="Texture2D" uid="uid://jropj53d1ars" path="res://Assets/Jormungandr/Facing_Front_Body.png" id="2_03bx0"]
-[ext_resource type="Texture2D" uid="uid://bu0xoibp2bxj6" path="res://Assets/Jormungandr/Facing_Side_Body.png" id="3_a7tic"]
-[ext_resource type="Texture2D" uid="uid://bganqk28g5v5v" path="res://Assets/Jormungandr/Facing_Right_Body .png" id="3_d4a5n"]
+[ext_resource type="Texture2D" uid="uid://dwoyxdd4n27f7" path="res://Assets/Jormungandr/Front Normal Body.png" id="1_dba0e"]
+[ext_resource type="Texture2D" uid="uid://dn8ysocv1ql5r" path="res://Assets/Jormungandr/Side Normal Body.png" id="2_0mteg"]
+[ext_resource type="Texture2D" uid="uid://ci5igq5vg1f17" path="res://Assets/Jormungandr/Side Normal Body (copy).png" id="3_xaqxx"]
+[ext_resource type="Texture2D" uid="uid://svosdeyy3yo8" path="res://Assets/Jormungandr/Back Normal Body.png" id="4_f5kq7"]
 [ext_resource type="Script" path="res://Components/Hurtbox/hurtbox.gd" id="5_bl1vb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkt8x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_03bx0")
+"texture": ExtResource("1_dba0e")
 }],
 "loop": true,
 "name": &"Down",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_a7tic")
+"texture": ExtResource("2_0mteg")
 }],
 "loop": true,
 "name": &"Left",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_d4a5n")
+"texture": ExtResource("3_xaqxx")
 }],
 "loop": true,
 "name": &"Right",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_17lsg")
+"texture": ExtResource("4_f5kq7")
 }],
 "loop": true,
 "name": &"Up",
@@ -48,8 +48,9 @@ radius = 321.686
 scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_wkt8x")
-animation = &"Right"
+animation = &"Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w4amx")

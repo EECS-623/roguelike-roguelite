@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/DialogueUI/dialogue_ui.gd" id="1_ueskx"]
 [ext_resource type="Texture2D" uid="uid://cl5fixtqy6i28" path="res://Assets/Art/Dialogue Box.png" id="2_tmyqy"]
 [ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="3_13ad8"]
-[ext_resource type="Texture2D" uid="uid://1fvf86up1deb" path="res://Assets/Jormungandr/jormungandr.png" id="3_nct1t"]
+[ext_resource type="Texture2D" uid="uid://qa5l3eb0ydny" path="res://Assets/Jormungandr/jormungandr.png" id="3_nct1t"]
 [ext_resource type="Texture2D" uid="uid://drwf3c5h6y6f" path="res://Assets/Art/DEMO GUY 2D.png" id="5_4qjqb"]
 [ext_resource type="Texture2D" uid="uid://cv4m8a2clkls1" path="res://Assets/Ice_Golem/ymir 2d close up.png" id="5_1642h"]
 

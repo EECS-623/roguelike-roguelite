@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: float = 600.0
+@export var speed: float = 400.0
 
 var player
 var player_dir

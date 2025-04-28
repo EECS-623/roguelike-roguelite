@@ -21,23 +21,23 @@ var direction_map = {
 
 # Starting position
 var start_pos: Vector2 = Vector2(0, -100)  
-var segment_size = 200  
+var segment_size = 150  
 var snake_size = 12
 
 var can_move = true
 var can_bite = true
 var can_spit = false
+var dead = false
 
 
 func _ready() -> void:
-
 	spawn_snake()
 	$CanvasLayer/HealthBarComponent.modulate =  Color(1, 1, 1, 1)
 	await get_tree().create_timer(5.0).timeout
 	can_spit = true
 	
 func _snake_move():
-	if can_move:
+	if can_move and not dead:
 		# Move body segments to follow the segment in front
 		for i in range(snake.size() - 1, 0, -1):
 			snake[i].position = snake[i - 1].position
@@ -109,6 +109,8 @@ func spawn_snake():
 func chase_player(player_position: Vector2):
 	if not can_move:
 		return
+	if dead:
+		return
 		
 	var direction_to_player = player_position - snake[0].global_position
 	
@@ -139,10 +141,10 @@ func z_indexing():
 	for i in range(snake.size()):
 		snake[i].z_index = snake.size() - i
 		
-	for i in range(snake.size() - 1):
-		if snake[i].position.y < snake[i + 1].position.y:
-			snake[i].z_index -= 1
-			snake[i + 1].z_index += 1
+	for i in range(snake.size() - 2):
+		if snake[i+1].position.y < snake[i+2].position.y:
+			snake[i+1].z_index -= 1
+			snake[i + 2].z_index += 1
 
 func bite_attack():
 	can_move = false
@@ -184,18 +186,15 @@ func enter_rage_mode():
 	snake[0].get_node("AnimatedSprite2D/AnimationPlayer").speed_scale = 2.0
 
 func _on_health_component_death() -> void:
-	#Play death animation
+	print(snake[-1].global_position)
+	get_parent().get_node("Artifact").global_position = snake[-1].global_position
+	dead = true
 	can_move = false
-	can_bite = false
-	can_spit = false
 	for i in range(10):
 		for segment in snake:
 			segment.modulate = Color.RED
 			await get_tree().create_timer(0.01).timeout
 			segment.modulate = Color.WHITE
-	#Dialouge
-	#Separate individual body parts 
-	#Make them disapper
 	queue_free()
 
 func _on_health_component_t_damage(amount: float) -> void:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyikiofdpbmvu"]
+[gd_scene load_steps=15 format=3 uid="uid://cyikiofdpbmvu"]
 
 [ext_resource type="Script" path="res://Entities/Bosses/Jormungandr/boss_arena.gd" id="1_o370h"]
 [ext_resource type="Texture2D" uid="uid://dknmqrxim1a75" path="res://Assets/Jormungandr/BOSS ROOM MIDGUARD.png" id="3_sx4ud"]
 [ext_resource type="PackedScene" uid="uid://cvsui47imvexk" path="res://Entities/Bosses/Jormungandr/snake.tscn" id="3_ystxc"]
-[ext_resource type="Texture2D" uid="uid://cck24kfoi2lw5" path="res://Assets/Art/portal.png" id="4_qq86p"]
+[ext_resource type="Texture2D" uid="uid://cinicudi415cw" path="res://Assets/Art/portal imprint.png" id="4_7wchc"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="5_67jhn"]
+[ext_resource type="Texture2D" uid="uid://blju54j4ykwpo" path="res://Assets/Jormungandr/Jörmungandr's Tail.png" id="6_w77mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtiob"]
 size = Vector2(2401, 224)
@@ -15,15 +16,11 @@ size = Vector2(560, 2865)
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcv11"]
 radius = 75.4718
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pu7dg"]
-atlas = ExtResource("4_qq86p")
-region = Rect2(0, 0, 360, 360)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_3osyw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pu7dg")
+"texture": ExtResource("4_7wchc")
 }],
 "loop": true,
 "name": &"default",
@@ -44,14 +41,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_iksco"]
 resource_name = "spin"
-length = 5.0
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -61,12 +69,28 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 6.28319]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.501961, 0.894118, 0.933333, 0.65098)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1sfcd"]
 _data = {
 "RESET": SubResource("Animation_l7v2q"),
 "spin": SubResource("Animation_iksco")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5qw7"]
+radius = 100.702
+height = 393.333
 
 [node name="BossArena" type="Node2D"]
 z_index = -2
@@ -112,7 +136,6 @@ polygon = PackedVector2Array(-893, -252, -843, -367, -858, -493, -801, -571, -81
 
 [node name="Portal" type="Area2D" parent="."]
 visible = false
-position = Vector2(45, 10)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
@@ -120,9 +143,10 @@ shape = SubResource("CircleShape2D_mcv11")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
-scale = Vector2(0.596273, 0.561728)
+position = Vector2(-8, -15)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_3osyw")
-frame_progress = 0.158758
+frame_progress = 0.802829
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Portal/AnimatedSprite2D"]
 libraries = {
@@ -152,6 +176,20 @@ position = Vector2(51, -8)
 scale = Vector2(-1, -1)
 polygon = PackedVector2Array(-877, 174, -858, 206, -829, 162, -842, 232, -818, 294, -763, 309, -816, 325, -820, 459, -790, 500, -737, 456, -773, 532, -768, 640, -717, 651, -691, 696, -708, 793, -645, 777, -627, 734, -630, 775, -589, 789, -555, 755, -518, 837, -447, 848, -397, 797, -394, 855, -310, 900, -871, 896)
 
+[node name="Artifact" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Artifact"]
+rotation = -1.62032
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CapsuleShape2D_c5qw7")
+disabled = true
+
+[node name="Jörmungandr\'sTail" type="Sprite2D" parent="Artifact"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_w77mu")
+
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_thorn_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="Artifact" to="." method="_on_artifact_body_entered"]

@@ -24,8 +24,7 @@ func enter() -> void:
 	projectile.global_position = muzzle.global_position
 
 	get_tree().current_scene.add_child(projectile)
-
-
+	
 
 	await get_tree().create_timer(1).timeout
 	finished = true
@@ -36,3 +35,6 @@ func state_process(delta : float) -> State:
 	if finished:
 		return move
 	return null
+	
+func can_move_during():
+	return false

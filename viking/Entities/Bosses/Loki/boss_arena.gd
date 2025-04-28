@@ -37,10 +37,10 @@ func _ready() -> void:
 	#play_dialogue("res://Game/Dialogue/loki-1.json")
 		
 	cam = player.get_node("Camera2D")
-	cam.limit_left = -960
-	cam.limit_right = 960
-	cam.limit_top = -960
-	cam.limit_bottom = 960
+	cam.limit_left = -1048
+	cam.limit_right = 1048
+	cam.limit_top = -1048
+	cam.limit_bottom = 1048
 	
 	
 	get_window().content_scale_size = DisplayServer.window_get_size() *1.33

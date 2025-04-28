@@ -5,6 +5,7 @@ extends Node2D
 var player = Node2D
 var snake = Node2D
 var snake_dead = false
+
 var dialogue: DialogueUI
 var cam
 
@@ -39,9 +40,6 @@ func _ready() -> void:
 	dialogue.scale = Vector2(1.33, 1.33)
 	player.get_node("CanvasLayer").scale = Vector2(1.33, 1.33)
 
-	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
@@ -49,10 +47,20 @@ func _process(delta: float) -> void:
 		snake_dead = true
 		#Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
 		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
-		portal_open()
+		drop_artifact()
+
 	elif snake != null:
 		snake.chase_player(player.global_position)
 	
+
+func drop_artifact():
+	$Artifact.visible = true
+	$Artifact/CollisionShape2D.disabled = false
+
+func _on_artifact_body_entered(body: Node2D) -> void:
+	$Artifact.visible = false
+	await get_tree().create_timer(.1).timeout
+	portal_open()
 
 func portal_open():
 	$Portal.visible = true
@@ -109,5 +117,3 @@ func _on_dialogue_end():
 		snake.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
 		snake.can_move = true
-
-	

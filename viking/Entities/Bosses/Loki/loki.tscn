@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dxgbl3xb2jj04"]
+[gd_scene load_steps=53 format=3 uid="uid://dxgbl3xb2jj04"]
 
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/loki.gd" id="1_ya1he"]
 [ext_resource type="Texture2D" uid="uid://g8gb5r44pfb1" path="res://Assets/Loki/Front Standing.png" id="2_yyvr2"]
@@ -26,10 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://b8fp12lp6l78j" path="res://Assets/Loki/Side Summon.png" id="19_dwita"]
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/move.gd" id="25_0gxw3"]
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/summon.gd" id="26_3jemv"]
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/spell_circle.gd" id="26_4shpx"]
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/projectile_state.gd" id="26_t1krd"]
 [ext_resource type="PackedScene" uid="uid://bjiplugs8u00g" path="res://Entities/Bosses/Loki/projectile.tscn" id="27_5uc1b"]
 [ext_resource type="PackedScene" uid="uid://bootcm1im0svw" path="res://Entities/Enemies/Draugr/draugr.tscn" id="27_612jv"]
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/make_spikes.gd" id="27_but0y"]
+[ext_resource type="PackedScene" uid="uid://c302rifbn4dys" path="res://Entities/Bosses/Loki/spell.tscn" id="27_dag63"]
 [ext_resource type="PackedScene" uid="uid://c402cxraasnvw" path="res://Entities/Enemies/Volva/volva.tscn" id="28_dksig"]
+[ext_resource type="PackedScene" uid="uid://c7gtj34kvfgg6" path="res://Entities/Bosses/Loki/spikes.tscn" id="28_vegil"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uqp3n"]
 animations = [{
@@ -646,6 +650,12 @@ script = ExtResource("25_0gxw3")
 [node name="Teleport" type="Node" parent="LokiStateMachine"]
 
 [node name="SpellCircle" type="Node" parent="LokiStateMachine"]
+script = ExtResource("26_4shpx")
+s_spell = ExtResource("27_dag63")
+
+[node name="MakeSpikes" type="Node" parent="LokiStateMachine"]
+script = ExtResource("27_but0y")
+s_spike = ExtResource("28_vegil")
 
 [node name="Clone" type="Node" parent="LokiStateMachine"]
 

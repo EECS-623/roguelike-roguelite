@@ -6,15 +6,14 @@ var loki : CharacterBody2D
 var move_timer
 var change_dir_timer
 
-
-var speed = 300
+var speed = 200
 
 var close_thresh = 300
 var far_thresh = 700
 
 var close_actions = ["Teleport", "Move", "Move", "Move"]
-var actions = ["Teleport", "Draugr", "Clone", "SpellCircle", "Icicle"]
-var far_actions = ["Teleport", "Draugr", "Icicle"]
+var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "Icicle"]
+var far_actions = ["Teleport", "Summon", "Icicle"]
 
 # what happens when the entity enters a state
 func enter() -> void:
@@ -25,30 +24,22 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-# what happens during _process of the state
-func state_process(delta: float) -> State:
-	return null
-
 
 func state_physics_process(delta: float) -> State:
-	move_timer -= delta
-	change_dir_timer -= delta
+	move_timers(delta)
 	
 	if move_timer <= 0:
 		return choose_state()
-		
+
+	return null
+
+func move_timers(delta: float):
+	move_timer -= delta
+	change_dir_timer -= delta
+	
 	if change_dir_timer <= 0:
 		loki.velocity = move()
 		change_dir_timer = randf_range(.1, .75)
-
-		
-	loki.move_and_slide()
-	return null
-
-# what happens when obtaining an input in this state
-func handle_input(_event : InputEvent) -> State:
-	return null
-
 
 func get_state_by_name(name: String) -> State:
 	for state in get_parent().states:
@@ -66,9 +57,10 @@ func choose_state():
 	else:
 		new_state = actions[randi_range(0, 4)]
 	
-	return get_state_by_name("Summon") if randf() > .75 else get_state_by_name("Projectile")
+	var finished_actions = ["SpellCircle", "Summon", "Projectile", "MakeSpikes"]
+	new_state = finished_actions[randi_range(0, 3)]
 	
-	#return get_state_by_name(new_state)
+	return get_state_by_name(new_state)
 	
 	
 func move():
@@ -126,3 +118,6 @@ func find_clear_direction(base_dir: Vector2) -> Vector2:
 				best_dir = dir
 
 	return best_dir
+
+func can_move_during():
+	return true

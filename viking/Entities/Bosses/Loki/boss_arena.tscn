@@ -37,14 +37,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_iksco"]
 resource_name = "spin"
-length = 5.0
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -53,6 +64,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.701961)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1sfcd"]
@@ -63,23 +86,25 @@ _data = {
 
 [node name="BossArena" type="Node2D"]
 z_index = -1
-scale = Vector2(0.8, 0.8)
 script = ExtResource("1_joll7")
 s_loki = ExtResource("2_smpcd")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.7, 0.7)
 
 [node name="LokiBossFightRoom" type="Sprite2D" parent="Area2D"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_6pbw6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-598.75, 90)
 scale = Vector2(0.145, 0.145)
-polygon = PackedVector2Array(-25.8621, 5318.97, -48.2759, 9551.73, -10951.7, 9682.76, -10744.8, -8179.31, 62.069, -8213.79, 124.138, -4462.07, -1537.93, -4406.9, -3986.21, -4068.97, -6400, -3448.28, -7979.31, -2889.66, -7979.31, 1503.45, -7234.48, 2434.48, -7206.9, 3117.24, -5689.66, 3303.45, -4917.24, 3889.66, -3862.07, 4510.35, -2682.76, 4227.59, -1551.72, 4420.69, -1474.14, 5284.48)
+polygon = PackedVector2Array(4103.45, 6172.41, 4250, 9793.1, -6232.76, 9758.62, -6172.41, 10094.8, -6301.72, -11103.4, 4198.28, -10896.6, 4379.31, -3905.17, 3732.76, -4034.48, 2456.9, -3491.38, 1646.55, -2931.03, 1724.14, -3750, 775.862, -4060.34, -1189.66, -3310.34, -4500, -3051.72, -4965.52, -1939.66, -4284.48, -956.896, -4603.45, 1181.03, -4189.65, 2060.34, -3594.83, 2525.86, -3000, 3379.31, -1913.79, 4491.38, -103.448, 5422.41, 1474.14, 6043.1)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(626.25, 82.5)
 scale = Vector2(-0.145, 0.145)
-polygon = PackedVector2Array(-82.7586, 9551.73, -10724.1, 9551.73, -10744.8, -8179.31, 62.069, -8213.79, 124.138, -4462.07, -1537.93, -4406.9, -3958.62, -4310.35, -6510.35, -3786.21, -7917.24, -3317.24, -7979.31, 1503.45, -7234.48, 2434.48, -7206.9, 3117.24, -5689.66, 3303.45, -4917.24, 3889.66, -3862.07, 4510.35, -2682.76, 4227.59, -1551.72, 4420.69, -1543.1, 5284.48, 146.552, 5370.69)
+polygon = PackedVector2Array(4353.45, 6224.14, 4250, 9793.1, -6232.76, 9758.62, -6206.9, 9905.17, -6163.79, -10931, 4327.59, -10887.9, 4362.07, -4034.48, 3620.69, -3982.76, 2465.52, -3465.52, 1767.24, -3525.86, 1224.14, -3146.55, 1215.52, -3896.55, 500, -3982.76, -1603.45, -4146.55, -4500, -3094.83, -4750, -1870.69, -4198.28, -1094.83, -4250, 931.034, -3974.14, 1896.55, -3534.48, 2698.28, -2681.03, 3525.86, -1465.52, 4655.17, -103.448, 5422.41, 1620.69, 5853.45)
 
 [node name="Portal" type="Area2D" parent="."]
 visible = false

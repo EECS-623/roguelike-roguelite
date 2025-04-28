@@ -1,18 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5osomnqxxpph"]
 
-[ext_resource type="Texture2D" uid="uid://cqo7k7ma3xtm" path="res://Assets/Jormungandr/Facing_Front_Tail.png" id="1_7fykp"]
-[ext_resource type="Texture2D" uid="uid://cm4vfowpe5s4y" path="res://Assets/Jormungandr/Facing_Side_Right.png" id="3_ay0rn"]
-[ext_resource type="Texture2D" uid="uid://bmoxmjsex534y" path="res://Assets/Jormungandr/Facing_Back_Tail.png" id="3_yc32v"]
-[ext_resource type="Texture2D" uid="uid://byv8uehsyvhlj" path="res://Assets/Jormungandr/Facing_Side_Tail.png" id="4_ecxbr"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1ddpr"]
-radius = 280.927
+[ext_resource type="Texture2D" uid="uid://bpgyo5sqou8t" path="res://Assets/Jormungandr/Front Tail.png" id="1_lvlw2"]
+[ext_resource type="Texture2D" uid="uid://5so00eifyd5p" path="res://Assets/Jormungandr/Side Tail.png" id="2_ag8je"]
+[ext_resource type="Texture2D" uid="uid://cv0821omor0mg" path="res://Assets/Jormungandr/Side Tail (copy).png" id="3_jv7gl"]
+[ext_resource type="Texture2D" uid="uid://c1pgkwhej3rp1" path="res://Assets/Jormungandr/Back Tail.png" id="4_livda"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8spkb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_7fykp")
+"texture": ExtResource("1_lvlw2")
 }],
 "loop": true,
 "name": &"Down",
@@ -20,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ecxbr")
+"texture": ExtResource("2_ag8je")
 }],
 "loop": true,
 "name": &"Left",
@@ -28,7 +25,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ay0rn")
+"texture": ExtResource("3_jv7gl")
 }],
 "loop": true,
 "name": &"Right",
@@ -36,21 +33,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_yc32v")
+"texture": ExtResource("4_livda")
 }],
 "loop": true,
 "name": &"Up",
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ddpr"]
+radius = 280.927
+
 [node name="SnakeTail" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_8spkb")
+animation = &"Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -4)
 shape = SubResource("CircleShape2D_1ddpr")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, 4)
-sprite_frames = SubResource("SpriteFrames_8spkb")
-animation = &"Up"
