@@ -13,10 +13,12 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ALIVE = 655265632U;
         static const AkUniqueID APPLE_HEAL = 22977312U;
         static const AkUniqueID BOSS = 1560169506U;
         static const AkUniqueID BOSS_DEATH = 4052139381U;
         static const AkUniqueID CHEST_OPEN = 2728948375U;
+        static const AkUniqueID DEAD = 2044049779U;
         static const AkUniqueID FIREBALL = 3841200954U;
         static const AkUniqueID FOOTSTEP_HARDGROUND = 1829833920U;
         static const AkUniqueID FOOTSTEP_SOFTGROUND = 2411697751U;
@@ -84,6 +86,7 @@ namespace AK
                 static const AkUniqueID PREBOSS = 2600172515U;
                 static const AkUniqueID STORY = 1686739444U;
                 static const AkUniqueID TITLE = 3705726509U;
+                static const AkUniqueID VICTORY = 2716678721U;
             } // namespace STATE
         } // namespace PLAYERSTATE
 

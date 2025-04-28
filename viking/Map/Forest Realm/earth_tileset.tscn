@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://ceckipgmnrxky"]
+[gd_scene load_steps=20 format=3 uid="uid://ceckipgmnrxky"]
 
 [ext_resource type="Texture2D" uid="uid://b6oqo1wkqa0e8" path="res://Map/Forest Realm/Tile Map.png" id="1_od7mu"]
 [ext_resource type="Script" path="res://Map/Forest Realm/earth_tileset.gd" id="2_xorpf"]
 [ext_resource type="Texture2D" uid="uid://buo7aop0poj26" path="res://Map/Forest Realm/plain grass tile asset.png" id="3_7gcjc"]
-[ext_resource type="WwiseState" uid="uid://xjtmg5exmmxb" path="res://Wwise/resources/State/{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}.tres" id="4_ernl2"]
-[ext_resource type="WwiseState" uid="uid://dvsjx3fm6qxqu" path="res://Wwise/resources/State/{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}.tres" id="5_vnwwo"]
-[ext_resource type="WwiseState" uid="uid://ciu17avhmxh4a" path="res://Wwise/resources/State/{B145CCFA-6037-4756-8DAC-6458381FE61D}.tres" id="6_ffa8d"]
+[ext_resource type="WwiseEvent" uid="uid://cuk2me15vnahn" path="res://Wwise/resources/Event/{97AF9DAA-F3B1-4848-8C27-545DE22406DE}.tres" id="4_nk87j"]
+[ext_resource type="WwiseEvent" uid="uid://cn6n6ic8raryj" path="res://Wwise/resources/Event/{754823F4-75D7-4CF8-8EDC-6B6F4FBE4EF8}.tres" id="5_gaps4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_by6lu"]
 vertices = PackedVector2Array(134.539, -111.313, 181, -240, 240, -240, 240, 240, 129, 179, -240, 240, -131, 193, -240, -240, -175, -125, -7, -113, -187, -240)
@@ -149,14 +148,10 @@ texture = ExtResource("3_7gcjc")
 position = Vector2(6, -105.5)
 shape = SubResource("RectangleShape2D_iadu7")
 
-[node name="AkState_Midgard" type="AkState" parent="."]
-state = ExtResource("4_ernl2")
+[node name="AkEvent_Gameplay" type="AkEvent2D" parent="."]
+event = ExtResource("4_nk87j")
 trigger_on = 2
 
-[node name="AkState_Alive" type="AkState" parent="."]
-state = ExtResource("5_vnwwo")
-trigger_on = 2
-
-[node name="AkState_PlayerState" type="AkState" parent="."]
-state = ExtResource("6_ffa8d")
+[node name="AkEvent_Midgard" type="AkEvent2D" parent="."]
+event = ExtResource("5_gaps4")
 trigger_on = 2

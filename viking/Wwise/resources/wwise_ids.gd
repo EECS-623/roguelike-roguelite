@@ -2,10 +2,11 @@ class_name AK
 
 class EVENTS:
 
-	const BOSS_ARENA : int = 4129822198
 	const JOTUNHEIM : int = 117665206
 	const MIDGARD : int = 2538683795
 	const VALHALLA : int = 3702692096
+	const ALIVE : int = 655265632
+	const DEAD : int = 2044049779
 	const BOSS : int = 1560169506
 	const GAMEPLAY : int = 89505537
 	const TITLE : int = 3705726509
@@ -62,6 +63,7 @@ class STATES:
 			const NONE : int = 748895195
 			const STORY : int = 1686739444
 			const TITLE : int = 3705726509
+			const VICTORY : int = 2716678721
 			const PREBOSS : int = 2600172515
 
 
@@ -119,3 +121,4 @@ class ACOUSTIC_TEXTURES:
 	const WOOD : int = 2058049674
 	const WOOD_BRIGHT : int = 4262522749
 	const WOOD_DEEP : int = 1755085759
+

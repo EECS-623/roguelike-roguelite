@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{6235D51C-DA0D-4F6F-BFB9-EC0E2F87EA51}",
     "Language": "SFX",
-    "Hash": "{217A9F67-6E71-8D33-534A-438EE274AAF0}",
+    "Hash": "{DCA08CBD-9C4E-BD74-DCE6-46510D158FFE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_SFX",
     "ShortName": "Music_SFX",
     "Path": "2901481334.bnk",
@@ -738,6 +738,25 @@
     ],
     "Events": [
      {
+      "Id": "655265632",
+      "Name": "Alive",
+      "ObjectPath": "\\Events\\Music\\Player_Life\\Alive",
+      "GUID": "{610F55B0-2796-49AC-BAFF-ACC6AF340869}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "444815956",
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Alive",
+        "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+       }
+      ]
+     },
+     {
       "Id": "22977312",
       "Name": "Apple_Heal",
       "ObjectPath": "\\Events\\Sound Effects events\\Apple_Heal",
@@ -759,7 +778,16 @@
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "3285234865",
+        "Id": "1560169506",
+        "Name": "Boss",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Boss",
+        "GUID": "{CBFFCBC5-94E0-4BEE-9487-B32E124CCC65}"
+       }
+      ]
      },
      {
       "Id": "4052139381",
@@ -786,6 +814,25 @@
       "MediaRefs": [
        {
         "Id": "540481636"
+       }
+      ]
+     },
+     {
+      "Id": "2044049779",
+      "Name": "Dead",
+      "ObjectPath": "\\Events\\Music\\Player_Life\\Dead",
+      "GUID": "{4571AAB7-C484-444D-845D-D8A3E660C751}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "444815956",
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Dead",
+        "GUID": "{61035F3B-22B4-4E75-825D-0B051DF8F1FB}"
        }
       ]
      },
@@ -842,7 +889,16 @@
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "3285234865",
+        "Id": "89505537",
+        "Name": "Gameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Gameplay",
+        "GUID": "{B145CCFA-6037-4756-8DAC-6458381FE61D}"
+       }
+      ]
      },
      {
       "Id": "4057560717",
@@ -876,7 +932,16 @@
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1176052424",
+        "Id": "117665206",
+        "Name": "Jotunheim",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Jotunheim",
+        "GUID": "{3174C54E-1CE5-482D-AC38-786A1DF492EB}"
+       }
+      ]
      },
      {
       "Id": "3520404594",
@@ -1244,6 +1309,44 @@
           "Children": []
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "2044049779",
+         "GUID": "{61035F3B-22B4-4E75-825D-0B051DF8F1FB}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "0",
+           "GUID": "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "0",
+         "GUID": "{8915403D-2E66-4272-AF92-01F0EEF41C24}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "0",
+           "GUID": "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}"
+          },
+          "Children": []
+         }
+        ]
        }
       ],
       "ActionSetState": [
@@ -1260,6 +1363,13 @@
         "Name": "Valhalla",
         "ObjectPath": "\\States\\Default Work Unit\\Location\\Valhalla",
         "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+       },
+       {
+        "GroupId": "3285234865",
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Title",
+        "GUID": "{7ECAF9B7-8628-4157-A87E-B7656F4035CE}"
        }
       ]
      },
@@ -1271,7 +1381,16 @@
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1176052424",
+        "Id": "2538683795",
+        "Name": "Midgard",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Midgard",
+        "GUID": "{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}"
+       }
+      ]
      },
      {
       "Id": "3599715827",
@@ -1584,6 +1703,12 @@
         "GUID": "{15964738-8B1D-44C4-992D-4872FF5C7F15}"
        },
        {
+        "Id": "2716678721",
+        "Name": "Victory",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Victory",
+        "GUID": "{41B53E2B-AE6B-41B5-9447-396E9998E670}"
+       },
+       {
         "Id": "3705726509",
         "Name": "Title",
         "ObjectPath": "\\States\\Default Work Unit\\playerState\\Title",
@@ -1594,6 +1719,6 @@
     ]
    }
   ],
-  "FileHash": "{B49B1712-B9D2-94F9-7B91-693B2698CF88}"
+  "FileHash": "{D14368AD-B655-6515-FBD3-29FB09304A02}"
  }
 }

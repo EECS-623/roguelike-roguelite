@@ -256,6 +256,12 @@
         "GUID": "{15964738-8B1D-44C4-992D-4872FF5C7F15}"
        },
        {
+        "Id": "2716678721",
+        "Name": "Victory",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Victory",
+        "GUID": "{41B53E2B-AE6B-41B5-9447-396E9998E670}"
+       },
+       {
         "Id": "3705726509",
         "Name": "Title",
         "ObjectPath": "\\States\\Default Work Unit\\playerState\\Title",
@@ -778,6 +784,6 @@
     ]
    }
   ],
-  "FileHash": "{1811B8B2-63BB-152F-34FD-8BE9CC2C2EEC}"
+  "FileHash": "{42CA97A5-9258-EB0D-B8D3-F1FA1110EEBA}"
  }
 }
