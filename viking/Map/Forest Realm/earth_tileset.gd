@@ -17,11 +17,7 @@ var lowerEdge = 3
 func _ready() -> void:
 	Global.relics = 0
 	Global.earth_enemies_left = 1000	
-	#Wwise.set_state("LOCATION","MIDGARD")
-	#Wwise.set_state("PLAYERLIFE","ALIVE")	
-	Wwise.post_event_id(AK.EVENTS.MAP_LOADED, self)
-	
-	Wwise.post_event_id(AK.EVENTS.MIDGARD, self)
+
 	z_index = -2
 	$Area2D.body_entered.connect(_on_body_entered)
 	

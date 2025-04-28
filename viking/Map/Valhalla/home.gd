@@ -5,7 +5,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	if !PlayerManager.player:
 		var my_player = player.instantiate()
 		PlayerManager.player = my_player
@@ -17,8 +16,6 @@ func _ready() -> void:
 	cam.limit_right = 900
 	cam.limit_top = -600
 	cam.limit_bottom = 600
-	Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
-	Wwise.post_event_id(AK.EVENTS.VALHALLA, self)
 	HUD.visible = true
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout

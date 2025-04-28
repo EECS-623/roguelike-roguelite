@@ -5,7 +5,7 @@
    "GUID": "{B7F35E91-DD11-4F01-9B07-1CAB54CAF56D}",
    "Generator": "2024.1.1.8691"
   },
-  "CacheRoot": "../../../../../Downloads/Valhalla's Gauntlet 5/Valhalla's Gauntlet/.cache",
+  "CacheRoot": "../../../../../Downloads/Valhalla's Gauntlet/Valhalla's Gauntlet/.cache",
   "Platforms": [
    {
     "Name": "Mac",
@@ -31,6 +31,6 @@
     "UseAsStandIn": "true"
    }
   ],
-  "FileHash": "{F6635D5D-17E6-89A6-61D9-C665BA983E4D}"
+  "FileHash": "{49EE35B6-1EDE-E488-27E1-92A912E99680}"
  }
 }
