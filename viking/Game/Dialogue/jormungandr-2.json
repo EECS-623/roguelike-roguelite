@@ -1,5 +1,6 @@
 [
-	{"name": "[center]Jormungandr[/center]", "text": "([color=red]WARRIOR[/color], you may have besssted me, but it’s only a minor sssetback)"},
+	{"name": "[center]Jormungandr[/center]", "text": "([color=#FF0000][i]WARRIOR[/i][/color], you may have besssted me, but it’s only a minor sssetback)"},
+	{"name": "[center]Jormungandr[/center]", "text": "(Tell that coward to fight his own battlessss next time)", "condition": "thor"},
 	{"name": "[center]Jormungandr[/center]", "text": "(If you’re the bessst they have, it won’t be long now…)"},
-	{"name": "[center]Jormungandr[/center]", "text": "([color=blue]Ragnarök[/color] approachessssss…. Valhalla will fall)"},
+	{"name": "[center]Jormungandr[/center]", "text": "([color=#00BFFF][i]Ragnarök[/i][/color] approachessssss…. Valhalla will fall)"},
 ]
