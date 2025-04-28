@@ -15,6 +15,7 @@ func _ready() -> void:
 	player = PlayerManager.player
 	if player == null:
 		player = s_player.instantiate()
+		Global.patron_god = 1
 	get_tree().current_scene.add_child(player)
 	player.global_position = Vector2(0, 500)
 	player.direction = Vector2(0, 1)

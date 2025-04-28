@@ -150,7 +150,7 @@ shape = SubResource("RectangleShape2D_5tgcf")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_hq3rk")
-max_health = 10.0
+max_health = 400.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
