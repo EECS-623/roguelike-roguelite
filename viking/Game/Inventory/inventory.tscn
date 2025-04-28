@@ -240,7 +240,6 @@ theme_override_font_sizes/font_size = 8
 text = "MAX"
 
 [node name="ForrestKey1" type="TextureRect" parent="Control"]
-visible = false
 layout_mode = 0
 offset_left = 644.0
 offset_top = 608.0
@@ -251,7 +250,6 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_gyn1f")
 
 [node name="ForrestKey2" type="TextureRect" parent="Control"]
-visible = false
 layout_mode = 0
 offset_left = 720.0
 offset_top = 608.0
@@ -262,7 +260,6 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_gyn1f")
 
 [node name="ForrestKey3" type="TextureRect" parent="Control"]
-visible = false
 layout_mode = 0
 offset_left = 795.0
 offset_top = 608.0
@@ -273,7 +270,6 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_gyn1f")
 
 [node name="ForrestArtifact" type="TextureRect" parent="Control"]
-visible = false
 layout_mode = 0
 offset_left = 909.0
 offset_top = 533.0

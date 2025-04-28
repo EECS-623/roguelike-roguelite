@@ -18,7 +18,17 @@ extends CanvasLayer
 @onready var mana_regen_max = $Control/ManaRegenMAX
 @onready var max_health_max = $Control/MaxHealthMAX
 
-@onready var rune_count_label = $Control/RuneCount     
+@onready var rune_count_label = $Control/RuneCount
+
+# Key and artifact references
+@onready var forrest_key1 = $Control/ForrestKey1
+@onready var forrest_key2 = $Control/ForrestKey2
+@onready var forrest_key3 = $Control/ForrestKey3
+@onready var forrest_artifact = $Control/ForrestArtifact
+@onready var ice_key1 = $Control/IceKey1
+@onready var ice_key2 = $Control/IceKey2
+@onready var ice_key3 = $Control/IceKey3
+@onready var ice_artifact = $Control/IceArtifact
 
 var player
 var last_checked_runes = 0
@@ -39,6 +49,9 @@ func _ready():
 	mana_regen_max.visible = false
 	max_health_max.visible = false
 	
+	# Hide all keys and artifacts initially
+	hide_all_keys_and_artifacts()
+	
 	# Connect button signals
 	melee_damage_btn.pressed.connect(_on_melee_damage_upgrade_pressed)
 	magic_ability_btn.pressed.connect(_on_magic_ability_upgrade_pressed)
@@ -48,6 +61,21 @@ func _ready():
 	
 	# Connect to stat changes
 	InventoryManager.stats_changed.connect(update_display)
+
+func hide_all_keys_and_artifacts():
+	# Hide all keys and artifacts
+	hide_forrest_keys_and_artifacts()
+	ice_key1.visible = false
+	ice_key2.visible = false
+	ice_key3.visible = false
+	ice_artifact.visible = false
+
+func hide_forrest_keys_and_artifacts():
+	# Hide Forest keys and artifact
+	forrest_key1.visible = false
+	forrest_key2.visible = false
+	forrest_key3.visible = false
+	forrest_artifact.visible = false
 
 func _process(_delta):
 	if visible:

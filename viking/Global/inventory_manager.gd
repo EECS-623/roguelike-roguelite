@@ -26,7 +26,6 @@ func _ready():
 	# We don't need to find the inventory in _ready() since it's an autoload
 	pass
 
-# Add this reset function to reset all stats
 func reset_stats() -> void:
 	melee_damage_level = 0
 	magic_ability_level = 0
@@ -34,8 +33,9 @@ func reset_stats() -> void:
 	mana_regen_level = 0
 	max_health_level = 0
 	Global.xp = 0
+	Inventory.hide_all_keys_and_artifacts()
 	stats_changed.emit()
-	print("Stats and runes reset")
+	print("Stats, runes, inventory reset")
 
 func toggle_inventory():
 	# Since Inventory is a global singleton, we can access it directly
