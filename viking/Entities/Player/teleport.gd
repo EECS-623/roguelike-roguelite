@@ -183,21 +183,19 @@ func cast_ability() -> bool:
 								print("gothere")
 					# ────── 3) COMPLETE THE TELEPORT ──────
 					teleport_begun = true
-					camera.position_smoothing_enabled = true
+					camera.position_smoothing_enabled = false
 					mana_component.use_mana(mana_cost)
+					var old_camera_position = camera.global_position
 					player.global_position = end_position
 					teleport = false
 					await get_tree().create_timer(.5).timeout
 					for selected_enemy in enemies_to_free:
 						selected_enemy.take_damage(150)
-					await get_tree().create_timer(2).timeout
+
+					start_camera_lerp(old_camera_position, player.global_position)
+
 					teleport = true
 					teleport_begun = false
-					camera.position_smoothing_speed = 18
-
-					await get_tree().create_timer(2).timeout
-					if not teleport_begun:
-						camera.position_smoothing_enabled = false
 	
 	return true # this will be at the very end of the function
 
