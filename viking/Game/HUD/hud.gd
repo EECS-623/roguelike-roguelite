@@ -52,6 +52,53 @@ func connect_to_player():
 		return
 	
 	# Clean up old connections
+	disconnect_existing_signals()
+	
+	# Store the new player
+	player = new_player
+	connected = false
+	
+	print("HUD connecting to player: ", player != null)
+	
+	# Connect to health component
+	if player and player.has_node("HealthComponent"):
+		health_component = player.get_node("HealthComponent")
+		
+		# Check if signals are already connected before connecting them
+		if !health_component.i_current_health.is_connected(_on_health_changed):
+			health_component.i_current_health.connect(_on_health_changed)
+		
+		if !health_component.i_max_health.is_connected(_on_max_health_changed):
+			health_component.i_max_health.connect(_on_max_health_changed)
+		
+		# Force update with current values
+		_on_max_health_changed(health_component.max_health)
+		_on_health_changed(health_component.current_health)
+		print("HUD connected to health component: ", health_component.current_health, "/", health_component.max_health)
+	
+	# Connect to mana component
+	if player and player.has_node("ManaComponent"):
+		mana_component = player.get_node("ManaComponent")
+		
+		# Check if signals are already connected before connecting them
+		if !mana_component.i_current_mana.is_connected(_on_mana_changed):
+			mana_component.i_current_mana.connect(_on_mana_changed)
+		
+		if !mana_component.i_max_mana.is_connected(_on_max_mana_changed):
+			mana_component.i_max_mana.connect(_on_max_mana_changed)
+		
+		if !mana_component.flash_red_requested.is_connected(_on_flash_mana_red):
+			mana_component.flash_red_requested.connect(_on_flash_mana_red)
+		
+		# Force update with current values
+		_on_max_mana_changed(mana_component.max_mana)
+		_on_mana_changed(mana_component.current_mana)
+		print("HUD connected to mana component: ", mana_component.current_mana, "/", mana_component.max_mana)
+	
+	connected = true
+
+# Helper function to safely disconnect all signals
+func disconnect_existing_signals():
 	if health_component != null:
 		if health_component.i_current_health.is_connected(_on_health_changed):
 			health_component.i_current_health.disconnect(_on_health_changed)
@@ -66,36 +113,8 @@ func connect_to_player():
 		if mana_component.flash_red_requested.is_connected(_on_flash_mana_red):
 			mana_component.flash_red_requested.disconnect(_on_flash_mana_red)
 	
-	# Store the new player
-	player = new_player
-	connected = false
-	
-	print("HUD connecting to player: ", player != null)
-	
-	# Connect to health component
-	if player and player.has_node("HealthComponent"):
-		health_component = player.get_node("HealthComponent")
-		health_component.i_current_health.connect(_on_health_changed)
-		health_component.i_max_health.connect(_on_max_health_changed)
-		
-		# Force update with current values
-		_on_max_health_changed(health_component.max_health)
-		_on_health_changed(health_component.current_health)
-		print("HUD connected to health component: ", health_component.current_health, "/", health_component.max_health)
-	
-	# Connect to mana component
-	if player and player.has_node("ManaComponent"):
-		mana_component = player.get_node("ManaComponent")
-		mana_component.i_current_mana.connect(_on_mana_changed)
-		mana_component.i_max_mana.connect(_on_max_mana_changed)
-		mana_component.flash_red_requested.connect(_on_flash_mana_red)
-		
-		# Force update with current values
-		_on_max_mana_changed(mana_component.max_mana)
-		_on_mana_changed(mana_component.current_mana)
-		print("HUD connected to mana component: ", mana_component.current_mana, "/", mana_component.max_mana)
-	
-	connected = true
+	health_component = null
+	mana_component = null
 
 func _on_health_changed(new_health):
 	health_bar.value = new_health
