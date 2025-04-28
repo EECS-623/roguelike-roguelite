@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx25pnfrmbvm3"]
+[gd_scene load_steps=4 format=3 uid="uid://dx25pnfrmbvm3"]
 
 [ext_resource type="Script" path="res://Game/PatronSelection/patron_selection.gd" id="1_svgqn"]
+[ext_resource type="Texture2D" uid="uid://bmyvgmdfi6le1" path="res://Assets/Art/Screens/Buttons/Choose Button.png" id="2_gebyi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubdgb"]
 bg_color = Color(0.647059, 0.662745, 0.682353, 0)
@@ -21,8 +22,37 @@ script = ExtResource("1_svgqn")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Button1" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 456.0
+offset_right = 696.0
+offset_bottom = 760.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_gebyi")
+
+[node name="Button2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 456.0
+offset_right = 1056.0
+offset_bottom = 760.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_gebyi")
+
+[node name="Button3" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 456.0
+offset_right = 1432.0
+offset_bottom = 760.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_gebyi")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -51,29 +81,19 @@ offset_bottom = 624.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubdgb")
 
-[node name="First_Vbox" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 504.0
-offset_right = 340.0
-offset_bottom = 584.0
-
-[node name="Button1" type="Button" parent="First_Vbox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Lightning"
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 312.0
+offset_bottom = 106.0
 
-[node name="Second_Vbox" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 456.0
-offset_top = 504.0
-offset_right = 696.0
-offset_bottom = 584.0
-
-[node name="Button2" type="Button" parent="Second_Vbox"]
+[node name="ThorLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Force Field"
+theme_override_font_sizes/font_size = 32
+text = "Thor"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -82,54 +102,28 @@ offset_top = 64.0
 offset_right = 664.0
 offset_bottom = 112.0
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="TyrLabel" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Tyr"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Third_Vbox" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 836.0
-offset_top = 504.0
-offset_right = 1076.0
-offset_bottom = 584.0
-
-[node name="Button3" type="Button" parent="Third_Vbox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Teleport"
-
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 312.0
-offset_bottom = 106.0
-
-[node name="Label" type="Label" parent="VBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Thor"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 864.0
 offset_top = 64.0
 offset_right = 1048.0
 offset_bottom = 106.0
 
-[node name="Label" type="Label" parent="VBoxContainer4"]
+[node name="FreyaLabel" type="Label" parent="VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Freya"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="CallToActionLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 320.0
 offset_top = -40.0
@@ -140,6 +134,6 @@ text = "Choose your Patron God"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="First_Vbox/Button1" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Second_Vbox/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Third_Vbox/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
