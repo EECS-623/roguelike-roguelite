@@ -6,12 +6,12 @@ class_name Smash extends State
 var ice_golem
 var player
 var finished = false
-var tween: Tween
+var stomp
 
 
-# what happens when the entity enters a state
+
 func enter() -> void:
-	var stomp = s_warning.instantiate()
+	stomp = s_warning.instantiate()
 	stomp.global_position = Vector2(0, -385)
 	get_tree().current_scene.add_child(stomp)
 	ice_golem.get_node("AnimationPlayer").play("stomp")
@@ -28,8 +28,6 @@ func enter() -> void:
 	var dir = (player.global_position - Vector2(0, -385)).normalized()
 	player.knockback_velocity = dir * strength
 	player.knockback_timer = 0.5 
-
-	get_tree().current_scene.remove_child(stomp)
 	finished = true
 	
 
@@ -42,6 +40,8 @@ func state_physics_process(delta : float) -> State:
 	return null
 
 
-# what happens when obtaining an input in this state
-func handle_input(_event : InputEvent) -> State:
-	return null
+func _on_health_component_death() -> void:
+	if stomp != null:
+		stomp.get_node("AnimationPlayer").play("RESET")
+		stomp.visible = false
+		

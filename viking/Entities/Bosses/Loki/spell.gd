@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if timer <=0:
 		queue_free()
 	else:
-		start_angle += delta
+		start_angle += (2*delta / 3)
 		global_position = loki.global_position + Vector2(cos(start_angle), sin(start_angle)) * orbit_radius
 		timer -= delta
 	

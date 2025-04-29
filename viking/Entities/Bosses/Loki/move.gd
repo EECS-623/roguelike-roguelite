@@ -12,12 +12,11 @@ var close_thresh = 300
 var far_thresh = 700
 
 var close_actions = ["Teleport", "Move", "Move", "Move"]
-var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "Icicle"]
-var far_actions = ["Teleport", "Summon", "Icicle"]
+var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "MakeSpikes", "Projectile", "Clone", "SpellCircle", "MakeSpikes"]
 
 # what happens when the entity enters a state
 func enter() -> void:
-	move_timer = randf_range(2, 4)
+	move_timer = randf_range(5, 10)
 	change_dir_timer = randf_range(.1, .75)
 
 # what happens when the entity exits a state
@@ -52,16 +51,11 @@ func choose_state():
 	var distance_to_player = loki.global_position.distance_to(player.global_position)
 	if distance_to_player < close_thresh:
 		new_state = close_actions[randi_range(0, 3)]
-	elif distance_to_player > far_thresh:
-		new_state = far_actions[randi_range(0, 2)]
 	else:
-		new_state = actions[randi_range(0, 4)]
-	
-	var finished_actions = ["SpellCircle", "Summon", "Projectile", "MakeSpikes"]
-	new_state = finished_actions[randi_range(0, 3)]
+		new_state = actions[randi_range(0, 8)]
+
 	
 	return get_state_by_name(new_state)
-	
 	
 func move():
 	var direction_to_player = (player.global_position - loki.global_position).normalized()

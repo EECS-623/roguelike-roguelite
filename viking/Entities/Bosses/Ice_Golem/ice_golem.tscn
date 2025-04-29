@@ -150,7 +150,7 @@ shape = SubResource("RectangleShape2D_5tgcf")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_hq3rk")
-max_health = 10.0
+max_health = 400.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -219,3 +219,5 @@ libraries = {
 }
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="death" from="HealthComponent" to="IceGolemStateMachine/Smash" method="_on_health_component_death"]
+[connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

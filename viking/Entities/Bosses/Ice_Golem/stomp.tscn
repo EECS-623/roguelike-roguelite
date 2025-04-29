@@ -91,7 +91,7 @@ animation = &"Stomp Ring"
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_fw57s")
-damage = 20.0
+damage = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_qdxyp")
@@ -100,3 +100,5 @@ shape = SubResource("CircleShape2D_qdxyp")
 libraries = {
 "": SubResource("AnimationLibrary_3ru6d")
 }
+
+[connection signal="hit" from="Hitbox" to="Hitbox" method="_on_hit"]
