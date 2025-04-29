@@ -8,7 +8,7 @@
 radius = 332.537
 
 [node name="Spikes" type="Sprite2D"]
-z_index = 1
+z_index = 2
 texture = ExtResource("1_wa2ij")
 script = ExtResource("2_gpstc")
 
