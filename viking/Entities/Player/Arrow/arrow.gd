@@ -14,26 +14,9 @@ func _ready() -> void:
 	timer.wait_time = 1.0
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start()
-	#cursor_position = get_global_mouse_position()
-	#rotation_angle = to_local(position).angle_to_point(cursor_position)
-	#rotation = rotation_angle
-
-
-#func launch():
-	##direction = direction.normalized()
-	#var timer = Timer.new()
-	#add_child(timer)
-	#timer.one_shot = true
-	#timer.wait_time = 1.0
-	#timer.connect("timeout", _on_timer_timeout)
-	#timer.start()
-	#rotation = (get_global_mouse_position() - global_position).angle()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
 func _process(delta: float) -> void:
-	print(direction)
 	position += direction * Global.bullet_speed * delta
 
 	

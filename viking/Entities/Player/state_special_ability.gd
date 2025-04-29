@@ -6,6 +6,7 @@ class_name StateSpecialAbility extends PlayerState
 @onready var hitbox: Hitbox = $"../../MeleeHitboxInteractions/Hitbox"
 @export var ability: SpecialAbilityComponent
 @onready var speed_component : SpeedComponent = $"../../SpeedComponent"
+@onready var arrow = preload("res://Entities/Player/Arrow/arrow.tscn")
 
 var casting : bool = false
 func enter() -> void:
@@ -75,6 +76,17 @@ func state_physics_process(delta: float) -> State:
 
 # what happens when obtaining an input in this state
 func handle_input(_event : InputEvent) -> State:
+	# not sure if we should have this here, because lightning overlaps with arrow
+	if _event is InputEventMouseButton and _event.pressed:
+		if _event.button_index == MOUSE_BUTTON_RIGHT:
+			#action_in_progress = true
+			if !player.arrow_cooldown:
+				var new_arrow = arrow.instantiate()
+				get_tree().current_scene.add_child(new_arrow)
+				new_arrow.position = player.global_position
+				new_arrow.direction = (player.get_global_mouse_position() - player.global_position).normalized()
+				new_arrow.rotation = (player.get_global_mouse_position() - player.global_position).angle()
+				player.start_arrow_cooldown()
 	return null
 
 # ends the attack (animation name added to avoid compiler issues)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvfb7xowrwgnh"]
+[gd_scene load_steps=2 format=3 uid="uid://dx8xw4s8lc56r"]
 
 [ext_resource type="Script" path="res://Components/SpecialAbilityComponent/cast_fireball.gd" id="1_mftlo"]
 
