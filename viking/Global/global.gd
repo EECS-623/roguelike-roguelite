@@ -9,9 +9,11 @@ var bullet_speed: int = 500
 var enemy_speed: int = 1.5
 var xp: int = 0
 var patron_god: int = 0
-var has_key: bool = false
+var has_key: int = 0
+
+
 var loaded_banks = {}
-var world_level: int = 1
+var world_level: int = 2
 var upgrade_level: int = 1
 
 func reset_globals():
@@ -25,7 +27,9 @@ func reset_globals():
 	enemy_speed = 1.5
 	xp = 0
 	patron_god = 0
-	has_key = false
+	has_key = 0
+
+	
 	#loaded_banks = {}, need to not reset this one to not reload wwise banks.
 	world_level = 1
 	upgrade_level = 1
