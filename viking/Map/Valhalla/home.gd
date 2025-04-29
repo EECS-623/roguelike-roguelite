@@ -9,7 +9,7 @@ func _ready() -> void:
 		PlayerManager.player = my_player
 	get_tree().current_scene.add_child(PlayerManager.player)
 	PlayerManager.player.global_position = Vector2(110,0)
-	#Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
+	Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
 	var cam = PlayerManager.player.get_node("Camera2D")
 	cam.limit_left = -900
 	cam.limit_right = 900
