@@ -2,7 +2,6 @@ extends Node2D
 
 @export var player: PackedScene = preload("res://Entities/Player/player.tscn")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if !PlayerManager.player:
@@ -35,7 +34,9 @@ func _on_area_2d_tree_travel_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
+		
 		remove_child(body)
+		#SceneTransitionManager.fade_to_scene("res://Map/Valhalla/Tree_Scene/tree_scene.tscn")
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/Tree_Scene/tree_scene.tscn")
 
 

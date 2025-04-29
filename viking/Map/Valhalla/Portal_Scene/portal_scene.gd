@@ -31,7 +31,7 @@ func _on_area_2d_go_home_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
-		remove_child(body)
+		
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 
 
@@ -41,11 +41,12 @@ func _on_area_2d_portal_body_entered(body: Node2D) -> void:
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
 		if Global.world_level == 1:
-			
-			get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/earth_tileset.tscn")
+			SceneTransitionManager.fade_to_scene("res://Map/Forest Realm/earth_tileset.tscn")
+			#get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/earth_tileset.tscn")
 			Global.world_level = 2
 		elif Global.world_level == 2:
-			get_tree().call_deferred("change_scene_to_file", "res://Map/Ice Realm/ice_tileset.tscn")
+			SceneTransitionManager.fade_to_scene("res://Map/Ice Realm/ice_tileset.tscn")
+			#get_tree().call_deferred("change_scene_to_file", "res://Map/Ice Realm/ice_tileset.tscn")
 		var cam = PlayerManager.player.get_node("Camera2D")
 		cam.limit_left = -10000000
 		cam.limit_right = 10000000
