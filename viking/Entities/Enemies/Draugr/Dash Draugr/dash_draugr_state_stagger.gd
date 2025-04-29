@@ -13,6 +13,7 @@ var knockback_direction: Vector2
 
 # what happens when the entity enters a state
 func enter() -> void:
+	dash_draugr.update_animation("idle")
 	var knockback_emission = -(raycast_component.player.global_position - dash_draugr.global_position).normalized()
 	particles.global_rotation = knockback_emission.angle()
 	particles.restart()
