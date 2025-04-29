@@ -6,6 +6,8 @@ extends TileMapLayer
 @export var chest: PackedScene = preload("res://Map/Forest Realm/Map Items/chest.tscn")
 @export var appleTree: PackedScene = preload("res://Map/Forest Realm/Map Items/apples.tscn")
 @export var apple: PackedScene = preload("res://Map/Forest Realm/Map Items/apple.tscn")
+@export var odin: PackedScene = preload("res://Entities/NPCs/Odin/odin.tscn")
+@export var witch: PackedScene = preload("res://Entities/Enemies/Volva/Basic Volva/volva.tscn")
 
 
 var leftmostEdge = -4
@@ -64,8 +66,9 @@ func _ready() -> void:
 	
 		
 	#set boss spawn
-	set_cell(Vector2i(rightmostEdge-2, upperEdge), 0, Vector2i(1, 0))
-	set_cell(Vector2i(rightmostEdge-2, upperEdge-1), 0, Vector2i(3, 0))
+	var bossSpawn = floor (8* randf())
+	set_cell(Vector2i(leftmostEdge+bossSpawn, upperEdge-1), 0, Vector2i(1,0))
+	print("Placed a boss tile at ", leftmostEdge+bossSpawn)
 	
 
 	#procedural generation setup
@@ -100,7 +103,7 @@ func _ready() -> void:
 	for i in range(leftmostEdge, rightmostEdge+1):
 		for j in range(upperEdge, lowerEdge+1):
 		
-			if not (Vector2i(i, j) == Vector2i(rightmostEdge-2, upperEdge) || Vector2i(i, j) == Vector2i(leftmostEdge+1, upperEdge + 1 ) || Vector2i(i, j) == Vector2i(rightmostEdge, lowerEdge-1) || Vector2i(i, j) == Vector2i(1, lowerEdge/2+1)|| Vector2i(i, j) == Vector2i(leftmostEdge+1, lowerEdge) ||  Vector2i(i, j) == Vector2i(0,0)||  Vector2i(i, j) == Vector2i(0,-1)||  Vector2i(i, j) == Vector2i(-1, 0)||  Vector2i(i, j) == Vector2i(-1,-1)):
+			if not (Vector2i(i, j) == Vector2i(rightmostEdge-2, upperEdge) || Vector2i(i, j) == Vector2i(leftmostEdge+1, upperEdge + 1 ) || Vector2i(i, j) == Vector2i(rightmostEdge, lowerEdge-1) || Vector2i(i, j) == Vector2i(1, lowerEdge/2+1)|| Vector2i(i, j) == Vector2i(leftmostEdge+1, lowerEdge) ||  Vector2i(i, j) == Vector2i(0,0)||  Vector2i(i, j) == Vector2i(0,-1)||  Vector2i(i, j) == Vector2i(-1, 0)||  Vector2i(i, j) == Vector2i(-1,-1) ||  Vector2i(i, j) == Vector2i(rightmostEdge, upperEdge+1) ):
 				#pick tile			
 				var chosenTile = availableRooms.pick_random()
 				#place tile
@@ -116,7 +119,7 @@ func _ready() -> void:
 					totalItemsPlaced += 1			
 					
 					placedItems[totalItemsPlaced] = tree.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(145, 218)
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(145, 188)
 					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 								
@@ -134,15 +137,11 @@ func _ready() -> void:
 										
 				
 					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-210, 190)
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, 0)
 					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
-					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(166, -187)
-					add_child(placedItems[totalItemsPlaced])	
-					totalItemsPlaced += 1			
+							
 						
 				
 				elif( chosenTile == Vector2i(1, 2)):
@@ -177,15 +176,11 @@ func _ready() -> void:
 						
 				
 					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, -197)
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, -107)
 					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
 					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-150, 98)
-					add_child(placedItems[totalItemsPlaced])		
-					totalItemsPlaced += 1			
 										
 
 				
@@ -262,7 +257,7 @@ func _ready() -> void:
 					totalItemsPlaced += 1									
 							
 					placedItems[totalItemsPlaced] = spike.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-179, -34)
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-189, -134)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1										
 		
@@ -271,14 +266,9 @@ func _ready() -> void:
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1	
 					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(150, -150)
-					add_child(placedItems[totalItemsPlaced])
-					totalItemsPlaced += 1			
-					
 					
 					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-170, 170)
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, 170)
 					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1			
 					
@@ -366,17 +356,12 @@ func _ready() -> void:
 					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1								
 				
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(100, 25)
+					placedItems[totalItemsPlaced] = witch.instantiate()
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-100, 0)
 					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
 					
-					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-125, -125)
-					add_child(placedItems[totalItemsPlaced])		
-					totalItemsPlaced += 1			
-											
+
 				elif( chosenTile == Vector2i(2, 3)):
 					placedItems[totalItemsPlaced] = tree.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(157, 10)
@@ -413,7 +398,7 @@ func _ready() -> void:
 					add_child(placedItems[totalItemsPlaced])		
 					totalItemsPlaced += 1								
 				
-					placedItems[totalItemsPlaced] = enemy.instantiate()
+					placedItems[totalItemsPlaced] = witch.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-140, 0)
 					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1			
@@ -447,18 +432,15 @@ func _ready() -> void:
 					totalItemsPlaced += 1			
 						
 					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, 150)
-					add_child(placedItems[totalItemsPlaced])
-					totalItemsPlaced += 1																		
-	
-					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-50, -50)
 					add_child(placedItems[totalItemsPlaced])
 					totalItemsPlaced += 1						
 												
+	#spawn odin 
+	var odinSpawned = false
 	#geneate special Tiles
-	var availableSpecialRooms = [Vector2i(0, 0),  Vector2i(2, 0), Vector2i(0, 2)]
-	var specialLocations = [Vector2i(leftmostEdge+1, upperEdge + 1 ), Vector2i(rightmostEdge, lowerEdge-1), Vector2i(1, lowerEdge/2+1), Vector2i(leftmostEdge+1, lowerEdge)]
+	var availableSpecialRooms = [Vector2i(0, 0), Vector2i(0, 0), Vector2i(2, 0), Vector2i(0, 2),  Vector2i(2, 3)]
+	var specialLocations = [Vector2i(leftmostEdge+1, upperEdge + 1 ), Vector2i(rightmostEdge, lowerEdge-1), Vector2i(1, lowerEdge/2+1), Vector2i(leftmostEdge+1, lowerEdge), Vector2i(rightmostEdge, upperEdge+1) ]
 	specialLocations.shuffle()
 	#generate
 	for position in specialLocations:
@@ -485,12 +467,12 @@ func _ready() -> void:
 			if( chosenTile == Vector2i(0, 2)):
 				print("Placing a 0,2 tile")
 				placedItems[totalItemsPlaced] = tree.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-158, 88)
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-158, -88)
 				add_child(placedItems[totalItemsPlaced])
 				totalItemsPlaced += 1			
 				
 				placedItems[totalItemsPlaced] = tree.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(145, 218)
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(145, -148)
 				add_child(placedItems[totalItemsPlaced])		
 				totalItemsPlaced += 1			
 							
@@ -501,21 +483,22 @@ func _ready() -> void:
 					
 					
 				placedItems[totalItemsPlaced] = grass.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-15, -200)
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-15, 200)
 				add_child(placedItems[totalItemsPlaced])		
 				totalItemsPlaced += 1			
 									
 				
 				placedItems[totalItemsPlaced] = enemy.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-210, 190)
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, 0)
 				add_child(placedItems[totalItemsPlaced])
 				totalItemsPlaced += 1			
 					
 					
-				placedItems[totalItemsPlaced] = enemy.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(166, -187)
+				placedItems[totalItemsPlaced] = chest.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(166, 187)
 				add_child(placedItems[totalItemsPlaced])	
-				totalItemsPlaced += 1			
+				totalItemsPlaced += 1		
+					
 			if (chosenTile == Vector2i(0,0)):
 				placedItems[totalItemsPlaced] = apple.instantiate()
 				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
@@ -523,9 +506,59 @@ func _ready() -> void:
 				totalItemsPlaced += 1			
 				
 				placedItems[totalItemsPlaced] = apple.instantiate()
-				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(140, 168)
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(100, 168)
 				add_child(placedItems[totalItemsPlaced])							
 				totalItemsPlaced += 1						
+				
+				if( odinSpawned == false):
+					odinSpawned = true
+					placedItems[totalItemsPlaced] = odin.instantiate()
+					placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(180, 188)
+					add_child(placedItems[totalItemsPlaced])							
+					totalItemsPlaced += 1							
+			
+			elif( chosenTile == Vector2i(2, 3)):
+				placedItems[totalItemsPlaced] = tree.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-147, 25)
+				add_child(placedItems[totalItemsPlaced])		
+				totalItemsPlaced += 1			
+						
+					
+
+				placedItems[totalItemsPlaced] = spike.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(165, -140)
+				add_child(placedItems[totalItemsPlaced])	
+				totalItemsPlaced += 1			
+	
+	
+				placedItems[totalItemsPlaced] = spike.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(70, -120)
+				add_child(placedItems[totalItemsPlaced])		
+				totalItemsPlaced += 1							
+					
+				placedItems[totalItemsPlaced] = grass.instantiate()
+				var offset = randf()
+				placedItems[totalItemsPlaced].position =map_to_local(position)+Vector2(-20 + offset * 40, -100 + offset*20)
+				add_child(placedItems[totalItemsPlaced])		
+				totalItemsPlaced += 1			
+										
+
+				placedItems[totalItemsPlaced] = spike.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-10, 80)
+				add_child(placedItems[totalItemsPlaced])		
+				totalItemsPlaced += 1			
+
+				placedItems[totalItemsPlaced] = spike.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(145, 160)
+				add_child(placedItems[totalItemsPlaced])		
+				totalItemsPlaced += 1								
+				
+				placedItems[totalItemsPlaced] = chest.instantiate()
+				placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(140, 0)
+				add_child(placedItems[totalItemsPlaced])
+				totalItemsPlaced += 1			
+					
+		
 			
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 	#add the player
@@ -551,7 +584,7 @@ func _on_body_entered(body):
 			#locked = true
 			
 		if tile_data and tile_data.get_custom_data("bossteleport"):
-			if(	Global.has_key == true):
+			if(	Global.has_key == 3):
 				print("Start Teleport")
 				#Wwise.post_event_id(AK.EVENTS.CHEST_OPEN, self)
 				await get_tree().create_timer(1).timeout
