@@ -40,6 +40,7 @@ func _on_area_2d_portal_body_entered(body: Node2D) -> void:
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
+		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		if Global.world_level == 1:
 			SceneTransitionManager.fade_to_scene("res://Map/Forest Realm/earth_tileset.tscn")
 			#get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/earth_tileset.tscn")
