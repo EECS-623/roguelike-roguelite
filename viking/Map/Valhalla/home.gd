@@ -2,7 +2,6 @@ extends Node2D
 
 @export var player: PackedScene = preload("res://Entities/Player/player.tscn")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if !PlayerManager.player:
@@ -35,8 +34,17 @@ func _on_area_2d_tree_travel_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
+		var temp_camera = Camera2D.new()
+		var player_position = PlayerManager.player.global_position
+		temp_camera.global_position = PlayerManager.player.get_node("Camera2D").global_position
+		temp_camera.zoom = PlayerManager.player.get_node("Camera2D").zoom  # (Optional) Copy zoom if needed
+		
+
+		get_tree().current_scene.add_child(temp_camera)
+		temp_camera.make_current()
 		remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/Tree_Scene/tree_scene.tscn")
+		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/Tree_Scene/tree_scene.tscn", player_position)
+		#get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/Tree_Scene/tree_scene.tscn")
 
 
 func _on_area_2d_portal_travel_body_entered(body: Node2D) -> void:

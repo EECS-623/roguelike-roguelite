@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dq8gb5pxlvilv"]
 
-[ext_resource type="Texture2D" uid="uid://gw8t3ulv6ts6" path="res://Map/Forest Realm/Map Items/APPLE.png" id="1_lkp34"]
+[ext_resource type="Texture2D" uid="uid://bnglropieapp1" path="res://Map/Forest Realm/Map Items/APPLE.png" id="1_lkp34"]
 [ext_resource type="Script" path="res://Map/Forest Realm/Map Items/apple.gd" id="2_xpf5q"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_ewhje"]
 

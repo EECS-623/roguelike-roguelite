@@ -31,7 +31,6 @@ func _on_area_2d_go_home_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
-		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 
 
