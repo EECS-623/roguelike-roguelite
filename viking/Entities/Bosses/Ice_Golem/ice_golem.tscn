@@ -219,3 +219,5 @@ libraries = {
 }
 
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="death" from="HealthComponent" to="IceGolemStateMachine/Smash" method="_on_health_component_death"]
+[connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

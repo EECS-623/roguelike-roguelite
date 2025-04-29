@@ -23,10 +23,17 @@ func _physics_process(delta: float) -> void:
 func _on_health_component_death() -> void:
 	queue_free()
 
-func update_animation(animation, direction):
+func update_animation(animation, direction = Vector2.DOWN):
 	var animation_direction
 	if abs(direction.x) > abs(direction.y):
 		animation_direction = "right" if direction.x > 0 else "left"
 	else:
 		animation_direction = "down" if direction.y > 0 else "up"
 	$AnimationPlayer.play(animation+"_"+animation_direction)
+	
+func _on_health_component_t_damage(amount: float) -> void:
+	if self and $HealthComponent.current_health > 0:
+		for i in range(2):
+			$AnimatedSprite2D.modulate = Color.RED
+			await get_tree().create_timer(.01).timeout
+			$AnimatedSprite2D.modulate = Color.WHITE

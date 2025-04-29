@@ -11,7 +11,7 @@ var player
 
 func enter() -> void:
 	finished = false
-	#loki.update_animation("build")
+	loki.update_animation("spikes")
 	if loki.global_position.distance_to(player.global_position) > 200:
 		var pattern = randi_range(0, 3)
 		if pattern == 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dxgbl3xb2jj04"]
+[gd_scene load_steps=61 format=3 uid="uid://dxgbl3xb2jj04"]
 
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/loki.gd" id="1_ya1he"]
 [ext_resource type="Texture2D" uid="uid://g8gb5r44pfb1" path="res://Assets/Loki/Front Standing.png" id="2_yyvr2"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/move.gd" id="25_0gxw3"]
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/summon.gd" id="26_3jemv"]
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/spell_circle.gd" id="26_4shpx"]
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/teleport.gd" id="26_kqtwu"]
 [ext_resource type="Script" path="res://Entities/Bosses/Loki/projectile_state.gd" id="26_t1krd"]
 [ext_resource type="PackedScene" uid="uid://bjiplugs8u00g" path="res://Entities/Bosses/Loki/projectile.tscn" id="27_5uc1b"]
 [ext_resource type="PackedScene" uid="uid://bootcm1im0svw" path="res://Entities/Enemies/Draugr/Basic Draugr/draugr.tscn" id="27_612jv"]
@@ -34,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://c302rifbn4dys" path="res://Entities/Bosses/Loki/spell.tscn" id="27_dag63"]
 [ext_resource type="PackedScene" uid="uid://c402cxraasnvw" path="res://Entities/Enemies/Volva/Basic Volva/volva.tscn" id="28_dksig"]
 [ext_resource type="PackedScene" uid="uid://c7gtj34kvfgg6" path="res://Entities/Bosses/Loki/spikes.tscn" id="28_vegil"]
+[ext_resource type="Script" path="res://Entities/Bosses/Loki/clone.gd" id="32_xkf4d"]
+[ext_resource type="PackedScene" uid="uid://bp4rgr1t24a6j" path="res://Entities/Bosses/Loki/l_clone.tscn" id="33_20qsl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uqp3n"]
 animations = [{
@@ -156,6 +159,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_a7ckm"]
@@ -550,6 +565,136 @@ tracks/2/keys = {
 "values": [Vector2(-500, -180)]
 }
 
+[sub_resource type="Animation" id="Animation_2uand"]
+resource_name = "spikes_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hbs0c"]
+resource_name = "spikes_left"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [13, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6vn6q"]
+resource_name = "spikes_right"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [17, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ecfn2"]
+resource_name = "spikes_up"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o7nvy"]
+resource_name = "teleport"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.52549, 0.0352941, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c0sgc"]
 _data = {
 "RESET": SubResource("Animation_obnlh"),
@@ -564,10 +709,16 @@ _data = {
 "projectile_down": SubResource("Animation_llqlp"),
 "projectile_left": SubResource("Animation_4gq0n"),
 "projectile_right": SubResource("Animation_0jrah"),
-"projectile_up": SubResource("Animation_7fcyk")
+"projectile_up": SubResource("Animation_7fcyk"),
+"spikes_down": SubResource("Animation_2uand"),
+"spikes_left": SubResource("Animation_hbs0c"),
+"spikes_right": SubResource("Animation_6vn6q"),
+"spikes_up": SubResource("Animation_ecfn2"),
+"teleport": SubResource("Animation_o7nvy")
 }
 
 [node name="Loki" type="CharacterBody2D"]
+collision_mask = 8
 script = ExtResource("1_ya1he")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -648,6 +799,8 @@ script = ExtResource("8_f3iy8")
 script = ExtResource("25_0gxw3")
 
 [node name="Teleport" type="Node" parent="LokiStateMachine"]
+script = ExtResource("26_kqtwu")
+s_projectile = ExtResource("27_5uc1b")
 
 [node name="SpellCircle" type="Node" parent="LokiStateMachine"]
 script = ExtResource("26_4shpx")
@@ -658,6 +811,9 @@ script = ExtResource("27_but0y")
 s_spike = ExtResource("28_vegil")
 
 [node name="Clone" type="Node" parent="LokiStateMachine"]
+script = ExtResource("32_xkf4d")
+s_projectile = ExtResource("27_5uc1b")
+s_clone = ExtResource("33_20qsl")
 
 [node name="Summon" type="Node" parent="LokiStateMachine"]
 script = ExtResource("26_3jemv")
@@ -673,4 +829,6 @@ libraries = {
 "": SubResource("AnimationLibrary_c0sgc")
 }
 
+[connection signal="hurt" from="Hurtbox" to="LokiStateMachine/Clone" method="_on_hurtbox_hurt"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
+[connection signal="t_damage" from="HealthComponent" to="." method="_on_health_component_t_damage"]

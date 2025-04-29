@@ -91,6 +91,7 @@ s_loki = ExtResource("2_smpcd")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 scale = Vector2(0.7, 0.7)
+collision_layer = 9
 
 [node name="LokiBossFightRoom" type="Sprite2D" parent="Area2D"]
 scale = Vector2(0.5, 0.5)

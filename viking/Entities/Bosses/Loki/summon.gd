@@ -21,7 +21,7 @@ var finished = false
 func enter() -> void:
 	
 	#Loki, Player, Portal, Area2D and 6 summoned enemies (clones, draugrs, witches)
-	if len(get_tree().current_scene.get_children()) <= 10:
+	if len(get_tree().current_scene.get_children()) < 10:
 		finished = false
 		direction_to_player = (player.global_position - loki.global_position).normalized()
 
@@ -53,12 +53,13 @@ func summon_witch():
 	var spawn_offset = Vector2(cos(angle), sin(angle)) * radius
 	var spawn_position = player.global_position + spawn_offset
 
-	var volva = s_volva.instantiate()
-	volva.player = player
-	volva.global_position = spawn_position
-	volva.summon = true
-	
-	get_tree().current_scene.add_child(volva)
+	if not is_position_blocked(spawn_position):
+		var volva = s_volva.instantiate()
+		volva.player = player
+		volva.global_position = spawn_position
+		volva.summon = true
+		
+		get_tree().current_scene.add_child(volva)
 
 func summon_draugrs():
 	var angles = [90, 210, 330]
@@ -69,13 +70,26 @@ func summon_draugrs():
 		var spawn_offset = Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle))) * radius
 		var spawn_position = player.global_position + spawn_offset
 
-		var draugr = s_draugr.instantiate()
-		draugr.player = player
-		draugr.global_position = spawn_position
-		draugr.summon = true
-		
-		get_tree().current_scene.add_child(draugr)
+		if not is_position_blocked(spawn_position):
+			var draugr = s_draugr.instantiate()
+			draugr.player = player
+			draugr.global_position = spawn_position
+			draugr.summon = true
+			
+			get_tree().current_scene.add_child(draugr)
 
 	
 func can_move_during():
+	return false
+	
+func is_position_blocked(pos: Vector2) -> bool:
+	var space_state = player.get_world_2d().get_direct_space_state()
+	var point = PhysicsPointQueryParameters2D.new()
+	point.position = pos
+	var result = space_state.intersect_point(point)
+
+	for collision in result:
+		if collision.collider is StaticBody2D:
+			return true
+	
 	return false
