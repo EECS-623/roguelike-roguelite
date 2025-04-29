@@ -91,7 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"all_frames"]
+"values": [&"idle"]
 }
 
 [sub_resource type="Animation" id="Animation_omg1a"]
@@ -134,7 +134,7 @@ script = ExtResource("1_7wjgo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_yjt2p")
-animation = &"all_frames"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5tgcf")

@@ -156,7 +156,6 @@ func apply_status_effect(effect: StatusEffect):
 	status_manager.apply_status_effect(effect)
 
 
-
 func _on_shield_damage_body_entered(body: Node2D) -> void:
 	if Global.upgrade_level == 2 and ForceFieldOn and not(body.is_in_group("player")):
 		var health = body.get_node_or_null("HealthComponent")
