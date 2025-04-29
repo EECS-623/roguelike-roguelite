@@ -75,7 +75,7 @@ func _ready() -> void:
 	for i in range(leftmostEdge, rightmostEdge+1):
 		for j in range(upperEdge, lowerEdge+1):
 		
-			if not ( Vector2i(i, j) == Vector2i(0,0)||  Vector2i(i, j) == Vector2i(-1,0) || j == -2 || j == -1 || ((i == -3 || i == -2 || i==1 || i==2) && j >-1) || Vector2i(i, j) == Vector2i(-5,lowerEdge)|| Vector2i(i, j) == Vector2i(-1,lowerEdge)|| Vector2i(i, j) == Vector2i(3,lowerEdge)):
+			if not ( Vector2i(i, j) == Vector2i(0,0)||  Vector2i(i, j) == Vector2i(-1,0)  || ((i == -3 || i == -2 || i==1 || i==2) && j >1) || Vector2i(i, j) == Vector2i(-5,lowerEdge)|| Vector2i(i, j) == Vector2i(-1,lowerEdge)|| Vector2i(i, j) == Vector2i(3,lowerEdge)):
 				#pick tile			
 				var chosenTile = availableRooms.pick_random()
 				#place tile
@@ -144,30 +144,20 @@ func _ready() -> void:
 					
 																				
 				
-	#create the middle mountain range
-	for i in range (leftmostEdge+1, rightmostEdge+1):
-		set_cell(Vector2i(i, -1), 0,Vector2i(1,1))
-	for i in range (leftmostEdge+1, rightmostEdge+1):
-		set_cell(Vector2i(i, -2), 0,Vector2i(2,1))				
-	#edges cases for middle mountain range
-	set_cell(Vector2i(leftmostEdge, -1), 0,Vector2i(0,2))
-	set_cell(Vector2i(leftmostEdge, -2), 0,Vector2i(2,2))
-	set_cell(Vector2i(rightmostEdge+1, -1), 0,Vector2i(3,0))
-	set_cell(Vector2i(rightmostEdge+1, -2), 0,Vector2i(3,0))	
 	
 	
 	#create the verticle mountain range
-	for i in range (1, lowerEdge+1):
+	for i in range (3, lowerEdge+1):
 		set_cell(Vector2i(-3, i), 0,Vector2i(0,1))
 		set_cell(Vector2i(1, i), 0,Vector2i(0,1))
-	for i in range (1, lowerEdge+1):
+	for i in range (3, lowerEdge+1):
 		set_cell(Vector2i(-2, i), 0,Vector2i(3,1))
 		set_cell(Vector2i(2, i), 0,Vector2i(3,1))			
 	#edges cases for verticle mountain range
-	set_cell(Vector2i(-3,0), 0,Vector2i(2,2))
-	set_cell(Vector2i(-2,0), 0,Vector2i(1,2))
-	set_cell(Vector2i(1, 0), 0,Vector2i(2,2))
-	set_cell(Vector2i(2, 0), 0,Vector2i(1,2))
+	set_cell(Vector2i(-3,2), 0,Vector2i(2,2))
+	set_cell(Vector2i(-2,2), 0,Vector2i(1,2))
+	set_cell(Vector2i(1, 2), 0,Vector2i(2,2))
+	set_cell(Vector2i(2, 2), 0,Vector2i(1,2))
 		
 	set_cell(Vector2i(-3, lowerEdge+1), 0,Vector2i(3,0))
 	set_cell(Vector2i(-2, lowerEdge+1), 0,Vector2i(3,0))
@@ -244,7 +234,7 @@ func _on_body_entered(body):
 			#locked = true
 			
 		if tile_data and tile_data.get_custom_data("bossteleport"):
-			if(	Global.has_key == true):
+			if(	Global.has_key == 3):
 				print("Start Teleport")
 				Wwise.post_event_id(AK.EVENTS.CHEST_OPEN, self)
 				await get_tree().create_timer(1).timeout
