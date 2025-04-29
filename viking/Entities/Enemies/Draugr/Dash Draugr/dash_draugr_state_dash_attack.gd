@@ -5,7 +5,7 @@ class_name DashDraugrStateDashAttack extends State
 @onready var idle : State = $"../DashDraugrStateIdle"
 @onready var hitbox: Hitbox = $"../../Hitbox"
 @onready var raycast_component: RaycastComponent = $"../../RaycastComponent"
-@onready var stagger = $"../VolvaStateStagger"
+@onready var stagger = $"../DashDraugrStateStagger"
 
 var attacking : bool = false
 var begin_attack: bool = false
