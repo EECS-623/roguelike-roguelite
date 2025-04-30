@@ -11,7 +11,7 @@ var hit: bool = false
 
 func _ready():
 	# Normalize direction to ensure consistent speed
-	$Sprite2D.modulate = Color(0.4, 0.6, 0.9)
+	$Sprite2D.modulate = Color(0.671, 0.812, 0.808)
 	add_to_group("enemy_bullet")
 	add_to_group("enemy")
 	hitbox.monitorable = false

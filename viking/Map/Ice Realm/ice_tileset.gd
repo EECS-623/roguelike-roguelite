@@ -5,6 +5,9 @@ extends TileMapLayer
 @export var chest: PackedScene = preload("res://Map/Ice Realm/Map Items/chest.tscn")
 @export var apple: PackedScene = preload("res://Map/Ice Realm/Map Items/apple.tscn")
 
+@export var odin: PackedScene = preload("res://Entities/NPCs/Odin/odin.tscn")
+@export var classicWitch: PackedScene = preload("res://Entities/Enemies/Volva/Basic Volva/volva.tscn")
+@export var classicEnemy: PackedScene = preload("res://Entities/Enemies/Draugr/Basic Draugr/draugr.tscn")
 
 var leftmostEdge = -5
 var rightmostEdge = 4
@@ -69,78 +72,116 @@ func _ready() -> void:
 	print("Placed a boss tile at ", leftmostEdge+bossSpawn)
 	
 	#procedural generation setup
-	var availableRooms = [Vector2i(3, 2), Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+	var availableRooms = [Vector2i(3, 2),  Vector2i(0, 2),Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
 
 	#generate
 	for i in range(leftmostEdge, rightmostEdge+1):
 		for j in range(upperEdge, lowerEdge+1):
 		
-			if not ( Vector2i(i, j) == Vector2i(0,0)||  Vector2i(i, j) == Vector2i(-1,0)  || ((i == -3 || i == -2 || i==1 || i==2) && j >1) || Vector2i(i, j) == Vector2i(-5,lowerEdge)|| Vector2i(i, j) == Vector2i(-1,lowerEdge)|| Vector2i(i, j) == Vector2i(3,lowerEdge)):
+			if not ( ((i == -3 || i == -2 || i==1 || i==2) && j >1) || Vector2i(i, j) == Vector2i(-5,lowerEdge)|| Vector2i(i, j) == Vector2i(-1,lowerEdge)|| Vector2i(i, j) == Vector2i(3,lowerEdge) ||Vector2i(i, j) == Vector2i(leftmostEdge, upperEdge+2 ) || Vector2i(i, j) == Vector2i(rightmostEdge-1, upperEdge+4  )|| Vector2i(i, j) == Vector2i((rightmostEdge+rightmostEdge+ leftmostEdge)/3, upperEdge+1) ):
 				#pick tile			
 				var chosenTile = availableRooms.pick_random()
 				#place tile
 
 				set_cell(Vector2i(i,j), 0, chosenTile)
 				
-				if(chosenTile == Vector2i(3, 2)):
-					placedItems[totalItemsPlaced] = ranged.instantiate()
+				if(chosenTile == Vector2i(0, 2)):
+					var variant =  randf()
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()
+						
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(50, -50)
+					add_child(placedItems[totalItemsPlaced])	
+					totalItemsPlaced += 1	
+				
+				elif(chosenTile == Vector2i(3, 2)):
+					var variant =  randf()					
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = ranged.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicWitch.instantiate()					
+
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-177, -100)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1	
 					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()		
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(20, 150)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1						
 					
 				elif(chosenTile == Vector2i(0, 3)):
+					var variant =  randf()										
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()							
 					placedItems[totalItemsPlaced] = enemy.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(100, -100)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1	
 					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()		
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-100, 100)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 					
 				elif(chosenTile == Vector2i(1, 3)):
+					var variant =  randf()															
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = ranged.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicWitch.instantiate()							
 					placedItems[totalItemsPlaced] = ranged.instantiate()
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(20, -100)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1	
 					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()		
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(20, 150)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 					
 				elif(chosenTile == Vector2i(2, 3)):
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(50, 50)
-					add_child(placedItems[totalItemsPlaced])	
-					totalItemsPlaced += 1	
-					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
+
+					var variant =  randf()															
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()							
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-50, -50)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1			
 					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()		
 					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-120, 150)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1								
 					
 				elif(chosenTile == Vector2i(3, 2)):
-					placedItems[totalItemsPlaced] = ranged.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(50, -50)
+					var variant =  randf()															
+					if(variant < 0.3):
+						placedItems[totalItemsPlaced] = enemy.instantiate()
+					else:
+						placedItems[totalItemsPlaced] = classicEnemy.instantiate()							
+					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(0, 0)
 					add_child(placedItems[totalItemsPlaced])	
 					totalItemsPlaced += 1	
-					
-					placedItems[totalItemsPlaced] = enemy.instantiate()
-					placedItems[totalItemsPlaced].position = Vector2((i+0.5)*480,(j+0.5)*480)+Vector2(-50, -50)
-					add_child(placedItems[totalItemsPlaced])	
-					totalItemsPlaced += 1								
+								
 					
 																				
 				
@@ -197,6 +238,10 @@ func _ready() -> void:
 		elif (chosenTile == Vector2i(1,2)):			
 			set_cell(position-Vector2i(1,0), 0, Vector2i(3,0))
 			set_cell(position+Vector2i(0,1), 0, Vector2i(3,0))
+			placedItems[totalItemsPlaced] = odin.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, 0)
+			add_child(placedItems[totalItemsPlaced])	
+			totalItemsPlaced += 1				
 			
 		elif (chosenTile == Vector2i(0,0)):			
 			placedItems[totalItemsPlaced] = apple.instantiate()
@@ -209,6 +254,75 @@ func _ready() -> void:
 			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
 			add_child(placedItems[totalItemsPlaced])
 			totalItemsPlaced += 1		
+			
+						
+	#geneate special Tiles
+	var availableSpecialRooms2 = [Vector2i(0, 0),  Vector2i(1, 3), Vector2i(-1, -1)]
+	var specialLocations2 = [Vector2i(leftmostEdge, upperEdge+2 ), Vector2i(rightmostEdge-1, upperEdge+4  ), Vector2i((rightmostEdge+rightmostEdge+ leftmostEdge)/3, upperEdge+1) ]
+	specialLocations2.shuffle()
+	#generate
+	for position in specialLocations2:
+		
+		#pick tile			
+		var chosenTile = availableSpecialRooms2.pick_random()
+		availableSpecialRooms2.erase(chosenTile)
+
+		#place tile
+		if (chosenTile == Vector2i(1,3)):
+			set_cell(position, 0, chosenTile)
+			
+			placedItems[totalItemsPlaced] = chest.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(25, -125)
+			add_child(placedItems[totalItemsPlaced])	
+			totalItemsPlaced += 1	
+			
+			
+			placedItems[totalItemsPlaced] = enemy.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, 0)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1				
+
+			
+			
+		elif (chosenTile == Vector2i(-1,-1)):			
+			placedItems[totalItemsPlaced] = chest.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, 0)
+			add_child(placedItems[totalItemsPlaced])	
+			totalItemsPlaced += 1	
+			
+			placedItems[totalItemsPlaced] = enemy.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(100, 100)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1					
+			
+			placedItems[totalItemsPlaced] = ranged.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-100, 100)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1					
+			
+			placedItems[totalItemsPlaced] = classicEnemy.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-100, -100)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1					
+			
+			placedItems[totalItemsPlaced] = classicEnemy.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(100, -100)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1														
+			
+		elif (chosenTile == Vector2i(0,0)):		
+			set_cell(position, 0, chosenTile)
+				
+			placedItems[totalItemsPlaced] = apple.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(100, 100)
+			add_child(placedItems[totalItemsPlaced])	
+			totalItemsPlaced += 1	
+			
+			
+			placedItems[totalItemsPlaced] = apple.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1					
 						
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 	#add the player
