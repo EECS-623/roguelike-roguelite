@@ -74,6 +74,7 @@ func _on_artifact_body_entered(body: Node2D) -> void:
 	portal_open()
 
 func portal_open():
+	Global.teleport_banned = true
 	$Portal.visible = true
 	$Portal/CollisionShape2D.disabled = false
 	$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")

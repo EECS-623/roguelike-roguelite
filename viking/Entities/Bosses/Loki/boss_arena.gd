@@ -11,6 +11,7 @@ var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.teleport_banned = false
 	player = PlayerManager.player
 	if player == null:
 		Global.patron_god = 3
