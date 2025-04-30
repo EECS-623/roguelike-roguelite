@@ -54,8 +54,5 @@ text = "Valhalla's Gauntlet"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AkState" type="AkState" parent="."]
-trigger_on = 2
-
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
