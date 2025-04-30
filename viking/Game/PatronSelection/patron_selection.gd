@@ -11,8 +11,6 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	# Thor (Patron 1): Bonus to Melee Damage
 	Global.patron_god = 1
-	InventoryManager.melee_damage_level += 1
-	InventoryManager.stats_changed.emit()
 	#Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 	#get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
 	SceneTransitionManager.fade_to_scene("res://Map//Valhalla/home.tscn")
@@ -27,8 +25,6 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	# Freya (Patron 3): Bonus to Speed
 	Global.patron_god = 3
-	InventoryManager.speed_level += 1
-	InventoryManager.stats_changed.emit()
 	#Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 	#get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
 	SceneTransitionManager.fade_to_scene("res://Map//Valhalla/home.tscn")

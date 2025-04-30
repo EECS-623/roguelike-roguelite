@@ -18,30 +18,40 @@ func _ready() -> void:
 	cam.limit_bottom = 600
 	HUD.visible = true
 	
-	# Apply patron-specific health stat bonus if selected
-	apply_health_patron_bonus()
+	# Apply patron-specific stat bonuses
+	if Global.patron_stat_initialized == false:
+		apply_patron_bonus()
+		Global.patron_stat_initialized = true
 	
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
 	if not(HUD.connected):
 		HUD.connect_to_player()
-	
-	# Check if all patron stat upgrades were applied correctly
-	check_max_health_upgrade()
-	check_melee_damage_upgrade()
-	check_speed_upgrade()
 
 # Apply patron-specific health stat bonus if selected immediately when player enters scene
-func apply_health_patron_bonus() -> void:
+func apply_patron_bonus() -> void:
 	var health_component = PlayerManager.player.get_node_or_null("HealthComponent")
+	var speed_component = PlayerManager.player.get_node_or_null("SpeedComponent")
+	var physical_damage_component = PlayerManager.player.get_node_or_null("PhysicalDamageComponent")
+	Inventory.connect_to_player()
+	Global.xp += 2 # these runes will be immediately spent
 	
-	# Apply the health boost for Patron 2 (Tyr)
-	if Global.patron_god == 2 and health_component:
-		Inventory.connect_to_player()
-		Global.xp += 1 # this rune will be immediately spent
+	# Apply melee damage boost for Patron 1 (Thor)
+	if Global.patron_god == 1 and physical_damage_component:
+		Inventory._on_melee_damage_upgrade_pressed()
+		check_melee_damage_upgrade()
+	
+	# Apply the health boost for Patron 2 (Tyr) (and add to initial health)
+	elif Global.patron_god == 2 and health_component:
 		Inventory._on_max_health_upgrade_pressed()
 		health_component.current_health += InventoryManager.MAX_HEALTH_BOOST
+		check_max_health_upgrade()
+
+	# Apply speed boost for Patron 3 (Freya) 
+	elif Global.patron_god == 3 and speed_component:
+		Inventory._on_speed_upgrade_pressed()
+		check_speed_upgrade()
 
 # Function to check if max health upgrade was applied correctly
 func check_max_health_upgrade() -> void:
@@ -96,7 +106,7 @@ func check_melee_damage_upgrade() -> void:
 func check_speed_upgrade() -> void:
 	var speed_component = PlayerManager.player.get_node_or_null("SpeedComponent")
 	if speed_component:
-		var base_speed = 100  # Assuming base speed is 100
+		var base_speed = 300  # Assuming base speed is 100
 		var expected_bonus = InventoryManager.speed_level * InventoryManager.SPEED_BOOST
 		var expected_speed = base_speed + expected_bonus
 		
