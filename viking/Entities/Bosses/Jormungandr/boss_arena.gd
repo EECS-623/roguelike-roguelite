@@ -61,6 +61,7 @@ func drop_artifact():
 
 func _on_artifact_body_entered(body: Node2D) -> void:
 	$Artifact.visible = false
+	Inventory.forrest_artifact.visible = true
 	player.knockback_timer = .5
 	player.knockback_velocity = Vector2.ZERO
 	for i in range(3):
