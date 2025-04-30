@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	print(direction)
-	position += direction * Global.bullet_speed * delta
+	position += direction * Global.bullet_speed * delta * 3
 
 	
 func _on_hitbox_hit(body: Variant) -> void:
