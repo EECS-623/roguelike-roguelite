@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq8gb5pxlvilv"]
+[gd_scene load_steps=4 format=3 uid="uid://dq8gb5pxlvilv"]
 
 [ext_resource type="Texture2D" uid="uid://cym4cpyrymtn3" path="res://Map/Ice Realm/Map Items/ice apple.png" id="1_uqapg"]
 [ext_resource type="Script" path="res://Map/Ice Realm/Map Items/apple.gd" id="2_odgru"]
-[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_ewhje"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_57dpv"]
-radius = 297.168
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1xxo7"]
 radius = 296.816
@@ -15,16 +11,6 @@ z_as_relative = false
 y_sort_enabled = true
 texture = ExtResource("1_uqapg")
 script = ExtResource("2_odgru")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("3_ewhje")
-damage = -10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(3, 360)
-shape = SubResource("CircleShape2D_57dpv")
 
 [node name="Area2D" type="Area2D" parent="."]
 
