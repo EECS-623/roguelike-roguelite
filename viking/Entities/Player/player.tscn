@@ -953,7 +953,7 @@ script = ExtResource("18_6hj8y")
 
 [node name="PhysicalDamageComponent" type="Node" parent="."]
 script = ExtResource("20_hmsjh")
-physical_damage = 100.0
+physical_damage = 10.0
 
 [node name="LuckComponent" type="Node" parent="."]
 script = ExtResource("21_mbuf2")
