@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=15 format=3 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_ds18k"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]

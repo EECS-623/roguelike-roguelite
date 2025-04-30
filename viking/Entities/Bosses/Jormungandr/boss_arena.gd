@@ -87,7 +87,7 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		
 		
 		remove_child(body)
-		
+		Global.world_level = 2
 		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
 
 func pulse_thorns():

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		elif get_tree().current_scene.name == "Earth_tileset" and Global.has_key == 3:
 			play_dialogue("res://Game/Dialogue/odin-midgard-2.json")
 		elif get_tree().current_scene.name == "Home" and Global.world_level == 2:
-			play_dialogue("res://Game/Dialogue/odin-valhalla-1.json")
+			play_dialogue("res://Game/Dialogue/odin-valhalla-2.json")
 		elif get_tree().current_scene.name == "Ice_tileset" and Global.has_key != 3:
 			play_dialogue("res://Game/Dialogue/odin-jotunheim-1.json")
 		elif get_tree().current_scene.name == "Ice_tileset" and Global.has_key == 3:
