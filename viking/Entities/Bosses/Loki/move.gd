@@ -11,8 +11,8 @@ var speed = 200
 var close_thresh = 300
 var far_thresh = 700
 
-var close_actions = ["Teleport", "Move", "Move", "Move"]
-var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "MakeSpikes", "Projectile", "Clone", "SpellCircle", "MakeSpikes"]
+var close_actions = ["Teleport", "Move", "Move", "Move", "Clone"]
+var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "MakeSpikes", "Projectile", "Clone", "MakeSpikes"]
 
 # what happens when the entity enters a state
 func enter() -> void:
@@ -50,9 +50,9 @@ func choose_state():
 	var new_state
 	var distance_to_player = loki.global_position.distance_to(player.global_position)
 	if distance_to_player < close_thresh:
-		new_state = close_actions[randi_range(0, 3)]
+		new_state = close_actions[randi_range(0, 4)]
 	else:
-		new_state = actions[randi_range(0, 8)]
+		new_state = actions[randi_range(0, 7)]
 
 	
 	return get_state_by_name(new_state)

@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://wfcljrigq7q4"]
+[gd_scene load_steps=14 format=3 uid="uid://wfcljrigq7q4"]
 
 [ext_resource type="Texture2D" uid="uid://cddxt6rfemlrn" path="res://Map/Valhalla/New_Valhalla_Art/valhalla tree area.png" id="1_41u6e"]
 [ext_resource type="Script" path="res://Map/Valhalla/Tree_Scene/tree_scene.gd" id="1_qvpjr"]
+[ext_resource type="Texture2D" uid="uid://g8gb5r44pfb1" path="res://Assets/Loki/Front Standing.png" id="3_d1lic"]
+[ext_resource type="Texture2D" uid="uid://nqh5it7rafnl" path="res://Assets/Loki/Back Left Step.png" id="4_n4y2w"]
+[ext_resource type="Texture2D" uid="uid://c65123poat0lo" path="res://Assets/Loki/Back Right Step.png" id="5_xi2cv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4lif"]
 size = Vector2(592.766, 92.6125)
@@ -13,7 +16,133 @@ size = Vector2(6.685, 12.78)
 size = Vector2(17.9673, 0.289304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq3gl"]
-size = Vector2(31.585, 7.11)
+size = Vector2(31.585, 6.945)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hi03u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d1lic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n4y2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xi2cv")
+}],
+"loop": true,
+"name": &"all_frames",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_sj3eq"]
+resource_name = "turn_and_leave"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.83333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0.647059, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.533333, 0.733333, 0.933333, 1.13333, 1.33333, 1.53333, 1.73333, 1.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 2, 1, 2, 1, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.566667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(247, 267), Vector2(247, 267), Vector2(247, -150)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_046g5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(247, 267)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8td3e"]
+_data = {
+"RESET": SubResource("Animation_046g5"),
+"turn_and_leave": SubResource("Animation_sj3eq")
+}
 
 [node name="TreeScene" type="Node2D"]
 script = ExtResource("1_qvpjr")
@@ -24,7 +153,7 @@ script = ExtResource("1_qvpjr")
 scale = Vector2(1.02636, 1.03082)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D_to_Loki"]
-position = Vector2(-2.92294, -431.695)
+position = Vector2(-14.6148, -120.293)
 scale = Vector2(2.93749, -0.846793)
 shape = SubResource("RectangleShape2D_a4lif")
 
@@ -35,9 +164,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -900.0
+offset_left = -902.0
 offset_top = -600.0
-offset_right = 900.0
+offset_right = 898.0
 offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -63,7 +192,7 @@ scale = Vector2(100, 100.241)
 shape = SubResource("RectangleShape2D_mnxic")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(19, -944)
+position = Vector2(8, -831)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_xq3gl")
 
@@ -71,6 +200,36 @@ shape = SubResource("RectangleShape2D_xq3gl")
 position = Vector2(-27, 971.5)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_xq3gl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-340, 353, -371, 322, -426, 332, -535, 290, -630, 235, -689, 267, -810, 485, -780, 527, -696, 493, -662, 370, -619, 334, -505, 398, -407, 402, -384, 364)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(466, 159, 544, 125, 603, 38, 637, 40, 786, 2, 902, -91, 900, 112, 849, 139, 726, 95, 567, 167)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(351, 343, 406, 292, 413, 248, 474, 239, 533, 290, 622, 303, 599, 324, 502, 313, 466, 275, 436, 313, 398, 349)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(442, 426, 470, 394, 531, 398, 635, 349, 697, 303, 783, 320, 864, 457, 849, 468, 824, 455, 766, 368, 711, 347, 665, 375, 489, 466)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-897, 170, -847, 243, -770, 279, -839, 289, -896, 268)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-900, 28, -841, 42, -734, 42, -653, 113, -572, 92, -512, 85, -482, 135, -455, 168, -389, 175, -436, 125, -451, 66, -586, 44, -631, -18, -736, -115, -741, -141, -679, -165, -641, -158, -627, -125, -627, -177, -650, -191, -757, -184, -762, -220, -729, -248, -672, -241, -555, -232, -541, -187, -560, -96, -517, -113, -505, -208, -546, -291, -479, -315, -403, -396, -377, -389, -363, -346, -339, -384, -332, -410, -210, -374, -203, -332, -291, -236, -313, -210, -301, -151, -267, -80, -279, -53, -341, 6, -334, 32, -296, 104, -291, 142, -332, 175, -253, 168, -213, 104, -246, 35, -220, 4, -175, 4, -139, 20, -165, -32, -168, -75, -175, -125, -168, -177, -134, -160, -103, -122, -44, -108, 68, -115, 104, -101, 132, -51, 175, -34, 192, -46, 151, -75, 113, -141, 80, -158, 20, -134, -49, -158, -75, -213, -25, -232, 70, -236, 137, -260, 170, -217, 242, -229, 220, -277, 339, -260, 368, -284, 315, -358, 360, -382, 403, -365, 384, -336, 425, -339, 418, -389, 510, -389, 544, -339, 491, -296, 489, -263, 508, -265, 527, -303, 575, -296, 620, -256, 689, -239, 765, -251, 646, -265, 594, -344, 579, -393, 615, -403, 682, -370, 748, -341, 834, -327, 848, -277, 812, -232, 839, -222, 903, -232, 1057, -294, 1038, -641, 363, -650, -520, -660, -955, -596, -1050, -125)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(247, 267)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_hi03u")
+animation = &"all_frames"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_8td3e")
+}
 
 [connection signal="body_entered" from="StaticBody2D/Area2D_to_Loki" to="." method="_on_area_2d_to_loki_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Home" to="." method="_on_area_2d_home_body_entered"]

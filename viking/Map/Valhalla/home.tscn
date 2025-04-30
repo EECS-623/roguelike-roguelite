@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=12 format=3 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_ds18k"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
@@ -7,26 +7,29 @@
 [ext_resource type="WwiseState" uid="uid://ciu17avhmxh4a" path="res://Wwise/resources/State/{B145CCFA-6037-4756-8DAC-6458381FE61D}.tres" id="9_j3snd"]
 [ext_resource type="Texture2D" uid="uid://qscm00d8n0it" path="res://Map/Valhalla/New_Valhalla_Art/valhalla main screen.png" id="9_x1hci"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l38rq"]
+size = Vector2(60.5, 64.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dqeh"]
 size = Vector2(0.620001, 12.17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmrwb"]
 size = Vector2(1.805, 12.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkftg"]
+size = Vector2(2051, 189)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vph3o"]
-size = Vector2(18.13, 0.22)
+size = Vector2(18.355, 0.22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eqwv"]
-size = Vector2(18.64, 0.14)
+size = Vector2(18.78, 0.2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvjpn"]
 size = Vector2(27, 395)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kguog"]
 size = Vector2(48, 582)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l38rq"]
-size = Vector2(60.5, 64.5)
 
 [node name="Home" type="Node2D"]
 position = Vector2(-1, 1)
@@ -50,6 +53,10 @@ trigger_on = 2
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-1, -2)
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(254.25, -247.25)
+shape = SubResource("RectangleShape2D_l38rq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-933, -8)
 scale = Vector2(100, 100)
@@ -59,6 +66,14 @@ shape = SubResource("RectangleShape2D_2dqeh")
 position = Vector2(986.75, -3.49998)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_dmrwb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(52, -562)
+shape = SubResource("RectangleShape2D_rkftg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(44, 589)
+shape = SubResource("RectangleShape2D_rkftg")
 
 [node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
 z_index = -1
@@ -79,14 +94,14 @@ expand_mode = 1
 [node name="Area2D_Tree_Travel" type="Area2D" parent="StaticBody2D"]
 
 [node name="Collision_Travel_to_Tree" type="CollisionShape2D" parent="StaticBody2D/Area2D_Tree_Travel"]
-position = Vector2(22, -455)
+position = Vector2(10.75, -455)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_vph3o")
 
 [node name="Area2D_Portal_Travel" type="Area2D" parent="StaticBody2D"]
 
 [node name="CollisionShape_Portal_Travel" type="CollisionShape2D" parent="StaticBody2D/Area2D_Portal_Travel"]
-position = Vector2(41, 483)
+position = Vector2(34, 486)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_5eqwv")
 
@@ -129,10 +144,6 @@ polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 15
 [node name="CollisionPolygon_Horse_Statue4" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-167, -651)
 polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 150, 68, 127, 80.5388, 218.705, 97, 306, 112, 396, -5, 400, -4, 330, 11, 282, 24, 192)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(253.25, -249.25)
-shape = SubResource("RectangleShape2D_l38rq")
 
 [connection signal="body_entered" from="StaticBody2D/Area2D_Tree_Travel" to="." method="_on_area_2d_tree_travel_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Portal_Travel" to="." method="_on_area_2d_portal_travel_body_entered"]

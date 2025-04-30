@@ -371,7 +371,7 @@ func _on_body_entered(body):
 			#Global.relics = 1
 #
 			#print("Key aquired")
-			#Wwise.post_event_id(AK.EVENTS.KEY_ATTAIN, self)
+			Wwise.post_event_id(AK.EVENTS.KEY_ATTAIN, self)
 			#locked = true
 			
 		if tile_data and tile_data.get_custom_data("bossteleport"):

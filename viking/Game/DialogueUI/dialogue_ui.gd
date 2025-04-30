@@ -66,8 +66,14 @@ func dialogue_begin(lines: Array) -> void:
 	current_line = 0
 	visible = true
 	show_line()
-	$AnimationPlayer.play(speaker_name.text)
-
+	if "Jormungandr" in speaker_name.text:
+		$AnimationPlayer.play("Jormungandr")
+	elif "Ymir" in speaker_name.text:
+		$AnimationPlayer.play("Ymir")
+	elif "Loki" in speaker_name.text:
+		$AnimationPlayer.play("Loki")
+	elif "Odin" in speaker_name.text:
+		$AnimationPlayer.play("Odin")
 
 func show_line() -> void:
 	var line = dialogue[current_line]
@@ -103,7 +109,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			current_line += 1
 			show_line()
-			#Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 		else:
 			dialogue_end()
 		
@@ -156,5 +161,6 @@ func load_dialogue(path: String) -> Array:
 	return data
 
 func dialogue_end() -> void:
+	$AnimationPlayer.play("RESET")
 	dialogue_finished.emit()
 	visible = false

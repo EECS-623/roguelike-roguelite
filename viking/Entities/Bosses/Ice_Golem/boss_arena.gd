@@ -29,6 +29,8 @@ func _ready() -> void:
 	cam.limit_right = 720
 	cam.limit_top = -720
 	cam.limit_bottom = 720
+	cam.zoom =  Vector2(.9, .9)
+
 	
 	
 	ice_golem = s_ice_golem.instantiate()
@@ -36,12 +38,6 @@ func _ready() -> void:
 	ice_golem.global_position = Vector2(0, -525)
 	get_tree().current_scene.add_child(ice_golem)
 	ice_golem.get_node("CanvasLayer").visible = false
-	
-	get_window().content_scale_size = DisplayServer.window_get_size() *1.1
-	dialogue.scale = Vector2(1.1, 1.1)
-	ice_golem.get_node("CanvasLayer").scale = Vector2(1.1, 1.1)
-	HUD.scale = Vector2(1.1, 1.1)
-	Inventory.scale = Vector2(1.1, 1.1)
 
 	
 
@@ -87,15 +83,10 @@ func _on_portal_body_entered(body: Node2D) -> void:
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
 		cam.limit_bottom = 10000000
-		
-		get_window().content_scale_size = DisplayServer.window_get_size()
-		dialogue.scale = Vector2(1, 1)
-		HUD.scale = Vector2(1, 1)
-		Inventory.scale = Vector2(1, 1)
+		cam.zoom =  Vector2(1, 1)
 
 	
 		remove_child(body)
-		#get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 		Global.world_level = 3
 		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
 		

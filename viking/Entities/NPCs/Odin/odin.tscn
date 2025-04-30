@@ -1,21 +1,136 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq03i11t1iadq"]
+[gd_scene load_steps=10 format=3 uid="uid://dq03i11t1iadq"]
 
 [ext_resource type="Script" path="res://Entities/NPCs/Odin/odin.gd" id="1_nosir"]
 [ext_resource type="Texture2D" uid="uid://b3jelany8i5di" path="res://Entities/NPCs/Odin/Emo Odin.png" id="2_hnfrb"]
 [ext_resource type="PackedScene" uid="uid://dhqyxk8ewq3g8" path="res://Entities/NPCs/NPCInteractionArea/npc_interaction_area.tscn" id="2_jhbol"]
+[ext_resource type="Texture2D" uid="uid://g8gb5r44pfb1" path="res://Assets/Loki/Front Standing.png" id="3_uwdlx"]
 [ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="4_n0bm0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to7l7"]
 radius = 56.0
 height = 176.0
 
+[sub_resource type="Animation" id="Animation_c3l44"]
+resource_name = "reveal"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Odin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.384314, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Loki:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.03333, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.384314, 0, 0.0509804), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonPrompt:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Loki:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.03333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mgnqr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPrompt:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Odin:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Loki:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Loki:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mdv1h"]
+_data = {
+"RESET": SubResource("Animation_mgnqr"),
+"reveal": SubResource("Animation_c3l44")
+}
+
 [node name="Odin" type="CharacterBody2D"]
 script = ExtResource("1_nosir")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Odin" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
 scale = Vector2(0.150312, 0.150312)
 texture = ExtResource("2_hnfrb")
+
+[node name="Loki" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_uwdlx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_to7l7")
@@ -29,6 +144,7 @@ offset_left = -16.0
 offset_top = -80.0
 offset_right = 16.0
 offset_bottom = -48.0
+metadata/_edit_use_anchors_ = true
 
 [node name="F" type="Label" parent="ButtonPrompt"]
 layout_mode = 0
@@ -40,6 +156,12 @@ theme_override_fonts/font = ExtResource("4_n0bm0")
 text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mdv1h")
+}
 
 [connection signal="player_entered" from="NpcInteractionArea" to="." method="_on_npc_interaction_area_player_entered"]
 [connection signal="player_exited" from="NpcInteractionArea" to="." method="_on_npc_interaction_area_player_exited"]

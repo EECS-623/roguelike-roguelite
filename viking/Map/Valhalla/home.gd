@@ -137,7 +137,7 @@ func check_speed_upgrade() -> void:
 
 func _on_area_2d_tree_travel_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
+		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		
 		remove_child(body)
@@ -147,7 +147,7 @@ func _on_area_2d_tree_travel_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_portal_travel_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
+		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
 		#PlayerManager.player.global_position = Vector2(0,520)

@@ -5,11 +5,9 @@ var player_body: CharacterBody2D
 var button_indicator: bool
 var dialogue: DialogueUI
 var dialogue_started: bool
-var loki_reveal : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	loki_reveal = false
 	button_prompt.visible = false
 	dialogue_started
 
@@ -33,8 +31,13 @@ func _process(delta: float) -> void:
 			play_dialogue("res://Game/Dialogue/odin-jotunheim-2.json")
 		# some condition to say that we have finished ice realm. 
 		elif get_tree().current_scene.name == "Home" and Global.world_level == 3:
-			loki_reveal = true
-			play_dialogue("res://Game/Dialogue/loki-1.json")
+			Global.loki_reveal = true
+			play_dialogue("res://Game/Dialogue/loki-1a.json")
+			$AnimationPlayer.play("reveal")
+			await $AnimationPlayer.animation_finished
+			play_dialogue("res://Game/Dialogue/loki-1b.json")
+			
+			
 
 func _on_npc_interaction_area_player_entered(body: CharacterBody2D) -> void:
 	player_body = body
@@ -61,9 +64,8 @@ func _on_dialogue_end():
 	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
 	dialogue_started = false
 	get_tree().paused = false
-	if loki_reveal:
-		await fade_out($Sprite2D)
-		queue_free()
+	if Global.loki_reveal:
+		fade_out($Loki)
 
 func fade_out(node: CanvasItem, duration: float = 1.0) -> void:
 	var start_alpha = node.modulate.a

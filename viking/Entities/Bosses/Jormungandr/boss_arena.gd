@@ -36,18 +36,13 @@ func _ready() -> void:
 	cam.limit_right = 900
 	cam.limit_top = -900
 	cam.limit_bottom = 900
+	cam.zoom = Vector2(.75, .75)
 	
-	get_window().content_scale_size = DisplayServer.window_get_size() * 1.33
-	dialogue.scale = Vector2(1.33, 1.33)
-	HUD.scale = Vector2(1.33, 1.33)
-	Inventory.scale = Vector2(1.33, 1.33)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	if snake == null and not snake_dead:
 		snake_dead = true
-		#Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
 		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
 		drop_artifact()
 
@@ -84,21 +79,15 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		cam.limit_left = -10000000
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000
 		cam.limit_bottom = 10000000
+		cam.zoom = Vector2(1,1)
 		
-		get_window().content_scale_size = DisplayServer.window_get_size()
-		dialogue.scale = Vector2(1, 1)
-		HUD.scale = Vector2(1, 1)
-		Inventory.scale = Vector2(1, 1)
-
 		
 		remove_child(body)
 		
-		#get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
 
 func pulse_thorns():

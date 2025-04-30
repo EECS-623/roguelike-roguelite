@@ -11,7 +11,7 @@ func _ready() -> void:
 		PlayerManager.player = my_player
 	PlayerManager.player.global_position = Vector2(0,-550)
 	get_tree().current_scene.add_child(PlayerManager.player)
-	#Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
+	Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
 	var cam = PlayerManager.player.get_node("Camera2D")
 	cam.limit_left = -600
 	cam.limit_right = 600
@@ -29,13 +29,16 @@ func _ready() -> void:
 
 func _on_area_2d_go_home_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
+		Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 
 
 func _on_area_2d_portal_body_entered(body: Node2D) -> void:
+	if Global.world_level == 3:
+		return
+	
 	if body.is_in_group("player"):
 		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)

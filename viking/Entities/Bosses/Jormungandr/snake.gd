@@ -52,7 +52,7 @@ func _snake_move():
 		update_direction(snake[0], direction)
 		z_indexing()
 		
-	if (hp.current_health <= (hp.max_health / 2)):
+	if (hp.current_health <= (hp.max_health / 4)):
 		enter_rage_mode()
 
 func update_direction(segment, new_direction):
@@ -153,7 +153,7 @@ func bite_attack():
 	dir_str += '_Bite'
 	var anim_player = snake[0].get_node("AnimatedSprite2D/AnimationPlayer")
 	anim_player.play(dir_str)
-	#Wwise.post_event_id(AK.EVENTS.SNAKE_BITE, self)
+	Wwise.post_event_id(AK.EVENTS.SNAKE_BITE, self)
 	await anim_player.animation_finished
 	can_move = true
 	can_bite = true
@@ -166,7 +166,7 @@ func spit_attack(player_position):
 	snake[0].get_node("AnimatedSprite2D").play(bite_str)
 	await get_tree().create_timer(.5).timeout
 	var venom_shot = venom.instantiate()
-	#Wwise.post_event_id(AK.EVENTS.SNAKE_SPIT, self)
+	Wwise.post_event_id(AK.EVENTS.SNAKE_SPIT, self)
 	venom_shot.global_position = snake[0].global_position
 	get_tree().current_scene.add_child(venom_shot)
 	venom_shot.shoot(player_position)

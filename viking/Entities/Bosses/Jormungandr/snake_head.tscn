@@ -112,7 +112,7 @@ tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.00867853, 0.94596, 1.28442),
+"times": PackedFloat32Array(0.00867853, 1.1, 1.28442),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -188,7 +188,7 @@ tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.00867853, 0.94596, 1.28442),
+"times": PackedFloat32Array(0.00867853, 1.1, 1.28442),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -351,7 +351,7 @@ tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.00867853, 0.94596, 1.28442),
+"times": PackedFloat32Array(0.00867853, 1.1, 1.28442),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -427,7 +427,7 @@ tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.00867853, 0.94596, 1.28442),
+"times": PackedFloat32Array(0.00867853, 1.1, 1.28442),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]

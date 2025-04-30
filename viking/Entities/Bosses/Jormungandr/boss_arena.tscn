@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvsui47imvexk" path="res://Entities/Bosses/Jormungandr/snake.tscn" id="3_ystxc"]
 [ext_resource type="Texture2D" uid="uid://cinicudi415cw" path="res://Assets/Art/portal imprint.png" id="4_7wchc"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="5_67jhn"]
-[ext_resource type="Texture2D" uid="uid://cxcjln1klgpuu" path="res://Assets/Art/Artifacts/Jörmungandr's Tail.png" id="6_h8r0m"]
+[ext_resource type="Texture2D" uid="uid://b32cnlv3sla3k" path="res://Assets/Jormungandr/Jörmungandr's Tail.png" id="6_w77mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtiob"]
 size = Vector2(2401, 224)
@@ -186,8 +186,8 @@ shape = SubResource("CapsuleShape2D_c5qw7")
 disabled = true
 
 [node name="Jörmungandr\'sTail" type="Sprite2D" parent="Artifact"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_h8r0m")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_w77mu")
 
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_thorn_entered"]
