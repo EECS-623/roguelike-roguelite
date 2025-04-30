@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cre1djk4gfdso"]
+[gd_scene load_steps=5 format=3 uid="uid://cre1djk4gfdso"]
 
 [ext_resource type="Script" path="res://Game/MainMenu/main_menu.gd" id="1_01rir"]
 [ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="2_1pht2"]
+[ext_resource type="Texture2D" uid="uid://dti1extva1i25" path="res://Assets/Art/Screens/Buttons/Play Button.png" id="3_vbkdv"]
+[ext_resource type="Texture2D" uid="uid://c3elhf4kle52q" path="res://Assets/Art/Screens/Buttons/Quit Button.png" id="4_leden"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,26 +16,28 @@ script = ExtResource("1_01rir")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 1216.0
+offset_bottom = 688.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 320.0
-offset_right = 720.0
-offset_bottom = 448.0
-theme_override_constants/separation = 10
+offset_left = 456.0
+offset_top = 291.0
+offset_right = 1056.0
+offset_bottom = 595.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_vbkdv")
 
-[node name="Play" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_1pht2")
-text = "Play"
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_1pht2")
-text = "Quit"
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 413.0
+offset_right = 1056.0
+offset_bottom = 717.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("4_leden")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -50,5 +54,8 @@ text = "Valhalla's Gauntlet"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="AkState" type="AkState" parent="."]
+trigger_on = 2
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

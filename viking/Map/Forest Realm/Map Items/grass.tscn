@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://n8ywrimf7vau"]
+
+[ext_resource type="Texture2D" uid="uid://i12hlj8rou13" path="res://Map/Forest Realm/Map Items/grass asset.png" id="1_i4xv5"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Map Items/grass.gd" id="2_1j4yb"]
+
+[node name="Tree" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_i4xv5")
+script = ExtResource("2_1j4yb")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+z_index = -1
+position = Vector2(577, -113)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+y_sort_enabled = true
+polygon = PackedVector2Array(-458, 373, -769, 373, -814, 324, -836, 251, -812, 210, -755, 163, -707, 140, -507, 142, -438, 158, -374, 193, -357, 280)

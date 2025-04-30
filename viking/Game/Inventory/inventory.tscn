@@ -1,0 +1,318 @@
+[gd_scene load_steps=20 format=3 uid="uid://cgabimmw8awtu"]
+
+[ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
+[ext_resource type="Texture2D" uid="uid://ckryhis5u3knp" path="res://Assets/Art/HUD/Final Stat Box.png" id="2_smiq0"]
+[ext_resource type="Texture2D" uid="uid://c8gs77b5u75fr" path="res://Assets/Art/HUD/Plus Box.png" id="3_kjioq"]
+[ext_resource type="Texture2D" uid="uid://bmv27yph1e7mt" path="res://Assets/Art/HUD/Stat Box Rune Counter Icon.png" id="3_ylby3"]
+[ext_resource type="Texture2D" uid="uid://boqcamfafiuj0" path="res://Assets/Art/HUD/Grey Box.png" id="4_qna3u"]
+[ext_resource type="Texture2D" uid="uid://bqgmgpqrxxk1e" path="res://Assets/Art/Keys/Forrest Level Key.png" id="6_gyn1f"]
+[ext_resource type="Texture2D" uid="uid://cxcjln1klgpuu" path="res://Assets/Art/Artifacts/Jörmungandr's Tail.png" id="7_8nws7"]
+[ext_resource type="Texture2D" uid="uid://tvi67yow0atb" path="res://Assets/Art/Keys/Ice Level Key.png" id="8_t1yfb"]
+[ext_resource type="Texture2D" uid="uid://8djuxapmb8cw" path="res://Assets/Art/Artifacts/Ymir's Fang.png" id="9_y2d52"]
+
+[sub_resource type="Gradient" id="Gradient_fu21e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fhco"]
+gradient = SubResource("Gradient_fu21e")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_rp8uh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_suss5"]
+gradient = SubResource("Gradient_rp8uh")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_ra6nf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j2vsi"]
+gradient = SubResource("Gradient_ra6nf")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_1tfy1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hbj1x"]
+gradient = SubResource("Gradient_1tfy1")
+width = 106
+height = 6
+
+[sub_resource type="Gradient" id="Gradient_a6h2i"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jiart"]
+gradient = SubResource("Gradient_a6h2i")
+width = 106
+height = 6
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_x7e21")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Box" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 416.0
+offset_right = 1200.0
+offset_bottom = 712.0
+texture = ExtResource("2_smiq0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Rune" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 532.0
+offset_right = 583.0
+offset_bottom = 605.0
+texture = ExtResource("3_ylby3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MeleeDamageBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 531.0
+offset_right = 318.0
+offset_bottom = 536.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_8fhco")
+tint_progress = Color(0.254902, 0.509804, 0.72549, 1)
+
+[node name="MagicAbilityBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 570.0
+offset_right = 318.0
+offset_bottom = 576.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_suss5")
+tint_progress = Color(0.258824, 0.796078, 0.211765, 1)
+
+[node name="SpeedBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 610.0
+offset_right = 318.0
+offset_bottom = 616.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_j2vsi")
+tint_progress = Color(0.87451, 0.545098, 0.254902, 1)
+
+[node name="ManaRegenBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 531.0
+offset_right = 459.0
+offset_bottom = 536.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_hbj1x")
+tint_progress = Color(0.627451, 0.360784, 0.776471, 1)
+
+[node name="MaxHealthBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 570.0
+offset_right = 459.0
+offset_bottom = 576.0
+max_value = 5.0
+texture_progress = SubResource("GradientTexture2D_jiart")
+tint_progress = Color(0.792157, 0.231373, 0.176471, 1)
+
+[node name="RuneCount" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 516.0
+offset_right = 598.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(0.913725, 0.886275, 0.760784, 1)
+theme_override_font_sizes/font_size = 8
+text = "0"
+
+[node name="MeleeDamageButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 510.0
+offset_right = 618.0
+offset_bottom = 804.0
+scale = Vector2(0.065, 0.065)
+texture_normal = ExtResource("3_kjioq")
+texture_pressed = ExtResource("4_qna3u")
+
+[node name="MagicAbilityButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 549.0
+offset_right = 618.0
+offset_bottom = 843.0
+scale = Vector2(0.065, 0.065)
+texture_normal = ExtResource("3_kjioq")
+texture_pressed = ExtResource("4_qna3u")
+
+[node name="SpeedButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 588.0
+offset_right = 618.0
+offset_bottom = 882.0
+scale = Vector2(0.065, 0.065)
+texture_normal = ExtResource("3_kjioq")
+texture_pressed = ExtResource("4_qna3u")
+
+[node name="ManaRegenButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 510.0
+offset_right = 759.0
+offset_bottom = 804.0
+scale = Vector2(0.065, 0.065)
+texture_normal = ExtResource("3_kjioq")
+texture_pressed = ExtResource("4_qna3u")
+
+[node name="MaxHealthButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 549.0
+offset_right = 759.0
+offset_bottom = 843.0
+scale = Vector2(0.065, 0.065)
+texture_normal = ExtResource("3_kjioq")
+texture_pressed = ExtResource("4_qna3u")
+
+[node name="MeleeDamageMAX" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 514.0
+offset_right = 345.0
+offset_bottom = 526.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "MAX"
+
+[node name="MagicAbilityMAX" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 553.0
+offset_right = 345.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "MAX"
+
+[node name="SpeedMAX" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 592.0
+offset_right = 345.0
+offset_bottom = 604.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "MAX"
+
+[node name="ManaRegenMAX" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 514.0
+offset_right = 486.0
+offset_bottom = 526.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "MAX"
+
+[node name="MaxHealthMAX" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 553.0
+offset_right = 486.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "MAX"
+
+[node name="ForrestKey1" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 608.0
+offset_right = 1244.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_gyn1f")
+
+[node name="ForrestKey2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 608.0
+offset_right = 1320.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_gyn1f")
+
+[node name="ForrestKey3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 608.0
+offset_right = 1395.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_gyn1f")
+
+[node name="ForrestArtifact" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 533.0
+offset_right = 1509.0
+offset_bottom = 833.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_8nws7")
+
+[node name="IceKey1" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 608.0
+offset_right = 1244.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("8_t1yfb")
+
+[node name="IceKey2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 608.0
+offset_right = 1320.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("8_t1yfb")
+
+[node name="IceKey3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 608.0
+offset_right = 1395.0
+offset_bottom = 908.0
+rotation = -1.5708
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("8_t1yfb")
+
+[node name="IceArtifact" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 910.0
+offset_top = 528.0
+offset_right = 1510.0
+offset_bottom = 828.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_y2d52")

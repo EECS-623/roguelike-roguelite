@@ -17,7 +17,12 @@ func _process(delta: float) -> void:
 		dialogue_started = true
 		var dialogue_ui = player_body.get_node("DialogueUI")
 		dialogue = dialogue_ui
-		play_dialogue("res://Game/Dialogue/odin-1.json")
+		if Global.world_level == 1:
+			play_dialogue("res://Game/Dialogue/odin-valhalla-1.json")
+		elif Global.world_level == 2:
+			play_dialogue("res://Game/Dialogue/odin-valhalla-2.json")
+		elif Global.world_level == 3:
+			play_dialogue("res://Game/Dialogue/loki-1.json")
 
 func _on_npc_interaction_area_player_entered(body: CharacterBody2D) -> void:
 	player_body = body

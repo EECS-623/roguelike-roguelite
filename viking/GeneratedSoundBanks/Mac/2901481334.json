@@ -10,11 +10,43 @@
     "Type": "User",
     "GUID": "{6235D51C-DA0D-4F6F-BFB9-EC0E2F87EA51}",
     "Language": "SFX",
-    "Hash": "{D6A9C893-A670-057A-BE2C-067AB754CEE9}",
+    "Hash": "{DCA08CBD-9C4E-BD74-DCE6-46510D158FFE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_SFX",
     "ShortName": "Music_SFX",
     "Path": "2901481334.bnk",
     "Media": [
+     {
+      "Id": "891228",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Celli Bass Motor-Midgard A.wav",
+      "CachePath": "0E/{0E9881BC-24C6-DF46-3A3A-C6AE59587037}.wem"
+     },
+     {
+      "Id": "3911756",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Bass Drum Intense-Midgard Bridge.wav",
+      "CachePath": "CA/{CAD5318E-915D-3B9A-CFCC-7880E2542EFB}.wem"
+     },
+     {
+      "Id": "29862889",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Snare Drum Complex -Midgard A.wav",
+      "CachePath": "96/{96C35366-7DE8-833A-78D9-884BB6C62F65}.wem"
+     },
+     {
+      "Id": "40515721",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Violin Intense Background-Midgard Bridge.wav",
+      "CachePath": "6B/{6B4A5DE6-5662-A91E-9E32-EBB03765B9BD}.wem"
+     },
      {
       "Id": "44839532",
       "Language": "SFX",
@@ -30,6 +62,62 @@
       "Location": "Memory",
       "ShortName": "Exports\\Sword Swing 3.wav",
       "CachePath": "46/{46C78372-51A1-92D9-9ED9-F89D24E8C759}.wem"
+     },
+     {
+      "Id": "75195527",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Witch Death.wav",
+      "CachePath": "60/{60E105D0-BF52-703F-00C3-D46D4F412C82}.wem"
+     },
+     {
+      "Id": "84985477",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Snare Drum Intense-Midgard Bridge.wav",
+      "CachePath": "D5/{D51FCD81-F02B-F475-C990-2706E89EB243}.wem"
+     },
+     {
+      "Id": "98797829",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Celli Intense Background-Midgard Bridge.wav",
+      "CachePath": "6D/{6DB9B987-A567-0165-B27D-028F5F566AB1}.wem"
+     },
+     {
+      "Id": "116078118",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Celli Motor-Midgard A.wav",
+      "CachePath": "01/{0115AED7-4255-0C0B-1277-1CCFFD8FB773}.wem"
+     },
+     {
+      "Id": "162452089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Violin Intense Background-Midgard Bridge_1.wav",
+      "CachePath": "94/{94B04C58-2DE8-605C-C509-9DD61891BA8F}.wem"
+     },
+     {
+      "Id": "177916265",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Medieval Recorder+-Midgard B.wav",
+      "CachePath": "5B/{5BB8E269-6A6D-495C-BE36-6C977043B92F}.wem"
+     },
+     {
+      "Id": "189148166",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Violin Motor-Midgard Bridge.wav",
+      "CachePath": "2C/{2C65636F-391B-63BA-201A-45D4F40A7F93}.wem"
      },
      {
       "Id": "207218380",
@@ -48,6 +136,78 @@
       "CachePath": "19/{19C1274E-FE2D-E151-B9F4-EA91C90E4AAC}.wem"
      },
      {
+      "Id": "213635214",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Celli Motor-Midgard Bridge.wav",
+      "CachePath": "A9/{A9BB1F66-76B0-39CB-E635-2B630758CCC7}.wem"
+     },
+     {
+      "Id": "216272707",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Skeleton hit.wav",
+      "CachePath": "4B/{4B458A15-474B-9AC4-22E5-B6BB83F7A9C7}.wem"
+     },
+     {
+      "Id": "235429248",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Double Bass Motor-Midgard Trans-to-Bridge.wav",
+      "CachePath": "B2/{B2B21029-8E34-0324-C150-50C5FFB17364}.wem"
+     },
+     {
+      "Id": "239281455",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep Soft ground.wav",
+      "CachePath": "3E/{3E650C15-E093-19E7-1735-29AE6005D68C}.wem"
+     },
+     {
+      "Id": "254957011",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Trumpets Melody-Midgard A.wav",
+      "CachePath": "17/{178E4AB2-5F9A-A361-D038-0B74C4D6C8FD}.wem"
+     },
+     {
+      "Id": "285461286",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Double Bass Motor-Midgard A.wav",
+      "CachePath": "24/{24EF6E08-EF39-54FF-E70A-939C337B6CB0}.wem"
+     },
+     {
+      "Id": "296109750",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Choir Accompaniment-Midgard Bridge.wav",
+      "CachePath": "B2/{B2919A4C-C1BB-71C3-6294-57351DBFF437}.wem"
+     },
+     {
+      "Id": "300732246",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Trumpet Intense Layer-Midgard Bridge.wav",
+      "CachePath": "E6/{E650FF15-9CD2-7381-DB79-DF746F49CFF1}.wem"
+     },
+     {
+      "Id": "336609058",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Trumpet Melody-Midgard Bridge.wav",
+      "CachePath": "BA/{BAB2E1D6-519E-B392-611B-CED49F925FBA}.wem"
+     },
+     {
       "Id": "341010025",
       "Language": "SFX",
       "Streaming": "false",
@@ -64,6 +224,86 @@
       "CachePath": "9F/{9FB5732D-085E-AEC1-CF1A-596B284E78C9}.wem"
      },
      {
+      "Id": "359054731",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Double Bass Motor-Midgard Bridge.wav",
+      "CachePath": "18/{1860798F-B1F0-99DE-F7A1-CDD890E5BBC3}.wem"
+     },
+     {
+      "Id": "359226346",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Violin Heroic +1 Oct-Midgard Trans-to-Bridge.wav",
+      "CachePath": "7A/{7AF288B9-3CE3-0AAD-4786-35D6A8FE8913}.wem"
+     },
+     {
+      "Id": "362698573",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Snare Drum Simple-Midgard B.wav",
+      "CachePath": "8F/{8F49FF7F-3CD1-1D14-70A3-2F0712FAA9E6}.wem"
+     },
+     {
+      "Id": "364327207",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Violin Intense Background-Midgard Bridge_2.wav",
+      "CachePath": "B4/{B4D8C6B7-93C6-66CA-28D6-BA1BFE5DA987}.wem"
+     },
+     {
+      "Id": "369019881",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Violin Intense Background-Midgard Bridge_3.wav",
+      "CachePath": "C2/{C2961BD8-7714-2FC9-5D5E-DF23267E8634}.wem"
+     },
+     {
+      "Id": "386735916",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Cymbal Swell-Midgard Bridge.wav",
+      "CachePath": "2F/{2F6A479B-65EA-0230-EE85-063B84CA1290}.wem"
+     },
+     {
+      "Id": "390480289",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Double Bass Background-Midgard Bridge.wav",
+      "CachePath": "65/{651CBEF7-0C4E-8B14-A7D8-5B0EE42902BB}.wem"
+     },
+     {
+      "Id": "398126973",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Violin Octave Cs-Midgard A.wav",
+      "CachePath": "3C/{3C9559C1-F816-5CA5-7E85-5EED2ED0E714}.wem"
+     },
+     {
+      "Id": "421330764",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Trumpet Melody-Midgard A.wav",
+      "CachePath": "9E/{9EC8A286-C6EA-248F-43DA-41BFEA2136C1}.wem"
+     },
+     {
+      "Id": "464889763",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Violin Octave Cs-Midgard Bridge.wav",
+      "CachePath": "1F/{1F79CF75-5F42-5E76-CC7C-C56FF08CEE30}.wem"
+     },
+     {
       "Id": "465243681",
       "Language": "SFX",
       "Streaming": "false",
@@ -72,12 +312,68 @@
       "CachePath": "F2/{F2DBDD08-CFA3-ADCA-8B13-FCA7EB395D53}.wem"
      },
      {
-      "Id": "499801066",
+      "Id": "473820215",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Exports\\Boss Death (edited).wav",
-      "CachePath": "56/{56BB00A9-05C8-77D0-BBBA-A21069ECB3E7}.wem"
+      "ShortName": "Midgard Trans-to-Bridge\\Bass Drum Normal-Midgard Trans-to-Bridge.wav",
+      "CachePath": "F5/{F5D77CA4-9C5C-D33F-DC19-41FDA8AE56C3}.wem"
+     },
+     {
+      "Id": "486015060",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Bass Drum Normal-Midgard B.wav",
+      "CachePath": "DE/{DED5121E-7EB1-AD3D-5BD1-DF9D093F632F}.wem"
+     },
+     {
+      "Id": "488331039",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Bass Drum Normal-Midgard A.wav",
+      "CachePath": "F7/{F7D4BF28-C3F4-E4B3-2E71-8CD78D0EE187}.wem"
+     },
+     {
+      "Id": "493882269",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Whistler-Midgard B.wav",
+      "CachePath": "35/{35214A12-8FD0-6244-2730-A400B3F4C796}.wem"
+     },
+     {
+      "Id": "503561823",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Whistle the Whistler-Midgard B_1.wav",
+      "CachePath": "54/{54523E90-F729-CC08-4142-CC53C3C23BC8}.wem"
+     },
+     {
+      "Id": "526642168",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Trumpet Harmony-Midgard Bridge.wav",
+      "CachePath": "28/{28068F2F-2575-8D28-8508-6953338B27D8}.wem"
+     },
+     {
+      "Id": "532809095",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Celtic Tin Whistle+-Midgard B.wav",
+      "CachePath": "6D/{6D71905A-730B-3C0B-57CC-19F9F37A2AB6}.wem"
+     },
+     {
+      "Id": "537601833",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Violin Octave Cs-Midgard Trans-to-Bridge.wav",
+      "CachePath": "38/{389404D0-9D51-371E-70D3-AE4A2A063A47}.wem"
      },
      {
       "Id": "540481636",
@@ -88,6 +384,22 @@
       "CachePath": "B7/{B7E707AB-8B1E-6961-AC79-09FEE614BB32}.wem"
      },
      {
+      "Id": "575447118",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Double Bass Motor-Midgard B.wav",
+      "CachePath": "AD/{AD5E764A-1B78-0253-1047-64572413A068}.wem"
+     },
+     {
+      "Id": "580124866",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Celli Motor-Midgard Trans-to-Bridge.wav",
+      "CachePath": "72/{72ADBA04-ECA3-F349-E510-7E4DFDD9DD09}.wem"
+     },
+     {
       "Id": "595634943",
       "Language": "SFX",
       "Streaming": "false",
@@ -96,12 +408,100 @@
       "CachePath": "A5/{A52061B4-E5FD-9923-3852-37E2F0386036}.wem"
      },
      {
-      "Id": "746514461",
+      "Id": "606897202",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Exports\\XP up.wav",
-      "CachePath": "31/{3144310E-9528-E614-A402-EF10C7517CA3}.wem"
+      "ShortName": "Midgard Cooldown\\Snare Drum Complex -Midgard Bridge.wav",
+      "CachePath": "3A/{3A30B413-D7E8-C605-EA87-3FEC28BCBB29}.wem"
+     },
+     {
+      "Id": "609095907",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Snare Drum Simple-Midgard Trans-to-Bridge.wav",
+      "CachePath": "C0/{C05DF534-C396-5FEA-29EE-A69946C41BA5}.wem"
+     },
+     {
+      "Id": "609866993",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Celli Bass Motor-Midgard Trans-to-Bridge.wav",
+      "CachePath": "C2/{C2C87CAA-0F66-6B20-02B0-A5BDAB398417}.wem"
+     },
+     {
+      "Id": "611101860",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Crash Cymbal-Midgard Bridge.wav",
+      "CachePath": "8C/{8C25ECD7-7B05-341D-0533-9B8C22A1632A}.wem"
+     },
+     {
+      "Id": "619778555",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Celtic Harp-Midgard B.wav",
+      "CachePath": "91/{9146A3A1-74E9-BBA0-9A31-706B7205088D}.wem"
+     },
+     {
+      "Id": "627254436",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Choir Accompaniment-Midgard Trans-to-Bridge.wav",
+      "CachePath": "02/{0204F2A9-B44E-AD3A-FCAF-74EC52E046C1}.wem"
+     },
+     {
+      "Id": "679825520",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Violin Motor-Midgard Trans-to-Bridge.wav",
+      "CachePath": "92/{922A3409-8FF0-52A3-7FFD-C84E15BA4EA2}.wem"
+     },
+     {
+      "Id": "707730672",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Crash Cymbal-Midgard Cooldown.wav",
+      "CachePath": "75/{7573859A-7BE8-B8EA-F926-CB6CCAD57CC4}.wem"
+     },
+     {
+      "Id": "716428338",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Hollywood Strings Accompaniment-Midgard Bridge.wav",
+      "CachePath": "2F/{2FB15856-D995-FDDD-F15C-AF62AD35BE45}.wem"
+     },
+     {
+      "Id": "720960638",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Violin Motor-Midgard A.wav",
+      "CachePath": "49/{498B7242-44CC-AB62-CF2B-175AF7528F97}.wem"
+     },
+     {
+      "Id": "738866339",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Violin Motor-Midgard B.wav",
+      "CachePath": "23/{2364365D-72B5-1B90-AA75-8BB6624D26CB}.wem"
+     },
+     {
+      "Id": "763861545",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Celli Bass Motor-Midgard B.wav",
+      "CachePath": "77/{77FEB5EA-529E-7C9F-4C53-F3934BF6BC50}.wem"
      },
      {
       "Id": "768092416",
@@ -112,6 +512,158 @@
       "CachePath": "E0/{E0A1499E-09DA-9561-9A4C-FA1877BE28E3}.wem"
      },
      {
+      "Id": "780633328",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Violin Intense Melody-Midgard Bridge.wav",
+      "CachePath": "DB/{DB98152C-5802-4508-35F8-F9E8B004918B}.wem"
+     },
+     {
+      "Id": "802007047",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Yamaha Piano Club-Midgard B.wav",
+      "CachePath": "45/{45B821B8-0C9C-FFE7-6DA9-40C0A33B2A30}.wem"
+     },
+     {
+      "Id": "807571724",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Hollywood Strings Accompaniment-Midgard B.wav",
+      "CachePath": "16/{16D312C9-AB9B-18EF-2B59-615F6D873B5D}.wem"
+     },
+     {
+      "Id": "810080677",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Snare Drum Complex -Midgard B.wav",
+      "CachePath": "1B/{1BDBAE3A-F013-F5C8-DE37-082A04F1BB7B}.wem"
+     },
+     {
+      "Id": "825351526",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Double Bass Background-Midgard Bridge_2.wav",
+      "CachePath": "4F/{4F182E8C-E24C-6AD0-7042-C5208DA0C059}.wem"
+     },
+     {
+      "Id": "828540993",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Bass Drum Normal-Midgard Bridge.wav",
+      "CachePath": "7E/{7EAF9377-6549-66B0-927C-DD5D11DFF029}.wem"
+     },
+     {
+      "Id": "837706051",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Triangle-Midgard B.wav",
+      "CachePath": "F1/{F1916F1C-A282-75C5-765F-60E727875831}.wem"
+     },
+     {
+      "Id": "851092441",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Violin Heroic Theme -Midgard Bridge.wav",
+      "CachePath": "29/{29647C17-6046-614D-FE21-63AF35A84A39}.wem"
+     },
+     {
+      "Id": "864413797",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Snare Drum Simple-Midgard Bridge.wav",
+      "CachePath": "70/{70103780-7EDA-AA02-65DD-E7549984B4BE}.wem"
+     },
+     {
+      "Id": "867938234",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep Hard ground.wav",
+      "CachePath": "31/{318B4F9E-0155-A42A-E029-89722EC2C293}.wem"
+     },
+     {
+      "Id": "872337659",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Snare Drum Complex -Midgard Trans-to-Bridge.wav",
+      "CachePath": "73/{73B7353B-FDDB-1DA0-A56D-BB60191A2B3D}.wem"
+     },
+     {
+      "Id": "889363782",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Skeleton death.wav",
+      "CachePath": "4A/{4A953914-91B2-29F1-1D71-170A6D74241A}.wem"
+     },
+     {
+      "Id": "890197632",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Apple bite (real).wav",
+      "CachePath": "74/{74107854-396E-3E31-9CCC-1DD81F8CD17E}.wem"
+     },
+     {
+      "Id": "897058994",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Celli Intense Melody-Midgard Bridge.wav",
+      "CachePath": "DB/{DB024EE9-3C05-8E33-1A91-8F3F5BD22593}.wem"
+     },
+     {
+      "Id": "898459159",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Trans-to-Bridge\\Cymbal Swell-Midgard Trans-to-Bridge.wav",
+      "CachePath": "92/{929D54DB-A8DE-8770-7CB3-0F871BC516C2}.wem"
+     },
+     {
+      "Id": "917527332",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Player hit.wav",
+      "CachePath": "DB/{DB617AC3-462C-AE61-8EDF-0485EA04F948}.wem"
+     },
+     {
+      "Id": "936713714",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Violin Heroic Theme -Midgard B.wav",
+      "CachePath": "39/{39EE71C7-D3A3-AA9D-B7FB-E8D7655FFEF2}.wem"
+     },
+     {
+      "Id": "941968100",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Bridge\\Double Bass Background-Midgard Bridge_1.wav",
+      "CachePath": "8E/{8E1DAF79-C987-5F98-72A3-16652B4A5EFF}.wem"
+     },
+     {
+      "Id": "952714176",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard B\\Celli Motor-Midgard B.wav",
+      "CachePath": "0E/{0EB33095-DA31-6D7A-620F-A2A8AB43D044}.wem"
+     },
+     {
       "Id": "973955584",
       "Language": "SFX",
       "Streaming": "false",
@@ -120,26 +672,134 @@
       "CachePath": "96/{96D39D37-B62F-53F3-9D13-CC469CA1BF9F}.wem"
      },
      {
-      "Id": "1031214841",
+      "Id": "982301499",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Valhalla's Gauntlet - Earth Overworld Theme.wav",
-      "CachePath": "60/{60009AF1-8148-3A7D-2CC5-A29CB990AB06}.wem"
+      "ShortName": "Midgard Trans-to-Bridge\\Violin Heroic Theme -Midgard Trans-to-Bridge.wav",
+      "CachePath": "0F/{0FDE1A7A-21A4-F68B-D12B-EF942B4572A2}.wem"
+     },
+     {
+      "Id": "996276408",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Snare Drum Simple-Midgard A.wav",
+      "CachePath": "16/{16EF158D-998F-02E8-D81A-241234F156EB}.wem"
+     },
+     {
+      "Id": "1004040665",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "snake boss roar.wav",
+      "CachePath": "A2/{A2E390FB-D495-31FF-74A6-0C2F10BDF6FE}.wem"
+     },
+     {
+      "Id": "1011419285",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Strings Intro Melody-Midgard A.wav",
+      "CachePath": "49/{49677C9A-B12F-CEE1-34DC-D859673F0E7E}.wem"
+     },
+     {
+      "Id": "1017908004",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard Cooldown\\Celli Bass Motor-Midgard Bridge.wav",
+      "CachePath": "05/{05ECBEBD-A562-17E8-C62E-5C04104C6426}.wem"
+     },
+     {
+      "Id": "1033101422",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Lightning attack.wav",
+      "CachePath": "AF/{AF80D8F5-CE97-6985-8CB8-B9FC340E870A}.wem"
+     },
+     {
+      "Id": "1065700267",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Midgard A\\Violin Heroic Theme -Midgard A.wav",
+      "CachePath": "12/{12A63605-C74B-DE47-6997-1D3854E71CF7}.wem"
+     },
+     {
+      "Id": "1066186546",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Witch Laugh.wav",
+      "CachePath": "EE/{EEFDC381-A1D9-E29A-6E21-EA727E72AF07}.wem"
      }
     ],
     "Events": [
+     {
+      "Id": "655265632",
+      "Name": "Alive",
+      "ObjectPath": "\\Events\\Music\\Player_Life\\Alive",
+      "GUID": "{610F55B0-2796-49AC-BAFF-ACC6AF340869}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "444815956",
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Alive",
+        "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+       }
+      ]
+     },
+     {
+      "Id": "22977312",
+      "Name": "Apple_Heal",
+      "ObjectPath": "\\Events\\Sound Effects events\\Apple_Heal",
+      "GUID": "{685A1BB9-5E13-4397-BC5D-B5F468CF7412}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0473958",
+      "DurationMax": "1.0473958",
+      "MediaRefs": [
+       {
+        "Id": "890197632"
+       }
+      ]
+     },
+     {
+      "Id": "1560169506",
+      "Name": "Boss",
+      "ObjectPath": "\\Events\\Music\\Player_State\\Boss",
+      "GUID": "{A99C1822-8FD0-45BF-9A4D-F53A1968649C}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "3285234865",
+        "Id": "1560169506",
+        "Name": "Boss",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Boss",
+        "GUID": "{CBFFCBC5-94E0-4BEE-9487-B32E124CCC65}"
+       }
+      ]
+     },
      {
       "Id": "4052139381",
       "Name": "Boss_Death",
       "ObjectPath": "\\Events\\Sound Effects events\\Boss_Death",
       "GUID": "{ADAC315E-D7DE-4983-9E09-9C0D01872E0B}",
       "DurationType": "OneShot",
-      "DurationMin": "3.212771",
-      "DurationMax": "3.212771",
+      "DurationMin": "1.7509375",
+      "DurationMax": "1.7509375",
       "MediaRefs": [
        {
-        "Id": "499801066"
+        "Id": "1066186546"
        }
       ]
      },
@@ -158,6 +818,25 @@
       ]
      },
      {
+      "Id": "2044049779",
+      "Name": "Dead",
+      "ObjectPath": "\\Events\\Music\\Player_Life\\Dead",
+      "GUID": "{4571AAB7-C484-444D-845D-D8A3E660C751}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "444815956",
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Dead",
+        "GUID": "{61035F3B-22B4-4E75-825D-0B051DF8F1FB}"
+       }
+      ]
+     },
+     {
       "Id": "3841200954",
       "Name": "Fireball",
       "ObjectPath": "\\Events\\Sound Effects events\\Fireball",
@@ -168,6 +847,56 @@
       "MediaRefs": [
        {
         "Id": "595634943"
+       }
+      ]
+     },
+     {
+      "Id": "1829833920",
+      "Name": "Footstep_hardground",
+      "ObjectPath": "\\Events\\Sound Effects events\\Footstep_hardground",
+      "GUID": "{62A46181-4098-4274-BB5E-6CFEFEA16DF7}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.44766667",
+      "DurationMax": "0.44766667",
+      "MediaRefs": [
+       {
+        "Id": "239281455"
+       },
+       {
+        "Id": "867938234"
+       }
+      ]
+     },
+     {
+      "Id": "2411697751",
+      "Name": "Footstep_softground",
+      "ObjectPath": "\\Events\\Sound Effects events\\Footstep_softground",
+      "GUID": "{7840BB3E-338F-40F6-9389-8269DF9CD815}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.44766667",
+      "DurationMax": "0.44766667",
+      "MediaRefs": [
+       {
+        "Id": "239281455"
+       }
+      ]
+     },
+     {
+      "Id": "89505537",
+      "Name": "Gameplay",
+      "ObjectPath": "\\Events\\Music\\Player_State\\Gameplay",
+      "GUID": "{97AF9DAA-F3B1-4848-8C27-545DE22406DE}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "3285234865",
+        "Id": "89505537",
+        "Name": "Gameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Gameplay",
+        "GUID": "{B145CCFA-6037-4756-8DAC-6458381FE61D}"
        }
       ]
      },
@@ -190,12 +919,27 @@
       "Name": "Item_Attain",
       "ObjectPath": "\\Events\\Sound Effects events\\Item_Attain",
       "GUID": "{3985024A-58BF-4E21-80A1-D9631309FDA7}",
+      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "1.4147917",
-      "DurationMax": "1.4147917",
-      "MediaRefs": [
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "117665206",
+      "Name": "Jotunheim",
+      "ObjectPath": "\\Events\\Music\\Location\\Jotunheim",
+      "GUID": "{9578AE8C-CB15-4C55-944C-AED83907D2CD}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
        {
-        "Id": "746514461"
+        "GroupId": "1176052424",
+        "Id": "117665206",
+        "Name": "Jotunheim",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Jotunheim",
+        "GUID": "{3174C54E-1CE5-482D-AC38-786A1DF492EB}"
        }
       ]
      },
@@ -214,14 +958,437 @@
       ]
      },
      {
-      "Id": "3991942870",
-      "Name": "Music",
-      "ObjectPath": "\\Events\\Music\\Music",
-      "GUID": "{7139470B-55D2-473E-8C5E-9AFAC57F6354}",
-      "DurationType": "Infinite",
+      "Id": "3700812936",
+      "Name": "Lightning_attack",
+      "ObjectPath": "\\Events\\Sound Effects events\\Lightning_attack",
+      "GUID": "{5F13C5CA-CEF7-468D-8AC7-C5185AFCC7D5}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1739792",
+      "DurationMax": "1.1739792",
       "MediaRefs": [
        {
-        "Id": "1031214841"
+        "Id": "1033101422"
+       }
+      ]
+     },
+     {
+      "Id": "1758594367",
+      "Name": "map_loaded",
+      "ObjectPath": "\\Events\\Music\\map_loaded",
+      "GUID": "{7F0984FF-3EA2-44C2-9DE7-0FEE32CC808E}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "655265632",
+         "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "2538683795",
+           "GUID": "{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}"
+          },
+          "Children": [
+           {
+            "SwitchValue": {
+             "GroupType": "State",
+             "GroupId": "3285234865",
+             "Id": "89505537",
+             "GUID": "{B145CCFA-6037-4756-8DAC-6458381FE61D}"
+            },
+            "MediaRefs": [
+             {
+              "Id": "891228"
+             },
+             {
+              "Id": "3911756"
+             },
+             {
+              "Id": "29862889"
+             },
+             {
+              "Id": "40515721"
+             },
+             {
+              "Id": "84985477"
+             },
+             {
+              "Id": "98797829"
+             },
+             {
+              "Id": "116078118"
+             },
+             {
+              "Id": "162452089"
+             },
+             {
+              "Id": "177916265"
+             },
+             {
+              "Id": "189148166"
+             },
+             {
+              "Id": "213635214"
+             },
+             {
+              "Id": "235429248"
+             },
+             {
+              "Id": "254957011"
+             },
+             {
+              "Id": "285461286"
+             },
+             {
+              "Id": "296109750"
+             },
+             {
+              "Id": "300732246"
+             },
+             {
+              "Id": "336609058"
+             },
+             {
+              "Id": "359054731"
+             },
+             {
+              "Id": "359226346"
+             },
+             {
+              "Id": "362698573"
+             },
+             {
+              "Id": "364327207"
+             },
+             {
+              "Id": "369019881"
+             },
+             {
+              "Id": "386735916"
+             },
+             {
+              "Id": "390480289"
+             },
+             {
+              "Id": "398126973"
+             },
+             {
+              "Id": "421330764"
+             },
+             {
+              "Id": "464889763"
+             },
+             {
+              "Id": "473820215"
+             },
+             {
+              "Id": "486015060"
+             },
+             {
+              "Id": "488331039"
+             },
+             {
+              "Id": "493882269"
+             },
+             {
+              "Id": "503561823"
+             },
+             {
+              "Id": "526642168"
+             },
+             {
+              "Id": "532809095"
+             },
+             {
+              "Id": "537601833"
+             },
+             {
+              "Id": "575447118"
+             },
+             {
+              "Id": "580124866"
+             },
+             {
+              "Id": "606897202"
+             },
+             {
+              "Id": "609095907"
+             },
+             {
+              "Id": "609866993"
+             },
+             {
+              "Id": "611101860"
+             },
+             {
+              "Id": "619778555"
+             },
+             {
+              "Id": "627254436"
+             },
+             {
+              "Id": "679825520"
+             },
+             {
+              "Id": "707730672"
+             },
+             {
+              "Id": "716428338"
+             },
+             {
+              "Id": "720960638"
+             },
+             {
+              "Id": "738866339"
+             },
+             {
+              "Id": "763861545"
+             },
+             {
+              "Id": "780633328"
+             },
+             {
+              "Id": "802007047"
+             },
+             {
+              "Id": "807571724"
+             },
+             {
+              "Id": "810080677"
+             },
+             {
+              "Id": "825351526"
+             },
+             {
+              "Id": "828540993"
+             },
+             {
+              "Id": "837706051"
+             },
+             {
+              "Id": "851092441"
+             },
+             {
+              "Id": "864413797"
+             },
+             {
+              "Id": "872337659"
+             },
+             {
+              "Id": "897058994"
+             },
+             {
+              "Id": "898459159"
+             },
+             {
+              "Id": "936713714"
+             },
+             {
+              "Id": "941968100"
+             },
+             {
+              "Id": "952714176"
+             },
+             {
+              "Id": "982301499"
+             },
+             {
+              "Id": "996276408"
+             },
+             {
+              "Id": "1011419285"
+             },
+             {
+              "Id": "1017908004"
+             },
+             {
+              "Id": "1065700267"
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "655265632",
+         "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "3702692096",
+           "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "655265632",
+         "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "117665206",
+           "GUID": "{3174C54E-1CE5-482D-AC38-786A1DF492EB}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "655265632",
+         "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "117665206",
+           "GUID": "{3174C54E-1CE5-482D-AC38-786A1DF492EB}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "655265632",
+         "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "2538683795",
+           "GUID": "{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "655265632",
+         "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "3702692096",
+           "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "2044049779",
+         "GUID": "{61035F3B-22B4-4E75-825D-0B051DF8F1FB}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "0",
+           "GUID": "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}"
+          },
+          "Children": []
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "444815956",
+         "Id": "0",
+         "GUID": "{8915403D-2E66-4272-AF92-01F0EEF41C24}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1176052424",
+           "Id": "0",
+           "GUID": "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}"
+          },
+          "Children": []
+         }
+        ]
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "444815956",
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Alive",
+        "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+       },
+       {
+        "GroupId": "1176052424",
+        "Id": "3702692096",
+        "Name": "Valhalla",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Valhalla",
+        "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+       },
+       {
+        "GroupId": "3285234865",
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Title",
+        "GUID": "{7ECAF9B7-8628-4157-A87E-B7656F4035CE}"
+       }
+      ]
+     },
+     {
+      "Id": "2538683795",
+      "Name": "Midgard",
+      "ObjectPath": "\\Events\\Music\\Location\\Midgard",
+      "GUID": "{754823F4-75D7-4CF8-8EDC-6B6F4FBE4EF8}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1176052424",
+        "Id": "2538683795",
+        "Name": "Midgard",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Midgard",
+        "GUID": "{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}"
        }
       ]
      },
@@ -240,6 +1407,48 @@
       ]
      },
      {
+      "Id": "871813740",
+      "Name": "Player_hit",
+      "ObjectPath": "\\Events\\Sound Effects events\\Player_hit",
+      "GUID": "{111079B8-CA87-4358-A8EB-9ED353897716}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.64091665",
+      "DurationMax": "0.64091665",
+      "MediaRefs": [
+       {
+        "Id": "917527332"
+       }
+      ]
+     },
+     {
+      "Id": "2670662143",
+      "Name": "Skeleton_death",
+      "ObjectPath": "\\Events\\Sound Effects events\\Skeleton_death",
+      "GUID": "{9C9EA952-A924-45D7-AC53-A2BEF0EC690D}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.856125",
+      "DurationMax": "0.856125",
+      "MediaRefs": [
+       {
+        "Id": "889363782"
+       }
+      ]
+     },
+     {
+      "Id": "466730574",
+      "Name": "Skeleton_hit",
+      "ObjectPath": "\\Events\\Sound Effects events\\Skeleton_hit",
+      "GUID": "{B321FA24-F09A-41C7-8EEA-64C404B4705F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.44093063",
+      "DurationMax": "0.44093063",
+      "MediaRefs": [
+       {
+        "Id": "216272707"
+       }
+      ]
+     },
+     {
       "Id": "1515870860",
       "Name": "snake_bite",
       "ObjectPath": "\\Events\\Sound Effects events\\snake_bite",
@@ -250,6 +1459,20 @@
       "MediaRefs": [
        {
         "Id": "465243681"
+       }
+      ]
+     },
+     {
+      "Id": "2475210562",
+      "Name": "Snake_roar",
+      "ObjectPath": "\\Events\\Sound Effects events\\Snake_roar",
+      "GUID": "{CD730047-87AE-4357-95F9-8BC4039E13EC}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.5",
+      "DurationMax": "3.5",
+      "MediaRefs": [
+       {
+        "Id": "1004040665"
        }
       ]
      },
@@ -320,10 +1543,182 @@
         "Id": "344426433"
        }
       ]
+     },
+     {
+      "Id": "3705726509",
+      "Name": "Title",
+      "ObjectPath": "\\Events\\Music\\Player_State\\Title",
+      "GUID": "{4021815E-254C-4F18-AF7F-4583415DF4C4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "3702692096",
+      "Name": "Valhalla",
+      "ObjectPath": "\\Events\\Music\\Location\\Valhalla",
+      "GUID": "{2B6F64EB-979C-4582-B2C3-658B03F5DC4A}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1176052424",
+        "Id": "3702692096",
+        "Name": "Valhalla",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Valhalla",
+        "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+       }
+      ]
+     },
+     {
+      "Id": "1236609885",
+      "Name": "Witch_Death",
+      "ObjectPath": "\\Events\\Sound Effects events\\Witch_Death",
+      "GUID": "{5838AA24-72ED-4CFE-B3F2-0B832AA17967}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3773125",
+      "DurationMax": "1.3773125",
+      "MediaRefs": [
+       {
+        "Id": "75195527"
+       }
+      ]
+     },
+     {
+      "Id": "2152158020",
+      "Name": "Witch_laugh",
+      "ObjectPath": "\\Events\\Sound Effects events\\Witch_laugh",
+      "GUID": "{B330F1A3-B4AF-4B97-9EF6-A1FDA751DDDB}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.7509375",
+      "DurationMax": "1.7509375",
+      "MediaRefs": [
+       {
+        "Id": "1066186546"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "444815956",
+      "Name": "playerLife",
+      "ObjectPath": "\\States\\Default Work Unit\\playerLife",
+      "GUID": "{8915403D-2E66-4272-AF92-01F0EEF41C24}",
+      "States": [
+       {
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Alive",
+        "GUID": "{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\None",
+        "GUID": "{C7966577-CB66-4AF5-8F24-00A468DCB352}"
+       },
+       {
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\playerLife\\Dead",
+        "GUID": "{61035F3B-22B4-4E75-825D-0B051DF8F1FB}"
+       }
+      ]
+     },
+     {
+      "Id": "1176052424",
+      "Name": "Location",
+      "ObjectPath": "\\States\\Default Work Unit\\Location",
+      "GUID": "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}",
+      "States": [
+       {
+        "Id": "117665206",
+        "Name": "Jotunheim",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Jotunheim",
+        "GUID": "{3174C54E-1CE5-482D-AC38-786A1DF492EB}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\None",
+        "GUID": "{9F9D350D-30F3-4966-81BC-3F30024B42B7}"
+       },
+       {
+        "Id": "2538683795",
+        "Name": "Midgard",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Midgard",
+        "GUID": "{3B2C2A22-5B7B-43D4-A257-BA79C5C4E161}"
+       },
+       {
+        "Id": "3702692096",
+        "Name": "Valhalla",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Valhalla",
+        "GUID": "{8DF788D8-2055-47C7-A392-11D06E665614}"
+       },
+       {
+        "Id": "4129822198",
+        "Name": "Boss_Arena",
+        "ObjectPath": "\\States\\Default Work Unit\\Location\\Boss_Arena",
+        "GUID": "{AC7E8BC5-E9A6-4356-A5D3-403A25B8BE1E}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "playerState",
+      "ObjectPath": "\\States\\Default Work Unit\\playerState",
+      "GUID": "{EF1D7354-0CDF-4325-B91E-7DC316D9D946}",
+      "States": [
+       {
+        "Id": "89505537",
+        "Name": "Gameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Gameplay",
+        "GUID": "{B145CCFA-6037-4756-8DAC-6458381FE61D}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\None",
+        "GUID": "{49C49D1F-C478-4710-91E1-0EDB01177560}"
+       },
+       {
+        "Id": "1560169506",
+        "Name": "Boss",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Boss",
+        "GUID": "{CBFFCBC5-94E0-4BEE-9487-B32E124CCC65}"
+       },
+       {
+        "Id": "1686739444",
+        "Name": "Story",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Story",
+        "GUID": "{8E5016F3-E4CC-4312-A85D-B6B3EA171C52}"
+       },
+       {
+        "Id": "2600172515",
+        "Name": "preBoss",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\preBoss",
+        "GUID": "{15964738-8B1D-44C4-992D-4872FF5C7F15}"
+       },
+       {
+        "Id": "2716678721",
+        "Name": "Victory",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Victory",
+        "GUID": "{41B53E2B-AE6B-41B5-9447-396E9998E670}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\playerState\\Title",
+        "GUID": "{7ECAF9B7-8628-4157-A87E-B7656F4035CE}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{F489B730-A5EC-462D-3A7D-CE73042D5A0B}"
+  "FileHash": "{D14368AD-B655-6515-FBD3-29FB09304A02}"
  }
 }

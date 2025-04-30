@@ -6,11 +6,11 @@
    "Generator": "2024.1.1.8691"
   },
   "RootPaths": {
-   "ProjectRoot": "../../../../../../Downloads/Valhalla's Gauntlet 2/Valhalla's Gauntlet",
-   "SourceFilesRoot": "../../../../../../Downloads/Valhalla's Gauntlet 2/Valhalla's Gauntlet/.cache",
+   "ProjectRoot": "../../../../../../Downloads/Valhalla's Gauntlet/Valhalla's Gauntlet",
+   "SourceFilesRoot": "../../../../../../Downloads/Valhalla's Gauntlet/Valhalla's Gauntlet/.cache",
    "SoundBanksRoot": ".",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "../../../../../../Downloads/Valhalla's Gauntlet 2/Valhalla's Gauntlet/GeneratedSoundBanks/Mac"
+   "ExternalSourcesOutputRoot": "../../../../../../Downloads/Valhalla's Gauntlet/Valhalla's Gauntlet/GeneratedSoundBanks/Mac"
   },
   "DefaultAlign": "16",
   "Settings": {
@@ -33,6 +33,6 @@
    "PrintObjectPath": "true",
    "PrintObjectColor": "true"
   },
-  "FileHash": "{FB5D2059-A16E-555E-3B19-DD7AF2901732}"
+  "FileHash": "{24D8995C-8F7B-8A05-4BC8-2A8E1DDFFB19}"
  }
 }

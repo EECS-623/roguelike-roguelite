@@ -1,9 +1,9 @@
 [
-	{"name": "[center]Ymir[/center]", "text": "[color=red]WARRIOR...[/color]"},
+	{"name": "[center]Ymir[/center]", "text": "[color=#FF0000][i]WARRIOR...[/i][/color]"},
 	{"name": "[center]Ymir[/center]", "text": "Why have you come to my realm?"},
 	{"name": "[center]Ymir[/center]", "text": "..."},
-	{"name": "[center]Ymir[/center]", "text": "[color=blue]Ragnarök[/color], you say? A quest from Odin? "},
-	{"name": "[center]Ymir[/center]", "text": "Curious…"},
+	{"name": "[center]Ymir[/center]", "text": "[color=#00BFFF][i]Ragnarök[/i][/color], you say? A quest from Odin? "},
+	{"name": "[center]Ymir[/center]", "text": "Curious..."},
 	{"name": "[center]Ymir[/center]", "text": "No matter, a fool’s errand that you’ve been sent on"},
 	{"name": "[center]Ymir[/center]", "text": "This shall be your final battle"}
 ]
