@@ -10,6 +10,7 @@ var enemy_speed: int = 1.5
 var xp: int = 0
 var patron_god: int = 0
 var has_key: int = 0
+var patron_stat_initialized: bool = false
 
 
 var loaded_banks = {}
@@ -28,6 +29,7 @@ func reset_globals():
 	xp = 0
 	patron_god = 0
 	has_key = 0
+	patron_stat_initialized = false
 
 	#loaded_banks = {}, need to not reset this one to not reload wwise banks.
 	world_level = 1

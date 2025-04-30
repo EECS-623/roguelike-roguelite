@@ -39,9 +39,9 @@ func reset_stats() -> void:
 # Calculate upgrade cost based on current stat level
 func get_upgrade_cost(current_level: int) -> int:
 	match current_level:
-		0, 1: return 1  # First two upgrades cost 1 rune
-		2, 3: return 2  # Next two upgrades cost 2 runes
-		4: return 3     # Final upgrade costs 3 runes
+		0, 1: return 2  # First two upgrades cost 2 rune
+		2, 3: return 3  # Next two upgrades cost 3 runes
+		4: return 4     # Final upgrade costs 4 runes
 		_: return 0     # Already at max level
 
 func upgrade_stat(stat_name: String, player) -> bool:
