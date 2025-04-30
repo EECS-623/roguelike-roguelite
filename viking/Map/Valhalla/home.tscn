@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=16 format=3 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_ds18k"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
@@ -8,11 +8,14 @@
 [ext_resource type="WwiseState" uid="uid://ciu17avhmxh4a" path="res://Wwise/resources/State/{B145CCFA-6037-4756-8DAC-6458381FE61D}.tres" id="9_j3snd"]
 [ext_resource type="Texture2D" uid="uid://qscm00d8n0it" path="res://Map/Valhalla/New_Valhalla_Art/valhalla main screen.png" id="9_x1hci"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm33x"]
+size = Vector2(43.87, 8.555)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dqeh"]
-size = Vector2(0.620001, 12.17)
+size = Vector2(13.23, 12.17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmrwb"]
-size = Vector2(1.805, 12.25)
+size = Vector2(12.545, 12.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vph3o"]
 size = Vector2(18.13, 0.22)
@@ -51,13 +54,18 @@ trigger_on = 2
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-1, -2)
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-31, -1021)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_dm33x")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-933, -8)
+position = Vector2(-1563.5, -8)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_2dqeh")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(986.75, -3.49998)
+position = Vector2(1523.75, -3.49998)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_dmrwb")
 
@@ -130,6 +138,11 @@ polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 15
 [node name="CollisionPolygon_Horse_Statue4" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-167, -651)
 polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 150, 68, 127, 80.5388, 218.705, 97, 306, 112, 396, -5, 400, -4, 330, 11, 282, 24, 192)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-35.5001, 1023)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_dm33x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(253.25, -249.25)
