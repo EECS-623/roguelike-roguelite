@@ -25,7 +25,7 @@ func _on_body_entered(body):
 		
 	await get_tree().create_timer(0.05).timeout	
 	$Hitbox/CollisionShape2D.disabled = true
-	
+	Wwise.post_event_id(AK.EVENTS.APPLE_HEAL, self)
 	print("apple eaten")
 	
 	queue_free()
