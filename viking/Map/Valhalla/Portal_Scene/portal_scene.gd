@@ -33,6 +33,9 @@ func _on_area_2d_go_home_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_portal_body_entered(body: Node2D) -> void:
+	if Global.world_level == 3:
+		return
+	
 	if body.is_in_group("player"):
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)

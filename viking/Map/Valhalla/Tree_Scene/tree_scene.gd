@@ -5,7 +5,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	if !PlayerManager.player:
 		var my_player = player.instantiate()
 		PlayerManager.player = my_player
@@ -16,6 +15,9 @@ func _ready() -> void:
 	cam.limit_right = 900
 	cam.limit_top = -600
 	cam.limit_bottom = 600
+	
+	if Global.loki_reveal:
+		$AnimatedSprite2D/AnimationPlayer.play("turn_and_leave")
 	
 
 
@@ -35,7 +37,7 @@ func _on_area_2d_home_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_to_loki_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and Global.world_level == 3:
+	if body.is_in_group("player") and Global.loki_reveal:
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Loki/boss_arena.tscn")

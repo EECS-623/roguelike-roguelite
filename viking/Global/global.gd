@@ -10,10 +10,11 @@ var enemy_speed: int = 1.5
 var xp: int = 0
 var patron_god: int = 0
 var has_key: int = 0
+var loki_reveal = false
 
 
 var loaded_banks = {}
-var world_level: int = 2
+var world_level: int = 1
 var upgrade_level: int = 1
 var teleport_banned: bool = true
 func reset_globals():
