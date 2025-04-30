@@ -27,8 +27,10 @@ func _ready() -> void:
 	if not(HUD.connected):
 		HUD.connect_to_player()
 	
-	# Check if max health upgrade was applied correctly
+	# Check if all patron stat upgrades were applied correctly
 	check_max_health_upgrade()
+	check_melee_damage_upgrade()
+	check_speed_upgrade()
 
 # Apply patron-specific health stat bonus if selected immediately when player enters scene
 func apply_health_patron_bonus() -> void:
@@ -65,6 +67,54 @@ func check_max_health_upgrade() -> void:
 		print("-------------------------------")
 	else:
 		print("ERROR: Couldn't find HealthComponent on player")
+
+# Function to check if melee damage upgrade was applied correctly
+func check_melee_damage_upgrade() -> void:
+	var physical_damage_component = PlayerManager.player.get_node_or_null("PhysicalDamageComponent")
+	if physical_damage_component:
+		var base_damage = 10  # Assuming base damage is 10
+		var expected_bonus = InventoryManager.melee_damage_level * InventoryManager.MELEE_DAMAGE_BOOST
+		var expected_damage = base_damage + expected_bonus
+		
+		print("------- MELEE DAMAGE CHECK -------")
+		print("Melee damage level: ", InventoryManager.melee_damage_level)
+		print("Damage boost per level: ", InventoryManager.MELEE_DAMAGE_BOOST)
+		print("Base damage: ", base_damage)
+		print("Expected damage: ", expected_damage)
+		print("Actual damage: ", physical_damage_component.physical_damage)
+		
+		if physical_damage_component.physical_damage == expected_damage:
+			print("✓ Melee damage upgrade working correctly!")
+		else:
+			print("✗ Melee damage upgrade not working as expected!")
+			print("Difference: ", physical_damage_component.physical_damage - expected_damage)
+		print("-------------------------------")
+	else:
+		print("ERROR: Couldn't find PhysicalDamageComponent on player")
+
+# Function to check if speed upgrade was applied correctly
+func check_speed_upgrade() -> void:
+	var speed_component = PlayerManager.player.get_node_or_null("SpeedComponent")
+	if speed_component:
+		var base_speed = 100  # Assuming base speed is 100
+		var expected_bonus = InventoryManager.speed_level * InventoryManager.SPEED_BOOST
+		var expected_speed = base_speed + expected_bonus
+		
+		print("------- SPEED CHECK -------")
+		print("Speed level: ", InventoryManager.speed_level)
+		print("Speed boost per level: ", InventoryManager.SPEED_BOOST)
+		print("Base speed: ", base_speed)
+		print("Expected speed: ", expected_speed)
+		print("Actual speed: ", speed_component.speed)
+		
+		if speed_component.speed == expected_speed:
+			print("✓ Speed upgrade working correctly!")
+		else:
+			print("✗ Speed upgrade not working as expected!")
+			print("Difference: ", speed_component.speed - expected_speed)
+		print("-------------------------------")
+	else:
+		print("ERROR: Couldn't find SpeedComponent on player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
