@@ -4,7 +4,7 @@ var chestOpened = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"../AnimatedSprite2D".play("closed")
+	$"../Sprite2D".play("closed")
 	
 
 
