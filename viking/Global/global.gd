@@ -15,7 +15,7 @@ var has_key: int = 0
 var loaded_banks = {}
 var world_level: int = 1
 var upgrade_level: int = 1
-
+var teleport_banned: bool = true
 func reset_globals():
 	relics = 0
 	earth_enemies_left = 0
@@ -29,7 +29,7 @@ func reset_globals():
 	patron_god = 0
 	has_key = 0
 
-	
 	#loaded_banks = {}, need to not reset this one to not reload wwise banks.
 	world_level = 1
 	upgrade_level = 1
+	teleport_banned = true
