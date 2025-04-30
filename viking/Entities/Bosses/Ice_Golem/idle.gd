@@ -26,7 +26,7 @@ var near_weights = {
 
 # what happens when the entity enters a state
 func enter() -> void:
-	idle_timer = randf_range(1, 2.5)
+	idle_timer = randf_range(1.5, 3.5)
 	move_timer = randf_range(.5, 2)
 
 # what happens when the entity exits a state
