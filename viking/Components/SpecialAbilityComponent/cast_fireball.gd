@@ -41,7 +41,7 @@ func cast_ability() -> bool:
 			var shoot_direction = (mouse_pos - player.global_position).normalized()
 			var perpendicular = Vector2(-shoot_direction.y, shoot_direction.x)  # 90° rotated
 
-			var spacing = 20
+			var spacing = 50
 
 			# Main fireball (center)
 			new_fireball.position = player.global_position
