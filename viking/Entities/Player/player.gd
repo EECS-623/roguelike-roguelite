@@ -100,6 +100,7 @@ func _on_health_component_death() -> void:
 	
 	#get_tree().root.add_child(self)
 	#get_parent().remove_child(self)
+	$Camera2D.zoom = Vector2(1,1)
 	get_tree().call_deferred("change_scene_to_file", "res://Game/GameOver/game_over.tscn")
 	#queue_free()
 

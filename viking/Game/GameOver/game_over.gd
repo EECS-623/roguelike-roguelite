@@ -15,7 +15,6 @@ func _on_play_again_pressed() -> void:
 	Global.reset_globals()
 	# Reset other global values as needed
 	Global.has_key = false
-	
 	# Then change to the main scene
 	get_tree().change_scene_to_file("res://Game/MainMenu/main_menu.tscn")
 
