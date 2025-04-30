@@ -177,6 +177,7 @@ scale = Vector2(-1, -1)
 polygon = PackedVector2Array(-877, 174, -858, 206, -829, 162, -842, 232, -818, 294, -763, 309, -816, 325, -820, 459, -790, 500, -737, 456, -773, 532, -768, 640, -717, 651, -691, 696, -708, 793, -645, 777, -627, 734, -630, 775, -589, 789, -555, 755, -518, 837, -447, 848, -397, 797, -394, 855, -310, 900, -871, 896)
 
 [node name="Artifact" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Artifact"]
 rotation = -1.62032

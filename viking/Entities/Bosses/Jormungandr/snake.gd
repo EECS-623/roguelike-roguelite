@@ -52,7 +52,7 @@ func _snake_move():
 		update_direction(snake[0], direction)
 		z_indexing()
 		
-	if (hp.current_health <= (hp.max_health / 2)):
+	if (hp.current_health <= (hp.max_health / 4)):
 		enter_rage_mode()
 
 func update_direction(segment, new_direction):

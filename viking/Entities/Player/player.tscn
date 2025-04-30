@@ -30,7 +30,7 @@
 [ext_resource type="Script" path="res://Entities/Player/melee_hitbox_interactions.gd" id="21_buioh"]
 [ext_resource type="Script" path="res://Components/StatComponents/LuckComponent/luck_component.gd" id="21_mbuf2"]
 [ext_resource type="Script" path="res://Entities/Player/state_idle.gd" id="23_qyisa"]
-[ext_resource type="PackedScene" uid="uid://dx8xw4s8lc56r" path="res://Entities/Player/cast_fireball.tscn" id="24_po0fm"]
+[ext_resource type="PackedScene" uid="uid://bvfb7xowrwgnh" path="res://Entities/Player/cast_fireball.tscn" id="24_po0fm"]
 [ext_resource type="Script" path="res://Entities/Player/state_move.gd" id="24_vnqw2"]
 [ext_resource type="Script" path="res://Entities/Player/state_melee_attack.gd" id="25_7u812"]
 [ext_resource type="PackedScene" uid="uid://cohebo0cbsqan" path="res://Entities/Player/force_field.tscn" id="25_aejhs"]
