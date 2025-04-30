@@ -7,6 +7,7 @@ func _ready() -> void:
 	if !PlayerManager.player:
 		var my_player = player.instantiate()
 		PlayerManager.player = my_player
+		
 	get_tree().current_scene.add_child(PlayerManager.player)
 	PlayerManager.player.global_position = Vector2(110,0)
 	Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
@@ -16,14 +17,54 @@ func _ready() -> void:
 	cam.limit_top = -600
 	cam.limit_bottom = 600
 	HUD.visible = true
+	
+	# Apply patron-specific health stat bonus if selected
+	apply_health_patron_bonus()
+	
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
 	if not(HUD.connected):
 		HUD.connect_to_player()
-	#Inventory.connect_to_player()
 	
+	# Check if max health upgrade was applied correctly
+	check_max_health_upgrade()
 
+# Apply patron-specific health stat bonus if selected immediately when player enters scene
+func apply_health_patron_bonus() -> void:
+	var health_component = PlayerManager.player.get_node_or_null("HealthComponent")
+	
+	# Apply the health boost for Patron 2 (Tyr)
+	if Global.patron_god == 2 and health_component:
+		Inventory.connect_to_player()
+		Global.xp += 1 # this rune will be immediately spent
+		Inventory._on_max_health_upgrade_pressed()
+		health_component.current_health += InventoryManager.MAX_HEALTH_BOOST
+
+# Function to check if max health upgrade was applied correctly
+func check_max_health_upgrade() -> void:
+	var health_component = PlayerManager.player.get_node_or_null("HealthComponent")
+	if health_component:
+		var base_max_health = 100  # Assuming base health is 100
+		var expected_bonus = InventoryManager.max_health_level * InventoryManager.MAX_HEALTH_BOOST
+		var expected_max_health = base_max_health + expected_bonus
+		
+		print("------- MAX HEALTH CHECK -------")
+		print("Max health level: ", InventoryManager.max_health_level)
+		print("Health boost per level: ", InventoryManager.MAX_HEALTH_BOOST)
+		print("Base max health: ", base_max_health)
+		print("Expected max health: ", expected_max_health)
+		print("Actual max health: ", health_component.max_health)
+		print("Current health: ", health_component.current_health)
+		
+		if health_component.max_health == expected_max_health:
+			print("✓ Max health upgrade working correctly!")
+		else:
+			print("✗ Max health upgrade not working as expected!")
+			print("Difference: ", health_component.max_health - expected_max_health)
+		print("-------------------------------")
+	else:
+		print("ERROR: Couldn't find HealthComponent on player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
