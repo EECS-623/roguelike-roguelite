@@ -191,7 +191,7 @@ sources/0 = SubResource("TileSetAtlasSource_64x3c")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iadu7"]
 size = Vector2(11346, 9963)
 
-[node name="Earth_tileset" type="TileMapLayer"]
+[node name="Ice_tileset" type="TileMapLayer"]
 z_index = -2
 tile_set = SubResource("TileSet_1l6f1")
 script = ExtResource("2_8nc8l")
