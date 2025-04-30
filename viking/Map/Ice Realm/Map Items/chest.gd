@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if(chestOpened == 0):
 			Global.has_key += 1
-			$"../Sprite2D".play("open")
+			$"../AnimatedSprite2D".play("open")
 			Wwise.post_event_id(AK.EVENTS.KEY_ATTAIN, self)
 			print("key acquired")
 			print(Global.has_key)
