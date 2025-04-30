@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://corb6gkj6xc8a"]
+
+[ext_resource type="Texture2D" uid="uid://c7pwyqmekuul6" path="res://Map/Ice Realm/Map Items/Ice Door Open.png" id="1_45p3s"]
+
+[node name="Door" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_45p3s")
