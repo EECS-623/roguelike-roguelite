@@ -35,21 +35,25 @@ func apply_patron_bonus() -> void:
 	var speed_component = PlayerManager.player.get_node_or_null("SpeedComponent")
 	var physical_damage_component = PlayerManager.player.get_node_or_null("PhysicalDamageComponent")
 	Inventory.connect_to_player()
-	Global.xp += 2 # these runes will be immediately spent
+	Global.xp += 4 # these runes will be immediately spent
 	
 	# Apply melee damage boost for Patron 1 (Thor)
 	if Global.patron_god == 1 and physical_damage_component:
+		Inventory._on_melee_damage_upgrade_pressed()
 		Inventory._on_melee_damage_upgrade_pressed()
 		check_melee_damage_upgrade()
 	
 	# Apply the health boost for Patron 2 (Tyr) (and add to initial health)
 	elif Global.patron_god == 2 and health_component:
 		Inventory._on_max_health_upgrade_pressed()
+		Inventory._on_max_health_upgrade_pressed()
+		health_component.current_health += InventoryManager.MAX_HEALTH_BOOST
 		health_component.current_health += InventoryManager.MAX_HEALTH_BOOST
 		check_max_health_upgrade()
 
 	# Apply speed boost for Patron 3 (Freya) 
 	elif Global.patron_god == 3 and speed_component:
+		Inventory._on_speed_upgrade_pressed()
 		Inventory._on_speed_upgrade_pressed()
 		check_speed_upgrade()
 
