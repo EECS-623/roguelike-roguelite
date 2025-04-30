@@ -7,7 +7,7 @@ var loki = Node2D
 var loki_dead = false
 var dialogue: DialogueUI
 var cam
-var first_dialogue = true
+var real_odin = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,6 +65,14 @@ func play_dialogue(path: String) -> void:
 	dialogue.connect("dialogue_finished", _on_dialogue_end)
 
 func _on_dialogue_end():
+	if loki_dead:
+		real_odin = true
+		#play_dialogue("res://Game/Dialogue/real_odin.json")
+	
+	if real_odin:
+		get_tree().call_deferred("change_scene_to_file", "res://Game/Victory/victory.tscn")
+
+	
 	dialogue.get_node("AnimationPlayer").play("RESET")
 	dialogue.disconnect("dialogue_finished", _on_dialogue_end)
 	get_tree().paused = false
@@ -76,9 +84,6 @@ func _on_dialogue_end():
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
 	HUD.connect_to_player()
-
-	if loki_dead:
-		get_tree().call_deferred("change_scene_to_file", "res://Game/Victory/victory.tscn")
 
 	
 	if loki != null:
