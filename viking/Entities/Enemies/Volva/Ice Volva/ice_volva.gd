@@ -14,7 +14,7 @@ signal change_hitbox_direction( new_direction: Vector2 )
 func _ready() -> void:
 	add_to_group("enemy")
 	ice_volva_state_machine.initialize(self)
-	$AnimatedSprite2D.modulate = Color(0.671, 0.812, 0.808)
+	$AnimatedSprite2D.modulate = Color(0.65, 0.85, 0.95, 0.9)
 	#waggro_range.connect()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,4 +73,4 @@ func _handle_death_deferred() -> void:
 func _on_health_component_t_damage(amount: float) -> void:
 	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
 	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.modulate = Color(0.671, 0.812, 0.808)
+	$AnimatedSprite2D.modulate = Color(0.65, 0.85, 0.95, 0.9)

@@ -16,7 +16,7 @@ signal change_hitbox_direction( new_direction: Vector2 )
 func _ready() -> void:
 	add_to_group("enemy")
 	ice_draugr_state_machine.initialize(self)
-	$AnimatedSprite2D.modulate = Color(0.0, 0.6471, 0.9569)
+	$AnimatedSprite2D.modulate = Color(0.7, 0.83, 0.84, 0.8) #Color(0.0, 0.6471, 0.9569)
 	#waggro_range.connect()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,4 +76,4 @@ func _on_health_component_t_damage(amount: float) -> void:
 	Wwise.post_event_id(AK.EVENTS.SKELETON_HIT, self)
 	$AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
 	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.modulate = Color(0.0, 0.6471, 0.9569)
+	$AnimatedSprite2D.modulate = Color(0.7, 0.83, 0.84)
