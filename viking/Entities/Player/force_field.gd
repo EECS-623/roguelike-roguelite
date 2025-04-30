@@ -38,7 +38,7 @@ func cast_ability() -> bool:
 		return false # Not enough mana
 	
 	# move over ability logic here
-	if Input.is_action_just_pressed("right_click") and Global.patron_god == 2:
+	if Global.patron_god == 2:
 		#$"../../Force_field".modulate.a = 1.0
 		#player.modulate = Color(0.25, 0.5, 1, 1) #LIGHT BLUE
 		ForceFieldOn.emit()

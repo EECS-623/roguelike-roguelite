@@ -62,7 +62,17 @@ func animation_direction() -> String:
 		return "right"
 
 func _on_health_component_death() -> void:
-	Global.xp += 1
+	call_deferred("_handle_death_deferred")
+
+func _handle_death_deferred() -> void:
+	var rune_scene = preload("res://Entities/Enemies/Rune/rune.tscn")
+	var rune = rune_scene.instantiate()
+	get_tree().current_scene.add_child(rune)
+	
+	rune.drop_from(global_position)
+
+	#Global.xp += 1
+	#Wwise.post_event_id(AK.EVENTS.SKELETON_DEATH, self)
 	queue_free()
 
 func _on_health_component_t_damage(amount: float) -> void:

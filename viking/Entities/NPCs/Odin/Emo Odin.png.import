@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blju54j4ykwpo"
-path="res://.godot/imported/Jörmungandr's Tail.png-0f43e2d138ba114da9c8eecc15c0541c.ctex"
+uid="uid://b3jelany8i5di"
+path="res://.godot/imported/Emo Odin.png-93e2d962399dd14252cef718f2685d73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Jormungandr/Jörmungandr's Tail.png"
-dest_files=["res://.godot/imported/Jörmungandr's Tail.png-0f43e2d138ba114da9c8eecc15c0541c.ctex"]
+source_file="res://Entities/NPCs/Odin/Emo Odin.png"
+dest_files=["res://.godot/imported/Emo Odin.png-93e2d962399dd14252cef718f2685d73.ctex"]
 
 [params]
 

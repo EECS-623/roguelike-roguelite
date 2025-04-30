@@ -1,20 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://dq03i11t1iadq"]
 
-[ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="1_kc1wi"]
 [ext_resource type="Script" path="res://Entities/NPCs/Odin/odin.gd" id="1_nosir"]
+[ext_resource type="Texture2D" uid="uid://b3jelany8i5di" path="res://Entities/NPCs/Odin/Emo Odin.png" id="2_hnfrb"]
 [ext_resource type="PackedScene" uid="uid://dhqyxk8ewq3g8" path="res://Entities/NPCs/NPCInteractionArea/npc_interaction_area.tscn" id="2_jhbol"]
 [ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="4_n0bm0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to7l7"]
-radius = 24.0
-height = 80.0
+radius = 56.0
+height = 176.0
 
 [node name="Odin" type="CharacterBody2D"]
 script = ExtResource("1_nosir")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0766667, 0.0766667)
-texture = ExtResource("1_kc1wi")
+position = Vector2(0, -3)
+scale = Vector2(0.150312, 0.150312)
+texture = ExtResource("2_hnfrb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_to7l7")
@@ -29,13 +30,14 @@ offset_top = -80.0
 offset_right = 16.0
 offset_bottom = -48.0
 
-[node name="E" type="Label" parent="ButtonPrompt"]
+[node name="F" type="Label" parent="ButtonPrompt"]
 layout_mode = 0
+offset_top = -40.0
 offset_right = 32.0
-offset_bottom = 32.0
+offset_bottom = -8.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_n0bm0")
-text = "E"
+text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 

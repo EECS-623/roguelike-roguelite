@@ -37,9 +37,9 @@ func reset_stats() -> void:
 	stats_changed.emit()
 	print("Stats, runes, inventory reset")
 
-func toggle_inventory():
+#func toggle_inventory():
 	# Since Inventory is a global singleton, we can access it directly
-	Inventory.toggle_visibility()
+	#Inventory.toggle_visibility()
 
 func upgrade_stat(stat_name: String, player) -> bool:
 	# Check if player has enough runes

@@ -33,7 +33,7 @@ position = Vector2(-1, 1)
 script = ExtResource("2_ds18k")
 
 [node name="Odin" parent="." instance=ExtResource("6_wfcrd")]
-position = Vector2(0, -209)
+position = Vector2(-185, -90)
 
 [node name="AkState_PlayerLife" type="AkState" parent="."]
 state = ExtResource("7_qeyeg")

@@ -27,6 +27,9 @@ var status_effects = {
 	"frozen": false
 }
 
+var arrow_cooldown : bool
+var arrow_cooldown_timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#animation_tree.active = true
@@ -44,6 +47,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta):
+	
+	if arrow_cooldown:
+		arrow_cooldown_timer -= _delta
+		if arrow_cooldown_timer <= 0.0:
+			arrow_cooldown = false
+			print("Cooldown finished")
+			
 	if Input.is_action_just_pressed("interact"):
 		if npc != null:
 			npc.talk()
@@ -156,7 +166,6 @@ func apply_status_effect(effect: StatusEffect):
 	status_manager.apply_status_effect(effect)
 
 
-
 func _on_shield_damage_body_entered(body: Node2D) -> void:
 	if Global.upgrade_level == 2 and ForceFieldOn and not(body.is_in_group("player")):
 		var health = body.get_node_or_null("HealthComponent")
@@ -170,3 +179,8 @@ func _on_force_field_force_field_off() -> void:
 
 func _on_force_field_force_field_on() -> void:
 	ForceFieldOn = true
+
+func start_arrow_cooldown(time: float = 1.5) -> void:
+	if not arrow_cooldown:
+		arrow_cooldown = true
+		arrow_cooldown_timer = time

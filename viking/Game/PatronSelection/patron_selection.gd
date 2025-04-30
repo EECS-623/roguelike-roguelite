@@ -12,13 +12,16 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
+	#get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
+	SceneTransitionManager.fade_to_scene("res://Map//Valhalla/home.tscn")
 	Global.patron_god = 1
 
 func _on_button_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
+	#get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
+	SceneTransitionManager.fade_to_scene("res://Map//Valhalla/home.tscn")
 	Global.patron_god = 2
 
 func _on_button_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
+	#get_tree().change_scene_to_file("res://Map//Valhalla/home.tscn")
+	SceneTransitionManager.fade_to_scene("res://Map//Valhalla/home.tscn")
 	Global.patron_god = 3

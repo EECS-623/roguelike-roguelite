@@ -7,7 +7,7 @@ var attacking : bool = false
 @onready var idle : State = $"../DashDraugrStateIdle"
 @onready var hitbox: Hitbox = $"../../Hitbox"
 @onready var raycast_component = $"../../RaycastComponent"
-@onready var stagger = $"../VolvaStateStagger"
+@onready var stagger = $"../DashDraugrStateStagger"
 var staggered: bool = false
 
 func enter() -> void:

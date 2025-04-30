@@ -9,11 +9,13 @@ var bullet_speed: int = 500
 var enemy_speed: int = 1.5
 var xp: int = 0
 var patron_god: int = 0
-var has_key: bool = false
-var loaded_banks = {}
-var world_level: int = 1
-var upgrade_level: int = 1
+var has_key: int = 0
 
+
+var loaded_banks = {}
+var world_level: int = 2
+var upgrade_level: int = 1
+var teleport_banned: bool = true
 func reset_globals():
 	relics = 0
 	earth_enemies_left = 0
@@ -25,6 +27,8 @@ func reset_globals():
 	enemy_speed = 1.5
 	xp = 0
 	patron_god = 0
-	has_key = false
+	has_key = 0
+
 	world_level = 1
 	upgrade_level = 1
+	teleport_banned = true

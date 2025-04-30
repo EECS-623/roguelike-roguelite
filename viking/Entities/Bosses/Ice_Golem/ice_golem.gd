@@ -10,8 +10,8 @@ var player : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = true
 	$AnimationPlayer.play("idle")
+	visible = true
 	$CanvasLayer/HealthBarComponent.modulate =  Color.WHITE
 	ice_golem_state_machine.ice_golem = self
 	ice_golem_state_machine.player = player

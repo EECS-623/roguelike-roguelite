@@ -57,7 +57,20 @@ func animation_direction() -> String:
 		return "right"
 
 func _on_health_component_death() -> void:
-	Global.xp += 1
+	call_deferred("_handle_death_deferred")
+
+func _handle_death_deferred() -> void:
+	var rune_scene = preload("res://Entities/Enemies/Rune/rune.tscn")
+	var rune = rune_scene.instantiate()
+	#var rune2 = rune_scene.instantiate()
+	#var rune3 = rune_scene.instantiate()
+	get_tree().current_scene.add_child(rune)
+	#get_tree().current_scene.add_child(rune2)
+	#get_tree().current_scene.add_child(rune3)
+	rune.drop_from(global_position)
+	#rune2.drop_from(global_position)
+	#rune3.drop_from(global_position)
+	#Global.xp += 1
 	queue_free()
 
 func _on_health_component_t_damage(amount: float) -> void:

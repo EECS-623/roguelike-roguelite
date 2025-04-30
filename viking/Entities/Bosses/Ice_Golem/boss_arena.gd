@@ -59,10 +59,22 @@ func drop_artifact():
 
 func _on_artifact_body_entered(body: Node2D) -> void:
 	$Artifact.visible = false
+	player.knockback_timer = .5
+	player.knockback_velocity = Vector2.ZERO
+	for i in range(3):
+		player.modulate = Color.GREEN
+		await get_tree().create_timer(.1).timeout
+		player.modulate = Color.WHITE
+		await get_tree().create_timer(.1).timeout
+
+	
+	player.get_node("HealthComponent").increase_current_health(player.get_node("HealthComponent").max_health)
+	
 	await get_tree().create_timer(.1).timeout
 	portal_open()
 
 func portal_open():
+	Global.teleport_banned = true
 	$Portal.visible = true
 	$Portal/CollisionShape2D.disabled = false
 	$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")
@@ -82,7 +94,9 @@ func _on_portal_body_entered(body: Node2D) -> void:
 
 	
 		remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+		#get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+		Global.world_level = 3
+		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
 		
 func play_dialogue(path: String) -> void:
 	modulate = Color.DIM_GRAY
@@ -101,12 +115,13 @@ func _on_dialogue_end():
 
 	
 	HUD.visible = true
+	
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
-	HUD.connect_to_player()
 	
 	if ice_golem != null:
+		HUD.connect_to_player()
 		ice_golem.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
 	else:

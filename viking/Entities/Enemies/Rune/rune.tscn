@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://da6snfmcmp6ak"]
+
+[ext_resource type="Script" path="res://Entities/Enemies/Rune/rune.gd" id="1_5sspc"]
+[ext_resource type="Texture2D" uid="uid://dhu8b8m2xq47r" path="res://Assets/Art/Rune/Rune With Drop Shadow.png" id="1_6g7ew"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdgwa"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sqdxj"]
+radius = 232.138
+
+[node name="Rune" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_5sspc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.0877083, 0.0877083)
+texture = ExtResource("1_6g7ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pdgwa")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="PickupRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+shape = SubResource("CircleShape2D_sqdxj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="PickupRange" to="." method="_on_pickup_range_body_entered"]
