@@ -9,6 +9,8 @@ extends TileMapLayer
 @export var classicWitch: PackedScene = preload("res://Entities/Enemies/Volva/Basic Volva/volva.tscn")
 @export var classicEnemy: PackedScene = preload("res://Entities/Enemies/Draugr/Basic Draugr/draugr.tscn")
 
+@export var openDoor: PackedScene = preload("res://Map/Ice Realm/Map Items/openDoor.tscn")
+
 var leftmostEdge = -5
 var rightmostEdge = 4
 var upperEdge = -5
@@ -240,7 +242,7 @@ func _ready() -> void:
 			set_cell(position-Vector2i(1,0), 0, Vector2i(3,0))
 			set_cell(position+Vector2i(0,1), 0, Vector2i(3,0))
 			placedItems[totalItemsPlaced] = odin.instantiate()
-			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, 0)
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(0, -20)
 			add_child(placedItems[totalItemsPlaced])	
 			totalItemsPlaced += 1				
 			
@@ -255,6 +257,11 @@ func _ready() -> void:
 			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
 			add_child(placedItems[totalItemsPlaced])
 			totalItemsPlaced += 1		
+			
+			placedItems[totalItemsPlaced] = apple.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-150, 20)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1				
 			
 						
 	#geneate special Tiles
@@ -323,7 +330,12 @@ func _ready() -> void:
 			placedItems[totalItemsPlaced] = apple.instantiate()
 			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
 			add_child(placedItems[totalItemsPlaced])
-			totalItemsPlaced += 1					
+			totalItemsPlaced += 1				
+			
+			placedItems[totalItemsPlaced] = apple.instantiate()
+			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-150, 20)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1							
 						
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 	#add the player
@@ -331,6 +343,20 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(PlayerManager.player)
 	PlayerManager.player.position = global_position
 
+	var doorOpened = false
+	while(1):
+		if(Global.has_key == 3 && doorOpened == false):
+			doorOpened = true
+			placedItems[totalItemsPlaced] = openDoor.instantiate()
+			placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 0)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1					
+			print("Door opened")
+					
+			pass
+		await get_tree().create_timer(1).timeout
+		print(Global.has_key)
+		pass
 	
 var locked = false
 func _on_body_entered(body):
