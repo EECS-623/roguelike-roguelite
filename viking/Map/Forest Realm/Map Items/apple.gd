@@ -19,12 +19,14 @@ func _ready() -> void:
 
 func _on_body_entered(body):
 	print("apple entered")
+	print(body)
 	
 	if not body.is_in_group("player"):
 		return
-		
+	
+	var health_component = body.get_node("HealthComponent")
+	health_component.increase_current_health(5)
 	await get_tree().create_timer(0.05).timeout	
-	$Hitbox/CollisionShape2D.disabled = true
 	
 	print("apple eaten")
 	Wwise.post_event_id(AK.EVENTS.APPLE_HEAL, self)

@@ -153,5 +153,5 @@ func _on_flash_mana_red():
 
 # what happens when obtaining an input in this state
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("inventory"):
+	if event.is_action_pressed("inventory") and not get_tree().current_scene.name == "PatronSelection" and not get_tree().current_scene.name == "MainMenu":
 		Inventory.toggle_visibility()
