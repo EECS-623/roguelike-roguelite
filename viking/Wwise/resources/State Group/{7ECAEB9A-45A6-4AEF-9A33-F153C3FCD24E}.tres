@@ -1,7 +1,0 @@
-[gd_resource type="WwiseStateGroup" format=3 uid="uid://bpdimmbq0hurc"]
-
-[resource]
-name = "Location"
-id = 1176052424
-guid = "{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}"
-dummy = true

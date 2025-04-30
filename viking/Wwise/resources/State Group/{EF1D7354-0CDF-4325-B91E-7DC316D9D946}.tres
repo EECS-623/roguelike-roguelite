@@ -1,7 +1,0 @@
-[gd_resource type="WwiseStateGroup" format=3 uid="uid://dylaw1bj3v01y"]
-
-[resource]
-name = "playerState"
-id = 3285234865
-guid = "{EF1D7354-0CDF-4325-B91E-7DC316D9D946}"
-dummy = true

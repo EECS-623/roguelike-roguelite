@@ -47,7 +47,6 @@ func _process(delta: float) -> void:
 
 	if snake == null and not snake_dead:
 		snake_dead = true
-		#Wwise.post_event_id(AK.EVENTS.BOSS_DEATH, self)
 		play_dialogue("res://Game/Dialogue/jormungandr-2.json")
 		drop_artifact()
 
@@ -72,7 +71,6 @@ func portal_open():
 		
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		cam.limit_left = -10000000
 		cam.limit_right = 10000000
 		cam.limit_top = -10000000

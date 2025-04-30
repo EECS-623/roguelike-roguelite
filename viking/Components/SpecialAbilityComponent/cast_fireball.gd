@@ -24,7 +24,6 @@ func cast_ability() -> bool:
 	if Global.patron_god == 1:
 		if Global.upgrade_level == 1: #base lightning
 			var new_fireball = fireball.instantiate()
-			Wwise.post_event_id(AK.EVENTS.LIGHTNING_ATTACK, self)
 			get_tree().current_scene.add_child(new_fireball)
 			new_fireball.position = player.global_position
 			new_fireball.direction = (player.get_global_mouse_position() - player.global_position).normalized()
@@ -33,7 +32,6 @@ func cast_ability() -> bool:
 			var new_fireball = fireball.instantiate()
 			var mini_fireball_one = fireball.instantiate()
 			var mini_fireball_two = fireball.instantiate()
-			Wwise.post_event_id(AK.EVENTS.FIREBALL, self)
 			get_tree().current_scene.add_child(new_fireball)
 			get_tree().current_scene.add_child(mini_fireball_one)
 			get_tree().current_scene.add_child(mini_fireball_two)
@@ -64,7 +62,6 @@ func cast_ability() -> bool:
 			var mini_fireball_one = fireball.instantiate()
 			var mini_fireball_two = fireball.instantiate()
 			var mini_fireball_three = fireball.instantiate()
-			Wwise.post_event_id(AK.EVENTS.FIREBALL, self)
 			get_tree().current_scene.add_child(new_fireball)
 			get_tree().current_scene.add_child(mini_fireball_one)
 			get_tree().current_scene.add_child(mini_fireball_two)

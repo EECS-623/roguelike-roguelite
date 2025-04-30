@@ -11,13 +11,11 @@ func _ready() -> void:
 		PlayerManager.player = my_player
 	get_tree().current_scene.add_child(PlayerManager.player)
 	PlayerManager.player.global_position = Vector2(0,500)
-	#Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
 	var cam = PlayerManager.player.get_node("Camera2D")
 	cam.limit_left = -900
 	cam.limit_right = 900
 	cam.limit_top = -600
 	cam.limit_bottom = 600
-	Wwise.post_event_id(AK.EVENTS.VALHALLA, self)
 	
 
 
@@ -31,7 +29,6 @@ func _ready() -> void:
 
 func _on_area_2d_home_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
@@ -39,7 +36,6 @@ func _on_area_2d_home_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_to_loki_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and Global.world_level == 3:
-		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
 		#$CollisionShape2D.set_deferred("disabled", true)
 		remove_child(body)
 		get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Loki/boss_arena.tscn")

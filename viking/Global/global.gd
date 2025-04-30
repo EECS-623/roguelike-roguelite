@@ -26,6 +26,5 @@ func reset_globals():
 	xp = 0
 	patron_god = 0
 	has_key = false
-	#loaded_banks = {}, need to not reset this one to not reload wwise banks.
 	world_level = 1
 	upgrade_level = 1

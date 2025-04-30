@@ -103,7 +103,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			current_line += 1
 			show_line()
-			#Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 		else:
 			dialogue_end()
 		
