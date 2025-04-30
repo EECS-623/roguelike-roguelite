@@ -135,28 +135,52 @@ func update_display():
 	_update_buttons()
 
 func _update_buttons():
-	# Update each button based on current level and cost
-	_update_single_button("melee_damage", melee_damage_btn, melee_damage_max)
-	_update_single_button("magic_ability", magic_ability_btn, magic_ability_max)
-	_update_single_button("speed", speed_btn, speed_max)
-	_update_single_button("mana_regen", mana_regen_btn, mana_regen_max)
-	_update_single_button("max_health", max_health_btn, max_health_max)
-
-# Helper function to update a single stat button
-func _update_single_button(stat_name: String, button: TextureButton, max_label: Label):
-	var level = InventoryManager.get_stat_level(stat_name)
+	var has_enough_runes = Global.xp >= InventoryManager.UPGRADE_COST
 	
-	if level >= InventoryManager.MAX_STAT_LEVEL:
-		button.visible = false
-		max_label.visible = true
-		return
+	# Update melee damage button
+	var melee_level = InventoryManager.get_stat_level("melee_damage")
+	if melee_level >= InventoryManager.MAX_STAT_LEVEL:
+		melee_damage_btn.visible = false
+		melee_damage_max.visible = true
+	else:
+		melee_damage_btn.visible = has_enough_runes
+		melee_damage_max.visible = false
 	
-	# Calculate cost for the next upgrade
-	var cost = InventoryManager.get_upgrade_cost(level)
-	var has_enough_runes = Global.xp >= cost
+	# Update magic ability button
+	var magic_level = InventoryManager.get_stat_level("magic_ability")
+	if magic_level >= InventoryManager.MAX_STAT_LEVEL:
+		magic_ability_btn.visible = false
+		magic_ability_max.visible = true
+	else:
+		magic_ability_btn.visible = has_enough_runes
+		magic_ability_max.visible = false
 	
-	button.visible = has_enough_runes
-	max_label.visible = false
+	# Update speed button
+	var speed_level = InventoryManager.get_stat_level("speed")
+	if speed_level >= InventoryManager.MAX_STAT_LEVEL:
+		speed_btn.visible = false
+		speed_max.visible = true
+	else:
+		speed_btn.visible = has_enough_runes
+		speed_max.visible = false
+	
+	# Update mana regen button
+	var mana_level = InventoryManager.get_stat_level("mana_regen")
+	if mana_level >= InventoryManager.MAX_STAT_LEVEL:
+		mana_regen_btn.visible = false
+		mana_regen_max.visible = true
+	else:
+		mana_regen_btn.visible = has_enough_runes
+		mana_regen_max.visible = false
+	
+	# Update max health button
+	var health_level = InventoryManager.get_stat_level("max_health")
+	if health_level >= InventoryManager.MAX_STAT_LEVEL:
+		max_health_btn.visible = false
+		max_health_max.visible = true
+	else:
+		max_health_btn.visible = has_enough_runes
+		max_health_max.visible = false
 
 func _on_melee_damage_upgrade_pressed():
 	InventoryManager.upgrade_stat("melee_damage", player)

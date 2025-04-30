@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Map/Valhalla/Portal_Scene/portal_scene.gd" id="1_xgsux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dl3h2"]
-size = Vector2(9.84, 16.075)
+size = Vector2(2.98, 14.47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkpep"]
-size = Vector2(33.79, 7.395)
+size = Vector2(20, 1.19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxf83"]
 size = Vector2(20, 1.48)
@@ -37,22 +37,17 @@ texture = ExtResource("1_3l3v0")
 expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1182, -41.25)
+position = Vector2(-840, 1.50002)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_dl3h2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1184, 46)
+position = Vector2(841, 19)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_dl3h2")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(40, 1060)
-scale = Vector2(100, 100)
-shape = SubResource("RectangleShape2D_mkpep")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-17, -1114)
+position = Vector2(0, 723)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_mkpep")
 

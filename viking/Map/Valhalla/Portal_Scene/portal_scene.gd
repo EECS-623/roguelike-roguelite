@@ -46,7 +46,6 @@ func _on_area_2d_portal_body_entered(body: Node2D) -> void:
 			#get_tree().call_deferred("change_scene_to_file", "res://Map/Forest Realm/earth_tileset.tscn")
 			Global.world_level = 2
 		elif Global.world_level == 2:
-			Inventory.hide_forrest_keys_and_artifacts()
 			SceneTransitionManager.fade_to_scene("res://Map/Ice Realm/ice_tileset.tscn")
 			#get_tree().call_deferred("change_scene_to_file", "res://Map/Ice Realm/ice_tileset.tscn")
 		var cam = PlayerManager.player.get_node("Camera2D")

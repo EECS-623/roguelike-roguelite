@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://5mwxhpnm647w"]
+[gd_scene load_steps=15 format=3 uid="uid://5mwxhpnm647w"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/home.gd" id="2_ds18k"]
 [ext_resource type="PackedScene" uid="uid://dq03i11t1iadq" path="res://Entities/NPCs/Odin/odin.tscn" id="6_wfcrd"]
+[ext_resource type="PackedScene" uid="uid://bk68e1pm40qk8" path="res://Entities/Enemies/Draugr/Dash Draugr/dash_draugr.tscn" id="7_d75iq"]
 [ext_resource type="WwiseState" uid="uid://dvsjx3fm6qxqu" path="res://Wwise/resources/State/{D4F3E754-F5B6-4F49-9474-F90C3A1E769B}.tres" id="7_qeyeg"]
 [ext_resource type="WwiseState" uid="uid://djuhga2g8bl2d" path="res://Wwise/resources/State/{8DF788D8-2055-47C7-A392-11D06E665614}.tres" id="8_noni0"]
 [ext_resource type="WwiseState" uid="uid://ciu17avhmxh4a" path="res://Wwise/resources/State/{B145CCFA-6037-4756-8DAC-6458381FE61D}.tres" id="9_j3snd"]
@@ -133,6 +134,9 @@ polygon = PackedVector2Array(37, 158, 55, 96, 88, 86, 106, 120, 104, 148, 88, 15
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(253.25, -249.25)
 shape = SubResource("RectangleShape2D_l38rq")
+
+[node name="DashDraugr" parent="." instance=ExtResource("7_d75iq")]
+position = Vector2(380, -56)
 
 [connection signal="body_entered" from="StaticBody2D/Area2D_Tree_Travel" to="." method="_on_area_2d_tree_travel_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Portal_Travel" to="." method="_on_area_2d_portal_travel_body_entered"]

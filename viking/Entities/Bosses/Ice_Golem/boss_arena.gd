@@ -59,7 +59,6 @@ func drop_artifact():
 
 func _on_artifact_body_entered(body: Node2D) -> void:
 	$Artifact.visible = false
-	Inventory.ice_artifact.visible = true
 	player.knockback_timer = .5
 	player.knockback_velocity = Vector2.ZERO
 	for i in range(3):
@@ -75,7 +74,6 @@ func _on_artifact_body_entered(body: Node2D) -> void:
 	portal_open()
 
 func portal_open():
-	Global.teleport_banned = true
 	$Portal.visible = true
 	$Portal/CollisionShape2D.disabled = false
 	$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")
@@ -95,9 +93,7 @@ func _on_portal_body_entered(body: Node2D) -> void:
 
 	
 		remove_child(body)
-		#get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
-		Global.world_level = 3
-		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 		
 func play_dialogue(path: String) -> void:
 	modulate = Color.DIM_GRAY

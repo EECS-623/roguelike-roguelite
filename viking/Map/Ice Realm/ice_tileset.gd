@@ -16,7 +16,6 @@ var lowerEdge = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.teleport_banned = false
 	Global.upgrade_level = 2
 	Global.relics = 0
 	Global.earth_enemies_left = 1000		

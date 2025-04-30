@@ -11,7 +11,6 @@ var first_dialogue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.teleport_banned = false
 	player = PlayerManager.player
 	if player == null:
 		Global.patron_god = 3
@@ -84,7 +83,7 @@ func _on_portal_body_entered(body: Node2D) -> void:
 
 		
 		remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Game/Victory/victory.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
 
 
 func play_dialogue(path: String) -> void:

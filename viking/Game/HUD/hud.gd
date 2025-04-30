@@ -150,8 +150,3 @@ func _on_flash_mana_red():
 		await get_tree().create_timer(0.1).timeout
 
 	is_flashing = false  # Unlock flashing
-
-# what happens when obtaining an input in this state
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("inventory"):
-		Inventory.toggle_visibility()

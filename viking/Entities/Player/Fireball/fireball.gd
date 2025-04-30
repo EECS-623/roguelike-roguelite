@@ -12,7 +12,7 @@ func _ready() -> void:
 	var timer = Timer.new()
 	add_child(timer)
 	timer.one_shot = true
-	timer.wait_time = 2.0
+	timer.wait_time = 1.0
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start()
 	#cursor_position = get_global_mouse_position()

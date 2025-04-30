@@ -5,6 +5,7 @@ var inventory_scene: CanvasLayer
 
 # Stat levels
 const MAX_STAT_LEVEL = 5
+const UPGRADE_COST = 2
 
 # Stat upgrade amounts
 const MELEE_DAMAGE_BOOST = 2    # Increases by 2 per level
@@ -36,26 +37,13 @@ func reset_stats() -> void:
 	stats_changed.emit()
 	print("Stats, runes, inventory reset")
 
-# Calculate upgrade cost based on current stat level
-func get_upgrade_cost(current_level: int) -> int:
-	match current_level:
-		0, 1: return 1  # First two upgrades cost 1 rune
-		2, 3: return 2  # Next two upgrades cost 2 runes
-		4: return 3     # Final upgrade costs 3 runes
-		_: return 0     # Already at max level
+func toggle_inventory():
+	# Since Inventory is a global singleton, we can access it directly
+	Inventory.toggle_visibility()
 
 func upgrade_stat(stat_name: String, player) -> bool:
-	var current_level = get_stat_level(stat_name)
-	
-	# Check if already at max level
-	if current_level >= MAX_STAT_LEVEL:
-		return false
-		
-	# Calculate cost based on current level
-	var cost = get_upgrade_cost(current_level)
-	
 	# Check if player has enough runes
-	if Global.xp < cost:
+	if Global.xp < UPGRADE_COST:
 		return false
 		
 	var success = false
@@ -104,7 +92,7 @@ func upgrade_stat(stat_name: String, player) -> bool:
 	
 	# If upgrade was successful, spend the runes
 	if success:
-		Global.xp -= cost
+		Global.xp -= UPGRADE_COST
 		Wwise.post_event_id(AK.EVENTS.GAMESTART_MENU, self)
 		stats_changed.emit()
 		

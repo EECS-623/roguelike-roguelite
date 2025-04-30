@@ -39,8 +39,8 @@ func upgrade_ability():
 
 func cast_ability() -> bool:
 	# Try to use mana first
-	if (mana_component.current_mana - mana_cost < 0) or Global.teleport_banned:
-		return false # Not enough mana or teleport banned like in valhalla
+	if mana_component.current_mana - mana_cost < 0:
+		return false # Not enough mana
 	
 	# move over ability logic here
 	
