@@ -27,8 +27,8 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(loki)
 	
 	
-	#loki.get_node("CanvasLayer").visible = false
-	HUD.visible = true
+	loki.get_node("CanvasLayer").visible = false
+	HUD.visible = false
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
@@ -36,54 +36,25 @@ func _ready() -> void:
 	
 	var dialogue_ui = player.get_node("DialogueUI")
 	dialogue = dialogue_ui
-	#play_dialogue("res://Game/Dialogue/loki-1.json")
+	play_dialogue("res://Game/Dialogue/loki-2.json")
 		
 	cam = player.get_node("Camera2D")
 	cam.limit_left = -1048
 	cam.limit_right = 1048
 	cam.limit_top = -1048
 	cam.limit_bottom = 1048
-	
-	
-	get_window().content_scale_size = DisplayServer.window_get_size() *1.33
-	dialogue.scale = Vector2(1.33, 1.33)
-	HUD.scale = Vector2(1.33, 1.33)
-	Inventory.scale = Vector2(1.33, 1.33)
+	cam.zoom =  Vector2(.75, .75)
+
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	if loki == null and not loki_dead:
 		loki_dead = true
-		#play_dialogue("res://Game/Dialogue/loki-2.json")
-		portal_open()
+		play_dialogue("res://Game/Dialogue/loki-3.json")
 	pass
 	
-
-func portal_open():
-	$Portal.visible = true
-	$Portal/CollisionShape2D.disabled = false
-	$Portal/AnimatedSprite2D/AnimationPlayer.play("spin")
-		
-		
-func _on_portal_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		cam.limit_left = -10000000
-		cam.limit_right = 10000000
-		cam.limit_top = -10000000
-		cam.limit_bottom = 10000000
-		
-		get_window().content_scale_size = DisplayServer.window_get_size()
-		dialogue.scale = Vector2(1, 1)
-		HUD.scale = Vector2(1,1)
-		Inventory.scale = Vector2(1,1)
-
-		
-		remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Game/Victory/victory.tscn")
-
 
 func play_dialogue(path: String) -> void:
 	modulate = Color.DIM_GRAY
@@ -105,10 +76,12 @@ func _on_dialogue_end():
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
 	HUD.connect_to_player()
+
+	if loki_dead:
+		get_tree().call_deferred("change_scene_to_file", "res://Game/Victory/victory.tscn")
+
 	
 	if loki != null:
 		loki.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
-		loki.can_move = true
-
 	
