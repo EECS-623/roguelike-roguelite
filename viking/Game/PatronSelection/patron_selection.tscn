@@ -35,6 +35,21 @@ offset_right = 1216.0
 offset_bottom = 656.0
 texture = SubResource("GradientTexture2D_rmguf")
 
+[node name="Thor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tyr" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Freya" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Button1" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 96.0
