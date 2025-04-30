@@ -14,7 +14,7 @@ var loki_reveal = false
 
 
 var loaded_banks = {}
-var world_level: int = 1
+var world_level: int = 3
 var upgrade_level: int = 1
 var teleport_banned: bool = true
 func reset_globals():

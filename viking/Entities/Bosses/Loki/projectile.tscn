@@ -16,7 +16,7 @@ texture = ExtResource("1_rkv3u")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_7eb61")
-damage = 10.0
+damage = 20.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
 polygon = PackedVector2Array(33, 0, -15, -25, -15, 29)
