@@ -84,7 +84,7 @@ func _on_portal_body_entered(body: Node2D) -> void:
 
 		
 		remove_child(body)
-		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/home.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Game/Victory/victory.tscn")
 
 
 func play_dialogue(path: String) -> void:
