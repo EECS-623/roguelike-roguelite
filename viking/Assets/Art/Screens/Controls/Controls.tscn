@@ -33,6 +33,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="TextureButton" type="TextureButton" parent="."]
+z_index = 1
 offset_left = 428.0
 offset_top = 533.0
 offset_right = 1106.0
