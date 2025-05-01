@@ -946,7 +946,7 @@ speed = 100.0
 
 [node name="MagicDamageComponent" type="Node" parent="."]
 script = ExtResource("19_rymoq")
-magic_damage = 100.0
+magic_damage = 60.0
 
 [node name="ManaComponent" type="Node" parent="."]
 script = ExtResource("18_6hj8y")
