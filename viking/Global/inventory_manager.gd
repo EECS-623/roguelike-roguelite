@@ -71,10 +71,19 @@ func upgrade_stat(stat_name: String, player) -> bool:
 				success = true
 				
 		"magic_ability":
-			if magic_ability_level < MAX_STAT_LEVEL:
+			var ability
+			if magic_ability_level < MAX_STAT_LEVEL and player.has_node("SpecialAbility"):
 				magic_ability_level += 1
-				if player.has_node("SpecialAbilityComponent"):
-					player.get_node("SpecialAbilityComponent").upgrade_ability()
+				if Global.patron_god == 1:
+					ability = player.get_node("SpecialAbility/CastFireball")
+				elif Global.patron_god == 2:
+					ability = player.get_node("SpecialAbility/ForceField")
+				elif Global.patron_god == 3:
+					ability = player.get_node("SpecialAbility/Teleport")	
+				if ability:
+					ability.upgrade_ability()
+					print("upgraded")
+				
 				success = true
 				
 		"speed":
