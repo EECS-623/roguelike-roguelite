@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func upgrade_ability():
-	$"../../MagicDamageComponent".increase_magic_damage(10)
+	$"../../MagicDamageComponent".increase_magic_damage(3)
 func cast_ability() -> bool:
 	# Try to use mana first
 	if !mana_component.use_mana(mana_cost):
