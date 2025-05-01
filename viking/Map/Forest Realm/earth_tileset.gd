@@ -9,6 +9,7 @@ extends TileMapLayer
 @export var odin: PackedScene = preload("res://Entities/NPCs/Odin/odin.tscn")
 @export var witch: PackedScene = preload("res://Entities/Enemies/Volva/Basic Volva/volva.tscn")
 
+@export var openDoor: PackedScene = preload("res://Map/Forest Realm/Map Items/openDoor.tscn")
 
 var leftmostEdge = -4
 var rightmostEdge = 4
@@ -17,6 +18,7 @@ var lowerEdge = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.has_key = 0	
 	Global.teleport_banned = false
 	Global.relics = 0
 	Global.earth_enemies_left = 1000	
@@ -567,7 +569,26 @@ func _ready() -> void:
 	get_tree().current_scene.add_child(PlayerManager.player)
 	PlayerManager.player.position = global_position
 	
-	
+	var doorOpened = false
+	while(1):
+		if(Global.has_key == 3 && doorOpened == false):
+			doorOpened = true
+			placedItems[totalItemsPlaced] = openDoor.instantiate()
+			placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 0)
+			add_child(placedItems[totalItemsPlaced])
+			totalItemsPlaced += 1					
+			print("Door opened")
+			
+			placedItems[totalItemsPlaced] = apple.instantiate()
+			placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 200)
+			add_child(placedItems[totalItemsPlaced])	
+			totalItemsPlaced += 1				
+					
+			pass
+		await get_tree().create_timer(1).timeout
+		print(Global.has_key)
+		pass
+		
 var locked = false
 func _on_body_entered(body):
 	if not body.is_in_group("player"):

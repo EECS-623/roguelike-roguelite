@@ -25,7 +25,7 @@ func _on_body_entered(body):
 		return
 	
 	var health_component = body.get_node("HealthComponent")
-	health_component.increase_current_health(5)
+	health_component.increase_current_health(15)
 	await get_tree().create_timer(0.05).timeout	
 	
 	print("apple eaten")
