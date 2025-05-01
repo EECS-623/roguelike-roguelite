@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://b84gwfae2li4r"]
+[gd_scene load_steps=64 format=3 uid="uid://b84gwfae2li4r"]
 
 [ext_resource type="Texture2D" uid="uid://cwdl175gklklx" path="res://Entities/Player/Player Assets/Right Side Standing.png" id="2_2frng"]
 [ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="2_11bys"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Entities/Player/melee_hitbox_interactions.gd" id="21_buioh"]
 [ext_resource type="Script" path="res://Components/StatComponents/LuckComponent/luck_component.gd" id="21_mbuf2"]
 [ext_resource type="Script" path="res://Entities/Player/state_idle.gd" id="23_qyisa"]
+[ext_resource type="Script" path="res://Components/SpecialAbilityComponent/special_ability_component.gd" id="24_8u6pr"]
 [ext_resource type="PackedScene" uid="uid://dx8xw4s8lc56r" path="res://Entities/Player/cast_fireball.tscn" id="24_po0fm"]
 [ext_resource type="Script" path="res://Entities/Player/state_move.gd" id="24_vnqw2"]
 [ext_resource type="Script" path="res://Entities/Player/state_melee_attack.gd" id="25_7u812"]
@@ -904,6 +905,7 @@ shape = SubResource("CircleShape2D_dg1y8")
 disabled = true
 
 [node name="SpecialAbility" type="Node2D" parent="."]
+script = ExtResource("24_8u6pr")
 
 [node name="CastFireball" parent="SpecialAbility" instance=ExtResource("24_po0fm")]
 
