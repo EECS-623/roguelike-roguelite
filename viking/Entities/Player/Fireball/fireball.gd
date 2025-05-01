@@ -4,10 +4,18 @@ var direction: Vector2
 # Called when the node enters the scene tree for the first time.
 var cursor_position
 var rotation_angle
+var magic_component 
+@onready var hitbox = $Hitbox
+var player
 
 func _ready() -> void:
 	#add_to_group("player")
 	##direction = direction.normalized()
+	if PlayerManager.player:
+		player = PlayerManager.player
+		magic_component = player.get_node("MagicDamageComponent")
+		hitbox.damage = magic_component.get_magic_damage()
+	
 	$AnimatedSprite2D.play("lightning")
 	var timer = Timer.new()
 	add_child(timer)
