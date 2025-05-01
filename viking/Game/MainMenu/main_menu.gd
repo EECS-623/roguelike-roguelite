@@ -33,3 +33,8 @@ func _on_play_pressed() -> void:
 func _on_quit_pressed() -> void:
 	Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 	get_tree().quit()
+
+
+func _on_controls_pressed() -> void:
+	Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
+	get_tree().change_scene_to_file("res://Assets/Art/Screens/Controls/Controls.tscn")
