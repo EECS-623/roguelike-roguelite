@@ -3,7 +3,6 @@ extends CharacterBody2D
 #@export var player: PackedScene = preload("res://Player/player.tscn")
 @onready var player = get_tree().root.get_node("Earth_tileset/Player") # Replace "Main/Player" with the actual path
  # Go up one level and find "Player"
-@export var player_bullet: PackedScene = preload("res://Entities/Player/Magic_Bullet/Bullet.tscn")
 @export var SPEED : float = 300.0
 @export var health: float = 100.0
 @export var speed: float = 1

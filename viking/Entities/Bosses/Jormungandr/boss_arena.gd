@@ -11,6 +11,16 @@ var cam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Wwise.register_game_obj(self, self.name)
+	#Wwise.register_listener(self)
+	#Wwise.load_bank_id(AK.BANKS.MUSIC_SFX)
+	#Wwise.post_event_id(AK.EVENTS.MAP_LOADED, self)
+	#Wwise.post_event_id(AK.EVENTS.ALIVE, self)
+	#Wwise.post_event_id(AK.EVENTS.MIDGARD, self)
+	#comment out above for real full play through.
+
+	#Wwise.post_event_id(AK.EVENTS.GAMEPLAY, self)
+	Wwise.post_event_id(AK.EVENTS.PREBOSS, self)
 	player = PlayerManager.player
 	if player == null:
 		player = s_player.instantiate()
@@ -30,6 +40,7 @@ func _ready() -> void:
 	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
 	
 	pulse_thorns()
+	Wwise.post_event_id(AK.EVENTS.BOSS, self)
 	
 	cam = player.get_node("Camera2D")
 	cam.limit_left = -900
@@ -51,6 +62,7 @@ func _process(delta: float) -> void:
 	
 
 func drop_artifact():
+	Wwise.post_event_id(AK.EVENTS.VICTORY, self)
 	$Artifact.visible = true
 	$Artifact/CollisionShape2D.disabled = false
 

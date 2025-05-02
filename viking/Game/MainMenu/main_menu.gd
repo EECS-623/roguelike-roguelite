@@ -15,9 +15,11 @@ func load_bank_if_needed(bank_id: int) -> void:
 func _ready() -> void:
 	Wwise.register_game_obj(self, self.name)
 	Wwise.register_listener(self)
+	#Wwise.load_bank_id(AK.BANKS.MUSIC_SFX)
 	load_bank_if_needed(AK.BANKS.MUSIC_SFX)
 	Wwise.post_event_id(AK.EVENTS.MAP_LOADED, self) #starts the whole Wwise Process of States.
-
+	Wwise.post_event_id(AK.EVENTS.GAMEPLAY, self)
+	Wwise.post_event_id(AK.EVENTS.TITLE, self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

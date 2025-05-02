@@ -18,6 +18,7 @@ var lowerEdge = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.JOTUNHEIM, self)
 	Global.has_key = 0
 	Global.teleport_banned = false
 	Global.upgrade_level = 2

@@ -44,7 +44,7 @@ func _snake_move():
 			# Update the direction based on the segment in front
 			snake[i].set_meta("direction", snake[i - 1].get_meta("direction"))
 			update_direction(snake[i], snake[i - 1].get_meta("direction"))
-
+			#Wwise.post_event_id(AK.EVENTS.SNAKE_SLITHER,self)
 		# Move head in the direction
 		snake[0].position += direction * segment_size
 		# Update head direction
@@ -75,7 +75,7 @@ func spawn_snake():
 	update_direction(head, Vector2.DOWN)  # Update head's sprite based on its direction
 	head.get_node("Hurtbox").health_component = hp
 	head.get_node("Hitbox/CollisionShape2D").set_deferred("disabled", true)
-
+	#Wwise.post_event_id(AK.EVENTS.SNAKE_ROAR, self)
 	pos.y -= segment_size  # Move position for next segment
 
 	# Spawn alternating body segments
@@ -153,7 +153,7 @@ func bite_attack():
 	dir_str += '_Bite'
 	var anim_player = snake[0].get_node("AnimatedSprite2D/AnimationPlayer")
 	anim_player.play(dir_str)
-	Wwise.post_event_id(AK.EVENTS.SNAKE_BITE, self)
+	Wwise.post_event_id(AK.EVENTS.SNAKE_ROAR, self)
 	await anim_player.animation_finished
 	can_move = true
 	can_bite = true
@@ -174,12 +174,14 @@ func spit_attack(player_position):
 	snake[0].get_node("AnimatedSprite2D").play(dir_str)
 	await get_tree().create_timer(1.0).timeout
 	can_move = true
+	Wwise.post_event_id(AK.EVENTS.SNAKE_SLITHER, self)
 	await get_tree().create_timer(5.0).timeout
 	can_spit = true
 
 	
 func enter_rage_mode():
 	#for segment in snake:wa
+	#Wwise.post_event_id(AK.EVENTS.SNAKE_ROAR, self)
 	$MoveTimer.wait_time = .15
 	$CanvasLayer/HealthBarComponent.modulate = Color.REBECCA_PURPLE
 	snake[0].get_node("AnimatedSprite2D/rager").play("rage_mode")

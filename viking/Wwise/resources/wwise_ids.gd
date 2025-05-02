@@ -8,31 +8,45 @@ class EVENTS:
 	const ALIVE : int = 655265632
 	const DEAD : int = 2044049779
 	const BOSS : int = 1560169506
+	const END_CREDITS : int = 3797583859
 	const GAMEPLAY : int = 89505537
+	const STORY : int = 1686739444
 	const TITLE : int = 3705726509
+	const VICTORY : int = 2716678721
+	const PREBOSS : int = 2600172515
 	const MAP_LOADED : int = 1758594367
 	const APPLE_HEAL : int = 22977312
+	const ARROW_FIRE : int = 922015
 	const BOSS_DEATH : int = 4052139381
 	const FIREBALL : int = 3841200954
 	const FOOTSTEP_HARDGROUND : int = 1829833920
 	const FOOTSTEP_SOFTGROUND : int = 2411697751
+	const FORCE_FIELD : int = 2468524203
 	const GAMESTART_MENU : int = 4057560717
+	const ICE_BOSSGROAN : int = 3994846873
+	const ICICLE_APPEAR : int = 3013597568
+	const ICICLE_BREAK : int = 2401545412
 	const ITEM_ATTAIN : int = 2239953404
 	const KEY_ATTAIN : int = 3520404594
 	const LIGHTNING_ATTACK : int = 3700812936
+	const LOKI_CLONE : int = 1803271936
+	const LOKI_LAUGH : int = 534349788
+	const LOKI_TELEPORT : int = 2053659308
 	const NEXT_DIALOUGE : int = 3599715827
 	const PLAYER_HIT : int = 871813740
 	const SKELETON_DEATH : int = 2670662143
 	const SKELETON_HIT : int = 466730574
 	const SNAKE_ROAR : int = 2475210562
+	const SNAKE_SLITHER : int = 1128487553
+	const SNOWBALL : int = 2090383483
 	const SPAWN : int = 71202558
+	const SWORD_ATTACK : int = 1809005675
+	const THORN_IMPACT : int = 3674129481
 	const WITCH_DEATH : int = 1236609885
 	const WITCH_LAUGH : int = 2152158020
 	const CHEST_OPEN : int = 2728948375
 	const SNAKE_BITE : int = 1515870860
 	const SNAKE_SPIT : int = 4030153040
-	const SWORD_ATTACK_PC : int = 966589581
-	const SWORD_SWING : int = 476098351
 
 class STATES:
 
@@ -59,6 +73,7 @@ class STATES:
 	
 		class STATE:
 			const BOSS : int = 1560169506
+			const END_CREDITS : int = 3797583859
 			const GAMEPLAY : int = 89505537
 			const NONE : int = 748895195
 			const STORY : int = 1686739444
