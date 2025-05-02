@@ -13,28 +13,36 @@ z_index = -1
 z_as_relative = false
 offset_right = 1280.0
 offset_bottom = 720.0
+color = Color(0.0263669, 0.0116174, 0.00026685, 1)
 
 [node name="TextEdit" type="RichTextLabel" parent="."]
-offset_left = 17.0
-offset_top = 11.0
-offset_right = 1296.0
-offset_bottom = 734.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 35
-text = "							CONTROLS
+offset_left = 432.0
+offset_top = 150.0
+offset_right = 1474.0
+offset_bottom = 839.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "CONTROLS
+
+
 Left Click: Basic Sword attack
+
 right click: basic arrow attack
+
 space bar: special ability
 
 F: interact with environment like npcs
+
 E: opens inventory
 
-tips:
+Apples give you health
+
 collect the three keys from the chests in the map.
-find the apple tree to heal heal with apples
+
 find the boss gate.
+
 defeat the boss.
-and repeat.
+
 "
 shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
@@ -42,11 +50,11 @@ drag_and_drop_selection_enabled = false
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 1
-offset_left = 428.0
-offset_top = 533.0
-offset_right = 1106.0
-offset_bottom = 837.0
-scale = Vector2(0.6, 0.6)
+offset_left = -1.99997
+offset_top = 587.0
+offset_right = 598.0
+offset_bottom = 891.0
+scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("2_orx7s")
 stretch_mode = 4
 
