@@ -15,7 +15,7 @@ var patron_stat_initialized: bool = false
 
 
 var loaded_banks = {}
-var world_level: int = 3
+var world_level: int = 1
 var upgrade_level: int = 1
 var teleport_banned: bool = true
 func reset_globals():
