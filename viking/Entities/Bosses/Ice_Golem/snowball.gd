@@ -10,6 +10,7 @@ var starting_pos
 var tween: Tween
 
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.SNOWBALL, self)
 	starting_pos = global_position
 
 

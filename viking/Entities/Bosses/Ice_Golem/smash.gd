@@ -11,6 +11,7 @@ var stomp
 
 
 func enter() -> void:
+	
 	stomp = s_warning.instantiate()
 	stomp.global_position = Vector2(0, -385)
 	get_tree().current_scene.add_child(stomp)
@@ -18,6 +19,7 @@ func enter() -> void:
 	stomp.get_node("AnimationPlayer").play("stomp_incoming")
 	await get_tree().create_timer(2).timeout
 	stomp.visible = false
+	Wwise.post_event_id(AK.EVENTS.PLAYER_HIT, self)
 	player.get_node("Camera2D").start_screen_shake(0.15, 5)
 
 	for icicle in get_tree().get_nodes_in_group("icicles"):
