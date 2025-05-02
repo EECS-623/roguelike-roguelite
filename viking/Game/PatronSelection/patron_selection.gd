@@ -3,7 +3,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Get references to card areas
-	Wwise.post_event_id(AK.EVENTS.TITLE, self)
+	#Wwise.post_event_id(AK.EVENTS.TITLE, self)
 	var thor_card_area = $ThorCardArea
 	var tyr_card_area = $TyrCardArea
 	var freya_card_area = $FreyaCardArea

@@ -19,7 +19,10 @@ func _ready() -> void:
 	load_bank_if_needed(AK.BANKS.MUSIC_SFX)
 	Wwise.post_event_id(AK.EVENTS.MAP_LOADED, self) #starts the whole Wwise Process of States.
 	Wwise.post_event_id(AK.EVENTS.GAMEPLAY, self)
-	#Wwise.post_event_id(AK.EVENTS.TITLE, self)
+	if not Global.title_song_init:
+		#print(Global.title_song_init)
+		Wwise.post_event_id(AK.EVENTS.TITLE, self)
+		Global.title_song_init = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
