@@ -72,9 +72,31 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="ThorDescription"]
 layout_mode = 0
 offset_left = 240.0
-offset_top = 208.0
-offset_right = 528.0
-offset_bottom = 352.0
+offset_top = 192.0
+offset_right = 535.0
+offset_bottom = 759.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Thor, God of Thunder
+
+Magic Ability: Lightning
+ - Stage 1: 
+   Lightning Burst 
+ - Stage 2: 
+   Lightning Triad
+
+Starting Bonus:
+ - Melee Damage
+
+Those under Thor's
+protection strike with 
+the fury of lightning, 
+dealing increased 
+melee damage to 
+enemies and wielding 
+devastating lightning 
+bolts against their 
+foes."
 
 [node name="TyrDescription" type="TextureRect" parent="."]
 layout_mode = 0
@@ -89,10 +111,33 @@ stretch_mode = 3
 
 [node name="Label" type="Label" parent="TyrDescription"]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 224.0
-offset_right = 528.0
-offset_bottom = 400.0
+offset_left = 240.0
+offset_top = 192.0
+offset_right = 535.0
+offset_bottom = 759.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Tyr, God of War
+
+Magic Ability: Shield 
+ - Stage 1: 
+    Protection Shield
+ - Stage 2: 
+    Retribution Shield
+     (damage on contact)
+
+Starting Bonus:
+ - Max Health
+
+Those under Tyr's 
+protection stand strong
+in battle, enduring 
+wounds that would fell 
+others and manifesting 
+powerful shields that 
+both protect and, in time, 
+punish those who dare 
+strike against them."
 
 [node name="FreyaDescription" type="TextureRect" parent="."]
 layout_mode = 0
@@ -107,17 +152,40 @@ stretch_mode = 3
 
 [node name="Label" type="Label" parent="FreyaDescription"]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 240.0
-offset_right = 512.0
-offset_bottom = 384.0
+offset_left = 240.0
+offset_top = 192.0
+offset_right = 535.0
+offset_bottom = 759.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Freya, Goddess of Love
+
+Magic Ability: Teleport
+ - Stage 1:
+   Shifting Teleport
+ - Stage 2:  
+   Piercing Teleport
+    (damage those in path)
+
+Starting Bonus:
+ - Speed
+
+Those blessed by Freya
+move with unmatched 
+grace and swiftness, 
+darting across the 
+battlefield and bending 
+space itself, tearing 
+through enemies as they 
+shift through the land 
+with deadly force."
 
 [node name="ThorCardArea" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -32.0
-offset_top = 48.05
-offset_right = 2528.0
-offset_bottom = 3781.05
+offset_left = -40.0
+offset_top = 48.0
+offset_right = 2520.0
+offset_bottom = 3781.0
 scale = Vector2(0.15, 0.15)
 
 [node name="TyrCardArea" type="TextureRect" parent="."]
