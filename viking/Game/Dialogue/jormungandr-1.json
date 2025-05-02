@@ -1,6 +1,6 @@
 [
 	{"name": "[center]Jormungandr[/center]", "text": "(You were foolissssh to come here, [color=#FF0000][i]WARRIOR...[/i][/color])"},
-	{"name": "[center]Jormungandr[/center]", "text": "(A mere moral like yourself, cannot possssibly hope to defeat me!)"},
+	{"name": "[center]Jormungandr[/center]", "text": "(A mere mortal like yourself, cannot possssibly hope to defeat me!)"},
 	{"name": "[center]Jormungandr[/center]", "text": "(That power… the godsss favor you)", "condition": ["freya", "tyr"]},
 	{"name": "[center]Jormungandr[/center]", "text": "(The champion of Thor, I will enjoy thisssss victory)", "condition": "thor" },
 	{"name": "[center]Jormungandr[/center]", "text": "(Midgard ssshall be mine!)"}

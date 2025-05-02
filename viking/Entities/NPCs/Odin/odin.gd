@@ -35,6 +35,8 @@ func _process(delta: float) -> void:
 			play_dialogue("res://Game/Dialogue/loki-1a.json")
 			$AnimationPlayer.play("reveal")
 			await $AnimationPlayer.animation_finished
+			Wwise.post_event_id(AK.EVENTS.LOKI_LAUGH, self)
+			Wwise.post_event_id(AK.EVENTS.BOSS, self)
 			play_dialogue("res://Game/Dialogue/loki-1b.json")
 			
 			
