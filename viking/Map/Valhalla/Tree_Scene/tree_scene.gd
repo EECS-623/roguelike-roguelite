@@ -17,6 +17,10 @@ func _ready() -> void:
 	cam.limit_top = -600
 	cam.limit_bottom = 600
 	Wwise.post_event_id(AK.EVENTS.VALHALLA, self)
+		
+	for apple in [$Apple0, $Apple1, $Apple2, $Apple3]:
+			if apple.name in Global.apples_eaten:
+				apple.queue_free()
 
 	if Global.loki_reveal:
 		$AnimatedSprite2D/AnimationPlayer.play("turn_and_leave")

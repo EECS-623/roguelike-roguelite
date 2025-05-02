@@ -13,6 +13,7 @@ var has_key: int = 0
 var loki_reveal = false
 var patron_stat_initialized: bool = false
 var title_song_init: bool = false
+var apples_eaten = []
 
 var loaded_banks = {} #don't reset this one
 var world_level: int = 1
@@ -33,6 +34,7 @@ func reset_globals():
 	loki_reveal = false
 	patron_stat_initialized = false
 	title_song_init = false
+	apples_eaten = []
 	
 	world_level = 1
 	upgrade_level = 1

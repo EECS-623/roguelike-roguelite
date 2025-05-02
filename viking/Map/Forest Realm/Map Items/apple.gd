@@ -8,27 +8,32 @@ func _ready() -> void:
 	print("apple created")
 	
 	
-	var scale = randf()
-	scale = 0.1
-	
-	set_scale(Vector2(scale,scale))
+	#var scale = randf()
+	#scale = 0.1
+	#
+	#set_scale(Vector2(scale,scale))
 	z_index = -1	
 	
 	
 
 
 func _on_body_entered(body):
-	print("apple entered")
+	print(name, " entered")
 	print(body)
 	
 	if not body.is_in_group("player"):
 		return
 	
 	var health_component = body.get_node("HealthComponent")
+	
+	if health_component.max_health == health_component.current_health:
+		return
+	
 	health_component.increase_current_health(15)
 	await get_tree().create_timer(0.05).timeout	
 	
 	print("apple eaten")
+	Global.apples_eaten.append(name)
 	Wwise.post_event_id(AK.EVENTS.APPLE_HEAL, self)
 	
 	queue_free()

@@ -43,6 +43,12 @@ func increase_current_health(num: float):
 		current_health = max_health
 	i_current_health.emit(current_health)
 
+	for i in range(3):
+		get_parent().modulate = Color.GREEN
+		await get_tree().create_timer(.05).timeout
+		get_parent().modulate = Color.WHITE
+		await get_tree().create_timer(.05).timeout
+
 func handle_death():
 	# might change this logic later, especially with the player
 	death.emit()

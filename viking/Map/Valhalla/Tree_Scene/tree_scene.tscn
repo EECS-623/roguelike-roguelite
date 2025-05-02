@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://wfcljrigq7q4"]
+[gd_scene load_steps=15 format=3 uid="uid://wfcljrigq7q4"]
 
 [ext_resource type="Texture2D" uid="uid://cddxt6rfemlrn" path="res://Map/Valhalla/New_Valhalla_Art/valhalla tree area.png" id="1_41u6e"]
 [ext_resource type="Script" path="res://Map/Valhalla/Tree_Scene/tree_scene.gd" id="1_qvpjr"]
 [ext_resource type="Texture2D" uid="uid://g8gb5r44pfb1" path="res://Assets/Loki/Front Standing.png" id="3_d1lic"]
 [ext_resource type="Texture2D" uid="uid://nqh5it7rafnl" path="res://Assets/Loki/Back Left Step.png" id="4_n4y2w"]
 [ext_resource type="Texture2D" uid="uid://c65123poat0lo" path="res://Assets/Loki/Back Right Step.png" id="5_xi2cv"]
+[ext_resource type="PackedScene" uid="uid://dikctn22ejqdr" path="res://Map/Forest Realm/Map Items/apple.tscn" id="6_edyrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4lif"]
 size = Vector2(592.766, 92.6125)
@@ -153,7 +154,7 @@ script = ExtResource("1_qvpjr")
 scale = Vector2(1.02636, 1.03082)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D_to_Loki"]
-position = Vector2(-14.6148, -120.293)
+position = Vector2(-14.6148, -261.928)
 scale = Vector2(2.93749, -0.846793)
 shape = SubResource("RectangleShape2D_a4lif")
 
@@ -165,9 +166,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -902.0
-offset_top = -600.0
+offset_top = -601.0
 offset_right = 898.0
-offset_bottom = 600.0
+offset_bottom = 599.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_41u6e")
@@ -230,6 +231,19 @@ animation = &"all_frames"
 libraries = {
 "": SubResource("AnimationLibrary_8td3e")
 }
+
+[node name="Apple0" parent="." instance=ExtResource("6_edyrn")]
+position = Vector2(-782, 190)
+scale = Vector2(0.1, 0.1)
+
+[node name="Apple1" parent="." instance=ExtResource("6_edyrn")]
+position = Vector2(-617, -90)
+
+[node name="Apple2" parent="." instance=ExtResource("6_edyrn")]
+position = Vector2(816, -129)
+
+[node name="Apple3" parent="." instance=ExtResource("6_edyrn")]
+position = Vector2(350, 187)
 
 [connection signal="body_entered" from="StaticBody2D/Area2D_to_Loki" to="." method="_on_area_2d_to_loki_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D_Home" to="." method="_on_area_2d_home_body_entered"]
