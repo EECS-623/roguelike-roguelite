@@ -27,29 +27,29 @@ expand_mode = 1
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 227.0
-offset_right = 1056.0
-offset_bottom = 531.0
-scale = Vector2(0.4, 0.4)
+offset_left = 1072.0
+offset_top = -39.9999
+offset_right = 1672.0
+offset_bottom = 264.0
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("3_vbkdv")
 
 [node name="Controls" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 352.0
-offset_right = 1056.0
-offset_bottom = 656.0
-scale = Vector2(0.4, 0.4)
+offset_left = 1072.0
+offset_top = 32.0
+offset_right = 1672.0
+offset_bottom = 336.0
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("3_bdlwg")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 480.0
-offset_right = 1056.0
-offset_bottom = 784.0
-scale = Vector2(0.4, 0.4)
+offset_left = 1072.0
+offset_top = 104.0
+offset_right = 1672.0
+offset_bottom = 408.0
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("4_leden")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
