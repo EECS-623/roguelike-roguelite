@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://qdlbjh2rrpxv"]
+[gd_scene load_steps=6 format=3 uid="uid://qdlbjh2rrpxv"]
 
 [ext_resource type="Script" path="res://Game/GameOver/game_over.gd" id="1_sn5jf"]
 [ext_resource type="Texture2D" uid="uid://txwwlnp7bhmh" path="res://Assets/Art/Screens/Buttons/Try Again Button.png" id="2_5cdm0"]
 [ext_resource type="Texture2D" uid="uid://c3elhf4kle52q" path="res://Assets/Art/Screens/Buttons/Quit Button.png" id="3_b76d6"]
+[ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="4_x2sw7"]
+[ext_resource type="Texture2D" uid="uid://bw8x42nsgattt" path="res://Assets/Jormungandr/Facing Side Head Bite Right.png" id="5_sblay"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -53,6 +55,26 @@ theme_override_font_sizes/font_size = 40
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 92.0001
+offset_top = 318.0
+offset_right = 132.0
+offset_bottom = 358.0
+rotation = -6.40536
+scale = Vector2(10, 10)
+texture = ExtResource("4_x2sw7")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -343.0
+offset_top = -22.0
+offset_right = 857.0
+offset_bottom = 1178.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_sblay")
 
 [connection signal="pressed" from="Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
