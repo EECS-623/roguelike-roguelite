@@ -12,6 +12,7 @@ var player
 func enter() -> void:
 	finished = false
 	loki.update_animation("spikes")
+	
 	if loki.global_position.distance_to(player.global_position) > 200:
 		var pattern = randi_range(0, 3)
 		if pattern == 0:
@@ -60,6 +61,7 @@ func is_position_blocked(pos: Vector2) -> bool:
 
 
 func spawn_snowflake_pattern(spokes := 6, steps := 4, spacing := 50):
+	Wwise.post_event_id(AK.EVENTS.ICICLE_APPEAR, self)
 	var player_position = player.global_position
 	spawn_spike(player_position)
 	for i in range(spokes):
@@ -78,6 +80,8 @@ func spawn_line_to_player(spacing := 75.0):
 	var start3 = start1 + direction.orthogonal().normalized()*-75
 	var distance = start1.distance_to(player.global_position)
 	var steps = int(distance / spacing)
+	Wwise.post_event_id(AK.EVENTS.ICICLE_APPEAR, self)
+	
 	for i in range(steps):
 		var pos1 = start1 + direction * (i * spacing)
 		spawn_spike(pos1)
@@ -94,6 +98,8 @@ func spawn_circle(radius: float, count: int, player_position):
 		spawn_spike(player_position + offset)
 		
 func spawn_closing_circle(rings = 2):
+	Wwise.post_event_id(AK.EVENTS.ICICLE_APPEAR, self)
+	
 	var player_position = player.global_position
 	for i in range(rings, 0, -1):
 		spawn_circle((50+ 75*i) ,(6 + 6*i), player_position)
@@ -101,6 +107,8 @@ func spawn_closing_circle(rings = 2):
 	spawn_spike(player_position)
 
 func spawn_opening_circle(rings = 3):
+	Wwise.post_event_id(AK.EVENTS.ICICLE_APPEAR, self)
+	
 	var player_position = player.global_position
 	spawn_spike(player_position)
 	await get_tree().create_timer(1).timeout

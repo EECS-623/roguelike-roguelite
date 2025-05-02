@@ -19,7 +19,7 @@ script = ExtResource("1_sn5jf")
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 offset_left = -116.0
-offset_top = -43.0
+offset_top = -82.0
 offset_right = 1246.0
 offset_bottom = 716.0
 color = Color(0, 0, 0, 1)

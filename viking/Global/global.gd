@@ -12,9 +12,9 @@ var patron_god: int = 0
 var has_key: int = 0
 var loki_reveal = false
 var patron_stat_initialized: bool = false
+var title_song_init: bool = false
 
-
-var loaded_banks = {}
+var loaded_banks = {} #don't reset this one
 var world_level: int = 1
 var upgrade_level: int = 1
 var teleport_banned: bool = true
@@ -30,8 +30,10 @@ func reset_globals():
 	xp = 0
 	patron_god = 0
 	has_key = 0
+	loki_reveal = false
 	patron_stat_initialized = false
-
+	title_song_init = false
+	
 	world_level = 1
 	upgrade_level = 1
 	teleport_banned = true

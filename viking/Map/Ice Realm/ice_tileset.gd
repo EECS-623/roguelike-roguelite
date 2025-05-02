@@ -18,6 +18,7 @@ var lowerEdge = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.JOTUNHEIM, self)
 	Global.has_key = 0
 	Global.teleport_banned = false
 	Global.upgrade_level = 2
@@ -355,7 +356,7 @@ func _ready() -> void:
 			print("Door opened")
 			
 			#placedItems[totalItemsPlaced] = apple.instantiate()
-			#placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 200)
+			#placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 300)
 			#add_child(placedItems[totalItemsPlaced])	
 			#totalItemsPlaced += 1					
 					

@@ -12,6 +12,7 @@ var cam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.PREBOSS, self)
 	player = PlayerManager.player
 	if player == null:
 		player = s_player.instantiate()
@@ -23,7 +24,7 @@ func _ready() -> void:
 	var dialogue_ui = player.get_node("DialogueUI")
 	dialogue = dialogue_ui
 	play_dialogue("res://Game/Dialogue/ymir-1.json")
-	
+	Wwise.post_event_id(AK.EVENTS.BOSS, self)
 	cam = player.get_node("Camera2D")
 	cam.limit_left = -720
 	cam.limit_right = 720
@@ -50,6 +51,7 @@ func _process(delta: float) -> void:
 	
 
 func drop_artifact():
+	Wwise.post_event_id(AK.EVENTS.VICTORY, self)
 	$Artifact.visible = true
 	$Artifact/CollisionShape2D.disabled = false
 

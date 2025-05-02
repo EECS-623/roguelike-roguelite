@@ -10,12 +10,13 @@ var player : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimationPlayer.play("idle")
+	$AnimationPlayer.play("RESET")
 	visible = true
 	$CanvasLayer/HealthBarComponent.modulate =  Color.WHITE
 	ice_golem_state_machine.ice_golem = self
 	ice_golem_state_machine.player = player
 	ice_golem_state_machine.initialize()
+	Wwise.post_event_id(AK.EVENTS.ICE_BOSSGROAN, self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,6 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_health_component_death() -> void:
 	Global.world_level = 3
+	Wwise.post_event_id(AK.EVENTS.ICE_BOSSGROAN, self)
 	queue_free()
 
 func _on_health_component_t_damage(amount: float) -> void:

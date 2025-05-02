@@ -10,6 +10,7 @@ var starting_pos
 
 
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.ARROW_FIRE, self)
 	starting_pos = global_position
 	look_at(player.global_position)
 

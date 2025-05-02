@@ -62,6 +62,7 @@ func is_position_blocked(pos: Vector2) -> bool:
 
 
 func spawn_snowflake_pattern(spokes := 6, steps := 4, spacing := 50):
+	Wwise.post_event_id(AK.EVENTS.ICICLE_APPEAR, self)
 	var player_position = player.global_position
 	spawn_icicle(player_position)
 	for i in range(spokes):

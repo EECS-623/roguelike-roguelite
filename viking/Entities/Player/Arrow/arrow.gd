@@ -17,6 +17,7 @@ func _ready() -> void:
 	timer.wait_time = 2.0
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start()
+	Wwise.post_event_id(AK.EVENTS.FIREBALL, self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

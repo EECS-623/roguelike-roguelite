@@ -16,6 +16,7 @@ func _process(delta):
 func shatter():
 	$AnimationPlayer.play("shatter")
 	await $AnimationPlayer.animation_finished
+	Wwise.post_event_id(AK.EVENTS.ICICLE_BREAK, self)
 	queue_free()
 
 func _on_health_component_death() -> void:
