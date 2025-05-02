@@ -11,6 +11,7 @@ var real_odin = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.PREBOSS, self)
 	Global.teleport_banned = false
 	player = PlayerManager.player
 	if player == null:
@@ -37,7 +38,7 @@ func _ready() -> void:
 	var dialogue_ui = player.get_node("DialogueUI")
 	dialogue = dialogue_ui
 	play_dialogue("res://Game/Dialogue/loki-2.json")
-		
+	Wwise.post_event_id(AK.EVENTS.BOSS, self)
 	cam = player.get_node("Camera2D")
 	cam.limit_left = -1048
 	cam.limit_right = 1048
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 	if loki == null and not loki_dead:
 		loki_dead = true
 		play_dialogue("res://Game/Dialogue/loki-3.json")
+		Wwise.post_event_id(AK.EVENTS.VICTORY, self)
 	pass
 	
 

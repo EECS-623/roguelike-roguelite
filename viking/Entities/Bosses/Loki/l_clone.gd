@@ -9,6 +9,7 @@ var delay
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Wwise.post_event_id(AK.EVENTS.LOKI_TELEPORT, self)
 	while true:
 		await get_tree().create_timer(delay).timeout
 		var direction_to_player = (player.global_position - global_position).normalized()

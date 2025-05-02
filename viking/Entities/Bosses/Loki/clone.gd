@@ -28,6 +28,7 @@ var positions = [
 ]
 
 func enter() -> void:
+	Wwise.post_event_id(AK.EVENTS.LOKI_CLONE, self)
 	delay = randf_range(2,4)
 	finished = false
 	loki.get_node("AnimationPlayer").play("teleport")
@@ -79,6 +80,7 @@ func shoot_projectile():
 	loki.update_animation("projectile", direction_to_player)
 	await get_tree().create_timer(.5).timeout
 	var projectile = s_projectile.instantiate()
+	Wwise.post_event_id(AK.EVENTS.FIREBALL, self)
 	projectile.player = player
 	var muzzle = loki.get_node("AnimatedSprite2D/Muzzle")
 	projectile.global_position = muzzle.global_position

@@ -11,6 +11,7 @@ func _ready() -> void:
 	loki_state_machine.loki = self
 	loki_state_machine.player = player
 	loki_state_machine.initialize()
+	Wwise.post_event_id(AK.EVENTS.LOKI_LAUGH, self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

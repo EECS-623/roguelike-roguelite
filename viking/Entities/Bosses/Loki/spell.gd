@@ -7,6 +7,7 @@ var start_anim
 var timer = 5
 
 func _ready():
+	
 	$AnimationPlayer.play("growtate")
 	$AnimationPlayer.seek(start_anim, true)
 
