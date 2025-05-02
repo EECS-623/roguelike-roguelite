@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvsui47imvexk" path="res://Entities/Bosses/Jormungandr/snake.tscn" id="3_ystxc"]
 [ext_resource type="Texture2D" uid="uid://cinicudi415cw" path="res://Assets/Art/portal imprint.png" id="4_7wchc"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="5_67jhn"]
-[ext_resource type="Texture2D" uid="uid://b32cnlv3sla3k" path="res://Assets/Jormungandr/Jörmungandr's Tail.png" id="6_w77mu"]
+[ext_resource type="Texture2D" uid="uid://b32cnlv3sla3k" path="res://Assets/Jormungandr/Jörmungandr's Tail.png" id="6_w77mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtiob"]
 size = Vector2(2401, 224)

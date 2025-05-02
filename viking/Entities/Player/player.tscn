@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dx8xw4s8lc56r" path="res://Entities/Player/cast_fireball.tscn" id="24_po0fm"]
 [ext_resource type="Script" path="res://Entities/Player/state_move.gd" id="24_vnqw2"]
 [ext_resource type="Script" path="res://Entities/Player/state_melee_attack.gd" id="25_7u812"]
-[ext_resource type="PackedScene" path="res://Entities/Player/force_field.tscn" id="25_aejhs"]
+[ext_resource type="PackedScene" uid="uid://cohebo0cbsqan" path="res://Entities/Player/force_field.tscn" id="25_aejhs"]
 [ext_resource type="Script" path="res://Entities/Player/teleport.gd" id="25_c7d0u"]
 [ext_resource type="Script" path="res://Entities/Player/state_special_ability.gd" id="27_4h18t"]
 [ext_resource type="Script" path="res://Entities/Player/player_state_machine.gd" id="28_tbe8f"]

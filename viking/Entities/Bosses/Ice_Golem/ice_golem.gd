@@ -37,3 +37,4 @@ func _on_health_component_t_damage(amount: float) -> void:
 			$AnimatedSprite2D.modulate = Color.RED
 			await get_tree().create_timer(.01).timeout
 			$AnimatedSprite2D.modulate = Color.WHITE
+			await get_tree().create_timer(.01).timeout

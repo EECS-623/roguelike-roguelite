@@ -69,15 +69,15 @@ func drop_artifact():
 func _on_artifact_body_entered(body: Node2D) -> void:
 	$Artifact.visible = false
 	Inventory.forrest_artifact.visible = true
-	player.knockback_timer = .5
+	player.knockback_timer = .25
 	player.knockback_velocity = Vector2.ZERO
 	for i in range(3):
 		player.modulate = Color.GREEN
-		await get_tree().create_timer(.1).timeout
+		await get_tree().create_timer(.05).timeout
 		player.modulate = Color.WHITE
-		await get_tree().create_timer(.1).timeout
+		await get_tree().create_timer(.05).timeout
 	
-	player.get_node("HealthComponent").increase_current_health(player.get_node("HealthComponent").max_health)
+	player.get_node("HealthComponent").increase_current_health(15)
 	
 	await get_tree().create_timer(.1).timeout
 	portal_open()
