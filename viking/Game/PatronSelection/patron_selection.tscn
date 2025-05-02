@@ -40,13 +40,6 @@ offset_bottom = 4124.0
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_754rd")
 
-[node name="ThorCardArea" type="TextureRect" parent="Thor"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 107.0
-offset_right = 2720.0
-offset_bottom = 3840.0
-
 [node name="Tyr" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 360.0
@@ -55,13 +48,6 @@ offset_right = 3255.0
 offset_bottom = 4124.0
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_8j2kf")
-
-[node name="TyrCardArea" type="TextureRect" parent="Tyr"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 107.0
-offset_right = 2720.0
-offset_bottom = 3840.0
 
 [node name="Freya" type="TextureRect" parent="."]
 layout_mode = 0
@@ -72,21 +58,14 @@ offset_bottom = 4124.0
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_eht8f")
 
-[node name="FreyaCardArea" type="TextureRect" parent="Freya"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 107.0
-offset_right = 2720.0
-offset_bottom = 3840.0
-
 [node name="ThorDescription" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -32.0
 offset_top = 48.0
 offset_right = 736.0
 offset_bottom = 1008.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("5_m1yjj")
 stretch_mode = 3
 
@@ -98,13 +77,13 @@ offset_right = 528.0
 offset_bottom = 352.0
 
 [node name="TyrDescription" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_top = 48.0
 offset_right = 1152.0
 offset_bottom = 1008.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("5_m1yjj")
 stretch_mode = 3
 
@@ -116,13 +95,13 @@ offset_right = 528.0
 offset_bottom = 400.0
 
 [node name="FreyaDescription" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 800.0
 offset_top = 48.0
 offset_right = 1568.0
 offset_bottom = 1008.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("5_m1yjj")
 stretch_mode = 3
 
@@ -132,6 +111,30 @@ offset_left = 256.0
 offset_top = 240.0
 offset_right = 512.0
 offset_bottom = 384.0
+
+[node name="ThorCardArea" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 48.05
+offset_right = 2528.0
+offset_bottom = 3781.05
+scale = Vector2(0.15, 0.15)
+
+[node name="TyrCardArea" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 48.05
+offset_right = 2944.0
+offset_bottom = 3781.05
+scale = Vector2(0.15, 0.15)
+
+[node name="FreyaCardArea" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 48.05
+offset_right = 3360.0
+offset_bottom = 3781.05
+scale = Vector2(0.15, 0.15)
 
 [node name="Button1" type="TextureButton" parent="."]
 layout_mode = 0
