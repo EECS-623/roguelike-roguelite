@@ -1,42 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://11unecbkqogj"]
+[gd_scene load_steps=2 format=3 uid="uid://11unecbkqogj"]
 
 [ext_resource type="Script" path="res://Game/Victory/victory.gd" id="1_bt4go"]
-[ext_resource type="Texture2D" uid="uid://cfff4xbh3gu78" path="res://Assets/Art/Screens/Buttons/Play Again Button.png" id="2_38utl"]
-[ext_resource type="Texture2D" uid="uid://c3elhf4kle52q" path="res://Assets/Art/Screens/Buttons/Quit Button.png" id="3_w42ft"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 64.0
-offset_top = 40.0
-offset_right = 64.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_bt4go")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -40.0
-offset_right = 1216.0
-offset_bottom = 680.0
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Play Again" type="TextureButton" parent="."]
+[node name="Play Again" type="Button" parent="."]
 layout_mode = 2
-offset_left = 456.0
-offset_top = 291.0
-offset_right = 1056.0
-offset_bottom = 595.0
+offset_left = 8.0
+offset_top = 406.0
+offset_right = 608.0
+offset_bottom = 710.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("2_38utl")
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
 
-[node name="Quit" type="TextureButton" parent="."]
+[node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 413.0
-offset_right = 1056.0
-offset_bottom = 717.0
+offset_left = 7.0
+offset_top = 543.0
+offset_right = 607.0
+offset_bottom = 847.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("3_w42ft")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -45,12 +47,79 @@ offset_top = 192.0
 offset_right = 832.0
 offset_bottom = 291.0
 
-[node name="VictoryLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Victory!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -174.5
+offset_right = 174.5
+offset_bottom = 372.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "
+Film and Media
+
+
+
+
+Hayden Houts: Level Design
+
+
+
+Kirt Asikainen: Narrative Design
+
+
+
+KJ Lashley: Sound Design
+
+
+
+
+
+Art Design
+
+
+
+Katelyn Craft
+
+
+Noah Wynne
+
+
+
+
+
+Computer Programmers
+
+
+
+Andrew Huang
+
+
+Chase Horner
+
+
+Joshua Lee
+
+
+Evan Rogerson
+
+
+Will Hedges
+"
+
+[node name="VictoryLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 150
+text = "VICTORY"
 
 [connection signal="pressed" from="Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
