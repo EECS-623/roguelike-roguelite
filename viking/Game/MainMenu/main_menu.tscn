@@ -11,53 +11,53 @@
 layout_mode = 3
 anchors_preset = 0
 offset_left = 64.0
-offset_top = 32.0
+offset_top = 64.0
 offset_right = 64.0
-offset_bottom = 32.0
+offset_bottom = 64.0
 script = ExtResource("1_01rir")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -64.0
-offset_top = -32.0
+offset_top = -64.0
 offset_right = 1216.0
-offset_bottom = 688.0
+offset_bottom = 656.0
 texture = ExtResource("2_qgarl")
 expand_mode = 1
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 456.0
-offset_top = 291.0
+offset_top = 227.0
 offset_right = 1056.0
-offset_bottom = 595.0
+offset_bottom = 531.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("3_vbkdv")
 
 [node name="Controls" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 456.0
-offset_top = 413.0
+offset_top = 352.0
 offset_right = 1056.0
-offset_bottom = 717.0
+offset_bottom = 656.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("3_bdlwg")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 453.0
-offset_top = 534.0
-offset_right = 1053.0
-offset_bottom = 838.0
+offset_left = 456.0
+offset_top = 480.0
+offset_right = 1056.0
+offset_bottom = 784.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_leden")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 320.0
-offset_top = 192.0
+offset_top = 128.0
 offset_right = 832.0
-offset_bottom = 291.0
+offset_bottom = 227.0
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
