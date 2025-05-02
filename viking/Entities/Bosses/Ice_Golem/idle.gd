@@ -9,11 +9,11 @@ var move_timer
 var move_dir = Vector2(1,0)
 var tween: Tween
 
-var dist_thresh = 200
+var dist_thresh = 100
 
 var distance_weights = {
-	"Throw" : .65,
-	"Build" : .35,
+	"Throw" : .5,
+	"Build" : .5,
 	"Smash" : 0
 }
 

@@ -17,7 +17,7 @@ func _ready() -> void:
 		var projectile = s_projectile.instantiate()
 		projectile.player = player
 		projectile.global_position = $AnimatedSprite2D/Muzzle.global_position
-		projectile.get_node("Hitbox").damage = 5
+		projectile.get_node("Hitbox").damage = 10
 		get_tree().current_scene.add_child(projectile)
 		await get_tree().create_timer(1).timeout
 

@@ -32,7 +32,7 @@ autostart = true
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("6_l841a")
-max_health = 200.0
+max_health = 300.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

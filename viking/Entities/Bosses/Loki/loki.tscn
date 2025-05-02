@@ -100,9 +100,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woec6"]
-radius = 48.0
-height = 208.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd5xg"]
+size = Vector2(91, 202.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04tmk"]
 bg_color = Color(1, 1, 1, 1)
@@ -729,8 +728,8 @@ animation = &"all_frames"
 [node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 10)
-shape = SubResource("CapsuleShape2D_woec6")
+position = Vector2(-0.5, 10.75)
+shape = SubResource("RectangleShape2D_gd5xg")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 position = Vector2(2, 11)
@@ -740,12 +739,12 @@ script = ExtResource("3_r20gj")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -1)
-shape = SubResource("CapsuleShape2D_woec6")
+position = Vector2(-2.5, -0.25)
+shape = SubResource("RectangleShape2D_gd5xg")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_vthj5")
-max_health = 500.0
+max_health = 600.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -760,7 +759,7 @@ offset_right = 472.688
 offset_bottom = 34.784
 theme_override_styles/background = SubResource("StyleBoxFlat_04tmk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jrnln")
-max_value = 500.0
+max_value = 600.0
 rounded = true
 show_percentage = false
 script = ExtResource("5_nyfaj")
@@ -778,7 +777,7 @@ offset_left = 2.0
 offset_top = 39.0
 offset_right = -136.065
 offset_bottom = 39.0
-max_value = 500.0
+max_value = 600.0
 fill_mode = 1
 script = ExtResource("6_mn48a")
 health_component = NodePath("../../../HealthComponent")

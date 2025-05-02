@@ -17,9 +17,9 @@ func _process(delta: float) -> void:
 	change_state(new_state)
 	
 	# Continue moving if allowed by current state
-	if current_state.can_move_during():
-		var move_next = states[0].state_physics_process(delta)
-		loki.move_and_slide()  # Apply the new velocity
+	#if current_state.can_move_during():
+		#var move_next = states[0].state_physics_process(delta)
+		#loki.move_and_slide()  # Apply the new velocity
 
 func _physics_process(delta: float) -> void:
 	var new_state = current_state.state_physics_process(delta)

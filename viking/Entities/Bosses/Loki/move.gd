@@ -8,11 +8,11 @@ var change_dir_timer
 
 var speed = 200
 
-var close_thresh = 300
+var close_thresh = 50
 var far_thresh = 700
 
-var close_actions = ["Teleport", "Move", "Move", "Move", "Clone"]
-var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "MakeSpikes", "Projectile", "Clone", "MakeSpikes"]
+var close_actions = ["Teleport", "Move", "Move", "Move"]
+var actions = ["Teleport", "Summon", "Clone", "SpellCircle", "MakeSpikes"]
 
 # what happens when the entity enters a state
 func enter() -> void:
@@ -39,6 +39,8 @@ func move_timers(delta: float):
 	if change_dir_timer <= 0:
 		loki.velocity = move()
 		change_dir_timer = randf_range(.1, .75)
+	
+	loki.move_and_slide()
 
 func get_state_by_name(name: String) -> State:
 	for state in get_parent().states:
@@ -50,9 +52,10 @@ func choose_state():
 	var new_state
 	var distance_to_player = loki.global_position.distance_to(player.global_position)
 	if distance_to_player < close_thresh:
-		new_state = close_actions[randi_range(0, 4)]
+		#new_state = close_actions[randi_range(0, 4)]
+		new_state = "Move"
 	else:
-		new_state = actions[randi_range(0, 7)]
+		new_state = actions[randi_range(0, 4)]
 
 	
 	return get_state_by_name(new_state)
@@ -65,7 +68,7 @@ func move():
 	var move_speed = speed
 
 	#Retreat and strafe (fast)
-	if distance_to_player < close_thresh:
+	if distance_to_player < 200:
 		move_dir = -1 * direction_to_player
 		move_dir += direction_to_player.orthogonal().normalized() * (1  if randf() > 0.5 else -1)
 		move_speed *= 1.1

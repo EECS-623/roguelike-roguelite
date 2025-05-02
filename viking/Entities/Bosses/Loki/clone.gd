@@ -48,9 +48,6 @@ func enter() -> void:
 		clone.global_position = positions[i]
 		clones.append(clone)
 		get_tree().current_scene.add_child(clone)
-		
-
-
 
 
 
