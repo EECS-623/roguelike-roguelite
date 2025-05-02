@@ -18,6 +18,7 @@ var lowerEdge = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.has_key = 0
 	Global.teleport_banned = false
 	Global.upgrade_level = 2
 	Global.relics = 0
@@ -352,6 +353,11 @@ func _ready() -> void:
 			add_child(placedItems[totalItemsPlaced])
 			totalItemsPlaced += 1					
 			print("Door opened")
+			
+			placedItems[totalItemsPlaced] = apple.instantiate()
+			placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 200)
+			add_child(placedItems[totalItemsPlaced])	
+			totalItemsPlaced += 1					
 					
 			pass
 		await get_tree().create_timer(1).timeout
@@ -382,7 +388,7 @@ func _on_body_entered(body):
 				remove_child(body)
 				get_tree().call_deferred("change_scene_to_file", "res://Entities/Bosses/Ice_Golem/boss_arena.tscn")
 			else:
-				print("No key")
+				print(Global.has_key)
 				
 		if tile_data and tile_data.get_custom_data("ice"):
 			print("You're on thin ice")
