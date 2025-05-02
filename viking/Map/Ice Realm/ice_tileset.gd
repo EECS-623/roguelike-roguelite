@@ -356,7 +356,7 @@ func _ready() -> void:
 			print("Door opened")
 			
 			#placedItems[totalItemsPlaced] = apple.instantiate()
-			#placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 200)
+			#placedItems[totalItemsPlaced].position = Vector2((bossSpawn+0.5+leftmostEdge)*480,(upperEdge+0.5-1)*480)+Vector2(0, 300)
 			#add_child(placedItems[totalItemsPlaced])	
 			#totalItemsPlaced += 1					
 					
