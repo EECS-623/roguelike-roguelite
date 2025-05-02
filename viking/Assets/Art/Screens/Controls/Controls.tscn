@@ -11,49 +11,86 @@ script = ExtResource("1_y4gdu")
 [node name="TextureRect" type="ColorRect" parent="."]
 z_index = -1
 z_as_relative = false
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.0263669, 0.0116174, 0.00026685, 1)
+color = Color(0.890196, 0.854902, 0.733333, 1)
 
-[node name="TextEdit" type="RichTextLabel" parent="."]
-offset_left = 432.0
-offset_top = 150.0
-offset_right = 1474.0
-offset_bottom = 839.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+[node name="ControlHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 589.0
+offset_bottom = 108.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "CONTROLS"
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="ControlBody" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 152.0
+offset_right = 608.0
+offset_bottom = 670.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
-text = "CONTROLS
+text = "Left Click - Basic Sword Attack
 
+Right Click - Basic Arrow Attack
 
-Left Click: Basic Sword attack
+Space Bar - Magic Ability
 
-right click: basic arrow attack
+F - Interact with the environment (NPCs)
 
-space bar: special ability
+E - Open/Close Inventory"
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-F: interact with environment like npcs
+[node name="TipsHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 64.0
+offset_right = 1160.0
+offset_bottom = 108.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Remember warrior..."
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-E: opens inventory
+[node name="TipsBody" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 152.0
+offset_right = 1200.0
+offset_bottom = 670.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Apples give you health.
 
-Apples give you health
+Collect three keys from chests scattered across the map.
 
-collect the three keys from the chests in the map.
+Find the boss gate.
 
-find the boss gate.
+Defeat the boss.
 
-defeat the boss.
-
-"
+Good Luck..."
 shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 1
-offset_left = -1.99997
-offset_top = 587.0
-offset_right = 598.0
-offset_bottom = 891.0
+layout_mode = 0
+offset_left = 520.0
+offset_top = 544.0
+offset_right = 1120.0
+offset_bottom = 848.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("2_orx7s")
 stretch_mode = 4
