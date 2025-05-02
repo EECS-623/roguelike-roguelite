@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3boltc3pa24s"]
+
+[ext_resource type="Texture2D" uid="uid://k0r5fdv4bvq7" path="res://Map/Forest Realm/Map Items/Forest Door Open.png" id="1_tt8y6"]
+
+[node name="Door" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_tt8y6")

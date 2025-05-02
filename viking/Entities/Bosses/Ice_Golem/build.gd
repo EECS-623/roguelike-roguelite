@@ -35,10 +35,12 @@ func state_process(delta : float) -> State:
 	return null
 
 
-func spawn_icicle(position: Vector2):
+func spawn_icicle(position: Vector2, wall = false):
 	if not is_position_blocked(position):
 		var icicle = s_icicle.instantiate()
 		icicle.global_position = position
+		icicle.wall = wall
+		icicle.add_to_group("icicles")
 		add_child(icicle)
 
 func is_position_blocked(pos: Vector2) -> bool:
@@ -46,19 +48,29 @@ func is_position_blocked(pos: Vector2) -> bool:
 		if child is Icicle and child.global_position.distance_to(pos) < 45:
 			child.shatter()
 			return false
+	
+	var space_state = player.get_world_2d().get_direct_space_state()
+	var point = PhysicsPointQueryParameters2D.new()	
+	point.position = pos
+	var result = space_state.intersect_point(point)
+
+	for collision in result:
+		if collision.collider is StaticBody2D:
+			return true
+	
 	return false
+
 
 func spawn_snowflake_pattern(spokes := 6, steps := 4, spacing := 50):
 	var player_position = player.global_position
+	spawn_icicle(player_position)
 	for i in range(spokes):
 		var dir = Vector2.RIGHT.rotated(TAU * i / spokes)
-		for j in range(steps):
+		for j in range(1, steps+1):
 			var offset = dir * spacing * j
 			var pos = player_position + offset
 			spawn_icicle(pos)
-		spawn_icicle(player_position)
 		await get_tree().create_timer(.2).timeout
-	spawn_icicle(player_position)
 
 
 func spawn_line_to_player(spacing := 75.0):
@@ -111,5 +123,5 @@ func spawn_wall(center := Vector2(0, -385), width := 380.0, rows := 2, vertical_
 			var x = lerp(start_x, end_x, t)
 			var y = sin(t * PI) * vertical_amplitude + vertical_offset
 			var pos = center + Vector2(x, y)
-			spawn_icicle(pos)
+			spawn_icicle(pos, true)
 			await get_tree().create_timer(0.01).timeout

@@ -1,0 +1,9 @@
+[
+	{"name": "[center]Ymir[/center]", "text": "A formidable foe you are, [color=#FF0000][i]WARRIOR...[/i][/color]"},
+	{"name": "[center]Ymir[/center]", "text": "Freya’s champion, you share her resolve...", "condition": "freya"},
+	{"name": "[center]Ymir[/center]", "text": "The champion of Thor, hmph you embody his might...", "condition": "thor"},
+	{"name": "[center]Ymir[/center]", "text": "A wise and noble fighter, you must be Tyr’s champion...", "condition": "tyr"},
+	{"name": "[center]Ymir[/center]", "text": "Heed my warning hero-"},
+	{"name": "[center]Ymir[/center]", "text": "Your path leads to ruin..."},
+	{"name": "[center]Ymir[/center]", "text": "[color=#00BFFF][i]Ragnarök[/i][/color] draws near"}
+]

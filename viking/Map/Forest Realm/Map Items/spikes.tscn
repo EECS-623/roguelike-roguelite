@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://067lja6yo7a4"]
+
+[ext_resource type="Texture2D" uid="uid://eyn2t8ck4e5s" path="res://Map/Forest Realm/Map Items/spike.png" id="1_wa2ij"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Map Items/spikes.gd" id="2_gpstc"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_ewhje"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57dpv"]
+radius = 332.537
+
+[node name="Spikes" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_wa2ij")
+script = ExtResource("2_gpstc")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(577, -113)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+z_index = -1
+y_sort_enabled = true
+polygon = PackedVector2Array(-61, 256, -72, 344, -138, 453, -332, 511, -768, 523, -1005, 420, -1045, 226, -999, 76, -859, -61, -452, -109, -115, -13, -68, 157)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_ewhje")
+damage = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(78, -309)
+shape = SubResource("CircleShape2D_57dpv")

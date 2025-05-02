@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://de83uacbfsmt6"]
+
+[ext_resource type="Script" path="res://Game/HUD/hud.gd" id="1_y7em1"]
+[ext_resource type="Texture2D" uid="uid://cxuxu7wnm3ob3" path="res://Assets/Art/HUD/Health and Mana Box.png" id="2_el1ig"]
+[ext_resource type="Texture2D" uid="uid://c8gl0bvko70i5" path="res://Assets/Art/HUD/Inventory Icon.png" id="3_8wqr0"]
+
+[sub_resource type="Gradient" id="Gradient_v05fk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_loqv1"]
+gradient = SubResource("Gradient_v05fk")
+width = 231
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_6mspl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_67bl0"]
+gradient = SubResource("Gradient_6mspl")
+width = 231
+height = 16
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_y7em1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 120.0
+texture = ExtResource("2_el1ig")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 247.0
+offset_bottom = 40.0
+scale = Vector2(0.7, 0.7)
+texture_progress = SubResource("GradientTexture2D_loqv1")
+tint_progress = Color(0.894118, 0.286275, 0.188235, 1)
+
+[node name="ManaBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 247.0
+offset_bottom = 76.0
+scale = Vector2(0.7, 0.7)
+texture_progress = SubResource("GradientTexture2D_67bl0")
+tint_progress = Color(0.705882, 0.34902, 0.921569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 265.0
+offset_bottom = 109.0
+scale = Vector2(0.7, 0.7)
+color = Color(0.760784, 0.72549, 0.603922, 1)
+
+[node name="InventoryButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1176.0
+offset_top = 616.0
+offset_right = 1280.0
+offset_bottom = 720.0
+focus_mode = 0
+texture_normal = ExtResource("3_8wqr0")
+ignore_texture_size = true
+stretch_mode = 4

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc2mkfgociqkg"]
+
+[ext_resource type="Texture2D" uid="uid://csp68m8ktcuk0" path="res://Map/Forest Realm/Map Items/apple_tree.png" id="1_yecal"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Map Items/apples.gd" id="2_fsipg"]
+[ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="3_ewhje"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57dpv"]
+radius = 2673.03
+
+[node name="Spikes" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_yecal")
+script = ExtResource("2_fsipg")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(577, -113)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+z_index = -1
+y_sort_enabled = true
+polygon = PackedVector2Array(1335, 1450, 1207, 1829, 817, 2048, -389, 2240, -1488, 2250, -2082, 2043, -2418, 1744, -2274, 1253, -1719, 943, -982, 884, -891, 617, -251, 644, -219, 879, 305, 932, 871, 1130)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_ewhje")
+damage = -5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-41, 1325)
+shape = SubResource("CircleShape2D_57dpv")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dikctn22ejqdr"]
+
+[ext_resource type="Texture2D" uid="uid://bnglropieapp1" path="res://Map/Forest Realm/Map Items/APPLE.png" id="1_lkp34"]
+[ext_resource type="Script" path="res://Map/Forest Realm/Map Items/apple.gd" id="2_xpf5q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xxo7"]
+radius = 101.005
+
+[node name="Spikes" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_lkp34")
+script = ExtResource("2_xpf5q")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_1xxo7")

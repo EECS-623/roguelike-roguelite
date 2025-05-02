@@ -26,8 +26,7 @@ var near_weights = {
 
 # what happens when the entity enters a state
 func enter() -> void:
-	#ice_golem.update_animation("idle")
-	idle_timer = randf_range(1.5, 3.0)
+	idle_timer = randf_range(1.5, 3.5)
 	move_timer = randf_range(.5, 2)
 
 # what happens when the entity exits a state
@@ -55,8 +54,7 @@ func handle_input(_event : InputEvent) -> State:
 
 func choose_attack() -> State:
 	var distance_to_player = ice_golem.global_position.distance_to(player.global_position)
-	#var weights = near_weights if distance_to_player < dist_thresh else distance_weights
-	var weights = distance_weights
+	var weights = near_weights if distance_to_player < dist_thresh else distance_weights
 	
 	var total_weight := 0.0
 	for weight in weights.values():
@@ -85,7 +83,7 @@ func move():
 		return  # prevent sliding again mid-tween
 
 	var start_pos = ice_golem.global_position
-	var end_pos = start_pos + move_dir * 100
+	var end_pos = start_pos + move_dir * 50
 
 	tween = create_tween()
 	tween.tween_property(ice_golem, "global_position", end_pos, .5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

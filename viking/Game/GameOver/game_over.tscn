@@ -1,43 +1,80 @@
-[gd_scene load_steps=2 format=3 uid="uid://qdlbjh2rrpxv"]
+[gd_scene load_steps=6 format=3 uid="uid://qdlbjh2rrpxv"]
 
 [ext_resource type="Script" path="res://Game/GameOver/game_over.gd" id="1_sn5jf"]
+[ext_resource type="Texture2D" uid="uid://txwwlnp7bhmh" path="res://Assets/Art/Screens/Buttons/Try Again Button.png" id="2_5cdm0"]
+[ext_resource type="Texture2D" uid="uid://c3elhf4kle52q" path="res://Assets/Art/Screens/Buttons/Quit Button.png" id="3_b76d6"]
+[ext_resource type="Texture2D" uid="uid://c0xxl101yx18c" path="res://Entities/Player/Player Assets/Front Standing.png" id="4_x2sw7"]
+[ext_resource type="Texture2D" uid="uid://bw8x42nsgattt" path="res://Assets/Jormungandr/Facing Side Head Bite Right.png" id="5_sblay"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
 script = ExtResource("1_sn5jf")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = -116.0
+offset_top = -43.0
+offset_right = 1246.0
+offset_bottom = 716.0
+color = Color(0, 0, 0, 1)
+
+[node name="Play Again" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 291.0
+offset_right = 1056.0
+offset_bottom = 595.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_5cdm0")
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 413.0
+offset_right = 1056.0
+offset_bottom = 717.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_b76d6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 440.0
-offset_top = 320.0
-offset_right = 720.0
-offset_bottom = 448.0
-theme_override_constants/separation = 10
-
-[node name="Play Again" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Play Again"
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 320.0
 offset_top = 192.0
 offset_right = 832.0
 offset_bottom = 291.0
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 92.0001
+offset_top = 318.0
+offset_right = 132.0
+offset_bottom = 358.0
+rotation = -6.40536
+scale = Vector2(10, 10)
+texture = ExtResource("4_x2sw7")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -343.0
+offset_top = -22.0
+offset_right = 857.0
+offset_bottom = 1178.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_sblay")
+
+[connection signal="pressed" from="Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

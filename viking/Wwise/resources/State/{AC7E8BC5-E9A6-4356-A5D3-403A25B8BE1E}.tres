@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" load_steps=2 format=3 uid="uid://d2ex0uafpg6io"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://bpdimmbq0hurc" path="res://Wwise/resources/State Group/{7ECAEB9A-45A6-4AEF-9A33-F153C3FCD24E}.tres" id="1_3di6r"]
+
+[resource]
+group_ref = ExtResource("1_3di6r")
+group_id = 1176052424
+name = "Boss_Arena"
+id = 4129822198
+guid = "{AC7E8BC5-E9A6-4356-A5D3-403A25B8BE1E}"
+dummy = true

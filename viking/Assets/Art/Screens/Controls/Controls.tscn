@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyss2e683jx5g"]
+
+[ext_resource type="Script" path="res://Assets/Art/Screens/Controls/controls.gd" id="1_y4gdu"]
+[ext_resource type="Texture2D" uid="uid://dti1extva1i25" path="res://Assets/Art/Screens/Buttons/Play Button.png" id="2_orx7s"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y4gdu")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+z_index = -1
+z_as_relative = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.890196, 0.854902, 0.733333, 1)
+
+[node name="ControlHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 589.0
+offset_bottom = 108.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "CONTROLS"
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="ControlBody" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 152.0
+offset_right = 608.0
+offset_bottom = 670.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Left Click - Basic Sword Attack
+
+Right Click - Basic Arrow Attack
+
+Space Bar - Magic Ability
+
+F - Interact with the environment (NPCs)
+
+E - Open/Close Inventory"
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="TipsHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 64.0
+offset_right = 1160.0
+offset_bottom = 108.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Remember warrior..."
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="TipsBody" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 152.0
+offset_right = 1200.0
+offset_bottom = 670.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Apples give you health.
+
+Collect three keys from chests scattered across the map.
+
+Find the boss gate.
+
+Defeat the boss.
+
+Good Luck..."
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 520.0
+offset_top = 544.0
+offset_right = 1120.0
+offset_bottom = 848.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_orx7s")
+stretch_mode = 4
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

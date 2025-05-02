@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://2eoviyh5c1uv"]
 
 [ext_resource type="Script" path="res://Entities/Bosses/Jormungandr/venom.gd" id="1_l8msi"]
-[ext_resource type="Texture2D" uid="uid://b624u5j0x667w" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Down 1.png" id="1_xtjox"]
-[ext_resource type="Texture2D" uid="uid://c4b5oof8xhl01" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Down 2.png" id="2_xywpl"]
-[ext_resource type="Texture2D" uid="uid://mksrmvb1aq4f" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Down 3.png" id="3_cjpwx"]
-[ext_resource type="Texture2D" uid="uid://cjxtuli3ib8yh" path="res://Assets/Jormungandr/Grass Boss/Poison Attack/Poison Attack Puddle.png" id="4_7jq4q"]
+[ext_resource type="Texture2D" uid="uid://b624u5j0x667w" path="res://Assets/Jormungandr/Poison Attack/Poison Attack Down 1.png" id="1_xtjox"]
+[ext_resource type="Texture2D" uid="uid://c4b5oof8xhl01" path="res://Assets/Jormungandr/Poison Attack/Poison Attack Down 2.png" id="2_xywpl"]
+[ext_resource type="Texture2D" uid="uid://mksrmvb1aq4f" path="res://Assets/Jormungandr/Poison Attack/Poison Attack Down 3.png" id="3_cjpwx"]
+[ext_resource type="Texture2D" uid="uid://cjxtuli3ib8yh" path="res://Assets/Jormungandr/Poison Attack/Poison Attack Puddle.png" id="4_7jq4q"]
 [ext_resource type="Script" path="res://Components/Hitbox/hitbox.gd" id="5_ms7sd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oxsne"]
@@ -39,7 +39,8 @@ radius = 24.0
 height = 112.0
 
 [node name="Venom" type="Node2D"]
-scale = Vector2(1.5, 1.5)
+position = Vector2(-2, -132)
+scale = Vector2(2.12387, 2.26029)
 script = ExtResource("1_l8msi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -47,14 +48,16 @@ position = Vector2(5, 59)
 rotation = 4.71239
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_oxsne")
-animation = &"Start"
+animation = &"End"
 
 [node name="VenomPuddle" type="Sprite2D" parent="."]
-position = Vector2(1, 65)
-scale = Vector2(0.25, 0.25)
+position = Vector2(0.666667, 13.3333)
+scale = Vector2(0.372135, 0.45385)
 texture = ExtResource("4_7jq4q")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-2.66667, -55.3333)
+scale = Vector2(1.45762, 1.26821)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("5_ms7sd")
