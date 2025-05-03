@@ -24,7 +24,7 @@ func _ready() -> void:
 	var dialogue_ui = player.get_node("DialogueUI")
 	dialogue = dialogue_ui
 	play_dialogue("res://Game/Dialogue/ymir-1.json")
-	Wwise.post_event_id(AK.EVENTS.BOSS, self)
+	
 	cam = player.get_node("Camera2D")
 	cam.limit_left = -720
 	cam.limit_right = 720
@@ -102,7 +102,7 @@ func _on_dialogue_end():
 
 	
 	HUD.visible = true
-	
+	Wwise.post_event_id(AK.EVENTS.BOSS, self)
 	# Wait a moment for the player to be fully initialized
 	await get_tree().create_timer(0.1).timeout
 	# Connect the HUD to player
