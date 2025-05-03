@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cre1djk4gfdso"]
+[gd_scene load_steps=10 format=3 uid="uid://cre1djk4gfdso"]
 
 [ext_resource type="Script" path="res://Game/MainMenu/main_menu.gd" id="1_01rir"]
 [ext_resource type="FontFile" uid="uid://17om4asong12" path="res://Game/Font/Masonic Lodge.otf" id="2_1pht2"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bi44dfvwndwmb" path="res://Assets/Art/Screens/Buttons/Controls Button.png" id="3_bdlwg"]
 [ext_resource type="Texture2D" uid="uid://dti1extva1i25" path="res://Assets/Art/Screens/Buttons/Play Button.png" id="3_vbkdv"]
 [ext_resource type="Texture2D" uid="uid://c3elhf4kle52q" path="res://Assets/Art/Screens/Buttons/Quit Button.png" id="4_leden"]
+[ext_resource type="Texture2D" uid="uid://cqodm3oqtr8v2" path="res://Assets/Art/Screens/Buttons/Easy Button.png" id="7_6hnjc"]
+[ext_resource type="Texture2D" uid="uid://d17bahyi2ujoc" path="res://Assets/Art/Screens/Buttons/Medium Button.png" id="8_r0yoc"]
+[ext_resource type="Texture2D" uid="uid://nkoqisei7v83" path="res://Assets/Art/Screens/Buttons/Unbeatable Button.png" id="9_54jik"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -70,6 +73,33 @@ vertical_alignment = 1
 
 [node name="AkState" type="AkState" parent="."]
 trigger_on = 2
+
+[node name="Easy" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 512.0
+offset_right = 1352.0
+offset_bottom = 816.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_6hnjc")
+
+[node name="Medium" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 512.0
+offset_right = 1456.0
+offset_bottom = 816.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("8_r0yoc")
+
+[node name="Unbeatable" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 512.0
+offset_right = 1560.0
+offset_bottom = 816.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("9_54jik")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]

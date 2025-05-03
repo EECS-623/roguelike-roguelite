@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b32cnlv3sla3k"
-path="res://.godot/imported/Jörmungandr's Tail.png-93bfbf382da523b80b9778fd2659e3a9.ctex"
+uid="uid://bxtqnmmgp47p3"
+path="res://.godot/imported/Medium Button Disabled.png-e7e2940f9fadb744235aa431f9132571.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Jormungandr/Jörmungandr's Tail.png"
-dest_files=["res://.godot/imported/Jörmungandr's Tail.png-93bfbf382da523b80b9778fd2659e3a9.ctex"]
+source_file="res://Assets/Art/Screens/Buttons/Medium Button Disabled.png"
+dest_files=["res://.godot/imported/Medium Button Disabled.png-e7e2940f9fadb744235aa431f9132571.ctex"]
 
 [params]
 
