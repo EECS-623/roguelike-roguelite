@@ -3,7 +3,7 @@ class_name CastFireball extends SpecialAbilityComponent
 @onready var player : Player = $"../.."
 var fireball = preload("res://Entities/Player/Fireball/fireball.tscn")
 @onready var mana_component = $"../../ManaComponent"
-var mana_cost: float = 50.0  # Fireball costs 60 mana
+var mana_cost: float = 75.0  # Fireball costs 60 mana
 
 
 # Called when the node enters the scene tree for the first time.

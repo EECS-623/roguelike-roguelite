@@ -249,11 +249,7 @@ func _ready() -> void:
 			totalItemsPlaced += 1				
 			
 		elif (chosenTile == Vector2i(0,0)):			
-			placedItems[totalItemsPlaced] = apple.instantiate()
-			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(100, 100)
-			add_child(placedItems[totalItemsPlaced])	
-			totalItemsPlaced += 1	
-			
+
 			
 			placedItems[totalItemsPlaced] = apple.instantiate()
 			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
@@ -333,11 +329,7 @@ func _ready() -> void:
 			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-120, 150)
 			add_child(placedItems[totalItemsPlaced])
 			totalItemsPlaced += 1				
-			
-			placedItems[totalItemsPlaced] = apple.instantiate()
-			placedItems[totalItemsPlaced].position = map_to_local(position)+Vector2(-150, 20)
-			add_child(placedItems[totalItemsPlaced])
-			totalItemsPlaced += 1							
+									
 						
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 	#add the player
