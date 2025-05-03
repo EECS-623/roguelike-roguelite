@@ -1,6 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://11unecbkqogj"]
+[gd_scene load_steps=8 format=3 uid="uid://11unecbkqogj"]
 
 [ext_resource type="Script" path="res://Game/Victory/victory.gd" id="1_bt4go"]
+[ext_resource type="Texture2D" uid="uid://bw6ea3pvyeds2" path="res://Assets/Art/Screens/PatronSelection/Thor card.png" id="2_4exuf"]
+[ext_resource type="Texture2D" uid="uid://bswril31kssq8" path="res://Assets/Art/Screens/PatronSelection/Tyr card.png" id="3_ubeu2"]
+[ext_resource type="Texture2D" uid="uid://b44mrvy25utys" path="res://Assets/Art/Screens/PatronSelection/Freya card.png" id="4_uagd2"]
+
+[sub_resource type="Animation" id="Animation_n6sly"]
+resource_name = "new_animation"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/thor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 2.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/tyr:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 3.1, 5.56667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/freya:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 5.76667, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_1gq4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/thor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/tyr:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/freya:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cs7m"]
+_data = {
+"RESET": SubResource("Animation_1gq4p"),
+"new_animation": SubResource("Animation_n6sly")
+}
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -130,6 +219,26 @@ offset_bottom = 22.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 150
 text = "VICTORY"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0cs7m")
+}
+
+[node name="thor" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(1076, 385)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_4exuf")
+
+[node name="tyr" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(1083, 396)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_ubeu2")
+
+[node name="freya" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(1076, 388)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_uagd2")
 
 [connection signal="pressed" from="Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
