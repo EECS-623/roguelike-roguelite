@@ -8,6 +8,9 @@ var reset_y
 var label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimationPlayer/thor.visible = false
+	$AnimationPlayer/tyr.visible = false
+	$AnimationPlayer/freya.visible = false
 	HUD.visible = false
 	Inventory.visible = false
 	label = $Label
@@ -18,6 +21,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	$"VictoryLabel".visible = false
 	label.visible = true
+	$AnimationPlayer.play("new_animation")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
