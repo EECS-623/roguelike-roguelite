@@ -11,7 +11,7 @@ var real_odin = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Wwise.post_event_id(AK.EVENTS.PREBOSS, self)
+	Wwise.post_event_id(AK.EVENTS.BOSS, self)
 	Global.teleport_banned = false
 	player = PlayerManager.player
 	if player == null:
