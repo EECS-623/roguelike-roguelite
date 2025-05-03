@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcju5to0jj04e"]
+
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_warning.gd" id="1_cdq6a"]
+
+[node name="HouseWarning" type="Node2D"]
+script = ExtResource("1_cdq6a")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 333.0
+offset_top = 145.0
+offset_right = 1025.0
+offset_bottom = 315.0
+text = "Warning, you are leaving the standard game
+
+Are you sure?"
+
+[node name="tohouse" type="Button" parent="."]
+offset_left = 438.0
+offset_top = 554.0
+offset_right = 796.0
+offset_bottom = 638.0
+text = "Click Here to
+go to The Unknown depths..."
+
+[node name="back_to_valhalla" type="Button" parent="."]
+offset_left = 435.0
+offset_top = 437.0
+offset_right = 790.0
+offset_bottom = 517.0
+text = "Click Here to go
+Back to Regular game"
+
+[connection signal="pressed" from="tohouse" to="." method="_on_tohouse_pressed"]
+[connection signal="pressed" from="back_to_valhalla" to="." method="_on_back_to_valhalla_pressed"]

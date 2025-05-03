@@ -234,7 +234,6 @@ libraries = {
 
 [node name="Apple0" parent="." instance=ExtResource("6_edyrn")]
 position = Vector2(-782, 190)
-scale = Vector2(0.1, 0.1)
 
 [node name="Apple1" parent="." instance=ExtResource("6_edyrn")]
 position = Vector2(-617, -90)
