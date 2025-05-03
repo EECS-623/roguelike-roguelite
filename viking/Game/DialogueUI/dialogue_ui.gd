@@ -99,9 +99,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		return 
 		
 	if event is InputEventMouseButton and visible:
+		
 		input_locked = true
+		
 		if typing_in_progress:
-			
+			Wwise.post_event_id(AK.EVENTS.NEXT_DIALOUGE, self)
 			typing_in_progress = false
 			dialogue_text.text = current_text
 		elif current_line + 1 < dialogue.size():
