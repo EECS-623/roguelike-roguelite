@@ -65,6 +65,7 @@ func _on_health_component_death() -> void:
 	call_deferred("_handle_death_deferred")
 
 func _handle_death_deferred() -> void:
+	Wwise.post_event_id(AK.EVENTS.WITCH_DEATH, self)
 	var rune_scene = preload("res://Entities/Enemies/Rune/rune.tscn")
 	var rune = rune_scene.instantiate()
 	get_tree().current_scene.add_child(rune)
