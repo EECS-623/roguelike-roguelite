@@ -32,11 +32,11 @@ func cast_ability() -> bool:
 		elif Global.upgrade_level == 2: #three lightning shot.
 			var new_fireball = fireball.instantiate()
 			var mini_fireball_one = fireball.instantiate()
-			var mini_fireball_two = fireball.instantiate()
+			#var mini_fireball_two = fireball.instantiate()
 			Wwise.post_event_id(AK.EVENTS.FIREBALL, self)
 			get_tree().current_scene.add_child(new_fireball)
 			get_tree().current_scene.add_child(mini_fireball_one)
-			get_tree().current_scene.add_child(mini_fireball_two)
+			#get_tree().current_scene.add_child(mini_fireball_two)
 			var mouse_pos = player.get_global_mouse_position()
 			var shoot_direction = (mouse_pos - player.global_position).normalized()
 			var perpendicular = Vector2(-shoot_direction.y, shoot_direction.x)  # 90° rotated
@@ -50,15 +50,15 @@ func cast_ability() -> bool:
 
 			# Left mini fireball
 			mini_fireball_one.position = player.global_position + perpendicular * spacing
-			mini_fireball_one.scale = Vector2(0.5, 0.5)
+			#mini_fireball_one.scale = Vector2(0.5, 0.5)
 			mini_fireball_one.direction = shoot_direction
 			mini_fireball_one.rotation = shoot_direction.angle()
 
 			# Right mini fireball
-			mini_fireball_two.position = player.global_position - perpendicular * spacing
-			mini_fireball_two.scale = Vector2(0.5, 0.5)
-			mini_fireball_two.direction = shoot_direction
-			mini_fireball_two.rotation = shoot_direction.angle()
+			#mini_fireball_two.position = player.global_position - perpendicular * spacing
+			#mini_fireball_two.scale = Vector2(0.5, 0.5)
+			#mini_fireball_two.direction = shoot_direction
+			#mini_fireball_two.rotation = shoot_direction.angle()
 		else: #lighnting beam
 			var new_fireball = fireball.instantiate()
 			var mini_fireball_one = fireball.instantiate()
