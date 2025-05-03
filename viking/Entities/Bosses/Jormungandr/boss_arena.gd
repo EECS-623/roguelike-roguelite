@@ -40,7 +40,7 @@ func _ready() -> void:
 	play_dialogue("res://Game/Dialogue/jormungandr-1.json")
 	
 	pulse_thorns()
-	Wwise.post_event_id(AK.EVENTS.BOSS, self)
+	
 	
 	cam = player.get_node("Camera2D")
 	cam.limit_left = -900
@@ -130,3 +130,4 @@ func _on_dialogue_end():
 		snake.get_node("CanvasLayer").visible = true
 		await get_tree().create_timer(1).timeout
 		snake.can_move = true
+	Wwise.post_event_id(AK.EVENTS.BOSS, self)
