@@ -21,6 +21,11 @@ func _physics_process(delta):
 		velocity.y = 0
 	
 	move_and_slide()
+	
+	if player.global_position.distance_to(global_position) < 10.0:
+		$AnimatedSprite3D.play("swing")
+	else:
+		$AnimatedSprite3D.play("walk")
 	# Face the camera or player (billboard effect)
 	#look_at(player.global_transform.origin, Vector3.UP)
 

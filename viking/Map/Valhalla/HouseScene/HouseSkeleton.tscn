@@ -1,11 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkkg5637pmppv"]
+[gd_scene load_steps=9 format=3 uid="uid://dkkg5637pmppv"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_skeleton.gd" id="1_nkkr6"]
 [ext_resource type="Texture2D" uid="uid://kyclw5o27tbt" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Right Step.png" id="2_pvm6d"]
+[ext_resource type="Texture2D" uid="uid://crs1nf0bf4usg" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Axe Raise.png" id="2_sxd6p"]
 [ext_resource type="Texture2D" uid="uid://cvg3qehmbne0e" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Left Step.png" id="3_mnx6r"]
+[ext_resource type="Texture2D" uid="uid://8ynvbfu6rsst" path="res://Entities/Enemies/Draugr/Draugr Assets/Front Axe Swing.png" id="3_ykl2q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tycw2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sxd6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ykl2q")
+}],
+"loop": true,
+"name": &"swing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_pvm6d")
@@ -30,7 +43,7 @@ script = ExtResource("1_nkkr6")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_tycw2")
-animation = &"walk"
+animation = &"swing"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
