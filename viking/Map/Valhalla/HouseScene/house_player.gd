@@ -26,7 +26,11 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
-
+	if Input.is_action_just_pressed("escape"):
+		#get_tree().current_scene.add_child(PlayerManager.player)
+		#PlayerManager.player.global_position = Vector3(110,0,0)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
 	if Input.is_action_pressed("up"):
 		direction -= transform.basis.z
 	if Input.is_action_pressed("down"):
@@ -49,7 +53,7 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 
 	move_and_slide()
-
+	
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
