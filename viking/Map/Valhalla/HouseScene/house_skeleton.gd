@@ -4,7 +4,7 @@ extends CharacterBody3D #if you want physics-based movement
 @onready var player = get_parent().get_node("HousePlayer")
 var gravity: int = 10
 func _ready():
-	pass
+	$AnimatedSprite3D.play("walk")
 func _physics_process(delta):
 	if not player:
 		return
