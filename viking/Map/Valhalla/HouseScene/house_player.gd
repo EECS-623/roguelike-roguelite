@@ -57,10 +57,8 @@ func _input(event):
 func shoot():
 	var projectile = projectile_scene.instantiate()
 
-	# Set direction before adding to scene
-	projectile.direction = -transform.basis.z
+	var cam_forward = -$Node3D/Camera3D.global_transform.basis.z
+	projectile.direction = cam_forward.normalized()
 
 	get_parent().add_child(projectile)
-
-	# Set initial position in front of player
-	projectile.global_transform.origin = global_transform.origin + projectile.direction * 1.5
+	projectile.global_transform.origin = global_transform.origin + cam_forward * 1.5

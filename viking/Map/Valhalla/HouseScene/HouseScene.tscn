@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu1d2vd7u4tro"]
+[gd_scene load_steps=10 format=3 uid="uid://cu1d2vd7u4tro"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_scene.gd" id="1_7wfxe"]
 [ext_resource type="Texture2D" uid="uid://buo7aop0poj26" path="res://Map/Forest Realm/plain grass tile asset.png" id="1_d0btr"]
-[ext_resource type="Texture2D" uid="uid://bbqlt4un5kit" path="res://Map/Forest Realm/Map Items/tree asset.png" id="3_2d2bq"]
 [ext_resource type="Texture2D" uid="uid://bw6ea3pvyeds2" path="res://Assets/Art/Screens/PatronSelection/Thor card.png" id="4_dnr6j"]
 [ext_resource type="Texture2D" uid="uid://bswril31kssq8" path="res://Assets/Art/Screens/PatronSelection/Tyr card.png" id="5_v2orn"]
 [ext_resource type="Texture2D" uid="uid://c6brat7cwanov" path="res://Assets/Art/Screens/MainMenu/title screen.png" id="6_leh65"]
@@ -13,16 +12,6 @@
 size = Vector3(26, 1, 27)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i2uqq"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_dn4nd"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_nqe8n"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3q2x"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("3_2d2bq")
 
 [node name="HouseScene" type="Node3D"]
 script = ExtResource("1_7wfxe")
@@ -41,51 +30,6 @@ shape = SubResource("BoxShape3D_aq1w3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
 mesh = SubResource("PlaneMesh_i2uqq")
-
-[node name="Tree" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree/StaticBody3D"]
-shape = SubResource("CylinderShape3D_dn4nd")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tree"]
-transform = Transform3D(0.139513, -1.99513, 1.52579e-09, -0.0174105, -0.00121746, -1.99992, 1.99505, 0.139507, -0.017453, 9, 1, 0)
-mesh = SubResource("PlaneMesh_nqe8n")
-surface_material_override/0 = SubResource("StandardMaterial3D_y3q2x")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Tree2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Tree2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree2/StaticBody3D"]
-shape = SubResource("CylinderShape3D_dn4nd")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tree2"]
-transform = Transform3D(0.139513, -1.99513, 1.52579e-09, -0.0174105, -0.00121746, -1.99992, 1.99505, 0.139507, -0.017453, 9, 1, 0)
-mesh = SubResource("PlaneMesh_nqe8n")
-surface_material_override/0 = SubResource("StandardMaterial3D_y3q2x")
-
-[node name="Tree3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -11)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Tree3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree3/StaticBody3D"]
-shape = SubResource("CylinderShape3D_dn4nd")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tree3"]
-transform = Transform3D(0.139513, -1.99513, 1.52579e-09, -0.0174105, -0.00121746, -1.99992, 1.99505, 0.139507, -0.017453, 9, 1, 0)
-mesh = SubResource("PlaneMesh_nqe8n")
-surface_material_override/0 = SubResource("StandardMaterial3D_y3q2x")
 
 [node name="Area3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 41, 13, 0)
