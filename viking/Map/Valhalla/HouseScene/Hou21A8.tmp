@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cu1d2vd7u4tro"]
+[gd_scene load_steps=12 format=3 uid="uid://cu1d2vd7u4tro"]
 
 [ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_scene.gd" id="1_7wfxe"]
 [ext_resource type="Texture2D" uid="uid://buo7aop0poj26" path="res://Map/Forest Realm/plain grass tile asset.png" id="1_d0btr"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://beqh180a75c43" path="res://Map/Ice Realm/ice_background.png" id="8_81nec"]
 [ext_resource type="PackedScene" uid="uid://dmemt4kdw3y56" path="res://Map/Valhalla/HouseScene/HouseTree.tscn" id="8_uum4h"]
 [ext_resource type="PackedScene" uid="uid://dkkg5637pmppv" path="res://Map/Valhalla/HouseScene/HouseSkeleton.tscn" id="9_ncqi6"]
-[ext_resource type="PackedScene" uid="uid://xgnk7otp48b0" path="res://Map/Valhalla/HouseScene/housePlayer.tscn" id="10_lmlam"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq1w3"]
 size = Vector3(26, 1, 27)
@@ -113,16 +112,16 @@ mesh = SubResource("PlaneMesh_i2uqq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="Draugr3D" parent="." instance=ExtResource("9_ncqi6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 6, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 12)
 
 [node name="Draugr3D2" parent="." instance=ExtResource("9_ncqi6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
 [node name="Draugr3D3" parent="." instance=ExtResource("9_ncqi6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 6, 23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 23)
 
 [node name="Draugr3D4" parent="." instance=ExtResource("9_ncqi6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 6, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 12)
 
 [node name="HouseTree2" parent="." instance=ExtResource("8_uum4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
@@ -134,7 +133,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
 
 [node name="HouseTree3" parent="." instance=ExtResource("8_uum4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 16)
-
-[node name="HousePlayer" parent="." instance=ExtResource("10_lmlam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 16)

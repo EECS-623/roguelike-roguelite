@@ -2,7 +2,7 @@ extends CharacterBody3D #if you want physics-based movement
 
 @export var speed: float = 1.0
 @onready var player = get_parent().get_node("HousePlayer")
-var gravity: int = 10
+var gravity: int = 210
 func _ready():
 	$AnimatedSprite3D.play("walk")
 func _physics_process(delta):

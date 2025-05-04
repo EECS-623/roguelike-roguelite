@@ -12,6 +12,7 @@ var rotation_y = 0.0  # Yaw
 var rotation_x = 0.0  # Pitch
 
 func _ready():
+	add_to_group("house_player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):

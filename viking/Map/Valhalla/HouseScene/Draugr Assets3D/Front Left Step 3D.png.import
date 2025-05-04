@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvg3qehmbne0e"
-path.s3tc="res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.s3tc.ctex"
-path.etc2="res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.etc2.ctex"
+uid="uid://c0qd4evqlf3dh"
+path.s3tc="res://.godot/imported/Front Left Step 3D.png-cd98a77ecb56ebf59b3d37487d041693.s3tc.ctex"
+path.etc2="res://.godot/imported/Front Left Step 3D.png-cd98a77ecb56ebf59b3d37487d041693.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Enemies/Draugr/Draugr Assets/Front Left Step.png"
-dest_files=["res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.s3tc.ctex", "res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.etc2.ctex"]
+source_file="res://Map/Valhalla/HouseScene/Draugr Assets3D/Front Left Step 3D.png"
+dest_files=["res://.godot/imported/Front Left Step 3D.png-cd98a77ecb56ebf59b3d37487d041693.s3tc.ctex", "res://.godot/imported/Front Left Step 3D.png-cd98a77ecb56ebf59b3d37487d041693.etc2.ctex"]
 
 [params]
 

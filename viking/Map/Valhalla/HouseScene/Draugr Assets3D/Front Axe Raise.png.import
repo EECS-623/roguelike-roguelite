@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvg3qehmbne0e"
-path.s3tc="res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.s3tc.ctex"
-path.etc2="res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.etc2.ctex"
+uid="uid://crs1nf0bf4usg"
+path.s3tc="res://.godot/imported/Front Axe Raise.png-ad782bbed6a516808520dd85820e2065.s3tc.ctex"
+path.etc2="res://.godot/imported/Front Axe Raise.png-ad782bbed6a516808520dd85820e2065.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Enemies/Draugr/Draugr Assets/Front Left Step.png"
-dest_files=["res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.s3tc.ctex", "res://.godot/imported/Front Left Step.png-45a99c932102d42595a3d5d16f8b51a8.etc2.ctex"]
+source_file="res://Map/Valhalla/HouseScene/Draugr Assets3D/Front Axe Raise.png"
+dest_files=["res://.godot/imported/Front Axe Raise.png-ad782bbed6a516808520dd85820e2065.s3tc.ctex", "res://.godot/imported/Front Axe Raise.png-ad782bbed6a516808520dd85820e2065.etc2.ctex"]
 
 [params]
 

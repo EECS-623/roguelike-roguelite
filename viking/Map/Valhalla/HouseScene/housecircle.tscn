@@ -10,6 +10,8 @@
 script = ExtResource("1_pij8s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+gi_mode = 2
+gi_lightmap_scale = 1
 mesh = SubResource("SphereMesh_i1eh1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
