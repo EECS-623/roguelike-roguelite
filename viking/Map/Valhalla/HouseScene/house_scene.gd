@@ -3,6 +3,10 @@ extends Node3D
 @export var draugr: PackedScene = preload("res://Map/Valhalla/HouseScene/HouseSkeleton.tscn")
 @export var tree: PackedScene = preload("res://Map/Valhalla/HouseScene/HouseTree.tscn")
 # Called when the node enters the scene tree for the first time.
+var key_one = false
+var key_two = false
+var key_three = false
+
 func _ready() -> void:
 	pass
 	#var my_player = player.instantiate()
@@ -26,3 +30,28 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_house_chest_house_key() -> void:
+	if key_one:
+		return
+	key_one = true
+	print("key collected")
+	
+
+
+func _on_house_chest_2_house_key() -> void:
+	if key_two:
+		return
+	key_two = true
+	print("key collected")
+
+func _on_house_chest_3_house_key() -> void:
+	if key_three:
+		return
+	key_three = true
+	print("key collected")
+
+func _on_house_boss_gate_enter_boss_gate() -> void:
+	if key_one and key_two and key_three:
+		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/HouseScene/HouseSnakeBoss/HouseSnakeArena.tscn")

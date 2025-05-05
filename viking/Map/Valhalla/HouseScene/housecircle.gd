@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var speed: float = 20.0
+@export var speed: float = 60.0
 var direction: Vector3 = Vector3.ZERO
 
 func _ready():

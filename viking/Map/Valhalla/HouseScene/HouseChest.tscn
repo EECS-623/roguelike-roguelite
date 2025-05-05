@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4dlhae3poeln"]
+
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_chest.gd" id="1_7wv4t"]
+[ext_resource type="Texture2D" uid="uid://dowcubjqeac4a" path="res://Map/Forest Realm/Map Items/chest.png" id="2_t7l5n"]
+[ext_resource type="Texture2D" uid="uid://co580lp5x1krg" path="res://Map/Forest Realm/Map Items/midguard chest open.png" id="3_kwi14"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ovab"]
+size = Vector3(9, 2, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhjvp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t7l5n")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kwi14")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="HouseChest" type="Node3D"]
+script = ExtResource("1_7wv4t")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7ovab")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Area3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+billboard = 2
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_lhjvp")
+animation = &"closed"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
