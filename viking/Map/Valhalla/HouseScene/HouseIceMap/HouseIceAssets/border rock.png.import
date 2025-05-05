@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cck24kfoi2lw5"
-path.s3tc="res://.godot/imported/portal.png-8cc57066a53e2ea916e4b8ddb686d85a.s3tc.ctex"
-path.etc2="res://.godot/imported/portal.png-8cc57066a53e2ea916e4b8ddb686d85a.etc2.ctex"
+uid="uid://6qs6muj4wx2u"
+path.s3tc="res://.godot/imported/border rock.png-545261f724327438ac177fcdcfa6f47a.s3tc.ctex"
+path.etc2="res://.godot/imported/border rock.png-545261f724327438ac177fcdcfa6f47a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Art/portal.png"
-dest_files=["res://.godot/imported/portal.png-8cc57066a53e2ea916e4b8ddb686d85a.s3tc.ctex", "res://.godot/imported/portal.png-8cc57066a53e2ea916e4b8ddb686d85a.etc2.ctex"]
+source_file="res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceAssets/border rock.png"
+dest_files=["res://.godot/imported/border rock.png-545261f724327438ac177fcdcfa6f47a.s3tc.ctex", "res://.godot/imported/border rock.png-545261f724327438ac177fcdcfa6f47a.etc2.ctex"]
 
 [params]
 

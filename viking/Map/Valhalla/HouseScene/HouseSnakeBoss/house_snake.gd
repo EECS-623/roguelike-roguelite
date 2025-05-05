@@ -3,6 +3,8 @@ var health = 8
 @export var speed: float = 1.0
 @onready var player = get_parent().get_node("HousePlayer")
 var gravity: int = 210
+
+signal open_3D_portal
 func _ready():
 	$AnimatedSprite3D.play("face")
 func _physics_process(delta):
@@ -38,6 +40,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		print(health)
 		if health - 1 < 0:
 			queue_free()
+			open_3D_portal.emit()
 		else:
 			health -= 1
 		body.queue_free()
