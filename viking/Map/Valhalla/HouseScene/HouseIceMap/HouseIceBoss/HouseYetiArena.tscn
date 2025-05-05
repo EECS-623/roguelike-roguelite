@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1rremav8bgou"]
+
+[ext_resource type="Texture2D" uid="uid://c3gqsrd1000de" path="res://Assets/Ice_Golem/ice_boss_room1.png" id="1_yijx5"]
+[ext_resource type="Texture2D" uid="uid://beqh180a75c43" path="res://Map/Ice Realm/ice_background.png" id="2_l2vfi"]
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceBoss/portal_yeti_3d.gd" id="3_3shld"]
+[ext_resource type="Texture2D" uid="uid://cck24kfoi2lw5" path="res://Assets/Art/portal.png" id="4_ujhjo"]
+[ext_resource type="PackedScene" uid="uid://xgnk7otp48b0" path="res://Map/Valhalla/HouseScene/housePlayer.tscn" id="5_10bjx"]
+[ext_resource type="PackedScene" uid="uid://b7go5cw2a0176" path="res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceBoss/HouseIceYeti.tscn" id="6_xocnu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn6na"]
+size = Vector3(37, 1, 38)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3yp4g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjuiu"]
+size = Vector3(26, 1, 27)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r51ta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsed6"]
+size = Vector3(26, 1, 27)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vpodl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_seugu"]
+
+[node name="HouseSnakeArena" type="Node3D"]
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(0.4, 0, 0, 0, -1.74846e-08, 0.4, 0, -0.4, -1.74846e-08, 0, 0, 0)
+texture = ExtResource("1_yijx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_jn6na")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_3yp4g")
+
+[node name="Area3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 41, 13, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D2"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 12.6667, -0.666668, 0)
+texture = ExtResource("2_l2vfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_hjuiu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D2"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_r51ta")
+
+[node name="Area3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, -54, 13, -7)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D3"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 12.6667, -0.666668, 0)
+texture = ExtResource("2_l2vfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_hjuiu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D3"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_r51ta")
+
+[node name="Area3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73205e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, -12, 13, -55)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D4"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 12.6667, -0.666668, 0)
+texture = ExtResource("2_l2vfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_hjuiu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D4"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_r51ta")
+
+[node name="Area3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73205e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, -12, 13, 51)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D5"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 12.6667, -0.666668, 0)
+texture = ExtResource("2_l2vfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_hjuiu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D5"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_r51ta")
+
+[node name="Area3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, -5, 15, 130)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D6"]
+transform = Transform3D(6.94622e-09, -0.388228, 1.44889, -2.18776e-07, -1.44889, -0.388228, 1.5, -2.09524e-07, -6.33329e-08, 29.3334, 46, 3)
+texture = ExtResource("2_l2vfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_hsed6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D6"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_vpodl")
+
+[node name="PortalYeti3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("3_3shld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalYeti3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 4, 0, 9)
+shape = SubResource("SphereShape3D_seugu")
+
+[node name="Sprite3D" type="Sprite3D" parent="PortalYeti3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 0, 14)
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("4_ujhjo")
+
+[node name="HousePlayer" parent="." instance=ExtResource("5_10bjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, -1)
+
+[node name="HouseIceYeti" parent="." instance=ExtResource("6_xocnu")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -2, 12, 23)
+
+[connection signal="body_entered" from="PortalYeti3D" to="PortalYeti3D" method="_on_body_entered"]
+[connection signal="open_3D_portal" from="HouseIceYeti" to="PortalYeti3D" method="_on_house_ice_yeti_open_3d_portal"]

@@ -15,12 +15,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("house_player") and unlock:
-		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceScene.tscn")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/home.tscn")
 
 
-
-
-
-func _on_house_snake_open_3d_portal() -> void:
+func _on_house_ice_yeti_open_3d_portal() -> void:
 	visible = true
 	unlock = true

@@ -54,4 +54,4 @@ func _on_house_chest_3_house_key() -> void:
 
 func _on_house_boss_gate_enter_boss_gate() -> void:
 	if key_one and key_two and key_three:
-		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/HouseScene/HouseSnakeBoss/HouseSnakeArena.tscn")
+		SceneTransitionManager.fade_to_scene("res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceBoss/HouseYetiArena.tscn")
