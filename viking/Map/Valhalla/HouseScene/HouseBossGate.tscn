@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxpnqxooj4cps"]
+
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_boss_gate.gd" id="1_83c25"]
+[ext_resource type="Texture2D" uid="uid://k0r5fdv4bvq7" path="res://Map/Forest Realm/Map Items/Forest Door Open.png" id="1_whyms"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffdwe"]
+size = Vector3(5, 5, 3)
+
+[node name="HouseBossGate" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_83c25")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ffdwe")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_whyms")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

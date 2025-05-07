@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyss2e683jx5g"]
 
 [ext_resource type="Script" path="res://Assets/Art/Screens/Controls/controls.gd" id="1_y4gdu"]
-[ext_resource type="Texture2D" uid="uid://dti1extva1i25" path="res://Assets/Art/Screens/Buttons/Play Button.png" id="2_orx7s"]
+[ext_resource type="Texture2D" uid="uid://bf10pctql0pll" path="res://Assets/Art/Screens/Buttons/back button.png" id="2_fma84"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
@@ -92,7 +92,7 @@ offset_top = 544.0
 offset_right = 1120.0
 offset_bottom = 848.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("2_orx7s")
+texture_normal = ExtResource("2_fma84")
 stretch_mode = 4
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

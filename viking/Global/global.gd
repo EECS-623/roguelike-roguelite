@@ -14,6 +14,7 @@ var loki_reveal = false
 var patron_stat_initialized: bool = false
 var title_song_init: bool = false
 var apples_eaten = []
+var difficulty_level: String = "medium"
 
 var loaded_banks = {} #don't reset this one
 var world_level: int = 1
@@ -36,6 +37,8 @@ func reset_globals():
 	title_song_init = false
 	apples_eaten = []
 	
+	difficulty_level = "medium"
+	print("difficulty level reset to ", Global.difficulty_level)
 	world_level = 1
 	upgrade_level = 1
 	teleport_banned = true

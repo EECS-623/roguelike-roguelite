@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cgabimmw8awtu"]
 
 [ext_resource type="Script" path="res://Game/Inventory/inventory.gd" id="1_x7e21"]
-[ext_resource type="Texture2D" uid="uid://ckryhis5u3knp" path="res://Assets/Art/HUD/Final Stat Box.png" id="2_smiq0"]
+[ext_resource type="Texture2D" uid="uid://d4i1ea5x6xnwg" path="res://Assets/Art/HUD/Stat Box Black Type.png" id="2_ll4wk"]
 [ext_resource type="Texture2D" uid="uid://c8gs77b5u75fr" path="res://Assets/Art/HUD/Plus Box.png" id="3_kjioq"]
 [ext_resource type="Texture2D" uid="uid://bmv27yph1e7mt" path="res://Assets/Art/HUD/Stat Box Rune Counter Icon.png" id="3_ylby3"]
 [ext_resource type="Texture2D" uid="uid://boqcamfafiuj0" path="res://Assets/Art/HUD/Grey Box.png" id="4_qna3u"]
@@ -65,7 +65,7 @@ offset_left = 88.0
 offset_top = 416.0
 offset_right = 1200.0
 offset_bottom = 712.0
-texture = ExtResource("2_smiq0")
+texture = ExtResource("2_ll4wk")
 expand_mode = 1
 stretch_mode = 4
 
@@ -135,7 +135,7 @@ offset_left = 552.0
 offset_top = 516.0
 offset_right = 598.0
 offset_bottom = 528.0
-theme_override_colors/font_color = Color(0.913725, 0.886275, 0.760784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 text = "0"
 
