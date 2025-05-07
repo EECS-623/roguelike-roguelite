@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxwfgk0ngga1o"]
+
+[ext_resource type="Texture2D" uid="uid://6qs6muj4wx2u" path="res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceAssets/border rock.png" id="1_usrki"]
+
+[node name="HouseTree" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+billboard = 2
+alpha_cut = 2
+texture = ExtResource("1_usrki")
+region_enabled = true
+region_rect = Rect2(1797, 2229, 1611, 2296)

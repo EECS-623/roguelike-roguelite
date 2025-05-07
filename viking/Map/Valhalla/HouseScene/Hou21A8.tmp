@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://cu1d2vd7u4tro"]
+
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_scene.gd" id="1_7wfxe"]
+[ext_resource type="Texture2D" uid="uid://buo7aop0poj26" path="res://Map/Forest Realm/plain grass tile asset.png" id="1_d0btr"]
+[ext_resource type="Texture2D" uid="uid://bw6ea3pvyeds2" path="res://Assets/Art/Screens/PatronSelection/Thor card.png" id="4_dnr6j"]
+[ext_resource type="Texture2D" uid="uid://bswril31kssq8" path="res://Assets/Art/Screens/PatronSelection/Tyr card.png" id="5_v2orn"]
+[ext_resource type="Texture2D" uid="uid://c6brat7cwanov" path="res://Assets/Art/Screens/MainMenu/title screen.png" id="6_leh65"]
+[ext_resource type="Texture2D" uid="uid://b44mrvy25utys" path="res://Assets/Art/Screens/PatronSelection/Freya card.png" id="7_2kbm0"]
+[ext_resource type="Texture2D" uid="uid://beqh180a75c43" path="res://Map/Ice Realm/ice_background.png" id="8_81nec"]
+[ext_resource type="PackedScene" uid="uid://dmemt4kdw3y56" path="res://Map/Valhalla/HouseScene/HouseTree.tscn" id="8_uum4h"]
+[ext_resource type="PackedScene" uid="uid://dkkg5637pmppv" path="res://Map/Valhalla/HouseScene/HouseSkeleton.tscn" id="9_ncqi6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1w3"]
+size = Vector3(26, 1, 27)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i2uqq"]
+
+[node name="HouseScene" type="Node3D"]
+script = ExtResource("1_7wfxe")
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("1_d0btr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 41, 13, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D2"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 12.6667, -0.666668, 0)
+texture = ExtResource("4_dnr6j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D2"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 41, 13, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D3"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 10.6667, 28.3333, 2.33333)
+texture = ExtResource("5_v2orn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D3"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, 0, 20, 130)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D4"]
+transform = Transform3D(3.91356e-08, -0.258819, 0.965926, -6.65433e-08, -0.965926, -0.258819, 1, -5.41468e-08, -5.50247e-08, 40.6667, 41.3333, -0.333333)
+texture = ExtResource("6_leh65")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D4"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, 0, 20, 130)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D5"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, 0, 9.66667, 29, -0.333333)
+texture = ExtResource("7_2kbm0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D5"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, 2, 23, 42)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D6"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, 0, 9.66667, 27.6667, 1.33333)
+texture = ExtResource("8_81nec")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D6"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="HouseTree" parent="." instance=ExtResource("8_uum4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="Draugr3D" parent="." instance=ExtResource("9_ncqi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 12)
+
+[node name="Draugr3D2" parent="." instance=ExtResource("9_ncqi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Draugr3D3" parent="." instance=ExtResource("9_ncqi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 23)
+
+[node name="Draugr3D4" parent="." instance=ExtResource("9_ncqi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 12)
+
+[node name="HouseTree2" parent="." instance=ExtResource("8_uum4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="HouseTree4" parent="." instance=ExtResource("8_uum4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31)
+
+[node name="HouseTree5" parent="." instance=ExtResource("8_uum4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="HouseTree3" parent="." instance=ExtResource("8_uum4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 16)

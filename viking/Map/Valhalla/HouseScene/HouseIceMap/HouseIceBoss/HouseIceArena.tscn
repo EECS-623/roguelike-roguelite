@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4e1e7pgo7ist"]
+
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/HouseIceMap/house_ice_scene.gd" id="1_hbijs"]
+[ext_resource type="Texture2D" uid="uid://beqh180a75c43" path="res://Map/Ice Realm/ice_background.png" id="2_4s2su"]
+[ext_resource type="PackedScene" uid="uid://xgnk7otp48b0" path="res://Map/Valhalla/HouseScene/housePlayer.tscn" id="4_y5ks4"]
+[ext_resource type="PackedScene" uid="uid://cxwfgk0ngga1o" path="res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceBlock.tscn" id="6_vfu4l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1w3"]
+size = Vector3(26, 1, 27)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i2uqq"]
+
+[node name="HouseScene" type="Node3D"]
+script = ExtResource("1_hbijs")
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("2_4s2su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 41, 13, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D2"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 12.6667, -0.666668, 0)
+texture = ExtResource("2_4s2su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D2"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 41, 13, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D3"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 10.6667, 28.3333, 2.33333)
+texture = ExtResource("2_4s2su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D3"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, 0, 20, 130)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D4"]
+transform = Transform3D(3.91356e-08, -0.258819, 0.965926, -6.65433e-08, -0.965926, -0.258819, 1, -5.41468e-08, -5.50247e-08, 29.3334, 46, 3)
+texture = ExtResource("2_4s2su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D4"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, 0, 20, 130)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D5"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 3.55271e-15, -4.37114e-08, 1, 1, -1.19249e-08, -3.55271e-15, 9.66667, 29, -0.333333)
+texture = ExtResource("2_4s2su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D5"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="Area3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 0, -1.31134e-07, -3, -1.31134e-07, 2, 23, 42)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D6"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, 0, 9.66667, 27.6667, 1.33333)
+texture = ExtResource("2_4s2su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+shape = SubResource("BoxShape3D_aq1w3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D6"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("PlaneMesh_i2uqq")
+
+[node name="HousePlayer" parent="." instance=ExtResource("4_y5ks4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="HouseTree" parent="." instance=ExtResource("6_vfu4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="HouseTree2" parent="." instance=ExtResource("6_vfu4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 23)
+
+[node name="HouseTree3" parent="." instance=ExtResource("6_vfu4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, -16)

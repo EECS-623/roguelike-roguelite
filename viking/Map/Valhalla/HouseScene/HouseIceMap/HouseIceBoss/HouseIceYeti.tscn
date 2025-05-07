@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7go5cw2a0176"]
+
+[ext_resource type="Texture2D" uid="uid://mwg36xqee7og" path="res://Assets/Ice_Golem/Standing.png" id="1_1yerl"]
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/HouseIceMap/HouseIceBoss/house_ice_yeti.gd" id="1_2f78y"]
+[ext_resource type="Texture2D" uid="uid://dler566kvhwbo" path="res://Assets/Ice_Golem/Stomp 1.png" id="3_thdcx"]
+[ext_resource type="Texture2D" uid="uid://ch2f8ofdepuam" path="res://Assets/Ice_Golem/Stomp 2.png" id="4_cjc3m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2rpmn"]
+size = Vector3(1, 4, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sindx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1yerl")
+}],
+"loop": true,
+"name": &"face",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_thdcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cjc3m")
+}],
+"loop": true,
+"name": &"stomp",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sx2dv"]
+size = Vector3(3, 4, 3)
+
+[node name="HouseIceYeti" type="CharacterBody3D"]
+script = ExtResource("1_2f78y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+shape = SubResource("BoxShape3D_2rpmn")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_sindx")
+animation = &"face"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_sx2dv")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmemt4kdw3y56"]
+
+[ext_resource type="Texture2D" uid="uid://bbqlt4un5kit" path="res://Map/Forest Realm/Map Items/tree asset.png" id="1_1gsol"]
+
+[node name="HouseTree" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("1_1gsol")
+region_enabled = true
+region_rect = Rect2(910, 446, 1141, 1733)

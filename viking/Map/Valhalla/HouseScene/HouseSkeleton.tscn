@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkkg5637pmppv"]
+
+[ext_resource type="Script" path="res://Map/Valhalla/HouseScene/house_skeleton.gd" id="1_nkkr6"]
+[ext_resource type="Texture2D" uid="uid://dq376ap23ciln" path="res://Map/Valhalla/HouseScene/Draugr Assets3D/Front Axe Raise 3D.png" id="2_2b7h1"]
+[ext_resource type="Texture2D" uid="uid://dvbv8ie1olyoc" path="res://Map/Valhalla/HouseScene/Draugr Assets3D/Front Axe Swing 3D.png" id="3_wnscp"]
+[ext_resource type="Texture2D" uid="uid://c0qd4evqlf3dh" path="res://Map/Valhalla/HouseScene/Draugr Assets3D/Front Left Step 3D.png" id="4_0votr"]
+[ext_resource type="Texture2D" uid="uid://bivw7wr2ibw3i" path="res://Map/Valhalla/HouseScene/Draugr Assets3D/Front Right Step 3D.png" id="5_s6w6v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tycw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2b7h1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wnscp")
+}],
+"loop": true,
+"name": &"swing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0votr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s6w6v")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4swj"]
+size = Vector3(0.001, 10, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uavqj"]
+size = Vector3(10, 10, 12)
+
+[node name="Draugr3D" type="CharacterBody3D"]
+script = ExtResource("1_nkkr6")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+layers = 2
+billboard = 2
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_tycw2")
+animation = &"walk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+shape = SubResource("BoxShape3D_j4swj")
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
+shape = SubResource("BoxShape3D_uavqj")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
