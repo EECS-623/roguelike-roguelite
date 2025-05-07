@@ -36,6 +36,25 @@ func apply_patron_bonus() -> void:
 	var speed_component = PlayerManager.player.get_node_or_null("SpeedComponent")
 	var physical_damage_component = PlayerManager.player.get_node_or_null("PhysicalDamageComponent")
 	Inventory.connect_to_player()
+	
+		# Apply difficulty-based health adjustment
+	if health_component:
+		# Set base health according to difficulty level
+		match Global.difficulty_level:
+			"easy":
+				health_component.max_health = 200.0
+			"medium":
+				health_component.max_health = 100.0
+			"unbeatable":
+				health_component.max_health = 50.0
+		
+		# Update current health to match new max health
+		health_component.current_health = health_component.max_health
+		
+		# Emit signals to update UI
+		health_component.i_max_health.emit(health_component.max_health)
+		health_component.i_current_health.emit(health_component.current_health)
+	
 	Global.xp += 4 # these runes will be immediately spent
 	
 	# Apply melee damage boost for Patron 1 (Thor)
