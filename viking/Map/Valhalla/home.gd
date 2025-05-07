@@ -42,7 +42,7 @@ func apply_patron_bonus() -> void:
 		# Set base health according to difficulty level
 		match Global.difficulty_level:
 			"easy":
-				health_component.max_health = 200.0
+				health_component.max_health = 250.0
 			"medium":
 				health_component.max_health = 100.0
 			"unbeatable":
@@ -80,8 +80,15 @@ func apply_patron_bonus() -> void:
 # Function to check if max health upgrade was applied correctly
 func check_max_health_upgrade() -> void:
 	var health_component = PlayerManager.player.get_node_or_null("HealthComponent")
+	var base_max_health
 	if health_component:
-		var base_max_health = 100  # Assuming base health is 100
+		match Global.difficulty_level:
+			"easy":
+				base_max_health = 250.0
+			"medium":
+				base_max_health = 100.0
+			"unbeatable":
+				base_max_health = 50.0
 		var expected_bonus = InventoryManager.max_health_level * InventoryManager.MAX_HEALTH_BOOST
 		var expected_max_health = base_max_health + expected_bonus
 		
