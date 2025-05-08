@@ -29,7 +29,15 @@ func _on_body_entered(body):
 	if health_component.max_health == health_component.current_health:
 		return
 	
-	health_component.increase_current_health(10)
+	if(Global.difficulty_level   == "easy"):
+		health_component.increase_current_health(50)
+
+	elif(Global.difficulty_level   == "unbeatable"):
+		health_component.increase_current_health(5)	
+		
+	else:
+		health_component.increase_current_health(15)	
+		
 	await get_tree().create_timer(0.05).timeout	
 	
 	print("apple eaten")
