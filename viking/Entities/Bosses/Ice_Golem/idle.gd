@@ -9,7 +9,7 @@ var move_timer
 var move_dir = Vector2(1,0)
 var tween: Tween
 
-var dist_thresh = 100
+var dist_thresh = 250
 
 var distance_weights = {
 	"Throw" : .5,
@@ -20,7 +20,7 @@ var distance_weights = {
 var near_weights = {
 	"Throw" : .15,
 	"Build" : .15,
-	"Smash" : .7
+	"Smash" : .2
 }
 
 
@@ -68,7 +68,7 @@ func choose_attack() -> State:
 		if rand_val < cumulative:
 			return get_state_by_name(key)
 	
-	return get_state_by_name("Throw")
+	return get_state_by_name("Smash")
 
 
 
