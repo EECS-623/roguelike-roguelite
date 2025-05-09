@@ -36,25 +36,6 @@ func apply_patron_bonus() -> void:
 	var speed_component = PlayerManager.player.get_node_or_null("SpeedComponent")
 	var physical_damage_component = PlayerManager.player.get_node_or_null("PhysicalDamageComponent")
 	Inventory.connect_to_player()
-	
-		# Apply difficulty-based health adjustment
-	if health_component:
-		# Set base health according to difficulty level
-		match Global.difficulty_level:
-			"easy":
-				health_component.max_health = 250.0
-			"medium":
-				health_component.max_health = 100.0
-			"unbeatable":
-				health_component.max_health = 50.0
-		
-		# Update current health to match new max health
-		health_component.current_health = health_component.max_health
-		
-		# Emit signals to update UI
-		health_component.i_max_health.emit(health_component.max_health)
-		health_component.i_current_health.emit(health_component.current_health)
-	
 	Global.xp += 4 # these runes will be immediately spent
 	
 	# Apply melee damage boost for Patron 1 (Thor)
@@ -80,15 +61,8 @@ func apply_patron_bonus() -> void:
 # Function to check if max health upgrade was applied correctly
 func check_max_health_upgrade() -> void:
 	var health_component = PlayerManager.player.get_node_or_null("HealthComponent")
-	var base_max_health
 	if health_component:
-		match Global.difficulty_level:
-			"easy":
-				base_max_health = 250.0
-			"medium":
-				base_max_health = 100.0
-			"unbeatable":
-				base_max_health = 50.0
+		var base_max_health = 100  # Assuming base health is 100
 		var expected_bonus = InventoryManager.max_health_level * InventoryManager.MAX_HEALTH_BOOST
 		var expected_max_health = base_max_health + expected_bonus
 		
@@ -179,3 +153,12 @@ func _on_area_2d_portal_travel_body_entered(body: Node2D) -> void:
 		remove_child(body)
 		#PlayerManager.player.global_position = Vector2(0,520)
 		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/Portal_Scene/Portal_Scene.tscn")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		#Wwise.post_event_id(AK.EVENTS.SPAWN, self)
+		#$CollisionShape2D.set_deferred("disabled", true)
+		remove_child(body)
+		#PlayerManager.player.global_position = Vector2(0,520)
+		get_tree().call_deferred("change_scene_to_file", "res://Map/Valhalla/HouseScene/HouseWarning.tscn")
